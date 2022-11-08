@@ -50,7 +50,7 @@
                     <span class="material-symbols-sharp">report</span>
                     <h3>Reports</h3>
                 </a>
-                <a href="/logout.html">
+                <a href="../logout.php">
                     <span class="material-symbols-sharp">logout</span>
                     <h3>Logout</h3>
                 </a>
