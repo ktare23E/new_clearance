@@ -169,12 +169,10 @@
                                     <button type="button" class="primary" id="modal-edit-button-table">
                                         <span class="material-symbols-outlined">edit_square</span>
                                     </button>
-                                    <form action="deleteinfo.php" method="POST">
                                         <input type="hidden" name="student_id" value="<?= $user->student_id; ?>">
-                                        <button type="submit" class="danger" name="delete">
+                                        <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
                                             <span class="material-symbols-outlined">delete</span>
                                         </button>
-                                    </form>
                                 </td>
                             </tr>
                             <?php endforeach; ?>
@@ -321,7 +319,7 @@
 <script>
             $(document).ready(function(){
                 $('.delete').on('click',function(){
-                    let id = $(this).attr('value');
+                    let student_id = $(this).attr('data-id');
                         Swal.fire({
                     title: 'Are you sure?',
                     text: "You won't be able to revert this!",
