@@ -1,0 +1,26 @@
+<?php
+session_start();
+    if (!isset($_SESSION['isloggedin'])) {
+    header("location: ../index.php");
+    exit();
+    }
+
+require ('../dbconnect.php');
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="../assets/css//sweetalert2.min.css">
+    <script src="../assets/js//sweetalert2.all.min.js"></script>
+    <script src="../assets/js//jquery.js"></script>
+    <script defer src="../assets/js/active.js"></script>
+
+    
+</head>
+<body>
