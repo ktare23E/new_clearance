@@ -335,11 +335,20 @@
                                 url: 'deleteinfo.php',
                                 data: {student_id:student_id},
                                 success: function(response){
-                                    Swal.fire(
-                                        'Deleted!',
-                                        'Your file has been deleted.',
-                                        'success'
-                                    )
+                                    if(response === "Deleted"){
+                                        Swal.fire(
+                                            'Deleted!',
+                                            'Your file has been deleted.',
+                                            'success'
+                                        )
+                                    }else{
+                                        Swal.fire(
+                                            'Error',
+                                            'Error deleting data.',
+                                            'error'
+                                        )
+                                    }
+                                    
                                     setTimeout(() => { 
                                         location.reload(true);
                                     }, 3000);
