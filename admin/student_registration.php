@@ -21,7 +21,7 @@
                     <span class="material-symbols-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="#">
+                <a href="student.php">
                     <span class="material-symbols-sharp">person_outline</span>
                     <h3>Student</h3>
                 </a>
@@ -85,65 +85,62 @@
             <h1>Student Account</h1>
 
             <div class="form-and-table-container">
-                
-                <!-- -------------  TABLE OF STUDENT INFORMATION -------------- -->
-                <div class="recent-orders-student">
-                    <div class="add-button-container">
-                        <a href="student_registration.php">
-                            <button id="add-new-student">Add new student</button>
-                        </a>
-                    </div>
-                    <div class="h2-container">
-                            <h2>Students List</h2>
-                    </div>
 
-                    <table id="example" class="display" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Student ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Year</th>
-                                <th>Course</th>
-                                <th>Username</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($users as $user) : ?>
-                            <tr>
-                                <td class="student-id"><?= $user->student_id; ?></td>
-                                <td><?= $user->student_first_name; ?></td>
-                                <td><?= $user->student_last_name; ?></td>
-                                <td><?= $user->student_year; ?></td>
-                                <td><?= $user->student_course;?></td>
-                                <td><?= $user->student_username; ?></td>
-                                <td class="primary">
-                                    <button type="button" class="primary" id="modal-edit-button-table">
-                                        <span class="material-symbols-outlined">edit_square</span>
-                                    </button>
-                                        <input type="hidden" name="student_id" value="<?= $user->student_id; ?>">
-                                        <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
-                                            <span class="material-symbols-outlined">delete</span>
-                                        </button>
-                                </td>
-                            </tr>
-                            <?php endforeach; ?>
-                        <tfoot>
-                            <tr>
-                                <th>Student ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Year</th>
-                                <th>Course</th>
-                                <th>Username</th>
-                                <th>Actions</th>
-                            </tr>
-                        </tfoot>
-                    </table>
+                <!-- -------------  STUDENT REGISTRATION FORM -------------- -->
+                <div class="student-registration">
+                    <div class="form signup">
+                        <span class="title">New Student</span>
+        
+                        <form action="insert_student.php" method="POST">
+                            <div class="input-field">
+                                    <input type="text" placeholder="Student Id" name="student_id" required>
+                                    <i class="uil uil-keyhole-circle"></i>
+                            </div>
 
-                    <a href="#">Show All</a>
+                            <div class="input-field-container">
+                                <div class="input-field">
+                                    <input type="text" name="student_first_name" placeholder="First Name" required>
+                                    <i class="uil uil-user"></i>
+                                </div>
+                                <div class="input-field">
+                                    <input type="text" name="student_last_name" placeholder="Last Name" required>
+                                    <i class="uil uil-user"></i>
+                                </div>
+                            </div>
+                            <div class="input-field-container">
+                                <div class="input-field">
+                                    <input type="text" name="student_year" placeholder="Year" required>
+                                    <i class="uil uil-user"></i>
+                                </div>
+                                <div class="input-field">
+                                    <input type="text" name="student_course" placeholder="Course" required>
+                                    <i class="uil uil-envelope icon"></i>
+                                </div>
+                            </div>
+                            <div class="input-field-container">
+                                <div class="input-field">
+                                    <input type="text" placeholder="Username" name="student_username" required>
+                                    <i class="uil uil-envelope icon"></i>
+                                </div>
+                                <div class="input-field">
+                                    <input type="password" name="student_password" class="password" placeholder="Create a password" required>
+                                    <i class="uil uil-lock icon"></i>
+                                    <i class="uil uil-eye-slash showHidePw"></i>
+                                </div>
+                            </div>
+                                
+                                
+                            
+                            
+                                
+                            
+                            <div class="input-field button">
+                                <input type="submit" value="Create Account">
+                            </div>
+                        </form>
+                    </div>
                 </div>
+                <!-- -------------  END OF REGISTRATION -------------- -->
             </div>
             
         </main>
@@ -305,7 +302,7 @@
                                     )
                                     setTimeout(() => { 
                                         location.reload(true);
-                                    }, 1000);
+                                    }, 3000);
                                 } 
                             })
                         }
@@ -322,10 +319,6 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-    <script>
-        $(document).ready(function () {
-            $('#example').DataTable();
-        });
-    </script>
+    
 </body>
 </html>
