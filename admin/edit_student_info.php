@@ -103,7 +103,14 @@
                 <!-- -------------  STUDENT REGISTRATION FORM -------------- -->
                 <div class="student-registration">
                     <div class="form signup">
-                    <span class="title">Edit Student Information</span>
+                        <div class="back-button action-button-container">
+                            <a href="student.php">
+                                <button id="back-button-to-student">
+                                    <span class="material-symbols-sharp">arrow_back</span>
+                                </button>
+                            </a>
+                        </div>
+                        <span class="title">Edit Student Information</span>
 
                     <form action="update.php" method="POST">
                         <div class="input-field">
@@ -164,11 +171,6 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-    <script>
-        $(document).ready(function () {
-            $('#example').DataTable();
-        });
-    </script>
 </body>
 </html>
 
