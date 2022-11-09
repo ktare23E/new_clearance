@@ -94,7 +94,7 @@
                                 <span class="material-symbols-sharp">arrow_back</span>
                             </button>
                         </div>
-                        <span class="title">New Student</span>
+                        <span class="title">Add New Student</span>
         
                         <form action="insert_student.php" method="POST">
                             <div class="input-field">
