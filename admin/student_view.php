@@ -109,8 +109,42 @@
                 <!-- -------------  STUDENT REGISTRATION FORM -------------- -->
                 <div class="student-registration">
                     <div class="student-view-profile-container">
+                        <div class="student-view-profile-img-container">
+                            <img src="../images/profile-1.jpg" alt="">
+                        </div>
 
-                    </div>
+                        <div class="student-view-profile-info-container">
+                            <div class="student-info-name-container">
+                                <span class="material-symbols-sharp">person_outline</span>
+                                <h2 class="label">Name :</h2><span>&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+                                <h2><span>HelloName</span><span>&nbsp;</span><span>WorldName</span></h2>
+                            </div>
+                            <div class="student-info-name-container">
+                                <span class="material-symbols-sharp">contact_mail</span>
+                                <h2 class="label">Username :</h2><span>&emsp;&nbsp;</span>
+                                <h2><span>helloworld@gmail.com</span></h2>
+                            </div>
+                            <div class="student-info-name-container">
+                                <span class="material-symbols-sharp">menu_book</span>
+                                <h2 class="label">Course :</h2><span>&emsp;&emsp;&emsp;&emsp;</span>
+                                <h2><span>BSIT</span></h2>
+                            </div>
+                            <div class="student-info-name-container">
+                                <span class="material-symbols-sharp">timeline</span>
+                                <h2 class="label">Year :</h2><span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+                                <h2><span>4th Year</span></h2>
+                            </div>
+                            <div class="student-info-name-container">
+                                <span class="material-symbols-sharp">corporate_fare</span>
+                                <h2 class="label">Department :</h2><span>&emsp;&emsp;</span>
+                                <h2><span>SICT</span></h2>
+                            </div>
+                            <div class="student-info-name-container clearance-status-btn-container">
+                                <button id="clearance-status-button">Clearance Status</button>
+                            </div>
+                            
+                        </div>
+                    </div>  
                 </div>
                 <!-- -------------  END OF REGISTRATION -------------- -->
             </div>
