@@ -119,13 +119,11 @@
                                 <td><?= $user->student_course;?></td>
                                 <td><?= $user->student_username; ?></td>
                                 <td class="primary">
-                                    <button type="button" class="primary" id="modal-edit-button-table">
-                                        <span class="material-symbols-outlined">edit_square</span>
-                                    </button>
-                                        <input type="hidden" name="student_id" value="<?= $user->student_id; ?>">
-                                        <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
+                                    <a href="edit_student_info.php?edit=<?= $user->student_id?>">Update</a>
+                                        <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
+                                        <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
                                             <span class="material-symbols-outlined">delete</span>
-                                        </button>
+                                        </button> -->
                                 </td>
                             </tr>
                             <?php endforeach; ?>
@@ -194,7 +192,7 @@
     <!-- =========== UPDATE MODAL ============ -->
 
     <!-- <button id="open-update-modal">Open Modal</button> -->
-    <div class="update-modal" id="update-modal">
+    <!-- <div class="update-modal" id="update-modal">
         <div class="update-modal-container">
             <div class="modal-info-container-header">
                 <button class="close-button" id="update-modal-close-button">
@@ -251,35 +249,10 @@
         </div>
         
     </div>
-    <div id="overlay-update"></div>
+    <div id="overlay-update"></div> -->
 
-    <script>
-        $(document).ready(function () {
 
-            $('.edit_button').on('click', function () {
-
-                $('#update-modal').modal('show');
-
-                $tr = $(this).closest('tr');
-
-                var data = $tr.children("td").map(function () {
-                    return $(this).text();
-                }).get();
-
-                console.log(data);
-
-                $('#update_student_id').val(data[0]);
-                $('#update_fname').val(data[1]);
-                $('#update_lname').val(data[2]);
-                $('#update_year').val(data[3]);
-                $('#update_course').val(data[4]);
-                $('#update_username').val(data[5]);
-                $('#update_password').val(data[6]);
-            });
-        });
-    </script>
-
-<script>
+<!-- <script>
             $(document).ready(function(){
                 $('.delete').on('click',function(){
                     let student_id = $(this).attr('data-id');
@@ -321,7 +294,7 @@
                     })
                 })
             })
-        </script>
+        </script> -->
     
     <!-- <script src="../assets/js/student-info.js"></script> -->
     
