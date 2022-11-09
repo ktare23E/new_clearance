@@ -169,3 +169,9 @@ const backBtn = document.querySelector("#back-button-to-student")
 backBtn.addEventListener('click', function(){
     window.location.href = "student.php";
 })
+
+// const EditProfileBtn = document.querySelector("#edit-profile-button")
+
+// EditProfileBtn.addEventListener('click', function(){
+//     window.location.href = "student.php";
+// })
