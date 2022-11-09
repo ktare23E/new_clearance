@@ -92,6 +92,13 @@
                         <a href="student_registration.php">
                             <button id="add-new-student">Add new student</button>
                         </a>
+                        <form action="upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
+                            <div>
+                                <label for="">Register Via .csv file</label>
+                                <input type="file" name="file" accept=".csv">
+                                <button type="submit" name="import">Import</button>
+                            </div>
+                        </form>
                     </div>
                     <div class="h2-container">
                             <h2>Students List</h2>
