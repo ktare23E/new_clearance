@@ -139,8 +139,6 @@
                             </tr>
                         </tfoot>
                     </table>
-
-                    <a href="#">Show All</a>
                 </div>
             </div>
             
