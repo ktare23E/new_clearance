@@ -158,3 +158,14 @@ function openModal(modal) {
 
 
 
+
+
+
+
+// back button to student.php
+
+const backBtn = document.querySelector("#back-button-to-student")
+
+backBtn.addEventListener('click', function(){
+    window.location.href = "student.php";
+})

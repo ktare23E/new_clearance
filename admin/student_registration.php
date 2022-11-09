@@ -90,12 +90,9 @@
                 <div class="student-registration">
                     <div class="form signup">
                         <div class="back-button">
-                            <a href="student.php">
-                                <button id="back-button">
-                                    <span class="material-symbols-sharp">arrow_back</span>
-                                </button>
-                            </a>
-                            
+                            <button id="back-button-to-student">
+                                <span class="material-symbols-sharp">arrow_back</span>
+                            </button>
                         </div>
                         <span class="title">New Student</span>
         

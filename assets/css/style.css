@@ -285,16 +285,51 @@ main .student-registration {
     margin-bottom: 10px;
 }
 
-#back-button {
+
+#back-button-to-student {
+    cursor: pointer;
+    color: var(--color-dark);
     padding: 7px;
-    background: none;
     transition: all 150ms ease;
     display: flex;
     border-radius: 50%;
     background: var(--color-background);
 }
 
-#back-button:hover {
+
+.student-view-top {
+    margin-top: 20px;
+    background: orange;
+    /* background: var(--color-white); */
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+.student-view-top:hover {
+    box-shadow: none;
+}
+
+.student-view-top h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+.icons-course-year-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+
+
+.icons-course-year-container span {
+    margin-bottom: 3px;
+}
+
+#back-button-to-student:hover {
     background: gray;
 }
 .back-button a:hover {
@@ -322,6 +357,30 @@ main .student-registration .form .title{
     font-size: 27px;
     font-weight: 600;
 }
+
+.action-button-container {
+    display: flex;
+    align-items: center;
+    
+    justify-content: space-between;
+}
+
+.edit-profile-button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    background: var(--color-primary-variant);
+    color: white;
+    border-radius: var(--border-radius-1);
+}
+
+.edit-profile-button h3 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
 main .student-registration .form .title::before{
     content: '';
     position: absolute;
@@ -843,7 +902,7 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
         margin: 0 auto;
         padding: 0 10px;
     }
-
+    
     .main-student {
         padding-right: 1rem;
     }
@@ -906,6 +965,31 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     }
 }
 
+
+
+@media screen and (max-width: 800px) {
+
+    .student-view-top h1 {
+        font-size: 3rem;
+        font-weight: 700;
+    }
+
+    .icons-course-year-container span,.icons-course-year-container h2  {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 607px) {
+
+    .student-view-top h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+
+    .icons-course-year-container span,.icons-course-year-container h2  {
+        font-size: 1rem;
+    }
+}
 
 /* =================== MEDIA QUERIES ================= */
 @media screen and (max-width: 768px) {
