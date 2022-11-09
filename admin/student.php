@@ -120,6 +120,7 @@
                                 <td><?= $user->student_username; ?></td>
                                 <td class="primary">
                                     <a href="edit_student_info.php?edit=<?= $user->student_id?>">Update</a>
+                                    <a href="student_view.php?details=<?= $user->student_id?>">View Details</a>
                                         <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
                                         <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
                                             <span class="material-symbols-outlined">delete</span>

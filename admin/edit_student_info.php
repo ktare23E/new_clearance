@@ -3,17 +3,24 @@
     
     $conn = mysqli_connect('localhost', 'root', '', 'clearance');
 
-    $id = $_GET['edit'];
-    $sql = "SELECT * FROM student WHERE student_id = '$id'";
-    $result = mysqli_query($conn,$sql);
-    $row = mysqli_fetch_assoc($result);
-    $student_id = $row['student_id'];
-    $student_fname = $row['student_first_name'];
-    $student_lname = $row['student_last_name'];
-    $student_year = $row['student_year'];
-    $student_course = $row['student_course'];
-    $student_username = $row['student_username'];
-    $student_password = $row['student_password'];
+
+    if(!isset($_GET['edit'])){
+        echo "<h1>There's an error while viewing details.</h1>";
+    }else{
+        $id = $_GET['edit'];
+        $sql = "SELECT * FROM student WHERE student_id = '$id'";
+        $result = mysqli_query($conn,$sql);
+        $row = mysqli_fetch_assoc($result);
+        $student_id = $row['student_id'];
+        $student_fname = $row['student_first_name'];
+        $student_lname = $row['student_last_name'];
+        $student_year = $row['student_year'];
+        $student_course = $row['student_course'];
+        $student_username = $row['student_username'];
+        $student_password = $row['student_password'];
+        
+
+    
 
 ?>
 
@@ -157,6 +164,7 @@
 
     </div>
 
+    <?php }?>
 
     <script defer src="../assets/js//modal.js"></script>
     <script src="../assets/js/index.js"></script>

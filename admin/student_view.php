@@ -1,7 +1,22 @@
 <?php
     include_once 'header.php';
-    $users = $db->result('student');
+    // $users = $db->result('student');
 
+    
+    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+
+    if($conn->connect_error){
+        echo $conn->connect_error;
+    }
+    
+    if(!isset($_GET['details'])){
+        echo "<h1>There's an error while viewing details.</h1>";
+    }else{
+        $id = $_GET['details'];
+        $sql = "SELECT * FROM student WHERE student_id = '$id'";
+        $students = $conn->query($sql) or die($conn->error);
+        $row = $students->fetch_assoc();
+    
 ?>
     <div class="container-student">
         <!-- sidebar -->
@@ -81,6 +96,7 @@
                 <!-- ========== END OF TOP ============= -->
     
             </div>
+            
 
             <div class="student-view-top">
                 
@@ -90,15 +106,15 @@
                             <span class="material-symbols-sharp">arrow_back</span>
                         </button>
                     </a>
-                    <button class="edit-profile-button" id="edit-profile-button">
+                    <button onclick="location.href = 'edit_student_info.php?edit=<?= $row['student_id'];?>';" class="edit-profile-button" id="edit-profile-button">
                         <span class="material-symbols-sharp">edit</span>
                         <h3>Edit Profile</h3>
                     </button>
                 </div>
-                <h1>HelloName WorldName</h1>
+                <h1>Hello <?php echo $row['student_id']?> Student</h1>
                 <div class="icons-course-year-container">
                     <span class="material-symbols-sharp">person_outline</span>
-                    <h2><span>BSIT&nbsp;-</span><span>&nbsp;4TH YEAR</span></h2>
+                    <h2><span><?= $row['student_course'];?>&nbsp;-</span><span>&nbsp;<?= $row['student_year'];?></span></h2>
                 </div>
                 
             </div>
@@ -110,29 +126,29 @@
                 <div class="student-registration">
                     <div class="student-view-profile-container">
                         <div class="student-view-profile-img-container">
-                            <img src="../images/profile-1.jpg" alt="">
+                            <img src="../images/dp.png" alt="">
                         </div>
 
                         <div class="student-view-profile-info-container">
                             <div class="student-info-name-container">
                                 <span class="material-symbols-sharp">person_outline</span>
                                 <h2 class="label">Name :</h2><span>&emsp;&emsp;&emsp;&emsp;&emsp;</span>
-                                <h2><span>HelloName</span><span>&nbsp;</span><span>WorldName</span></h2>
+                                <h2><span><?= $row['student_first_name']; ?></span><span>&nbsp;</span><span><?= $row['student_last_name'];?></span></h2>
                             </div>
                             <div class="student-info-name-container">
                                 <span class="material-symbols-sharp">contact_mail</span>
                                 <h2 class="label">Username :</h2><span>&emsp;&nbsp;</span>
-                                <h2><span>helloworld@gmail.com</span></h2>
+                                <h2><span><?= $row['student_username'] ?></span></h2>
                             </div>
                             <div class="student-info-name-container">
                                 <span class="material-symbols-sharp">menu_book</span>
                                 <h2 class="label">Course :</h2><span>&emsp;&emsp;&emsp;&emsp;</span>
-                                <h2><span>BSIT</span></h2>
+                                <h2><span><?= $row['student_course'];?></span></h2>
                             </div>
                             <div class="student-info-name-container">
                                 <span class="material-symbols-sharp">timeline</span>
                                 <h2 class="label">Year :</h2><span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
-                                <h2><span>4th Year</span></h2>
+                                <h2><span><?= $row['student_year'];?></span></h2>
                             </div>
                             <div class="student-info-name-container">
                                 <span class="material-symbols-sharp">corporate_fare</span>
@@ -153,6 +169,7 @@
         <!-- ================ END OF MAIN =================== -->
     </div>
 
+    <?php  }?>
     
     <script defer src="../assets/js//modal.js"></script>
     <script src="../assets/js/index.js"></script>
