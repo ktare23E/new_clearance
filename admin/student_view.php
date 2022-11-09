@@ -89,14 +89,6 @@
                 <!-- -------------  STUDENT REGISTRATION FORM -------------- -->
                 <div class="student-registration">
                     <div class="form signup">
-                        <div class="back-button">
-                            <a href="student.php">
-                                <button id="back-button">
-                                    <span class="material-symbols-sharp">arrow_back</span>
-                                </button>
-                            </a>
-                            
-                        </div>
                         <span class="title">New Student</span>
         
                         <form action="insert_student.php" method="POST">
