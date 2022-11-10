@@ -89,26 +89,16 @@
                 <!-- -------------  TABLE OF STUDENT INFORMATION -------------- -->
                 <div class="recent-orders-student">
                     <div class="add-button-container">
-                        <div>
-                            <a href="student_registration.php">
-                                <button id="add-new-student">Add new student</button>
-                            </a>
-                        </div>
-                        <div class="upload-student-csv-container">
-                            <label for="" class="label-csv">Register Via .csv file</label>
-                            <form action="upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
-                                <div class="form-input-file-csv-container">
-                                        <label for="input-file">Choose CSV File</label>
-                                        <input type="file" name="file" accept=".csv" id="input-file">
-                                        <button type="submit" name="import" class="submit-csv-file-button">
-                                            Import
-                                            <span class="material-symbols-sharp">file_upload</span>
-                                            
-                                        </button>
-                                </div>
-                            </form>
-                        </div>
-
+                        <a href="student_registration.php">
+                            <button id="add-new-student">Add new student</button>
+                        </a>
+                        <form action="upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
+                            <div>
+                                <label for="">Register Via .csv file</label>
+                                <input type="file" name="file" accept=".csv">
+                                <button type="submit" name="import">Import</button>
+                            </div>
+                        </form>
                     </div>
                     <div class="h2-container">
                             <h2>Students List</h2>
