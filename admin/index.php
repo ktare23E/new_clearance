@@ -162,7 +162,7 @@
 
         <div class="right">
             <div class="top">
-                <button id="menu-btn">
+                <button id="menu-btn" class="menu-btn">
                     <span class="material-symbols-sharp">menu</span>
                 </button>
                 <div class="theme-toggler">
@@ -275,7 +275,8 @@
     </div>
     
     <script src="../assets/javascript/"></script>
-    <script src="../assets/javascript/index.js"></script>
+    <script src="../assets/js/index.js"></script>
+    
     
 </body>
 </html>

@@ -64,7 +64,6 @@ themeToggler.addEventListener('click', () => {
 
 
 
-
 const container = document.querySelector(".container"),
     pwShowHide = document.querySelectorAll(".showHidePw"),
     pwFields = document.querySelectorAll(".password");
@@ -120,55 +119,48 @@ const container = document.querySelector(".container"),
 
 // for show profile modal
 
-const studentId = document.querySelectorAll('.student-id');
-const firstName = document.querySelector('.first-name');
-const lastName = document.querySelector('.last-name');
-const course = document.querySelector('.course');
-const year = document.querySelector('.year');
-const email = document.querySelector('.email');
+// const studentId = document.querySelectorAll('.student-id');
+// const firstName = document.querySelector('.first-name');
+// const lastName = document.querySelector('.last-name');
+// const course = document.querySelector('.course');
+// const year = document.querySelector('.year');
+// const email = document.querySelector('.email');
 
 
 
-console.log(firstName.innerHTML);
+// console.log(firstName.innerHTML);
 
 
 
-studentId.forEach( student => {
-    student.addEventListener('click', function() {
-        const children = student.parentElement.children;
+// studentId.forEach( student => {
+//     student.addEventListener('click', function() {
+//         const children = student.parentElement.children;
 
-        firstName.innerHTML = ` ${children[1].innerHTML} &nbsp;`;
-        lastName.innerHTML = ` ${children[2].innerHTML} `;
-        course.innerHTML = ` ${children[4].innerHTML} &nbsp;`;
-        year.innerHTML = ` ${children[3].innerHTML} `;
-        email.innerHTML = ` ${children[5].innerHTML} `;
+//         firstName.innerHTML = ` ${children[1].innerHTML} &nbsp;`;
+//         lastName.innerHTML = ` ${children[2].innerHTML} `;
+//         course.innerHTML = ` ${children[4].innerHTML} &nbsp;`;
+//         year.innerHTML = ` ${children[3].innerHTML} `;
+//         email.innerHTML = ` ${children[5].innerHTML} `;
 
-        const modal = document.querySelector('#modal')
-        openModal(modal)
+//         const modal = document.querySelector('#modal')
+//         openModal(modal)
 
-    })
-})
-
-
-function openModal(modal) {
-    if (modal == null) return
-    modal.classList.add('active')
-    overlay.classList.add('active')
-}
+//     })
+// })
 
 
+// function openModal(modal) {
+//     if (modal == null) return
+//     modal.classList.add('active')
+//     overlay.classList.add('active')
+// }
 
 
 
 
 
-// back button to student.php
 
-const backBtn = document.querySelector("#back-button-to-student")
 
-backBtn.addEventListener('click', function(){
-    window.location.href = "student.php";
-})
 
 
 // const EditProfileBtn = document.querySelector("#edit-profile-button")
