@@ -121,45 +121,45 @@
 
                     <form action="update.php" method="POST">
                         <div class="input-field">
-                        <input type="text" placeholder="Student Id" name="student_id" required value="<?php echo $student_id; ?>">
+                            <input type="text" placeholder="Student Id" name="student_id" required value="<?php echo $student_id; ?>">
                             <i class="uil uil-keyhole-circle"></i>
                             <input type="hidden" name="students_id" value="<?php echo $student_id; ?>">
-                    </div>
+                        </div>
 
-                    <div class="input-field-container">
-                        <div class="input-field">
-                            <input type="text" name="student_first_name" placeholder="First Name" required value="<?php echo $student_fname; ?>">
-                            <i class="uil uil-user"></i>
+                        <div class="input-field-container">
+                            <div class="input-field">
+                                <input type="text" name="student_first_name" placeholder="First Name" required value="<?php echo $student_fname; ?>">
+                                <i class="uil uil-user"></i>
+                            </div>
+                            <div class="input-field">
+                                <input type="text" name="student_last_name" placeholder="Last Name" required value="<?php echo $student_lname; ?>">
+                                <i class="uil uil-user"></i>
+                            </div>
                         </div>
-                        <div class="input-field">
-                            <input type="text" name="student_last_name" placeholder="Last Name" required value="<?php echo $student_lname; ?>">
-                            <i class="uil uil-user"></i>
+                        <div class="input-field-container">
+                            <div class="input-field">
+                                <input type="text" name="student_year" placeholder="Year" required value="<?php echo $student_year; ?>">
+                                <i class="uil uil-user"></i>
+                            </div>
+                            <div class="input-field">
+                                <input type="text" name="student_course" placeholder="Course" required value="<?php echo $student_course; ?>">
+                                <i class="uil uil-envelope icon"></i>
+                            </div>
                         </div>
-                    </div>
-                    <div class="input-field-container">
-                        <div class="input-field">
-                            <input type="text" name="student_year" placeholder="Year" required value="<?php echo $student_year; ?>">
-                            <i class="uil uil-user"></i>
+                        <div class="input-field-container">
+                            <div class="input-field">
+                                <input type="text" placeholder="Username" name="student_username" value="<?php echo $student_username; ?>" required>
+                                <i class="uil uil-envelope icon"></i>
+                            </div>
+                            <div class="input-field">
+                                <input type="password" name="student_password" class="password" placeholder="Create a password" value="<?php echo $student_password; ?>" required>
+                                <i class="uil uil-lock icon"></i>
+                                <i class="uil uil-eye-slash showHidePw"></i>
+                            </div>
                         </div>
-                        <div class="input-field">
-                            <input type="text" name="student_course" placeholder="Course" required value="<?php echo $student_course; ?>">
-                            <i class="uil uil-envelope icon"></i>
-                        </div>
-                    </div>
-                    <div class="input-field-container">
-                        <div class="input-field">
-                            <input type="text" placeholder="Username" name="student_username" value="<?php echo $student_username; ?>" required>
-                            <i class="uil uil-envelope icon"></i>
-                        </div>
-                        <div class="input-field">
-                            <input type="password" name="student_password" class="password" placeholder="Create a password" value="<?php echo $student_password; ?>" required>
-                            <i class="uil uil-lock icon"></i>
-                            <i class="uil uil-eye-slash showHidePw"></i>
-                        </div>
-                    </div>
                         <div class="input-field button">
-                        <input type="submit" name="update" value="Update Account">
-                    </div>
+                            <input type="submit" name="update" value="Update Account">
+                        </div>
                 </form>
             </div>
         </div>

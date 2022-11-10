@@ -94,9 +94,9 @@
                         </a>
                         <form action="upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
                             <div>
-                                <label for="">Register Via .csv file</label><br>
+                                <label for="">Register Via .csv file</label>
                                 <input type="file" name="file" accept=".csv">
-                                <button type="submit" name="import">Upload</button>
+                                <button type="submit" name="import">Import</button>
                             </div>
                         </form>
                     </div>
