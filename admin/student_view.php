@@ -24,7 +24,7 @@
             <div class="top">
                 <div class="logo">
                     <img src="../images/logo.png" alt="">
-                    <h2>NMSC<span class="danger">CLEARANCE</span> </h2>
+                    <h2>NMSC<span class="warning">CLEARANCE</span> </h2>
                 </div>
                 <div class="close" id="close-btn">
                     <span class="material-symbols-sharp">close</span>
@@ -131,33 +131,51 @@
 
                         <div class="student-view-profile-info-container">
                             <div class="student-info-name-container">
-                                <span class="material-symbols-sharp">person_outline</span>
-                                <h2 class="label">Student Id :</h2><span>&emsp;&nbsp;&nbsp;</span>
+                                <div class="icon-label-container">
+                                    <span class="material-symbols-sharp">badge</span>
+                                    <h2 class="label">Student Id :</h2><span>&emsp;&nbsp;&nbsp;</span>
+                                </div>
+                                
                                 <h2><?php echo $row['student_id']?></h2>
                             </div>
                             <div class="student-info-name-container">
-                                <span class="material-symbols-sharp">person_outline</span>
-                                <h2 class="label">Name :</h2><span>&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+                                <div class="icon-label-container">
+                                    <span class="material-symbols-sharp">person_outline</span>
+                                    <h2 class="label">Name :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+                                </div>
+                                
                                 <h2><span><?= $row['student_first_name']; ?></span><span>&nbsp;</span><span><?= $row['student_last_name'];?></span></h2>
                             </div>
                             <div class="student-info-name-container">
-                                <span class="material-symbols-sharp">contact_mail</span>
-                                <h2 class="label">Username :</h2><span>&emsp;&nbsp;</span>
+                                <div class="icon-label-container">
+                                    <span class="material-symbols-sharp">contact_mail</span>
+                                    <h2 class="label">Username :</h2><span>&emsp;&nbsp;</span>
+                                </div>
+                                
                                 <h2><span><?= $row['student_username'] ?></span></h2>
                             </div>
                             <div class="student-info-name-container">
-                                <span class="material-symbols-sharp">menu_book</span>
-                                <h2 class="label">Course :</h2><span>&emsp;&emsp;&emsp;&emsp;</span>
+                                <div class="icon-label-container">
+                                    <span class="material-symbols-sharp">menu_book</span>
+                                <h2 class="label">Course :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;</span>
+                                </div>
+                                
                                 <h2><span><?= $row['student_course'];?></span></h2>
                             </div>
                             <div class="student-info-name-container">
-                                <span class="material-symbols-sharp">timeline</span>
-                                <h2 class="label">Year :</h2><span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+                                <div class="icon-label-container">
+                                    <span class="material-symbols-sharp">timeline</span>
+                                    <h2 class="label">Year :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+                                </div>
+                                
                                 <h2><span><?= $row['student_year'];?></span></h2>
                             </div>
                             <div class="student-info-name-container">
-                                <span class="material-symbols-sharp">corporate_fare</span>
-                                <h2 class="label">Department :</h2><span>&emsp;&emsp;</span>
+                                <div class="icon-label-container">
+                                    <span class="material-symbols-sharp">corporate_fare</span>
+                                    <h2 class="label">Department :</h2><span class="removable-span">&emsp;&emsp;</span>
+                                </div>
+                                
                                 <h2><span>SICT</span></h2>
                             </div>
                             <div class="student-info-name-container clearance-status-btn-container">

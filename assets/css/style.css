@@ -774,6 +774,13 @@ main .recent-orders-student table {
     margin-top: 15px;
 }
 
+.student-view-profile-container .student-view-profile-info-container
+.student-info-name-container .icon-label-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .student-view-profile-info-container .clearance-status-btn-container button {
     padding: 10px 15px;
     cursor: pointer;
@@ -1074,6 +1081,8 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
         gap: 0;
     }
 
+    
+
     main .recent-orders {
         width: 94%;
         position: absolute;
@@ -1181,6 +1190,42 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
 
     aside .logo {
         margin-left: 1rem;
+    }
+
+    .student-view-profile-container .student-view-profile-info-container
+    .student-info-name-container .icon-label-container {
+        justify-content: center;
+    }
+
+    .student-view-profile-info-container .student-info-name-container .icon-label-container .label {
+        font-size: 1rem;
+        color: var(--color-primary);
+    }
+
+    .student-view-profile-info-container .student-info-name-container {
+        margin-bottom: 10px;
+    }
+
+    #clearance-status-button {
+        width: 100%;
+        border-radius: 50px;
+    }
+
+    .student-view-profile-container .student-view-profile-info-container {
+        padding-top: 5px;
+    }
+
+    .student-registration .signup form .input-field-container {
+        flex-direction: column;
+    }
+
+    .student-view-profile-container .student-info-name-container .icon-label-container .removable-span {
+        display: none;
+    }
+
+
+    .student-view-profile-container .student-view-profile-info-container .student-info-name-container {
+        flex-direction: column;
     }
 
     aside .logo h2 {
