@@ -111,7 +111,7 @@
                         <h3>Edit Profile</h3>
                     </button>
                 </div>
-                <h1>Hello <?php echo $row['student_id']?> Student</h1>
+                <h1><span><?= $row['student_first_name']; ?></span><span>&nbsp;</span><span><?= $row['student_last_name'];?></span></h1>
                 <div class="icons-course-year-container">
                     <span class="material-symbols-sharp">person_outline</span>
                     <h2><span><?= $row['student_course'];?>&nbsp;-</span><span>&nbsp;<?= $row['student_year'];?></span></h2>
@@ -130,6 +130,11 @@
                         </div>
 
                         <div class="student-view-profile-info-container">
+                            <div class="student-info-name-container">
+                                <span class="material-symbols-sharp">person_outline</span>
+                                <h2 class="label">Student Id :</h2><span>&emsp;&nbsp;&nbsp;</span>
+                                <h2><?php echo $row['student_id']?></h2>
+                            </div>
                             <div class="student-info-name-container">
                                 <span class="material-symbols-sharp">person_outline</span>
                                 <h2 class="label">Name :</h2><span>&emsp;&emsp;&emsp;&emsp;&emsp;</span>
