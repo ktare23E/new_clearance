@@ -614,7 +614,7 @@ main .recent-orders-student {
     top: 85px;
     right: 0px;
     left: 0px;
-    z-index: 100;
+    z-index: 1;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -1100,16 +1100,12 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     }
 
     main table thead tr th:nth-last-child(2),
-    main table thead tr th:nth-child(6),
-    main table thead tr th:nth-last-child(2),
-    main table thead tr th:nth-child(6) {
+    main table thead tr th:nth-last-child(2) {
         display: none;
     }
 
     main table tbody tr td:nth-last-child(2),
-    main table tbody tr td:nth-child(6),
-    main table tfoot tr th:nth-last-child(2),
-    main table tfoot tr th:nth-child(6) {
+    main table tfoot tr th:nth-last-child(2) {
         display: none;
     }
 }
@@ -1157,6 +1153,11 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     .student-view-profile-img-container img {
         width: 40%;
         border-radius: 50%;
+    }
+
+    .table-action-container {
+        display: flex;
+        gap: 10px;
     }
 
     aside {
@@ -1210,6 +1211,10 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
         padding: 0 1rem;
     }
 
+    .main-student {
+        margin-top: 1rem !important;
+    }
+
     main .recent-orders {
         position: relative;
         margin: 3rem 0 0 0;
@@ -1221,6 +1226,14 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
         width: 100%;
     }
 
+    .add-button-container {
+        flex-direction: column;
+    }
+
+    main .recent-orders-student table {
+        padding-top: 130px !important;
+    }
+
     main .recent-orders table {
         width: 100%;
         margin: 0;
@@ -1228,6 +1241,18 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     main .recent-orders-student table {
         width: 100%;
         margin: 0;
+    }
+
+    main table thead tr th:nth-last-child(3),
+    main table thead tr th:nth-last-child(4) {
+        display: none;
+    }
+
+    main table tbody tr td:nth-last-child(3),
+    main table tbody tr td:nth-last-child(4),
+    main table tfoot tr th:nth-last-child(3),
+    main table tfoot tr th:nth-last-child(4) {
+        display: none;
     }
 
     .h2-container {

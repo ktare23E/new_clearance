@@ -134,7 +134,7 @@
                                 <td><?= $user->student_year; ?></td>
                                 <td><?= $user->student_course;?></td>
                                 <td><?= $user->student_username; ?></td>
-                                <td class="primary">
+                                <td class="primary table-action-container">
                                     <a href="edit_student_info.php?edit=<?= $user->student_id?>">Update</a>
                                     <a href="student_view.php?details=<?= $user->student_id?>">View Details</a>
                                         <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
