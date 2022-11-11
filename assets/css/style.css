@@ -1042,9 +1042,9 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
         grid-template-columns: 7rem auto 23rem;
     }
     .container-student {
-        width: 100%;
+        width: 94%;
         grid-template-columns: 7rem auto;
-        margin: 0 auto;
+        
         padding: 0 10px;
     }
     
@@ -1244,14 +1244,20 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     }
 
     main table thead tr th:nth-last-child(3),
-    main table thead tr th:nth-last-child(4) {
+    main table thead tr th:nth-last-child(4),
+    main table thead tr th:nth-last-child(5),
+    main table thead tr th:nth-last-child(6) {
         display: none;
     }
 
     main table tbody tr td:nth-last-child(3),
     main table tbody tr td:nth-last-child(4),
     main table tfoot tr th:nth-last-child(3),
-    main table tfoot tr th:nth-last-child(4) {
+    main table tfoot tr th:nth-last-child(4),
+    main table tbody tr td:nth-last-child(5),
+    main table tbody tr td:nth-last-child(6),
+    main table tfoot tr th:nth-last-child(5),
+    main table tfoot tr th:nth-last-child(6) {
         display: none;
     }
 
