@@ -38,9 +38,14 @@
                     <div class="input-field button">
                         <input type="submit" value="Login"> <!-- LOGIN BUTTON -->
                     </div>
+                    <?php if (isset($_GET['a']) && $_GET['a'] == 'error'): ?>
+                            <div class="danger">
+                                Incorrect username or password.
+                            </div>        
+                        <?php endif; ?>
+
                 </form>
             </div>
-
             
         </div>
     </div>

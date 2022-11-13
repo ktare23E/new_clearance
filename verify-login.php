@@ -12,5 +12,5 @@ if ($exist) {
     $_SESSION['isloggedin'] = 1;
     header("location: admin/index.php");
 } else {
-    header("location: login.php?a=error");
+    header("location: index.php?a=error");
 }
