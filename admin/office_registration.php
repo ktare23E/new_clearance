@@ -82,7 +82,7 @@
     
             </div>
 
-            <h1>Student Account</h1>
+            <h1>Office Account</h1>
 
             <div class="form-and-table-container">
 
@@ -94,13 +94,9 @@
                                 <span class="material-symbols-sharp">arrow_back</span>
                             </button>
                         </div>
-                        <span class="title">Add New Student</span>
+                        <span class="title">Add New Office</span>
         
                         <form action="insert_student.php" method="POST">
-                            <div class="input-field">
-                                    <input type="text" placeholder="Student Id" name="student_id" required>
-                                    <i class="uil uil-keyhole-circle"></i>
-                            </div>
 
                             <div class="input-field-container">
                                 <div class="input-field">
