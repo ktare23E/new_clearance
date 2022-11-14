@@ -83,7 +83,7 @@
     
             </div>
 
-            <h1>Student Account</h1>
+            <h1>Office Account</h1>
 
             <div class="form-and-table-container">
                 
@@ -92,12 +92,12 @@
                     <div class="add-button-container">
                         <div>
                             <a href="student_registration.php">
-                                <button id="add-new-student">Add new student</button>
+                                <button id="add-new-student">Add new office</button>
                             </a>
                         </div>
                         <div class="upload-student-csv-container">
                             <label for="" class="label-csv">Register Via .csv file</label>
-                            <form action="upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
+                            <form action="student_upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
                                 <div class="form-input-file-csv-container">
                                         <label for="input-file">Choose CSV File</label>
                                         <input type="file" name="file" accept=".csv" id="input-file">
@@ -111,12 +111,10 @@
                     </div>
 
                     <div class="h2-container">
-                            <h2>Students List</h2>
+                            <h2>Office List</h2>
                     </div>
 
                     <table id="example" class="display" style="width:100%">
-
-                    
                         <thead>
                             <tr>
                                 <th>Student ID</th>
