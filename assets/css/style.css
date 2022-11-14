@@ -610,29 +610,39 @@ main .recent-orders-student {
     position: relative;
 }
 .add-button-container {
-    position: absolute;
+    /* position: absolute;
     top: 85px;
     right: 0px;
-    left: 0px;
+    left: 0px; */
     z-index: 1;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 0px 20px;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .add-button-container form {
    
 }
 
+.add-button-container div:nth-child(1) {
+    flex: 1;
+}
+
+.add-button-container div:nth-child(1) a {
+    display: inline-block;
+}
+
 .upload-student-csv-container {
     border: 1.5px solid var(--color-primary-variant);
     padding: 15px 20px 5px 20px;
-    border-radius: 100px;
+    border-radius: 5px;
     position: relative;
     display: flex;
-
+    justify-content: center;
+    flex: 1;
 }
 
 .upload-student-csv-container input[type="file"]::-webkit-file-upload-button{
@@ -693,15 +703,16 @@ main .recent-orders-student {
     margin-right: auto;
     text-align: center;
     top: -10px;
+    left: 15px;
     color: var(--color-primary);
-    background: var(--color-white);
+    background: var(--color-background);
     padding: 0px 10px;
     border-radius: 20px;
 }
 
 
 #add-new-student {
-    border-radius: 100px;
+    border-radius: 5px;
     cursor: pointer;
     padding: 15px 20px;
     background: var(--color-primary-variant);
@@ -737,7 +748,7 @@ main .recent-orders-student table {
     background: var(--color-white);
     width: 100%;
     border-radius: var(--card-border-radius);
-    padding-top: 80px !important;
+    padding-top: 50px !important;
     padding: var(--card-padding);
     text-align: center;
     box-shadow: var(--box-shadow);
@@ -830,14 +841,17 @@ input[type="search"]{
 }
 
 .h2-container {
+    position: absolute;
+    z-index: 1;
+    top: 110px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     padding-top: 10px;
-    background-color: var(--color-light);
+    /* background-color: var(--color-light); */
     margin-bottom: 5px;
-    border-radius: var(--border-radius-3);
+    border-radius: var(--card-border-radius);
     
 }
 
@@ -1169,6 +1183,10 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
         gap: 10px;
     }
 
+    .h2-container {
+        top: 110px;
+    }
+
     aside {
         position: fixed;
         left: -100%;
@@ -1271,13 +1289,8 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
         width: 100%;
     }
 
-    .add-button-container {
-        flex-direction: column;
-    }
+    
 
-    main .recent-orders-student table {
-        padding-top: 130px !important;
-    }
 
     main .recent-orders table {
         width: 100%;
@@ -1353,11 +1366,44 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
 }
 
 @media screen and (max-width: 640px) {
+    .h2-container {
+        top: 185px;
+    }
+}
+
+@media screen and (max-width: 428px) {
+    .h2-container {
+        top: 200px;
+    }
+}
+
+@media screen and (max-width: 640px) {
     .add-button-container {
         top: 115px;
     }
 }
 
+@media screen and (max-width: 570px) {
+    .add-button-container {
+        flex-direction: column;
+    }
+
+    .add-button-container .upload-student-csv-container {
+        flex: 1;
+    }
+
+    .add-button-container #add-new-student {
+        width: 100%;
+    }
+
+    .add-button-container div:nth-child(1), .add-button-container div:nth-child(2) {
+        width: 100%;
+    }
+
+    .add-button-container div:nth-child(1) a {
+        width: 100%;
+    }
+}
 
 .input-field-container {
     display: flex;
