@@ -94,18 +94,20 @@
                                 <button id="add-new-student">Add new student</button>
                             </a>
                         </div>
-                        <div class="upload-student-csv-container">
-                            <label for="" class="label-csv">Register Via .csv file</label>
-                            <form action="upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
-                                <div class="form-input-file-csv-container">
-                                        <label for="input-file">Choose CSV File</label>
-                                        <input type="file" name="file" accept=".csv" id="input-file">
-                                        <button type="submit" name="import" class="submit-csv-file-button">
-                                            Import
-                                            <span class="material-symbols-sharp">file_upload</span>
-                                        </button>
-                                </div>
-                            </form>
+                        <div>
+                            <div class="upload-student-csv-container">
+                                <label for="" class="label-csv">Register Via .csv file</label>
+                                <form action="upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
+                                    <div class="form-input-file-csv-container">
+                                            <label for="input-file">Choose CSV File</label>
+                                            <input type="file" name="file" accept=".csv" id="input-file">
+                                            <button type="submit" name="import" class="submit-csv-file-button">
+                                                Import
+                                                <span class="material-symbols-sharp">file_upload</span>
+                                            </button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
 
@@ -114,6 +116,8 @@
                     </div>
 
                     <table id="example" class="display" style="width:100%">
+
+                    
                         <thead>
                             <tr>
                                 <th>Student ID</th>
