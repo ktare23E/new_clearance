@@ -83,7 +83,7 @@
     
             </div>
 
-            <h1>Student Account</h1>
+            <h1>Office Account</h1>
 
             <div class="form-and-table-container">
                 
@@ -92,7 +92,7 @@
                     <div class="add-button-container">
                         <div>
                             <a href="student_registration.php">
-                                <button id="add-new-student">Add new student</button>
+                                <button id="add-new-student">Add new office</button>
                             </a>
                         </div>
                         <div class="upload-student-csv-container">
@@ -111,7 +111,7 @@
                     </div>
 
                     <div class="h2-container">
-                            <h2>Students List</h2>
+                            <h2>Office List</h2>
                     </div>
 
                     <table id="example" class="display" style="width:100%">

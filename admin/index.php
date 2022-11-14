@@ -24,7 +24,7 @@
                     <span class="material-symbols-sharp">person_outline</span>
                     <h3>Student</h3>
                 </a>
-                <a href="/office.html">
+                <a href="office.php">
                     <span class="material-symbols-sharp">meeting_room</span>
                     <h3>Office</h3>
                 </a>

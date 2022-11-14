@@ -2,7 +2,6 @@
     include_once 'header.php';
     $users = $db->result('student');
 
-    
 ?>
     <div class="container-student">
         <!-- sidebar -->
@@ -26,7 +25,7 @@
                     <span class="material-symbols-sharp">person_outline</span>
                     <h3>Student</h3>
                 </a>
-                <a href="office.php">
+                <a href="/office.html">
                     <span class="material-symbols-sharp">meeting_room</span>
                     <h3>Office</h3>
                 </a>
@@ -86,78 +85,67 @@
             <h1>Student Account</h1>
 
             <div class="form-and-table-container">
-                
-                <!-- -------------  TABLE OF STUDENT INFORMATION -------------- -->
-                <div class="recent-orders-student">
-                    <div class="add-button-container">
-                        <div>
-                            <a href="student_registration.php">
-                                <button id="add-new-student">Add new student</button>
-                            </a>
+
+                <!-- -------------  STUDENT REGISTRATION FORM -------------- -->
+                <div class="student-registration">
+                    <div class="form signup">
+                        <div class="back-button">
+                            <button id="back-button-to-student">
+                                <span class="material-symbols-sharp">arrow_back</span>
+                            </button>
                         </div>
-                        <div class="upload-student-csv-container">
-                            <label for="" class="label-csv">Register Via .csv file</label>
-                            <form action="student_upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
-                                <div class="form-input-file-csv-container">
-                                        <label for="input-file">Choose CSV File</label>
-                                        <input type="file" name="file" accept=".csv" id="input-file">
-                                        <button type="submit" name="import" class="submit-csv-file-button">
-                                            Import
-                                            <span class="material-symbols-sharp">file_upload</span>
-                                        </button>
+                        <span class="title">Add New Student</span>
+        
+                        <form action="insert_student.php" method="POST">
+                            <div class="input-field">
+                                    <input type="text" placeholder="Student Id" name="student_id" required>
+                                    <i class="uil uil-keyhole-circle"></i>
+                            </div>
+
+                            <div class="input-field-container">
+                                <div class="input-field">
+                                    <input type="text" name="student_first_name" placeholder="First Name" required>
+                                    <i class="uil uil-user"></i>
                                 </div>
-                            </form>
-                        </div>
+                                <div class="input-field">
+                                    <input type="text" name="student_last_name" placeholder="Last Name" required>
+                                    <i class="uil uil-user"></i>
+                                </div>
+                            </div>
+                            <div class="input-field-container">
+                                <div class="input-field">
+                                    <input type="text" name="student_year" placeholder="Year" required>
+                                    <i class="uil uil-user"></i>
+                                </div>
+                                <div class="input-field">
+                                    <input type="text" name="student_course" placeholder="Course" required>
+                                    <i class="uil uil-envelope icon"></i>
+                                </div>
+                            </div>
+                            <div class="input-field-container">
+                                <div class="input-field">
+                                    <input type="text" placeholder="Username" name="student_username" required>
+                                    <i class="uil uil-envelope icon"></i>
+                                </div>
+                                <div class="input-field">
+                                    <input type="password" name="student_password" class="password" placeholder="Create a password" required>
+                                    <i class="uil uil-lock icon"></i>
+                                    <i class="uil uil-eye-slash showHidePw"></i>
+                                </div>
+                            </div>
+                                
+                                
+                            
+                            
+                                
+                            
+                            <div class="input-field button">
+                                <input type="submit" value="Create Account">
+                            </div>
+                        </form>
                     </div>
-
-                    <div class="h2-container">
-                            <h2>Students List</h2>
-                    </div>
-
-                    <table id="example" class="display" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Student ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Year</th>
-                                <th>Course</th>
-                                <th>Username</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($users as $user) : ?>
-                            <tr>
-                                <td class="student-id"><?= $user->student_id; ?></td>
-                                <td><?= $user->student_first_name; ?></td>
-                                <td><?= $user->student_last_name; ?></td>
-                                <td><?= $user->student_year; ?></td>
-                                <td><?= $user->student_course;?></td>
-                                <td><?= $user->student_username; ?></td>
-                                <td class="primary table-action-container">
-                                    <a href="edit_student_info.php?edit=<?= $user->student_id?>">Update</a>
-                                    <a href="student_view.php?details=<?= $user->student_id?>">View Details</a>
-                                        <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
-                                        <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
-                                            <span class="material-symbols-outlined">delete</span>
-                                        </button> -->
-                                </td>
-                            </tr>
-                            <?php endforeach; ?>
-                        <tfoot>
-                            <tr>
-                                <th>Student ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Year</th>
-                                <th>Course</th>
-                                <th>Username</th>
-                                <th>Actions</th>
-                            </tr>
-                        </tfoot>
-                    </table>
                 </div>
+                <!-- -------------  END OF REGISTRATION -------------- -->
             </div>
             
         </main>
@@ -208,7 +196,7 @@
     <!-- =========== UPDATE MODAL ============ -->
 
     <!-- <button id="open-update-modal">Open Modal</button> -->
-    <!-- <div class="update-modal" id="update-modal">
+    <div class="update-modal" id="update-modal">
         <div class="update-modal-container">
             <div class="modal-info-container-header">
                 <button class="close-button" id="update-modal-close-button">
@@ -265,10 +253,35 @@
         </div>
         
     </div>
-    <div id="overlay-update"></div> -->
+    <div id="overlay-update"></div>
 
+    <script>
+        $(document).ready(function () {
 
-<!-- <script>
+            $('.edit_button').on('click', function () {
+
+                $('#update-modal').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function () {
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+
+                $('#update_student_id').val(data[0]);
+                $('#update_fname').val(data[1]);
+                $('#update_lname').val(data[2]);
+                $('#update_year').val(data[3]);
+                $('#update_course').val(data[4]);
+                $('#update_username').val(data[5]);
+                $('#update_password').val(data[6]);
+            });
+        });
+    </script>
+
+<script>
             $(document).ready(function(){
                 $('.delete').on('click',function(){
                     let student_id = $(this).attr('data-id');
@@ -287,30 +300,21 @@
                                 url: 'deleteinfo.php',
                                 data: {student_id:student_id},
                                 success: function(response){
-                                    if(response === "Deleted"){
-                                        Swal.fire(
-                                            'Deleted!',
-                                            'Your file has been deleted.',
-                                            'success'
-                                        )
-                                    }else{
-                                        Swal.fire(
-                                            'Error',
-                                            'Error deleting data.',
-                                            'error'
-                                        )
-                                    }
-                                    
+                                    Swal.fire(
+                                        'Deleted!',
+                                        'Your file has been deleted.',
+                                        'success'
+                                    )
                                     setTimeout(() => { 
                                         location.reload(true);
-                                    }, 1000);
+                                    }, 3000);
                                 } 
                             })
                         }
                     })
                 })
             })
-        </script> -->
+        </script>
     
     <!-- <script src="../assets/js/student-info.js"></script> -->
     
@@ -320,10 +324,6 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-    <script>
-        $(document).ready(function () {
-            $('#example').DataTable();
-        });
-    </script>
+    
 </body>
 </html>
