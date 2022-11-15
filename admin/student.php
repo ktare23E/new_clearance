@@ -98,7 +98,7 @@
                         <div>
                             <div class="upload-student-csv-container">
                                 <label for="" class="label-csv">Register Via .csv file</label>
-                                <form action="upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
+                                <form action="student_upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
                                     <div class="form-input-file-csv-container">
                                             <label for="input-file">Choose CSV File</label>
                                             <input type="file" name="file" accept=".csv" id="input-file">
