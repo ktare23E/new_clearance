@@ -30,10 +30,6 @@
                     <span class="material-symbols-sharp">meeting_room</span>
                     <h3>Office</h3>
                 </a>
-                <a href="office_account.php">
-                    <span class="material-symbols-sharp">meeting_room</span>
-                    <h3>Office Account</h3>
-                </a>
                 <a href="/school-year-sem.html">
                     <span class="material-symbols-sharp">calendar_month</span>
                     <h3>School Year and Sem</h3>
@@ -102,7 +98,7 @@
                         <div>
                             <div class="upload-student-csv-container">
                                 <label for="" class="label-csv">Register Via .csv file</label>
-                                <form action="student_upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
+                                <form action="upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
                                     <div class="form-input-file-csv-container">
                                             <label for="input-file">Choose CSV File</label>
                                             <input type="file" name="file" accept=".csv" id="input-file">
@@ -120,51 +116,53 @@
                             <h2>Students List</h2>
                     </div>
 
-                    <table id="example" class="display" style="width:100%">
-
+                    <div class="student-tbl-container">
+                        <button>sa</button>
+                        <table id="example" class="display" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Student ID</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Year</th>
+                                    <th>Course</th>
+                                    <th>Username</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($users as $user) : ?>
+                                <tr>
+                                    <td class="student-id"><?= $user->student_id; ?></td>
+                                    <td><?= $user->student_first_name; ?></td>
+                                    <td><?= $user->student_last_name; ?></td>
+                                    <td><?= $user->student_year; ?></td>
+                                    <td><?= $user->student_course;?></td>
+                                    <td><?= $user->student_username; ?></td>
+                                    <td class="primary table-action-container">
+                                        <a href="edit_student_info.php?edit=<?= $user->student_id?>">Update</a>
+                                        <a href="student_view.php?details=<?= $user->student_id?>">View Details</a>
+                                            <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
+                                            <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
+                                                <span class="material-symbols-outlined">delete</span>
+                                            </button> -->
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                            <tfoot>
+                                <tr>
+                                    <th>Student ID</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Year</th>
+                                    <th>Course</th>
+                                    <th>Username</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
                     
-                        <thead>
-                            <tr>
-                                <th>Student ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Year</th>
-                                <th>Course</th>
-                                <th>Username</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($users as $user) : ?>
-                            <tr>
-                                <td class="student-id"><?= $user->student_id; ?></td>
-                                <td><?= $user->student_first_name; ?></td>
-                                <td><?= $user->student_last_name; ?></td>
-                                <td><?= $user->student_year; ?></td>
-                                <td><?= $user->student_course;?></td>
-                                <td><?= $user->student_username; ?></td>
-                                <td class="primary table-action-container">
-                                    <a href="edit_student_info.php?edit=<?= $user->student_id?>">Update</a>
-                                    <a href="student_view.php?details=<?= $user->student_id?>">View Details</a>
-                                        <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
-                                        <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
-                                            <span class="material-symbols-outlined">delete</span>
-                                        </button> -->
-                                </td>
-                            </tr>
-                            <?php endforeach; ?>
-                        <tfoot>
-                            <tr>
-                                <th>Student ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Year</th>
-                                <th>Course</th>
-                                <th>Username</th>
-                                <th>Actions</th>
-                            </tr>
-                        </tfoot>
-                    </table>
                 </div>
             </div>
             

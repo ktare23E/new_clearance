@@ -697,6 +697,18 @@ main .recent-orders-student {
 
 }
 
+table input[type="checkbox"] {
+    appearance: auto !important;
+}
+
+.student-tbl-container {
+    background: var(--color-white);
+}
+
+table thead tr th, table tbody tr td {
+    text-align: center !important;
+} 
+
 .upload-student-csv-container form .form-input-file-csv-container .submit-csv-file-button {
     background: none;
     color: var(--color-dark);
