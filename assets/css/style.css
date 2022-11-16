@@ -297,6 +297,17 @@ main .student-registration {
     background: var(--color-background);
 }
 
+#back-button-to-office {
+    cursor: pointer;
+    color: var(--color-dark);
+    padding: 7px;
+    transition: all 150ms ease;
+    display: flex;
+    border-radius: 50%;
+    background: var(--color-background);
+}
+
+
 
 .student-view-top {
     margin-top: 20px;
@@ -331,6 +342,9 @@ main .student-registration {
 }
 
 #back-button-to-student:hover {
+    background: gray;
+}
+#back-button-to-office:hover {
     background: gray;
 }
 .back-button a:hover {

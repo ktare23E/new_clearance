@@ -13,7 +13,7 @@
         echo "<h1>There's an error while viewing details.</h1>";
     }else{
         $id = $_GET['details'];
-        $sql = "SELECT * FROM student WHERE student_id = '$id'";
+        $sql = "SELECT * FROM office WHERE office_id = '$id'";
         $students = $conn->query($sql) or die($conn->error);
         $row = $students->fetch_assoc();
     
@@ -105,20 +105,20 @@
             <div class="student-view-top">
                 
                 <div class="action-button-container">
-                    <a href="student.php">
+                    <a href="office.php">
                         <button id="back-button-to-student">
                             <span class="material-symbols-sharp">arrow_back</span>
                         </button>
                     </a>
-                    <button onclick="location.href = 'edit_student_info.php?edit=<?= $row['student_id'];?>';" class="edit-profile-button" id="edit-profile-button">
+                    <button onclick="location.href = 'edit_office_info.php?edit=<?= $row['office_id'];?>';" class="edit-profile-button" id="edit-profile-button">
                         <span class="material-symbols-sharp">edit</span>
                         <h3>Edit Profile</h3>
                     </button>
                 </div>
-                <h1><span><?= $row['student_first_name']; ?></span><span>&nbsp;</span><span><?= $row['student_last_name'];?></span></h1>
+                <h1><span><?= $row['office_name']; ?></span><span>&nbsp;</span></h1>
                 <div class="icons-course-year-container">
                     <span class="material-symbols-sharp">person_outline</span>
-                    <h2><span><?= $row['student_course'];?>&nbsp;-</span><span>&nbsp;<?= $row['student_year'];?></span></h2>
+                    <!-- <h2><span><?= $row['student_course'];?>&nbsp;-</span><span>&nbsp;<?= $row['student_year'];?></span></h2> -->
                 </div>
                 
             </div>
@@ -137,50 +137,50 @@
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">
                                     <span class="material-symbols-sharp">badge</span>
-                                    <h2 class="label">Student Id :</h2><span>&emsp;&nbsp;&nbsp;</span>
+                                    <h2 class="label">Office Id :</h2><span>&emsp;&nbsp;&nbsp;</span>
                                 </div>
                                 
-                                <h2><?php echo $row['student_id']?></h2>
+                                <h2><?php echo $row['office_id']?></h2>
                             </div>
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">
                                     <span class="material-symbols-sharp">person_outline</span>
-                                    <h2 class="label">Name :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+                                    <h2 class="label">Office Name :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;&emsp;</span>
                                 </div>
                                 
-                                <h2><span><?= $row['student_first_name']; ?></span><span>&nbsp;</span><span><?= $row['student_last_name'];?></span></h2>
+                                <h2><span><?= $row['office_name']; ?></span></h2>
                             </div>
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">
                                     <span class="material-symbols-sharp">contact_mail</span>
-                                    <h2 class="label">Username :</h2><span>&emsp;&nbsp;</span>
+                                    <h2 class="label">Office Email :</h2><span>&emsp;&nbsp;</span>
                                 </div>
                                 
-                                <h2><span><?= $row['student_username'] ?></span></h2>
+                                <h2><span><?= $row['office_email'] ?></span></h2>
                             </div>
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">
                                     <span class="material-symbols-sharp">menu_book</span>
-                                <h2 class="label">Course :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;</span>
+                                <h2 class="label">Phone Number :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;</span>
                                 </div>
                                 
-                                <h2><span><?= $row['student_course'];?></span></h2>
+                                <h2><span><?= $row['office_phone_number'];?></span></h2>
                             </div>
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">
                                     <span class="material-symbols-sharp">timeline</span>
-                                    <h2 class="label">Year :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+                                    <h2 class="label">Office Status :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
                                 </div>
                                 
-                                <h2><span><?= $row['student_year'];?></span></h2>
+                                <h2><span><?= $row['office_status'];?></span></h2>
                             </div>
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">
                                     <span class="material-symbols-sharp">corporate_fare</span>
-                                    <h2 class="label">Department :</h2><span class="removable-span">&emsp;&emsp;</span>
+                                    <h2 class="label">Office Description :</h2><span class="removable-span">&emsp;&emsp;</span>
                                 </div>
                                 
-                                <h2><span>SICT</span></h2>
+                                <h2><span><?= $row['office_description']?></span></h2>
                             </div>
                             <div class="student-info-name-container clearance-status-btn-container">
                                 <button id="clearance-status-button">Clearance Status</button>

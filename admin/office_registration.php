@@ -1,6 +1,8 @@
 <?php
     include_once 'header.php';
-    $users = $db->result('student');
+    $users1 = $db->result('office');
+    $users = $db->result('offices');
+
 
 ?>
     <div class="container-student">
@@ -28,6 +30,10 @@
                 <a href="/office.html">
                     <span class="material-symbols-sharp">meeting_room</span>
                     <h3>Office</h3>
+                </a>
+                <a href="office_account.php">
+                    <span class="material-symbols-sharp">meeting_room</span>
+                    <h3>Office Account</h3>
                 </a>
                 <a href="/school-year-sem.html">
                     <span class="material-symbols-sharp">calendar_month</span>
@@ -82,7 +88,7 @@
     
             </div>
 
-            <h1>Student Account</h1>
+            <h1>Office Account</h1>
 
             <div class="form-and-table-container">
 
@@ -90,55 +96,42 @@
                 <div class="student-registration">
                     <div class="form signup">
                         <div class="back-button">
-                            <button id="back-button-to-student">
+                            <a href="office.php">
+                                <button id="back-button-to-office">
                                 <span class="material-symbols-sharp">arrow_back</span>
                             </button>
+                            </a>
+                            
                         </div>
-                        <span class="title">Add New Student</span>
+                        <span class="title">Add New Office</span>
         
-                        <form action="insert_student.php" method="POST">
-                            <div class="input-field">
-                                    <input type="text" placeholder="Student Id" name="student_id" required>
-                                    <i class="uil uil-keyhole-circle"></i>
-                            </div>
-
+                        <form action="insert_office.php" method="POST">
                             <div class="input-field-container">
                                 <div class="input-field">
-                                    <input type="text" name="student_first_name" placeholder="First Name" required>
+                                    <input type="text" name="office_name" placeholder="Office Name" required>
                                     <i class="uil uil-user"></i>
                                 </div>
                                 <div class="input-field">
-                                    <input type="text" name="student_last_name" placeholder="Last Name" required>
-                                    <i class="uil uil-user"></i>
-                                </div>
-                            </div>
-                            <div class="input-field-container">
-                                <div class="input-field">
-                                    <input type="text" name="student_year" placeholder="Year" required>
-                                    <i class="uil uil-user"></i>
-                                </div>
-                                <div class="input-field">
-                                    <input type="text" name="student_course" placeholder="Course" required>
+                                    <input type="email" name="office_email" placeholder="Office Email" required>
                                     <i class="uil uil-envelope icon"></i>
                                 </div>
                             </div>
                             <div class="input-field-container">
                                 <div class="input-field">
-                                    <input type="text" placeholder="Username" name="student_username" required>
-                                    <i class="uil uil-envelope icon"></i>
+                                    <input type="text" name="office_phone_number" placeholder="Office Phone Number" required>
+                                    <i class="uil uil-user"></i>
                                 </div>
                                 <div class="input-field">
-                                    <input type="password" name="student_password" class="password" placeholder="Create a password" required>
-                                    <i class="uil uil-lock icon"></i>
-                                    <i class="uil uil-eye-slash showHidePw"></i>
+                                    <label for="">Office Description</label>
+                                    <textarea style="border-style: 1px solid;" name="office_description" id="" rows="4" cols="50"></textarea>
                                 </div>
                             </div>
-                                
-                                
-                            
-                            
-                                
-                            
+                            <div class="input-field-container">
+                                <div class="input-field">
+                                    <input type="text" placeholder="Office Status" name="office_status" required>
+                                    <i class="uil uil-envelope icon"></i>
+                                </div>
+                            </div>
                             <div class="input-field button">
                                 <input type="submit" value="Create Account">
                             </div>

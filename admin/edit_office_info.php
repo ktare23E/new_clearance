@@ -8,16 +8,17 @@
         echo "<h1>There's an error while viewing details.</h1>";
     }else{
         $id = $_GET['edit'];
-        $sql = "SELECT * FROM student WHERE student_id = '$id'";
+        $sql = "SELECT * FROM office WHERE office_id = '$id'";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_assoc($result);
-        $student_id = $row['student_id'];
-        $student_fname = $row['student_first_name'];
-        $student_lname = $row['student_last_name'];
-        $student_year = $row['student_year'];
-        $student_course = $row['student_course'];
-        $student_username = $row['student_username'];
-        $student_password = $row['student_password'];
+
+        $office_id = $row['office_id'];
+        $office_name = $row['office_name'];
+        $office_email = $row['office_email'];
+        $office_phone_number = $row['office_phone_number'];
+        $office_description = $row['office_description'];
+        $office_status = $row['office_status'];
+    
         
 
     
@@ -107,7 +108,7 @@
     
             </div>
 
-            <h1>Student Account</h1>
+            <h1>Office</h1>
 
             <div class="form-and-table-container">
 
@@ -115,50 +116,40 @@
                 <div class="student-registration">
                     <div class="form signup">
                         <div class="back-button action-button-container">
-                            <a href="student.php">
+                            <a href="office.php">
                                 <button id="back-button-to-student">
                                     <span class="material-symbols-sharp">arrow_back</span>
                                 </button>
                             </a>
                         </div>
-                        <span class="title">Edit Student Information</span>
+                        <span class="title">Edit Office Information</span>
 
-                    <form action="update.php" method="POST">
-                        <div class="input-field">
-                            <input type="text" placeholder="Student Id" name="student_id" required value="<?php echo $student_id; ?>">
-                            <i class="uil uil-keyhole-circle"></i>
-                            <input type="hidden" name="students_id" value="<?php echo $student_id; ?>">
-                        </div>
-
+                    <form action="update_office.php" method="POST">
                         <div class="input-field-container">
                             <div class="input-field">
-                                <input type="text" name="student_first_name" placeholder="First Name" required value="<?php echo $student_fname; ?>">
+                                <input type="hidden" name="office_id" value="<?= $office_id?>">
+                                <input type="text" name="office_name" placeholder="Office Name" required value="<?php echo $office_name; ?>">
                                 <i class="uil uil-user"></i>
                             </div>
                             <div class="input-field">
-                                <input type="text" name="student_last_name" placeholder="Last Name" required value="<?php echo $student_lname; ?>">
+                                <input type="email" name="office_email" placeholder="Office Email" required value="<?php echo $office_email; ?>">
                                 <i class="uil uil-user"></i>
                             </div>
                         </div>
                         <div class="input-field-container">
                             <div class="input-field">
-                                <input type="text" name="student_year" placeholder="Year" required value="<?php echo $student_year; ?>">
+                                <input type="text" name="office_phone_number" placeholder="Office Phone Number" required value="<?php echo $office_phone_number; ?>">
                                 <i class="uil uil-user"></i>
                             </div>
                             <div class="input-field">
-                                <input type="text" name="student_course" placeholder="Course" required value="<?php echo $student_course; ?>">
-                                <i class="uil uil-envelope icon"></i>
-                            </div>
+                                    <input type="text" placeholder="Office Status" name="office_status" required value="<?= $office_status?>">
+                                    <i class="uil uil-envelope icon"></i>
+                                </div>
                         </div>
                         <div class="input-field-container">
                             <div class="input-field">
-                                <input type="text" placeholder="Username" name="student_username" value="<?php echo $student_username; ?>" required>
-                                <i class="uil uil-envelope icon"></i>
-                            </div>
-                            <div class="input-field">
-                                <input type="password" name="student_password" class="password" placeholder="Create a password" value="<?php echo $student_password; ?>" required>
-                                <i class="uil uil-lock icon"></i>
-                                <i class="uil uil-eye-slash showHidePw"></i>
+                                <label for="">Office Description</label>
+                                <textarea style="border-style: 1px solid;" name="office_description" id="" rows="4" cols="50"><?= $office_description?></textarea>
                             </div>
                         </div>
                         <div class="input-field button">

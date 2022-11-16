@@ -25,9 +25,13 @@
                     <span class="material-symbols-sharp">person_outline</span>
                     <h3>Student</h3>
                 </a>
-                <a href="/office.html">
+                <a href="office.php">
                     <span class="material-symbols-sharp">meeting_room</span>
                     <h3>Office</h3>
+                </a>
+                <a href="office_account.php">
+                    <span class="material-symbols-sharp">meeting_room</span>
+                    <h3>Office Account</h3>
                 </a>
                 <a href="/school-year-sem.html">
                     <span class="material-symbols-sharp">calendar_month</span>
@@ -133,12 +137,6 @@
                                     <i class="uil uil-eye-slash showHidePw"></i>
                                 </div>
                             </div>
-                                
-                                
-                            
-                            
-                                
-                            
                             <div class="input-field button">
                                 <input type="submit" value="Create Account">
                             </div>
