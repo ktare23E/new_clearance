@@ -1,7 +1,8 @@
 <?php
     include_once 'header.php';
-        $users = $db->result('office');
-    // $users = $db->result('offices');
+
+        // $users = $db->result('office_account');
+    $users = $db->result('offices');
     // $users = $db->result('office_account');
 
     
@@ -89,43 +90,37 @@
     
             </div>
 
-            <h1>Office</h1>
-        
+            <h1>Office Account</h1>
+
             <div class="form-and-table-container">
                 
                 <!-- -------------  TABLE OF STUDENT INFORMATION -------------- -->
                 <div class="recent-orders-student">
                     <div class="add-button-container">
                         <div>
-                            <a href="office_registration.php">
-                                <button id="add-new-student">Add new office</button>
+                            <a href="office_account_registration.php">
+                                <button id="add-new-student">Add new office account</button>
                             </a>
                         </div>
                     </div>
 
                     <div class="h2-container">
-                            <h2>Office List</h2>
+                            <h2>Office Account List</h2>
                     </div>
 
                     <table id="example" class="display" style="width:100%">
                         <thead>
                             <tr>
-                                <th></th>
                                 <th>Office Name</th>
-                                <th>Office Email</th>
-                                <th>Office Phone Number</th>
-                                <th>Office Status</th>
+                                <th>Office Account Username</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($users as $user) : ?>
                             <tr>
-                                <td><input type="checkbox"></td>
                                 <td><?= $user->office_name; ?></td>
-                                <td><?= $user->office_email; ?></td>
-                                <td><?= $user->office_phone_number; ?></td>
-                                <td><?= $user->office_status; ?></td>
+                                <td><?= $user->office_account_username; ?></td>
                                 <td class="primary table-action-container">
                                     <a href="edit_office_info.php?edit=<?= $user->office_id?>">Update</a>
                                     <a href="office_view.php?details=<?= $user->office_id?>">View Details</a>
@@ -139,9 +134,7 @@
                         <tfoot>
                             <tr>
                                 <th>Office Name</th>
-                                <th>Office Email</th>
-                                <th>Office Phone Number</th>
-                                <th>Office Status</th>
+                                <th>Office Account Username</th>
                                 <th>Actions</th>
                             </tr>
                         </tfoot>
