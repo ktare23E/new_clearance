@@ -8,16 +8,14 @@
         echo "<h1>There's an error while viewing details.</h1>";
     }else{
         $id = $_GET['edit'];
-        $sql = "SELECT * FROM office WHERE office_id = '$id'";
+        $sql = "SELECT * FROM course WHERE course_id = '$id'";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_assoc($result);
 
-        $office_id = $row['office_id'];
-        $office_name = $row['office_name'];
-        $office_email = $row['office_email'];
-        $office_phone_number = $row['office_phone_number'];
-        $office_description = $row['office_description'];
-        $office_status = $row['office_status'];
+        $course_id = $row['course_id'];
+        $course_name = $row['course_name'];
+        $course_description = $row['course_description'];
+        $course_status = $row['course_status'];
     
         
 
@@ -64,40 +62,30 @@
                 <div class="student-registration">
                     <div class="form signup">
                         <div class="back-button action-button-container">
-                            <a href="office.php">
+                            <a href="department.php">
                                 <button id="back-button-to-student">
                                     <span class="material-symbols-sharp">arrow_back</span>
                                 </button>
                             </a>
                         </div>
-                        <span class="title">Edit Office Information</span>
+                        <span class="title">Edit Course Information</span>
 
-                    <form action="update_office.php" method="POST">
+                    <form action="update_course.php" method="POST">
                         <div class="input-field-container">
                             <div class="input-field">
-                                <input type="hidden" name="office_id" value="<?= $office_id?>">
-                                <input type="text" name="office_name" placeholder="Office Name" required value="<?php echo $office_name; ?>">
+                                <input type="hidden" name="course_id" value="<?= $course_id?>">
+                                <input type="text" name="course_name" placeholder="Department Name" required value="<?php echo $course_name; ?>">
                                 <i class="uil uil-user"></i>
                             </div>
                             <div class="input-field">
-                                <input type="email" name="office_email" placeholder="Office Email" required value="<?php echo $office_email; ?>">
-                                <i class="uil uil-user"></i>
-                            </div>
-                        </div>
-                        <div class="input-field-container">
-                            <div class="input-field">
-                                <input type="text" name="office_phone_number" placeholder="Office Phone Number" required value="<?php echo $office_phone_number; ?>">
-                                <i class="uil uil-user"></i>
-                            </div>
-                            <div class="input-field">
-                                    <input type="text" placeholder="Office Status" name="office_status" required value="<?= $office_status?>">
+                                    <input type="text" placeholder="Course Status" name="course_status" required value="<?= $course_status?>">
                                     <i class="uil uil-envelope icon"></i>
                                 </div>
                         </div>
                         <div class="input-field-container">
                             <div class="input-field">
-                                <label for="">Office Description</label>
-                                <textarea style="border-style: 1px solid;" name="office_description" id="" rows="4" cols="50"><?= $office_description?></textarea>
+                                <label for="">Department Description</label>
+                                <textarea style="border-style: 1px solid;" name="course_description" id="" rows="4" cols="50"><?= $course_description?></textarea>
                             </div>
                         </div>
                         <div class="input-field button">

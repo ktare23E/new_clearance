@@ -8,16 +8,17 @@
         echo "<h1>There's an error while viewing details.</h1>";
     }else{
         $id = $_GET['edit'];
-        $sql = "SELECT * FROM student WHERE student_id = '$id'";
+        $sql = "SELECT * FROM department WHERE department_id = '$id'";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_assoc($result);
-        $student_id = $row['student_id'];
-        $student_fname = $row['student_first_name'];
-        $student_lname = $row['student_last_name'];
-        $student_year = $row['student_year'];
-        $student_course = $row['student_course'];
-        $student_username = $row['student_username'];
-        $student_password = $row['student_password'];
+
+        $department_id = $row['department_id'];
+        $department_name = $row['department_name'];
+        $department_email = $row['department_email'];
+        $department_phone_number = $row['department_phone_number'];
+        $department_description = $row['department_description'];
+        $department_status = $row['department_status'];
+    
         
 
     
@@ -55,7 +56,7 @@
     
             </div>
 
-            <h1>Student Account</h1>
+            <h1>Office</h1>
 
             <div class="form-and-table-container">
 
@@ -63,54 +64,44 @@
                 <div class="student-registration">
                     <div class="form signup">
                         <div class="back-button action-button-container">
-                            <a href="student.php">
+                            <a href="department.php">
                                 <button id="back-button-to-student">
                                     <span class="material-symbols-sharp">arrow_back</span>
                                 </button>
                             </a>
                         </div>
-                        <span class="title">Edit Student Information</span>
+                        <span class="title">Edit Department Information</span>
 
-                    <form action="update_student.php" method="POST">
-                        <div class="input-field">
-                            <input type="text" placeholder="Student Id" name="student_id" required value="<?php echo $student_id; ?>">
-                            <i class="uil uil-keyhole-circle"></i>
-                            <input type="hidden" name="students_id" value="<?php echo $student_id; ?>">
-                        </div>
-
+                    <form action="update_department.php" method="POST">
                         <div class="input-field-container">
                             <div class="input-field">
-                                <input type="text" name="student_first_name" placeholder="First Name" required value="<?php echo $student_fname; ?>">
+                                <input type="hidden" name="department_id" value="<?= $department_id?>">
+                                <input type="text" name="department_name" placeholder="Department Name" required value="<?php echo $department_name; ?>">
                                 <i class="uil uil-user"></i>
                             </div>
                             <div class="input-field">
-                                <input type="text" name="student_last_name" placeholder="Last Name" required value="<?php echo $student_lname; ?>">
+                                <input type="email" name="department_email" placeholder="Department Email" required value="<?php echo $department_email; ?>">
                                 <i class="uil uil-user"></i>
                             </div>
                         </div>
                         <div class="input-field-container">
                             <div class="input-field">
-                                <input type="text" name="student_year" placeholder="Year" required value="<?php echo $student_year; ?>">
+                                <input type="text" name="department_phone_number" placeholder="Department Phone Number" required value="<?php echo $department_phone_number; ?>">
                                 <i class="uil uil-user"></i>
                             </div>
                             <div class="input-field">
-                                <input type="text" name="student_course" placeholder="Course" required value="<?php echo $student_course; ?>">
-                                <i class="uil uil-envelope icon"></i>
-                            </div>
+                                    <input type="text" placeholder="Department Status" name="department_status" required value="<?= $department_status?>">
+                                    <i class="uil uil-envelope icon"></i>
+                                </div>
                         </div>
                         <div class="input-field-container">
                             <div class="input-field">
-                                <input type="text" placeholder="Username" name="student_username" value="<?php echo $student_username; ?>" required>
-                                <i class="uil uil-envelope icon"></i>
-                            </div>
-                            <div class="input-field">
-                                <input type="password" name="student_password" class="password" placeholder="Create a password" value="<?php echo $student_password; ?>" required>
-                                <i class="uil uil-lock icon"></i>
-                                <i class="uil uil-eye-slash showHidePw"></i>
+                                <label for="">Department Description</label>
+                                <textarea style="border-style: 1px solid;" name="department_description" id="" rows="4" cols="50"><?= $department_description?></textarea>
                             </div>
                         </div>
                         <div class="input-field button">
-                            <input type="submit" class="update" name="update" value="Update Account">
+                            <input type="submit" name="update" value="Update Account">
                         </div>
                 </form>
             </div>
@@ -125,26 +116,11 @@
 
     <?php }?>
 
-    
+    <script defer src="../assets/js//modal.js"></script>
     <script src="../assets/js/index.js"></script>
     <script defer src="../assets/js/active.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-        <script>
-            //jquery  for success update message
-            $(document).ready(function(){
-                $('.update').click(function(){
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: 'Student Account Updated',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                });
-            });
-
-        </script>
 
 </body>
 </html>

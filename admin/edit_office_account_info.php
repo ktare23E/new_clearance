@@ -8,20 +8,14 @@
         echo "<h1>There's an error while viewing details.</h1>";
     }else{
         $id = $_GET['edit'];
-        $sql = "SELECT * FROM office WHERE office_id = '$id'";
+        $sql = "SELECT * FROM office_account WHERE office_account_id = '$id'";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_assoc($result);
 
-        $office_id = $row['office_id'];
-        $office_name = $row['office_name'];
-        $office_email = $row['office_email'];
-        $office_phone_number = $row['office_phone_number'];
-        $office_description = $row['office_description'];
-        $office_status = $row['office_status'];
-    
-        
+        $office_account_id = $row['office_account_id'];
+        $office_account_username = $row['office_account_username'];
+        $office_account_password = $row['office_account_password'];
 
-    
 
 ?>
 
@@ -56,7 +50,7 @@
     
             </div>
 
-            <h1>Office</h1>
+            <h1>Office Account</h1>
 
             <div class="form-and-table-container">
 
@@ -64,40 +58,24 @@
                 <div class="student-registration">
                     <div class="form signup">
                         <div class="back-button action-button-container">
-                            <a href="office.php">
+                            <a href="office_account.php">
                                 <button id="back-button-to-student">
                                     <span class="material-symbols-sharp">arrow_back</span>
                                 </button>
                             </a>
                         </div>
-                        <span class="title">Edit Office Information</span>
+                        <span class="title">Edit Office Account Information</span>
 
                     <form action="update_office.php" method="POST">
                         <div class="input-field-container">
                             <div class="input-field">
-                                <input type="hidden" name="office_id" value="<?= $office_id?>">
-                                <input type="text" name="office_name" placeholder="Office Name" required value="<?php echo $office_name; ?>">
+                                <input type="hidden" name="office_account_id" value="<?= $office_id?>">
+                                <input type="text" name="office_account_username" placeholder="Office Account Username" required value="<?php echo $office_account_username; ?>">
                                 <i class="uil uil-user"></i>
                             </div>
                             <div class="input-field">
-                                <input type="email" name="office_email" placeholder="Office Email" required value="<?php echo $office_email; ?>">
+                                <input type="email" name="office_account_password" placeholder="Office Password" required value="<?php echo $office_account_password; ?>">
                                 <i class="uil uil-user"></i>
-                            </div>
-                        </div>
-                        <div class="input-field-container">
-                            <div class="input-field">
-                                <input type="text" name="office_phone_number" placeholder="Office Phone Number" required value="<?php echo $office_phone_number; ?>">
-                                <i class="uil uil-user"></i>
-                            </div>
-                            <div class="input-field">
-                                    <input type="text" placeholder="Office Status" name="office_status" required value="<?= $office_status?>">
-                                    <i class="uil uil-envelope icon"></i>
-                                </div>
-                        </div>
-                        <div class="input-field-container">
-                            <div class="input-field">
-                                <label for="">Office Description</label>
-                                <textarea style="border-style: 1px solid;" name="office_description" id="" rows="4" cols="50"><?= $office_description?></textarea>
                             </div>
                         </div>
                         <div class="input-field button">

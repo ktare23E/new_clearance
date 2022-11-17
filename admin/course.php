@@ -1,6 +1,6 @@
 <?php
     include_once 'header.php';
-        $users = $db->result('office');
+        $users = $db->result('course');
     // $users = $db->result('offices');
     // $users = $db->result('office_account');
 
@@ -37,7 +37,7 @@
     
             </div>
 
-            <h1>Office</h1>
+            <h1>Course</h1>
         
             <div class="form-and-table-container">
                 
@@ -45,24 +45,23 @@
                 <div class="recent-orders-student">
                     <div class="add-button-container">
                         <div>
-                            <a href="office_registration.php">
-                                <button id="add-new-student">Add new office</button>
+                            <a href="course_registration.php">
+                                <button id="add-new-student">Add new course</button>
                             </a>
                         </div>
                     </div>
 
                     <div class="h2-container">
-                            <h2>Office List</h2>
+                            <h2>Course List</h2>
                     </div>
 
                     <table id="example" class="display" style="width:100%">
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>Office Name</th>
-                                <th>Office Email</th>
-                                <th>Office Phone Number</th>
-                                <th>Office Status</th>
+                                <th>Course Name</th>
+                                <th>Course Status</th>
+                                <th>Department Name</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -70,13 +69,13 @@
                             <?php foreach ($users as $user) : ?>
                             <tr>
                                 <td><input type="checkbox"></td>
-                                <td><?= $user->office_name; ?></td>
-                                <td><?= $user->office_email; ?></td>
-                                <td><?= $user->office_phone_number; ?></td>
-                                <td><?= $user->office_status; ?></td>
+                                <td><?= $user->course_name; ?></td>
+                                <td><?= $user->course_status; ?></td>
+                                <td><?= $user->course_description ?></td>
+                                <!-- <td><?= $user->department_status; ?></td> -->
                                 <td class="primary table-action-container">
-                                    <a href="edit_office_info.php?edit=<?= $user->office_id?>">Update</a>
-                                    <a href="office_view.php?details=<?= $user->office_id?>">View Details</a>
+                                    <a href="edit_course_info.php?edit=<?= $user->course_id?>">Update</a>
+                                    <a href="course_view.php?details=<?= $user->course_id?>">View Details</a>
                                         <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
                                         <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
                                             <span class="material-symbols-outlined">delete</span>
@@ -87,10 +86,9 @@
                         <tfoot>
                             <tr>
                                 <th></th>
-                                <th>Office Name</th>
-                                <th>Office Email</th>
-                                <th>Office Phone Number</th>
-                                <th>Office Status</th>
+                                <th>Course Name</th>
+                                <th>Course Status</th>
+                                <th>Department Name</th>
                                 <th>Actions</th>
                             </tr>
                         </tfoot>

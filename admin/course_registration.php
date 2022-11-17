@@ -1,7 +1,7 @@
 <?php
     include_once 'header.php';
-    $users1 = $db->result('office');
-    $users = $db->result('offices');
+    // $users1 = $db->result('office');
+    // $users = $db->result('offices');
 
 
 ?>
@@ -36,7 +36,7 @@
     
             </div>
 
-            <h1>Office Account</h1>
+            <h1>Course</h1>
 
             <div class="form-and-table-container">
 
@@ -44,34 +44,34 @@
                 <div class="student-registration">
                     <div class="form signup">
                         <div class="back-button">
-                            <a href="office.php">
+                            <a href="course.php">
                                 <button id="back-button-to-office">
                                 <span class="material-symbols-sharp">arrow_back</span>
                             </button>
                             </a>
                             
                         </div>
-                        <span class="title">Add New Office</span>
+                        <span class="title">Add New Course</span>
         
-                        <form action="insert_office_account.php" method="POST">
+                        <form action="insert_course.php" method="POST">
                             <div class="input-field-container">
                                 <div class="input-field">
-                                    <input type="text" name="office_account_username" placeholder="Office Account Username" required>
+                                    <input type="text" name="course_name" placeholder="Course Name" required>
                                     <i class="uil uil-user"></i>
                                 </div>
                                 <div class="input-field">
-                                    <input type="text" name="office_account_password" placeholder="Office Account Password" required>
+                                    <input type="text" placeholder="Course Status" name="course_status" required>
                                     <i class="uil uil-envelope icon"></i>
                                 </div>
                             </div>
                             <div class="input-field-container">
                                 <div class="input-field">
-                                    <input type="text" placeholder="Office Account Status" name="office_account_status" required>
-                                    <i class="uil uil-envelope icon"></i>
+                                    <label for="">Department Description</label>
+                                    <textarea style="border-style: 1px solid;" name="department_description" id="" rows="4" cols="50"></textarea>
                                 </div>
                             </div>
                             <div class="input-field button">
-                                <input type="submit" value="Create Account">
+                                <input type="submit" value="Create Course">
                             </div>
                         </form>
                     </div>
