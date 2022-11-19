@@ -6,9 +6,61 @@
 ?>
     <div class="container-student">
         <!-- sidebar -->
-        <?php
-                include_once 'aside.php';
-        ?>
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="../images/logo.png" alt="">
+                    <h2>NMSC<span class="danger">CLEARANCE</span> </h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-symbols-sharp">close</span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="index.php">
+                    <span class="material-symbols-sharp">grid_view</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="student.php">
+                    <span class="material-symbols-sharp">person_outline</span>
+                    <h3>Student</h3>
+                </a>
+                <a href="office.php">
+                    <span class="material-symbols-sharp">meeting_room</span>
+                    <h3>Office</h3>
+                </a>
+                <a href="office_account.php">
+                    <span class="material-symbols-sharp">meeting_room</span>
+                    <h3>Office Account</h3>
+                </a>
+                <a href="/school-year-sem.html">
+                    <span class="material-symbols-sharp">calendar_month</span>
+                    <h3>School Year and Sem</h3>
+                </a>
+                <a href="signing-office.html">
+                    <span class="material-symbols-sharp">edit_note</span>
+                    <h3>Signing Office</h3>
+                    <span class="message-count">26</span>
+                </a>
+                <a href="clearance.html">
+                    <span class="material-symbols-sharp">inventory</span>
+                    <h3>Clearance</h3>
+                </a>
+                <a href="/department.html">
+                    <span class="material-symbols-sharp">corporate_fare</span>
+                    <h3>Department</h3>
+                </a>
+                <a href="/reports.html">
+                    <span class="material-symbols-sharp">report</span>
+                    <h3>Reports</h3>
+                </a>
+                <a href="../logout.php">
+                    <span class="material-symbols-sharp">logout</span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
         <!------------------ END OF ASIDE ---------------->
 
         <main class="main-student">
@@ -50,7 +102,7 @@
                         <div>
                             <div class="upload-student-csv-container">
                                 <label for="" class="label-csv">Register Via .csv file</label>
-                                <form action="student_upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
+                                <form action="upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
                                     <div class="form-input-file-csv-container">
                                             <label for="input-file">Choose CSV File</label>
                                             <input type="file" name="file" accept=".csv" id="input-file">
@@ -94,10 +146,10 @@
                                 <td class="primary table-action-container">
                                     <a href="edit_student_info.php?edit=<?= $user->student_id?>">Update</a>
                                     <a href="student_view.php?details=<?= $user->student_id?>">View Details</a>
-                                        <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> 
-                                        <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
+                                        <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
+                                        <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
                                             <span class="material-symbols-outlined">delete</span>
-                                        </button>
+                                        </button> -->
                                 </td>
                             </tr>
                             <?php endforeach; ?>
