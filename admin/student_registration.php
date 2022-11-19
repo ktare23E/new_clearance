@@ -70,8 +70,37 @@
                                     <i class="uil uil-user"></i>
                                 </div>
                                 <div class="input-field">
-                                    <input type="text" name="student_course" placeholder="Course" required>
-                                    <i class="uil uil-envelope icon"></i>
+                                    <label for="">Course</label>
+                                    <select name="course_id" id="">
+                                            <?php $courses = $db->result('course');?>
+                                            <?php foreach($courses as $course):?>
+                                            <?php if($course->course_id == $course_id):?>  
+                                            <option value="<?= $course->course_id; ?>" selected><?= $course->course_name; ?></option>
+                                            <?php else:?>
+                                                <option value="<?= $course->course_id; ?>" selected><?= $course->course_name; ?></option>
+                                            <?php endif;?>
+                                            <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="input-field-container">
+                                <div class="input-field">
+                                    <input type="email" name="student_email" placeholder="Email Address" required>
+                                    <i class="uil uil-email"></i>
+                                </div>
+                                <div class="input-field">
+                                    <label for="">Gender</label>
+                                    <select name="student_gender" id="">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </div>
+                                <div class="input-field">
+                                    <label for="">Student Status</label>
+                                    <select name="student_status" id="">
+                                        <option value="Active">Active</option>
+                                        <option value="Inactive">Inactive</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="input-field-container">

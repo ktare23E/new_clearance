@@ -1,7 +1,8 @@
 <?php
     include_once 'header.php';
-    $users1 = $db->result('office');
-    $users = $db->result('offices');
+    // $users1 = $db->result('office');
+    $users = $db->result('admin');
+    
 
 
 ?>
@@ -44,32 +45,47 @@
                 <div class="student-registration">
                     <div class="form signup">
                         <div class="back-button">
-                            <a href="office.php">
+                            <a href="office_account.php">
                                 <button id="back-button-to-office">
                                 <span class="material-symbols-sharp">arrow_back</span>
                             </button>
                             </a>
                             
                         </div>
-                        <span class="title">Add New Office</span>
+                        <span class="title">Add New User Account</span>
         
                         <form action="insert_office_account.php" method="POST">
                             <div class="input-field-container">
-                                <div class="input-field">
-                                    <input type="text" name="office_account_username" placeholder="Office Account Username" required>
+                            <div class="input-field">
+                                    <input type="text" name="admin_first_name" placeholder="First Name" required>
                                     <i class="uil uil-user"></i>
                                 </div>
                                 <div class="input-field">
-                                    <input type="text" name="office_account_password" placeholder="Office Account Password" required>
-                                    <i class="uil uil-envelope icon"></i>
+                                    <input type="text" name="admin_last_name" placeholder="Last Name" required>
+                                    <i class="uil uil-user"></i>
                                 </div>
-                            </div>
-                            <div class="input-field-container">
                                 <div class="input-field">
-                                    <input type="text" placeholder="Office Account Status" name="office_account_status" required>
+                                    <input type="text" name="admin_username" placeholder="Username" required>
+                                    <i class="uil uil-user"></i>
+                                </div>
+                                <div class="input-field">
+                                    <input type="text" name="admin_password" placeholder="Password" required>
                                     <i class="uil uil-envelope icon"></i>
                                 </div>
                             </div>
+                            <div class="input-field">
+                                    <label for="">Office Name</label>
+                                    <select name="office_id" id="">
+                                            <?php $offices = $db->result('office');?>
+                                            <?php foreach($offices as $office):?>
+                                            <?php if($office->office_id == $office_id):?>  
+                                            <option value="<?= $office->office_id; ?>" selected><?= $office->office_name; ?></option>
+                                            <?php else:?>
+                                                <option value="<?= $office->office_id; ?>"><?= $office->office_name; ?></option>
+                                            <?php endif;?>
+                                            <?php endforeach; ?>
+                                    </select>
+                                </div>
                             <div class="input-field button">
                                 <input type="submit" value="Create Account">
                             </div>

@@ -3,18 +3,23 @@
 require ('../dbconnect.php');
 
 
-$office_account_username    = $_POST['office_account_username'];
-$office_account_password      = $_POST['office_account_password'];
-$office_account_status  = $_POST['office_account_status'];
+$admin_first_name    = $_POST['admin_first_name'];
+$admin_last_name      = $_POST['admin_last_name'];
+$admin_username  = $_POST['admin_username'];
+$admin_password  = $_POST['admin_password'];
+$office_id = $_POST['office_id'];
+
 
 
 $data = array(
-    'office_account_username' => $office_account_username,
-    'office_account_password' => $office_account_password,
-    'office_account_status' => $office_account_status,
+    'admin_first_name' => $admin_first_name,
+    'admin_last_name' => $admin_last_name,
+    'admin_username' => $admin_username,
+    'admin_password' => $admin_password,
+    'office_id' => $office_id,
 );
 
-$insert = $db->insert('office_account', $data);
+$insert = $db->insert('admin', $data);
 
 if ($db->affected_rows >= 0) {
     header("location: office_account.php");

@@ -11,11 +11,15 @@
         $sql = "SELECT * FROM student WHERE student_id = '$id'";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_assoc($result);
+
         $student_id = $row['student_id'];
         $student_fname = $row['student_first_name'];
         $student_lname = $row['student_last_name'];
         $student_year = $row['student_year'];
-        $student_course = $row['student_course'];
+        $student_email = $row['student_email'];
+        $student_gender = $row['student_gender'];
+        $student_status = $row['student_status'];
+        $course_id = $row['course_id'];
         $student_username = $row['student_username'];
         $student_password = $row['student_password'];
         
@@ -94,27 +98,72 @@
                                 <i class="uil uil-user"></i>
                             </div>
                             <div class="input-field">
-                                <input type="text" name="student_course" placeholder="Course" required value="<?php echo $student_course; ?>">
-                                <i class="uil uil-envelope icon"></i>
-                            </div>
+                                    <label for="">Course</label>
+                                    <select name="course_id" id="">
+                                            <?php $courses = $db->result('course');?>
+                                            <?php foreach($courses as $course):?>
+                                            <?php if($course->course_id == $course_id):?>  
+                                            <option value="<?= $course->course_id; ?>" selected><?= $course->course_name; ?></option>
+                                            <?php else:?>
+                                                <option value="<?= $course->course_id; ?>" selected><?= $course->course_name; ?></option>
+                                            <?php endif;?>
+                                            <?php endforeach; ?>
+                                    </select>
+                                </div>
                         </div>
                         <div class="input-field-container">
-                            <div class="input-field">
-                                <input type="text" placeholder="Username" name="student_username" value="<?php echo $student_username; ?>" required>
-                                <i class="uil uil-envelope icon"></i>
+                                <div class="input-field">
+                                    <input type="email" name="student_email" placeholder="Email" required value="<?php echo $student_email; ?>">
+                                    <i class="uil uil-envelope"></i>
+                                </div>
+                                <div class="input-field">
+                                    <label for="">Gender</label>
+                                    <select name="student_gender" id="">
+                                        <?php if($student_gender === 'Male'):?>
+                                        <option value="<?= $student_gender; ?>" selected><?= $student_gender; ?></option>
+                                        <?php else:?>
+                                                <option value="Male">Male</option>
+                                            <?php endif;?>
+                                        <?php if($student_gender === 'Female'):?>
+                                        <option value="<?= $student_gender; ?>" selected><?= $student_gender; ?></option>
+                                        <?php else:?>
+                                                <option value="Female">Female</option>
+                                            <?php endif;?>
+                                    </select>
+                                </div>
+                                <div class="input-field">
+                                <label for="">Status</label>
+                                    <select name="student_status" id="">
+                                        <?php if($student_status === 'Active'):?>
+                                        <option value="<?= $student_status; ?>" selected><?= $student_status; ?></option>
+                                        <?php else:?>
+                                                <option value="Active">Active</option>
+                                            <?php endif;?>
+                                        <?php if($student_status === 'Inactive'):?>
+                                        <option value="<?= $student_status; ?>" selected><?= $student_status; ?></option>
+                                        <?php else:?>
+                                                <option value="Inactive">Inactive</option>
+                                            <?php endif;?>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="input-field">
-                                <input type="password" name="student_password" class="password" placeholder="Create a password" value="<?php echo $student_password; ?>" required>
-                                <i class="uil uil-lock icon"></i>
-                                <i class="uil uil-eye-slash showHidePw"></i>
+                            <div class="input-field-container">
+                                <div class="input-field">
+                                    <input type="text" placeholder="Username" value="<?= $student_username; ?>" name="student_username" required>
+                                    <i class="uil uil-envelope icon"></i>
+                                </div>
+                                <div class="input-field">
+                                    <input type="password" value="<?= $student_password; ?>" name="student_password" class="password" placeholder="Create a password" required>
+                                    <i class="uil uil-lock icon"></i>
+                                    <i class="uil uil-eye-slash showHidePw"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="input-field button">
-                            <input type="submit" class="update" name="update" value="Update Account">
-                        </div>
+                            <div class="input-field button">
+                                <input type="submit" class="update" name="update" value="Update Student">
+                            </div>
                 </form>
             </div>
-        </div>
+        </div> 
                 <!-- -------------  END OF REGISTRATION -------------- -->
             </div>
             

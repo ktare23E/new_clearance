@@ -35,7 +35,7 @@
                 </a>
                 <a href="office_account.php">
                     <span class="material-symbols-sharp">meeting_room</span>
-                    <h3>Office Account</h3>
+                    <h3>Users Account</h3>
                 </a>
                 <a href="/school-year-sem.html">
                     <span class="material-symbols-sharp">calendar_month</span>

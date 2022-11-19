@@ -1,6 +1,6 @@
 <?php
     include_once 'header.php';
-        $users = $db->result('course');
+        $users = $db->result('courses');
     // $users = $db->result('offices');
     // $users = $db->result('office_account');
 
@@ -71,11 +71,10 @@
                                 <td><input type="checkbox"></td>
                                 <td><?= $user->course_name; ?></td>
                                 <td><?= $user->course_status; ?></td>
-                                <td><?= $user->course_description ?></td>
-                                <!-- <td><?= $user->department_status; ?></td> -->
+                                <td><?= $user->department_name; ?></td>
                                 <td class="primary table-action-container">
-                                    <a href="edit_course_info.php?edit=<?= $user->course_id?>">Update</a>
-                                    <a href="course_view.php?details=<?= $user->course_id?>">View Details</a>
+                                    <a href="edit_course_info.php?edit=<?= $user->course_id; ?>">Update</a>
+                                    <a href="course_view.php?details=<?= $user->course_id; ?>">View Details</a>
                                         <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
                                         <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
                                             <span class="material-symbols-outlined">delete</span>

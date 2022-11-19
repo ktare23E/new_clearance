@@ -16,7 +16,7 @@
         $course_name = $row['course_name'];
         $course_description = $row['course_description'];
         $course_status = $row['course_status'];
-    
+        $department_id = $row['department_id'];
         
 
     
@@ -54,7 +54,7 @@
     
             </div>
 
-            <h1>Office</h1>
+            <h1>Course</h1>
 
             <div class="form-and-table-container">
 
@@ -62,7 +62,7 @@
                 <div class="student-registration">
                     <div class="form signup">
                         <div class="back-button action-button-container">
-                            <a href="department.php">
+                            <a href="course.php">
                                 <button id="back-button-to-student">
                                     <span class="material-symbols-sharp">arrow_back</span>
                                 </button>
@@ -86,6 +86,19 @@
                             <div class="input-field">
                                 <label for="">Department Description</label>
                                 <textarea style="border-style: 1px solid;" name="course_description" id="" rows="4" cols="50"><?= $course_description?></textarea>
+                            </div>
+                            <div class="input-field">
+                            <label for="">Department Name</label>
+                            <select name="department_id" id="">
+                                <?php $departments = $db->result('department');?>
+                                <?php foreach($departments as $department):?>
+                                <?php if($department->department_id == $department_id):?>  
+                                <option value="<?= $department->department_id; ?>" selected><?= $department->department_name; ?></option>
+                                <?php else:?>
+                                    <option value="<?= $department->department_id; ?>"><?= $department->department_name; ?></option>
+                                <?php endif;?>
+                                <?php endforeach; ?>
+                            </select>
                             </div>
                         </div>
                         <div class="input-field button">

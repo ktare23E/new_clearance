@@ -13,7 +13,7 @@
         echo "<h1>There's an error while viewing details.</h1>";
     }else{
         $id = $_GET['details'];
-        $sql = "SELECT * FROM student WHERE student_id = '$id'";
+        $sql = "SELECT * FROM student_details WHERE student_id = '$id'";
         $students = $conn->query($sql) or die($conn->error);
         $row = $students->fetch_assoc();
     
@@ -66,7 +66,7 @@
                 <h1><span><?= $row['student_first_name']; ?></span><span>&nbsp;</span><span><?= $row['student_last_name'];?></span></h1>
                 <div class="icons-course-year-container">
                     <span class="material-symbols-sharp">person_outline</span>
-                    <h2><span><?= $row['student_course'];?>&nbsp;-</span><span>&nbsp;<?= $row['student_year'];?></span></h2>
+                    <h2><span><?= $row['course_name'];?>&nbsp;-</span><span>&nbsp;<?= $row['student_year'];?></span></h2>
                 </div>
                 
             </div>
@@ -78,7 +78,7 @@
                 <div class="student-registration">
                     <div class="student-view-profile-container">
                         <div class="student-view-profile-img-container">
-                            <img src="../images/dp-2.jpg" alt="">
+                            <img src="../images/dp.png" alt="">
                         </div>
 
                         <div class="student-view-profile-info-container">
@@ -100,19 +100,11 @@
                             </div>
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">contact_mail</span>
-                                    <h2 class="label">Username :</h2><span>&emsp;&nbsp;</span>
-                                </div>
-                                
-                                <h2><span><?= $row['student_username'] ?></span></h2>
-                            </div>
-                            <div class="student-info-name-container">
-                                <div class="icon-label-container">
                                     <span class="material-symbols-sharp">menu_book</span>
                                 <h2 class="label">Course :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;</span>
                                 </div>
                                 
-                                <h2><span><?= $row['student_course'];?></span></h2>
+                                <h2><span><?= $row['course_name'];?></span></h2>
                             </div>
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">
@@ -121,6 +113,38 @@
                                 </div>
                                 
                                 <h2><span><?= $row['student_year'];?></span></h2>
+                            </div>
+                            <div class="student-info-name-container">
+                                <div class="icon-label-container">
+                                    <span class="material-symbols-sharp">timeline</span>
+                                    <h2 class="label">Gender :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+                                </div>
+                                
+                                <h2><span><?= $row['student_gender'];?></span></h2>
+                            </div>
+                            <div class="student-info-name-container">
+                                <div class="icon-label-container">
+                                    <span class="material-symbols-sharp">timeline</span>
+                                    <h2 class="label">Email :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+                                </div>
+                                
+                                <h2><span><?= $row['student_email'];?></span></h2>
+                            </div>
+                            <div class="student-info-name-container">
+                                <div class="icon-label-container">
+                                    <span class="material-symbols-sharp">contact_mail</span>
+                                    <h2 class="label">Username :</h2><span>&emsp;&nbsp;</span>
+                                </div>
+                                
+                                <h2><span><?= $row['student_username'] ?></span></h2>
+                            </div>
+                            <div class="student-info-name-container">
+                                <div class="icon-label-container">
+                                    <span class="material-symbols-sharp">contact_mail</span>
+                                    <h2 class="label">Status :</h2><span>&emsp;&nbsp;</span>
+                                </div>
+                                
+                                <h2><span><?= $row['student_status'] ?></span></h2>
                             </div>
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">

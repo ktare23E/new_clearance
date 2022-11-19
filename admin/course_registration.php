@@ -66,8 +66,21 @@
                             </div>
                             <div class="input-field-container">
                                 <div class="input-field">
-                                    <label for="">Department Description</label>
-                                    <textarea style="border-style: 1px solid;" name="department_description" id="" rows="4" cols="50"></textarea>
+                                    <label for="">Course Description</label>
+                                    <textarea style="border-style: 1px solid;" name="course_description" id="" rows="4" cols="50"></textarea>
+                                </div>
+                                <div class="input-field">
+                                    <label for="">Department Name</label>
+                                    <select name="department_id" id="">
+                                            <?php $departments = $db->result('department');?>
+                                            <?php foreach($departments as $department):?>
+                                            <?php if($department->department_id == $department_id):?>  
+                                            <option value="<?= $department->department_id; ?>" selected><?= $department->department_name; ?></option>
+                                            <?php else:?>
+                                                <option value="<?= $department->department_id; ?>"><?= $department->department_name; ?></option>
+                                            <?php endif;?>
+                                            <?php endforeach; ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="input-field button">
@@ -185,32 +198,6 @@
         
     </div>
     <div id="overlay-update"></div>
-
-    <script>
-        $(document).ready(function () {
-
-            $('.edit_button').on('click', function () {
-
-                $('#update-modal').modal('show');
-
-                $tr = $(this).closest('tr');
-
-                var data = $tr.children("td").map(function () {
-                    return $(this).text();
-                }).get();
-
-                console.log(data);
-
-                $('#update_student_id').val(data[0]);
-                $('#update_fname').val(data[1]);
-                $('#update_lname').val(data[2]);
-                $('#update_year').val(data[3]);
-                $('#update_course').val(data[4]);
-                $('#update_username').val(data[5]);
-                $('#update_password').val(data[6]);
-            });
-        });
-    </script>
 
 <script>
             $(document).ready(function(){

@@ -13,7 +13,7 @@
         echo "<h1>There's an error while viewing details.</h1>";
     }else{
         $id = $_GET['details'];
-        $sql = "SELECT * FROM offices WHERE office_account_id = '$id'";
+        $sql = "SELECT * FROM admin_account WHERE admin_id = '$id'";
         $students = $conn->query($sql) or die($conn->error);
         $row = $students->fetch_assoc();
     
@@ -58,7 +58,7 @@
                             <span class="material-symbols-sharp">arrow_back</span>
                         </button>
                     </a>
-                    <button onclick="location.href = 'edit_office_account_info.php?edit=<?= $row['office_account_id'];?>';" class="edit-profile-button" id="edit-profile-button">
+                    <button onclick="location.href = 'edit_office_account_info.php?edit=<?= $row['admin_id'];?>';" class="edit-profile-button" id="edit-profile-button">
                         <span class="material-symbols-sharp">edit</span>
                         <h3>Edit Profile</h3>
                     </button>
@@ -85,10 +85,26 @@
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">
                                     <span class="material-symbols-sharp">badge</span>
-                                    <h2 class="label">Office Account ID :</h2><span>&emsp;&nbsp;&nbsp;</span>
+                                    <h2 class="label">Admin ID :</h2><span>&emsp;&nbsp;&nbsp;</span>
                                 </div>
                                 
-                                <h2><?php echo $row['office_account_id']?></h2>
+                                <h2><?php echo $row['admin_id']?></h2>
+                            </div>
+                            <div class="student-info-name-container">
+                                <div class="icon-label-container">
+                                    <span class="material-symbols-sharp">person_outline</span>
+                                    <h2 class="label">First Name :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+                                </div>
+                                
+                                <h2><span><?= $row['admin_first_name']; ?></span></h2>
+                            </div>
+                            <div class="student-info-name-container">
+                                <div class="icon-label-container">
+                                    <span class="material-symbols-sharp">person_outline</span>
+                                    <h2 class="label">Last Name :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+                                </div>
+                                
+                                <h2><span><?= $row['admin_last_name']; ?></span></h2>
                             </div>
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">
@@ -101,18 +117,18 @@
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">
                                     <span class="material-symbols-sharp">contact_mail</span>
-                                    <h2 class="label">Office Account Username :</h2><span>&emsp;&nbsp;</span>
+                                    <h2 class="label">Admin Username :</h2><span>&emsp;&nbsp;</span>
                                 </div>
                                 
-                                <h2><span><?= $row['office_account_username'] ?></span></h2>
+                                <h2><span><?= $row['admin_username'] ?></span></h2>
                             </div>
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">
                                     <span class="material-symbols-sharp">menu_book</span>
-                                <h2 class="label">Office Account Status :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;</span>
+                                <h2 class="label">Date Registered:</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;</span>
                                 </div>
                                 
-                                <h2><span><?= $row['office_account_status'];?></span></h2>
+                                <h2><span><?= $row['date_registered'];?></span></h2>
                             </div>
                             <div class="student-info-name-container clearance-status-btn-container">
                                 <button id="clearance-status-button">Clearance Status</button>

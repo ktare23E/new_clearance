@@ -8,14 +8,16 @@
         echo "<h1>There's an error while viewing details.</h1>";
     }else{
         $id = $_GET['edit'];
-        $sql = "SELECT * FROM office_account WHERE office_account_id = '$id'";
+        $sql = "SELECT * FROM admin WHERE admin_id = '$id'";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_assoc($result);
 
-        $office_account_id = $row['office_account_id'];
-        $office_account_username = $row['office_account_username'];
-        $office_account_password = $row['office_account_password'];
-
+        $admin_id = $row['admin_id'];
+        $admin_first_name = $row['admin_first_name'];
+        $admin_last_name = $row['admin_last_name'];
+        $admin_username = $row['admin_username'];
+        $admin_password = $row['admin_password'];
+        $office_id = $row['office_id'];
 
 ?>
 
@@ -69,15 +71,38 @@
                     <form action="update_office.php" method="POST">
                         <div class="input-field-container">
                             <div class="input-field">
-                                <input type="hidden" name="office_account_id" value="<?= $office_id?>">
-                                <input type="text" name="office_account_username" placeholder="Office Account Username" required value="<?php echo $office_account_username; ?>">
+                                <input type="hidden" name="admin_id" value="<?= $admin_id?>">
+                                <input type="text" name="admin_first_name" placeholder="Admin First Name" required value="<?php echo $admin_first_name; ?>">
                                 <i class="uil uil-user"></i>
                             </div>
                             <div class="input-field">
-                                <input type="email" name="office_account_password" placeholder="Office Password" required value="<?php echo $office_account_password; ?>">
+                                <input type="email" name="admin_last_name" placeholder="Admin Last Name" required value="<?php echo $admin_last_name; ?>">
                                 <i class="uil uil-user"></i>
                             </div>
                         </div>
+                        <div class="input-field-container">
+                        <div class="input-field">
+                                <input type="email" name="admin_username" placeholder="Admin Username" required value="<?php echo $admin_username; ?>">
+                                <i class="uil uil-user"></i>
+                            </div>
+                            <div class="input-field">
+                                <input type="email" name="admin_password" placeholder="Admin Password" required value="<?php echo $admin_password; ?>">
+                                <i class="uil uil-user"></i>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                                    <label for="">Office Name</label>
+                                    <select name="office_id" id="">
+                                            <?php $offices = $db->result('office');?>
+                                            <?php foreach($offices as $office):?>
+                                            <?php if($office->office_id == $office_id):?>  
+                                            <option value="<?= $office->office_id; ?>" selected><?= $office->office_name; ?></option>
+                                            <?php else:?>
+                                                <option value="<?= $office->office_id; ?>"><?= $office->office_name; ?></option>
+                                            <?php endif;?>
+                                            <?php endforeach; ?>
+                                    </select>
+                                </div>
                         <div class="input-field button">
                             <input type="submit" name="update" value="Update Account">
                         </div>

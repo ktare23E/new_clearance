@@ -2,8 +2,8 @@
     include_once 'header.php';
 
         // $users = $db->result('office_account');
-        $users = $db->result('admin_account');
-    // $users = $db->result('admin');
+    $users = $db->result('view_admin_offices');
+    // $users = $db->result('office_account');
 
     
 ?>
@@ -38,7 +38,7 @@
     
             </div>
 
-            <h1>Users Account</h1>
+            <h1>Office Account</h1>
 
             <div class="form-and-table-container">
                 
@@ -47,14 +47,13 @@
                     <div class="add-button-container">
                         <div>
                             <a href="office_account_registration.php">
-                                <button id="add-new-student">
-                                <i class="uis uis-airplay"></i> New Users</button>
+                                <button id="add-new-student">Add new office account</button>
                             </a>
                         </div>
                     </div>
 
                     <div class="h2-container">
-                            <h2>User Account List</h2>
+                            <h2>Office Account List</h2>
                     </div>
 
                     <table id="example" class="display" style="width:100%">
@@ -72,11 +71,11 @@
                             <tr>
                                 <td><?= $user->admin_first_name; ?></td>
                                 <td><?= $user->admin_last_name; ?></td>
-                                <td><?= $user->office_name;?></td>
                                 <td><?= $user->admin_username;?></td>
+                                <td><?= $user->office_name;?></td>
                                 <td class="primary table-action-container">
-                                    <a href="edit_office_account_info.php?edit=<?= $user->admin_id;?>">Update</a>
-                                    <a href="office_account_view.php?details=<?= $user->admin_id;?>">View Details</a>
+                                    <a href="edit_office_account_info.php?edit=<?= $user->office_account_id?>">Update</a>
+                                    <a href="office_account_view.php?details=<?= $user->office_account_id?>">View Details</a>
                                         <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
                                         <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
                                             <span class="material-symbols-outlined">delete</span>
@@ -86,10 +85,9 @@
                             <?php endforeach; ?>
                         <tfoot>
                             <tr>
-                                <th>First Name</th>
-                                <th>Last Name</th>
                                 <th>Office Name</th>
                                 <th>Office Account Username</th>
+                                <th>Office Account Status</th>
                                 <th>Actions</th>
                             </tr>
                         </tfoot>
