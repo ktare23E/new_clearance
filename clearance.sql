@@ -22,16 +22,24 @@ DROP TABLE IF EXISTS `admin`;
 
 CREATE TABLE `admin` (
   `admin_id` int(11) NOT NULL AUTO_INCREMENT,
+  `admin_first_name` varchar(75) NOT NULL,
+  `admin_last_name` varchar(75) NOT NULL,
   `admin_username` varchar(75) NOT NULL,
   `admin_password` varchar(75) NOT NULL,
   `isloggedin` varchar(22) NOT NULL,
+  `user_type` varchar(75) NOT NULL,
+  `date_registered` timestamp NOT NULL DEFAULT current_timestamp(),
+  `office_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`admin_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `admin` */
 
-insert  into `admin`(`admin_id`,`admin_username`,`admin_password`,`isloggedin`) values 
-(1,'admin','admin','true');
+insert  into `admin`(`admin_id`,`admin_first_name`,`admin_last_name`,`admin_username`,`admin_password`,`isloggedin`,`user_type`,`date_registered`,`office_id`) values 
+(1,'kristian','Tare','admin','admin','true','registered_user','2022-11-18 08:48:09',1),
+(2,'admin2','admin2','admin2','admin2','','admin','2022-11-18 09:02:34',2),
+(3,'Phoebe','Ladua','phoebe23','123','','','2022-11-19 18:35:54',3),
+(4,'','','','','','','2022-11-19 21:48:38',0);
 
 /*Table structure for table `course` */
 
@@ -42,13 +50,17 @@ CREATE TABLE `course` (
   `course_name` varchar(225) NOT NULL,
   `course_status` varchar(75) NOT NULL,
   `course_description` varchar(1000) NOT NULL,
+  `department_id` int(11) NOT NULL,
   PRIMARY KEY (`course_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `course` */
 
-insert  into `course`(`course_id`,`course_name`,`course_status`,`course_description`) values 
-(1,'Bachelor of Science in Information Technology','Inactive','This is test.');
+insert  into `course`(`course_id`,`course_name`,`course_status`,`course_description`,`department_id`) values 
+(2,'Bachelor of Science in Information Technology','active','This is test',3),
+(3,'AB PolScie','active','Test',1),
+(4,'Bachelor of Science in Information System','Active','',1),
+(5,'Bachelor of Science in Biology','Active','This is the course of biology.',3);
 
 /*Table structure for table `department` */
 
@@ -62,13 +74,14 @@ CREATE TABLE `department` (
   `department_description` varchar(1000) NOT NULL,
   `department_status` varchar(75) NOT NULL,
   PRIMARY KEY (`department_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `department` */
 
 insert  into `department`(`department_id`,`department_name`,`department_email`,`department_phone_number`,`department_description`,`department_status`) values 
 (1,'School of Information and Technology og Gwapo','sict@gmail.com','09150468327','School of information and communication technology is so nice and awesome.','Active'),
-(3,'School Arts and Sciences','sas@gmail.com','091324213123','This is test','Active');
+(3,'School Arts and Sciences','sas@gmail.com','091324213123','This is test','Active'),
+(4,'School of Business Administration','sbam@gmail.com','0924232113123','The School of Businesses ','active');
 
 /*Table structure for table `office` */
 
@@ -88,16 +101,15 @@ CREATE TABLE `office` (
 
 insert  into `office`(`office_id`,`office_name`,`office_email`,`office_phone_number`,`office_description`,`office_status`) values 
 (1,'Registrar','registrar@gmail.com','0923242131','test is test','Active'),
-(2,'Accountingss','accounting@gmail.com','09232414221','Accounting office is wonderful office in NMSCT.','Inactive'),
+(2,'Accounting','accounting@gmail.com','09232414221','Accounting office is wonderful office in NMSCT.','Inactive'),
 (3,'Cashier','cashier@gmail.com','0923232711','Accept Payment..','Active'),
-(4,'Office of Student Affairs','office@gmail.com','0923241234','Office of the student affairs','Active'),
-(5,'OSA','osa@gmail.com','09098976546','ambot','Active');
+(4,'Office of Student Affairs','office@gmail.com','0923241234','Office of the student affairs','Active');
 
-/*Table structure for table `office_account` */
+/*Table structure for table `office_account waly apil` */
 
-DROP TABLE IF EXISTS `office_account`;
+DROP TABLE IF EXISTS `office_account waly apil`;
 
-CREATE TABLE `office_account` (
+CREATE TABLE `office_account waly apil` (
   `office_account_id` int(11) NOT NULL AUTO_INCREMENT,
   `office_account_username` varchar(75) NOT NULL,
   `office_account_password` varchar(75) NOT NULL,
@@ -105,12 +117,12 @@ CREATE TABLE `office_account` (
   `office_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`office_account_id`),
   KEY `office_id` (`office_id`),
-  CONSTRAINT `office_account_ibfk_1` FOREIGN KEY (`office_id`) REFERENCES `office` (`office_id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `office_account waly apil_ibfk_1` FOREIGN KEY (`office_id`) REFERENCES `office` (`office_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
-/*Data for the table `office_account` */
+/*Data for the table `office_account waly apil` */
 
-insert  into `office_account`(`office_account_id`,`office_account_username`,`office_account_password`,`office_account_status`,`office_id`) values 
+insert  into `office_account waly apil`(`office_account_id`,`office_account_username`,`office_account_password`,`office_account_status`,`office_id`) values 
 (1,'registrar','admin','Active',1),
 (2,'registrar2','admin','',1),
 (3,'cashier','123','Active',NULL);
@@ -124,7 +136,9 @@ CREATE TABLE `student` (
   `student_first_name` varchar(75) NOT NULL,
   `student_last_name` varchar(75) NOT NULL,
   `student_year` varchar(75) NOT NULL,
-  `student_course` varchar(75) NOT NULL,
+  `course_id` int(11) NOT NULL,
+  `student_gender` varchar(75) NOT NULL,
+  `student_email` varchar(255) NOT NULL,
   `student_username` varchar(75) NOT NULL,
   `student_password` varchar(75) NOT NULL,
   `student_profile` varchar(255) NOT NULL,
@@ -134,65 +148,83 @@ CREATE TABLE `student` (
 
 /*Data for the table `student` */
 
-insert  into `student`(`student_id`,`student_first_name`,`student_last_name`,`student_year`,`student_course`,`student_username`,`student_password`,`student_profile`,`student_status`) values 
-('2019-20089','Afril John','Songahid','4th-Year','BS-IT','afril','123','',''),
-('2019-2043','Al Cedric','Gay','4th-Year','BS-HM','john.hatdog','12312','','Active'),
-('2019-70227','Kristian','Tare','4th-Year','BS-IT','ktare23','buggy','','Active'),
-('2019-8217','Jenerose','Siglos','4th Year','BS-IT','jenorose23','123','',''),
-('2023-2413','John','Doe','5th Year','BS-iT','jon24','23232','',''),
-('2023-2414','John','Doe','6th Year','BS-iT','jon25','23232','',''),
-('2023-2415','John','Doe','7th Year','BS-iT','jon26','23232','',''),
-('2023-2416','John','Doe','8th Year','BS-iT','jon27','23232','',''),
-('2023-2417','John','Doe','9th Year','BS-iT','jon28','23232','',''),
-('2023-2418','John','Doe','10th Year','BS-iT','jon29','23232','',''),
-('2023-2419','John','Doe','11th Year','BS-iT','jon30','23232','',''),
-('2023-2420','John','Doe','12th Year','BS-iT','jon31','23232','',''),
-('2023-2421','John','Doe','13th Year','BS-iT','jon32','23232','',''),
-('2023-2422','John','Doe','14th Year','BS-iT','jon33','23232','',''),
-('2023-2423','John','Doe','15th Year','BS-iT','jon34','23232','',''),
-('2023-2424','John','Doe','16th Year','BS-iT','jon35','23232','',''),
-('2023-2425','John','Doe','17th Year','BS-iT','jon36','23232','',''),
-('2023-2426','John','Doe','18th Year','BS-iT','jon37','23232','',''),
-('2023-2428','John','Doe','20th Year','BS-iT','jon39','23232','',''),
-('2023-2429','John','Doe','21st Year','BS-iT','jon40','23232','',''),
-('2023-2430','John','Doe','22nd Year','BS-iT','jon41','23232','',''),
-('2023-2431','John','Doe','23rd Year','BS-iT','jon42','23232','',''),
-('2023-2432','John','Doe','24th Year','BS-iT','jon43','23232','',''),
-('2023-2433','John','Doe','25th Year','BS-iT','jon44','23232','',''),
-('2023-2434','John','Doe','26th Year','BS-iT','jon45','23232','',''),
-('2023-2435','John','Doe','27th Year','BS-iT','jon46','23232','',''),
-('2023-2436','John','Doe','28th Year','BS-iT','jon47','23232','',''),
-('﻿2020-234','Phoebe','Ladua','3rd Year','BS-Biology','phobe23','maldita232','',''),
-('﻿2023-2412','John','Doe','4th Year','BS-iT','jon23','23232','',''),
-('﻿2023-2427','John','Doe','19th Year','BS-iT','jon38','23232','',''),
-('﻿2023-9464','Jesha','Pondoc','3rd Year','BS-Biology','jeshang43','babykosiengr.','','');
+insert  into `student`(`student_id`,`student_first_name`,`student_last_name`,`student_year`,`course_id`,`student_gender`,`student_email`,`student_username`,`student_password`,`student_profile`,`student_status`) values 
+('2019-70227','Kristians','Tare','4th-Year',4,'Female','tare.kristian@gmail.com','2019-70227','123','','Active');
 
-/*Table structure for table `offices` */
+/*Table structure for table `admin_account` */
 
-DROP TABLE IF EXISTS `offices`;
+DROP TABLE IF EXISTS `admin_account`;
 
-/*!50001 DROP VIEW IF EXISTS `offices` */;
-/*!50001 DROP TABLE IF EXISTS `offices` */;
+/*!50001 DROP VIEW IF EXISTS `admin_account` */;
+/*!50001 DROP TABLE IF EXISTS `admin_account` */;
 
-/*!50001 CREATE TABLE  `offices`(
- `office_id` int(11) ,
- `office_name` varchar(75) ,
- `office_email` varchar(75) ,
- `office_phone_number` varchar(75) ,
- `office_description` varchar(1000) ,
- `office_status` varchar(75) ,
- `office_account_id` int(11) ,
- `office_account_username` varchar(75) ,
- `office_account_password` varchar(75) ,
- `office_account_status` varchar(75) 
+/*!50001 CREATE TABLE  `admin_account`(
+ `admin_id` int(11) ,
+ `admin_first_name` varchar(75) ,
+ `admin_last_name` varchar(75) ,
+ `admin_username` varchar(75) ,
+ `admin_password` varchar(75) ,
+ `date_registered` timestamp ,
+ `user_type` varchar(75) ,
+ `office_name` varchar(75) 
 )*/;
 
-/*View structure for view offices */
+/*Table structure for table `courses` */
 
-/*!50001 DROP TABLE IF EXISTS `offices` */;
-/*!50001 DROP VIEW IF EXISTS `offices` */;
+DROP TABLE IF EXISTS `courses`;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `offices` AS (select `office`.`office_id` AS `office_id`,`office`.`office_name` AS `office_name`,`office`.`office_email` AS `office_email`,`office`.`office_phone_number` AS `office_phone_number`,`office`.`office_description` AS `office_description`,`office`.`office_status` AS `office_status`,`office_account`.`office_account_id` AS `office_account_id`,`office_account`.`office_account_username` AS `office_account_username`,`office_account`.`office_account_password` AS `office_account_password`,`office_account`.`office_account_status` AS `office_account_status` from (`office` join `office_account` on(`office`.`office_id` = `office_account`.`office_id`))) */;
+/*!50001 DROP VIEW IF EXISTS `courses` */;
+/*!50001 DROP TABLE IF EXISTS `courses` */;
+
+/*!50001 CREATE TABLE  `courses`(
+ `course_id` int(11) ,
+ `course_name` varchar(225) ,
+ `course_status` varchar(75) ,
+ `course_description` varchar(1000) ,
+ `department_name` varchar(75) 
+)*/;
+
+/*Table structure for table `student_details` */
+
+DROP TABLE IF EXISTS `student_details`;
+
+/*!50001 DROP VIEW IF EXISTS `student_details` */;
+/*!50001 DROP TABLE IF EXISTS `student_details` */;
+
+/*!50001 CREATE TABLE  `student_details`(
+ `student_id` varchar(75) ,
+ `student_first_name` varchar(75) ,
+ `student_last_name` varchar(75) ,
+ `student_year` varchar(75) ,
+ `course_name` varchar(225) ,
+ `student_email` varchar(255) ,
+ `student_gender` varchar(75) ,
+ `student_status` varchar(75) ,
+ `student_username` varchar(75) ,
+ `student_password` varchar(75) ,
+ `student_profile` varchar(255) 
+)*/;
+
+/*View structure for view admin_account */
+
+/*!50001 DROP TABLE IF EXISTS `admin_account` */;
+/*!50001 DROP VIEW IF EXISTS `admin_account` */;
+
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `admin_account` AS select `admin`.`admin_id` AS `admin_id`,`admin`.`admin_first_name` AS `admin_first_name`,`admin`.`admin_last_name` AS `admin_last_name`,`admin`.`admin_username` AS `admin_username`,`admin`.`admin_password` AS `admin_password`,`admin`.`date_registered` AS `date_registered`,`admin`.`user_type` AS `user_type`,`office`.`office_name` AS `office_name` from (`admin` join `office`) where `admin`.`office_id` = `office`.`office_id` */;
+
+/*View structure for view courses */
+
+/*!50001 DROP TABLE IF EXISTS `courses` */;
+/*!50001 DROP VIEW IF EXISTS `courses` */;
+
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `courses` AS select `course`.`course_id` AS `course_id`,`course`.`course_name` AS `course_name`,`course`.`course_status` AS `course_status`,`course`.`course_description` AS `course_description`,`department`.`department_name` AS `department_name` from (`course` join `department`) where `course`.`department_id` = `department`.`department_id` */;
+
+/*View structure for view student_details */
+
+/*!50001 DROP TABLE IF EXISTS `student_details` */;
+/*!50001 DROP VIEW IF EXISTS `student_details` */;
+
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `student_details` AS select `student`.`student_id` AS `student_id`,`student`.`student_first_name` AS `student_first_name`,`student`.`student_last_name` AS `student_last_name`,`student`.`student_year` AS `student_year`,`course`.`course_name` AS `course_name`,`student`.`student_email` AS `student_email`,`student`.`student_gender` AS `student_gender`,`student`.`student_status` AS `student_status`,`student`.`student_username` AS `student_username`,`student`.`student_password` AS `student_password`,`student`.`student_profile` AS `student_profile` from (`student` join `course`) where `student`.`course_id` = `course`.`course_id` */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
