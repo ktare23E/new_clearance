@@ -78,7 +78,7 @@
                 <div class="student-registration">
                     <div class="student-view-profile-container">
                         <div class="student-view-profile-img-container">
-                            <img src="../images/dp.png" alt="">
+                            <img src="../images/yeah.jpg" alt="">
                         </div>
 
                         <div class="student-view-profile-info-container">
