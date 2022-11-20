@@ -1,7 +1,6 @@
 <?php
     include_once 'header.php';
     // $users1 = $db->result('office');
-    $users = $db->result('admin');
     
 
 
