@@ -79,7 +79,7 @@ CREATE TABLE `department` (
 /*Data for the table `department` */
 
 insert  into `department`(`department_id`,`department_name`,`department_email`,`department_phone_number`,`department_description`,`department_status`) values 
-(1,'School of Information and Technology og Gwapo','sict@gmail.com','09150468327','School of information and communication technology is so nice and awesome.','Active'),
+(1,'School of Information and Technology','sict@gmail.com','09150468327','School of information and communication technology is so nice and awesome.','Active'),
 (3,'School Arts and Sciences','sas@gmail.com','091324213123','This is test','Active'),
 (4,'School of Business Administration','sbam@gmail.com','0924232113123','The School of Businesses ','active');
 
@@ -149,7 +149,8 @@ CREATE TABLE `student` (
 /*Data for the table `student` */
 
 insert  into `student`(`student_id`,`student_first_name`,`student_last_name`,`student_year`,`course_id`,`student_gender`,`student_email`,`student_username`,`student_password`,`student_profile`,`student_status`) values 
-('2019-70227','Kristians','Tare','4th-Year',4,'Female','tare.kristian@gmail.com','2019-70227','123','','Active');
+('2019-70227','Kristians','Tare','4th-Year',4,'Female','tare.kristian@gmail.com','2019-70227','123','','Active'),
+('2020-2342','Phoebe','Ladua','3rd-Year',5,'Female','phoebe@gmail.com','2020-2342','123','','Active');
 
 /*Table structure for table `admin_account` */
 

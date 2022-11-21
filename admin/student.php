@@ -73,6 +73,7 @@
                     
                         <thead>
                             <tr>
+                                <th><input type="checkbox" id="checkAll"> Select All</th>
                                 <th>Student ID</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
@@ -85,6 +86,7 @@
                         <tbody>
                             <?php foreach ($users as $user) : ?>
                             <tr>
+                                <td><input type="checkbox" name="update[]"></td>
                                 <td class="student-id"><?= $user->student_id; ?></td>
                                 <td><?= $user->student_first_name; ?></td>
                                 <td><?= $user->student_last_name; ?></td>
@@ -103,12 +105,13 @@
                             <?php endforeach; ?>
                         <tfoot>
                             <tr>
+                                <th></th>
                                 <th>Student ID</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Username</th>
+                                <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                         </tfoot>
@@ -266,6 +269,31 @@
                     })
                 })
             })
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                // Check/Uncheck ALl
+                $('#checkAll').change(function(){
+                    if($(this).is(':checked')){
+                        $('input[name="update[]"]').prop('checked',true);
+                    }else{
+                        $('input[name="update[]"]').each(function(){
+                            $(this).prop('checked',false);
+                        }); 
+                    }
+                });
+                // Checkbox click
+                $('input[name="update[]"]').click(function(){
+                    var total_checkboxes = $('input[name="update[]"]').length;
+                    var total_checkboxes_checked = $('input[name="update[]"]:checked').length;
+ 
+                    if(total_checkboxes_checked == total_checkboxes){
+                        $('#checkAll').prop('checked',true);
+                    }else{
+                        $('#checkAll').prop('checked',false);
+                    }
+                });
+            });
         </script>
     
     <!-- <script src="../assets/js/student-info.js"></script> -->

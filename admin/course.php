@@ -58,7 +58,7 @@
                     <table id="example" class="display" style="width:100%">
                         <thead>
                             <tr>
-                                <th></th>
+                                <th><input type="checkbox" id="checkAll"> Select All</th>
                                 <th>Course Name</th>
                                 <th>Course Status</th>
                                 <th>Department Name</th>
@@ -68,7 +68,7 @@
                         <tbody>
                             <?php foreach ($users as $user) : ?>
                             <tr>
-                                <td><input type="checkbox"></td>
+                                <td><input type="checkbox" name="update[]"></td>
                                 <td><?= $user->course_name; ?></td>
                                 <td><?= $user->course_status; ?></td>
                                 <td><?= $user->department_name; ?></td>
@@ -155,5 +155,29 @@
             $('#example').DataTable();
         });
     </script>
+    <script type="text/javascript">
+            $(document).ready(function(){
+                // Check/Uncheck ALl
+                $('#checkAll').change(function(){
+                    if($(this).is(':checked')){
+                        $('input[name="update[]"]').prop('checked',true);
+                    }else{
+                        $('input[name="update[]"]').each(function(){
+                            $(this).prop('checked',false);
+                        }); 
+                    }
+                });
+                // Checkbox click
+                $('input[name="update[]"]').click(function(){
+                    var total_checkboxes = $('input[name="update[]"]').length;
+                    var total_checkboxes_checked = $('input[name="update[]"]:checked').length;
+                    if(total_checkboxes_checked == total_checkboxes){
+                        $('#checkAll').prop('checked',true);
+                    }else{
+                        $('#checkAll').prop('checked',false);
+                    }
+                });
+            });
+        </script>
 </body>
 </html>
