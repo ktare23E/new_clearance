@@ -1,26 +1,7 @@
 <?php
     include_once 'header.php';
 ?>
-<style>
-    .intro {
-    height: 100%;
-    }
-    .gradient-custom {
-    /* fallback for old browsers */
-    background: #fa709a;
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to bottom right, rgba(250, 112, 154, 1), rgba(254, 225, 64, 1));
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to bottom right, rgba(250, 112, 154, 1), rgba(254, 225, 64, 1))
-    }
-    /* Change dissabled Button color  */
-    #submit:disabled{
-    background-color: red;
-    opacity:0.5;   
-}
-    
-</style>
-    <div class="container-student">
+<div class="container-student">
         <!-- sidebar -->
         <?php
                 include_once 'aside.php';
@@ -51,7 +32,7 @@
     
             </div>
 
-            <h1>Office Account</h1>
+            <h1>School Year and Sem</h1>
 
             <div class="form-and-table-container">
 
@@ -59,45 +40,35 @@
                 <div class="student-registration">
                     <div class="form signup">
                         <div class="back-button">
-                            <a href="office.php">
+                            <a href="sy_sem.php">
                                 <button id="back-button-to-office">
                                 <span class="material-symbols-sharp">arrow_back</span>
                             </button>
                             </a>
                             
                         </div>
-                        <span class="title">Add New Office</span>
+                        <span class="title">Add New School Year and Sem</span>
         
-                        <form action="insert_office.php" method="POST">
+                        <form action="insert_sy_sem.php" method="POST">
                             <div class="input-field-container">
                                 <div class="input-field">
                                     <span id="check_office"></span>
-                                    <input type="text" name="office_name" id="office_name" oninput="checkOffice()" placeholder="Office Name" required>
+                                    <input type="text" name="school_year" placeholder="School Year" required>
                                     <i class="uil uil-user"></i>
                                 </div>
                                 <div class="input-field">
-                                    <input type="email" name="office_email" placeholder="Office Email" required>
+                                    <input type="text" name="semester" placeholder="Semester" required>
                                     <i class="uil uil-envelope icon"></i>
                                 </div>
                             </div>
                             <div class="input-field-container">
                                 <div class="input-field">
-                                    <input type="text" name="office_phone_number" placeholder="Office Phone Number" required>
-                                    <i class="uil uil-user"></i>
-                                </div>
-                                <div class="input-field">
-                                    <label for="">Office Description</label>
-                                    <textarea style="border-style: 1px solid;" name="office_description" id="" rows="4" cols="50"></textarea>
-                                </div>
-                            </div>
-                            <div class="input-field-container">
-                                <div class="input-field">
-                                    <input type="text" placeholder="Office Status" name="office_status" required>
+                                    <input type="text" placeholder="Status" name="status" required>
                                     <i class="uil uil-envelope icon"></i>
                                 </div>
                             </div>
                             <div class="input-field button">
-                                <input type="submit" id="submit" value="Create Office">
+                                <input type="submit" value="Create School Year and Sem">
                             </div>
                         </form>
                     </div>
@@ -109,21 +80,6 @@
         <!-- ================ END OF MAIN =================== -->
 
     </div>
-
-    <script>
-function checkOffice() {
-    
-    jQuery.ajax({
-    url: "check_office.php",
-    data:'office_name='+$("#office_name").val(),
-    type: "POST",
-    success:function(data){
-        $("#check_office").html(data);
-    },
-    error:function (){}
-    });
-}
-</script>
     
     <!-- <script src="../assets/js/student-info.js"></script> -->
     

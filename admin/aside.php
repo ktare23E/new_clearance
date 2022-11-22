@@ -37,7 +37,7 @@
                     <span class="material-symbols-sharp">meeting_room</span>
                     <h3>Users Account</h3>
                 </a>
-                <a href="/school-year-sem.html">
+                <a href="sy_sem.php">
                     <span class="material-symbols-sharp">calendar_month</span>
                     <h3>School Year and Sem</h3>
                 </a>
