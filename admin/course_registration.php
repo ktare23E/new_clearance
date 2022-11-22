@@ -5,6 +5,25 @@
 
 
 ?>
+<style>
+    .intro {
+    height: 100%;
+    }
+    .gradient-custom {
+    /* fallback for old browsers */
+    background: #fa709a;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to bottom right, rgba(250, 112, 154, 1), rgba(254, 225, 64, 1));
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to bottom right, rgba(250, 112, 154, 1), rgba(254, 225, 64, 1))
+    }
+    /* Change dissabled Button color  */
+    #submit:disabled{
+    background-color: red;
+    opacity:0.5;   
+}
+    
+</style>
     <div class="container-student">
         <!-- sidebar -->
         <?php
@@ -56,7 +75,8 @@
                         <form action="insert_course.php" method="POST">
                             <div class="input-field-container">
                                 <div class="input-field">
-                                    <input type="text" name="course_name" placeholder="Course Name" required>
+                                <span id="check_office"></span>
+                                    <input type="text" name="course_name" placeholder="Course Name"  oninput="checkCourse()" id="course_name" required>
                                     <i class="uil uil-user"></i>
                                 </div>
                                 <div class="input-field">
@@ -84,7 +104,7 @@
                                 </div>
                             </div>
                             <div class="input-field button">
-                                <input type="submit" value="Create Course">
+                                <input type="submit" id="submit" value="Create Course">
                             </div>
                         </form>
                     </div>
@@ -200,39 +220,19 @@
     <div id="overlay-update"></div>
 
 <script>
-            $(document).ready(function(){
-                $('.delete').on('click',function(){
-                    let student_id = $(this).attr('data-id');
-                    Swal.fire({
-                        title: 'Are you sure?',
-                        text: "You won't be able to revert this!",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Yes, delete it!'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            $.ajax({
-                                type: 'post',
-                                url: 'deleteinfo.php',
-                                data: {student_id:student_id},
-                                success: function(response){
-                                    Swal.fire(
-                                        'Deleted!',
-                                        'Your file has been deleted.',
-                                        'success'
-                                    )
-                                    setTimeout(() => { 
-                                        location.reload(true);
-                                    }, 3000);
-                                } 
-                            })
-                        }
-                    })
-                })
-            })
-        </script>
+function checkCourse() {
+    
+    jQuery.ajax({
+    url: "check_course.php",
+    data:'course_name='+$("#course_name").val(),
+    type: "POST",
+    success:function(data){
+        $("#check_office").html(data);
+    },
+    error:function (){}
+    });
+}
+</script>
     
     <!-- <script src="../assets/js/student-info.js"></script> -->
     

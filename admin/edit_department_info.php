@@ -56,7 +56,7 @@
     
             </div>
 
-            <h1>Office</h1>
+            <h1>Department</h1>
 
             <div class="form-and-table-container">
 
