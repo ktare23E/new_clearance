@@ -36,10 +36,22 @@ CREATE TABLE `admin` (
 /*Data for the table `admin` */
 
 insert  into `admin`(`admin_id`,`admin_first_name`,`admin_last_name`,`admin_username`,`admin_password`,`isloggedin`,`user_type`,`date_registered`,`office_id`) values 
-(1,'kristian','Tare','admin','admin','true','registered_user','2022-11-18 08:48:09',1),
+(1,'kristian','Tare','admin','admin','true','registered_user','2022-11-18 08:48:09',5),
 (2,'admin2','admin2','admin2','admin2','','admin','2022-11-18 09:02:34',2),
-(3,'Phoebe','Ladua','phoebe23','123','','','2022-11-19 18:35:54',3),
-(4,'','','','','','','2022-11-19 21:48:38',0);
+(3,'Phoebe','Ladua','phoebe23','123','','','2022-11-19 18:35:54',3);
+
+/*Table structure for table `clearance_type` */
+
+DROP TABLE IF EXISTS `clearance_type`;
+
+CREATE TABLE `clearance_type` (
+  `clearance_type_id` int(11) NOT NULL AUTO_INCREMENT,
+  `clearance_type_name` varchar(75) NOT NULL,
+  `clearance_type_description` varchar(1000) NOT NULL,
+  PRIMARY KEY (`clearance_type_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `clearance_type` */
 
 /*Table structure for table `course` */
 
@@ -103,7 +115,8 @@ insert  into `office`(`office_id`,`office_name`,`office_email`,`office_phone_num
 (1,'Registrar','registrar@gmail.com','0923242131','test is test','Active'),
 (2,'Accounting','accounting@gmail.com','09232414221','Accounting office is wonderful office in NMSCT.','Inactive'),
 (3,'Cashier','cashier@gmail.com','0923232711','Accept Payment..','Active'),
-(4,'Office of Student Affairs','office@gmail.com','0923241234','Office of the student affairs','Active');
+(4,'Office of Student Affairs','office@gmail.com','0923241234','Office of the student affairs','Active'),
+(5,'System Administrator','admin@gmail.com','091234323','This is the super admin of the system.','Active');
 
 /*Table structure for table `office_account waly apil` */
 
@@ -149,8 +162,26 @@ CREATE TABLE `student` (
 /*Data for the table `student` */
 
 insert  into `student`(`student_id`,`student_first_name`,`student_last_name`,`student_year`,`course_id`,`student_gender`,`student_email`,`student_username`,`student_password`,`student_profile`,`student_status`) values 
-('2019-70227','Kristians','Tare','4th-Year',4,'Female','tare.kristian@gmail.com','2019-70227','123','','Active'),
+('2019-70227','Kristian','Tare','4th-Year',5,'Female','tare.kristian@gmail.com','2019-70227','123','','Active'),
 ('2020-2342','Phoebe','Ladua','3rd-Year',5,'Female','phoebe@gmail.com','2020-2342','123','','Active');
+
+/*Table structure for table `sy_sem` */
+
+DROP TABLE IF EXISTS `sy_sem`;
+
+CREATE TABLE `sy_sem` (
+  `sy_sem_id` int(11) NOT NULL AUTO_INCREMENT,
+  `school_year` varchar(75) NOT NULL,
+  `semester` varchar(75) NOT NULL,
+  `status` varchar(75) NOT NULL,
+  PRIMARY KEY (`sy_sem_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `sy_sem` */
+
+insert  into `sy_sem`(`sy_sem_id`,`school_year`,`semester`,`status`) values 
+(1,'2022-2023','1st Semester','Active'),
+(2,'2022-2023','2nd Semester','Inactive');
 
 /*Table structure for table `admin_account` */
 
