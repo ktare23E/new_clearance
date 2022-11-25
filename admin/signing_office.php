@@ -1,9 +1,7 @@
 <?php
     include_once 'header.php';
-        $users = $db->result('office');
-    // $users = $db->result('offices');
-    // $users = $db->result('office_account');
 
+        $users = $db->result('signing_offices');
     
 ?>
     <div class="container-student">
@@ -37,31 +35,34 @@
     
             </div>
 
-            <h1>Office</h1>
-        
+            <h1>Signing Offices</h1>
+
             <div class="form-and-table-container">
                 
                 <!-- -------------  TABLE OF STUDENT INFORMATION -------------- -->
                 <div class="recent-orders-student">
                     <div class="add-button-container">
                         <div>
-                            <a href="office_registration.php">
-                                <button id="add-new-student">Add new office</button>
+                            <a href="office_account_registration.php">
+                                <button id="add-new-student">
+                                <i class="uis uis-airplay"></i> New Users</button>
                             </a>
                         </div>
                     </div>
 
                     <div class="h2-container">
-                            <h2>Office List</h2>
+                            <h2>Signing Offices List</h2>
                     </div>
 
                     <table id="example" class="display" style="width:100%">
                         <thead>
                             <tr>
                                 <th>Office Name</th>
-                                <th>Office Email</th>
-                                <th>Office Phone Number</th>
-                                <th>Office Status</th>
+                                <th>School Year</th>
+                                <th>Semester</th>
+                                <th>Admin First Name</th>
+                                <th>Admin Last Name</th>
+                                <th>Clearance Type</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -69,12 +70,14 @@
                             <?php foreach ($users as $user) : ?>
                             <tr>
                                 <td><?= $user->office_name; ?></td>
-                                <td><?= $user->office_email; ?></td>
-                                <td><?= $user->office_phone_number; ?></td>
-                                <td><?= $user->office_status; ?></td>
+                                <td><?= $user->school_year; ?></td>
+                                <td><?= $user->semester; ?></td>
+                                <td><?= $user->admin_first_name; ?></td>
+                                <td><?= $user->admin_last_name; ?></td>
+                                <td><?= $user->clearance_type_name; ?></td>
                                 <td class="primary table-action-container">
-                                    <a href="edit_office_info.php?edit=<?= $user->office_id?>">Update</a>
-                                    <a href="office_view.php?details=<?= $user->office_id?>">View Details</a>
+                                    <a href="edit_office_account_info.php?edit=<?= $user->admin_id;?>">Update</a>
+                                    <a href="office_account_view.php?details=<?= $user->admin_id;?>">View Details</a>
                                         <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
                                         <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
                                             <span class="material-symbols-outlined">delete</span>
@@ -85,9 +88,11 @@
                         <tfoot>
                             <tr>
                                 <th>Office Name</th>
-                                <th>Office Email</th>
-                                <th>Office Phone Number</th>
-                                <th>Office Status</th>
+                                <th>School Year</th>
+                                <th>Semester</th>
+                                <th>Admin First Name</th>
+                                <th>Admin Last Name</th>
+                                <th>Clearance Type</th>
                                 <th>Actions</th>
                             </tr>
                         </tfoot>

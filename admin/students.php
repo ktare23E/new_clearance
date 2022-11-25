@@ -1,6 +1,6 @@
 <?php
     include_once 'header.php';
-    // $users = $db->result('student_details');
+    $users = $db->result('student_details');
 
     
 ?>
@@ -46,7 +46,6 @@
                             <a href="student_registration.php">
                                 <button id="add-new-student">Add new student</button>
                             </a>
-                            <input type="checkbox" id="checkAll" style='display:block;background-color:black; appearance:auto;'/>
                         </div>
                         <div>
                             <div class="upload-student-csv-container">
@@ -70,19 +69,36 @@
                     <table id="example" class="display" style="width:100%">
                         <thead>
                             <tr>
-                                <th></th>
+                                <th><input type="checkbox" id="checkAll"> Select All</th>
                                 <th>Student ID</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
                                 <th>Status</th>
-                                <th>Action</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            
-                        </tbody>
+                            <?php foreach ($users as $user) : ?>
+                            <tr>
+                                <td><input type="checkbox" name="update[]" value="<?= $user->student_id?>"></td>
+                                <td class="student-id"><?= $user->student_id; ?></td>
+                                <td><?= $user->student_first_name; ?></td>
+                                <td><?= $user->student_last_name; ?></td>
+                                <td><?= $user->student_year; ?></td>
+                                <td><?= $user->course_name;?></td>
+                                <td><?= $user->student_status; ?></td>
+                                <td class="primary table-action-container">
+                                    <a href="edit_student_info.php?edit=<?= $user->student_id?>">Update</a>
+                                    <a href="student_view.php?details=<?= $user->student_id?>">View Details</a>
+                                        <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> 
+                                        <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
+                                            <span class="material-symbols-outlined">delete</span>
+                                        </button>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
                         <tfoot>
                             <tr>
                                 <th></th>
@@ -92,7 +108,7 @@
                                 <th>Year</th>
                                 <th>Course</th>
                                 <th>Status</th>
-                                <th>Action</th>
+                                <th>Actions</th>
                             </tr>
                         </tfoot>
                     </table>
@@ -106,7 +122,45 @@
         
 <script>
             $(document).ready(function(){
-              
+                $('.delete').on('click',function(){
+                    let student_id = $(this).attr('data-id');
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: "You won't be able to revert this!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $.ajax({
+                                type: 'post',
+                                url: 'deleteinfo.php',
+                                data: {student_id:student_id},
+                                success: function(response){
+                                    if(response === "Deleted"){
+                                        Swal.fire(
+                                            'Deleted!',
+                                            'Your file has been deleted.',
+                                            'success'
+                                        )
+                                    }else{
+                                        Swal.fire(
+                                            'Error',
+                                            'Error deleting data.',
+                                            'error'
+                                        )
+                                    }
+                                    
+                                    setTimeout(() => { 
+                                        location.reload(true);
+                                    }, 1000);
+                                } 
+                            })
+                        }
+                    })
+                })
             })
         </script>
         <script type="text/javascript">
@@ -134,57 +188,6 @@
             });
         </script>
 
-    <script>
-            $(document).ready(function () {
-            $('#example').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: 'server_processing.php',
-                drawCallback:  () => {
-                    $('.delete').on('click',function(){
-                        let student_id = $(this).attr('data-id');
-                        Swal.fire({
-                            title: 'Are you sure?',
-                            text: "You won't be able to revert this!",
-                            icon: 'warning',
-                            showCancelButton: true,
-                            confirmButtonColor: '#3085d6',
-                            cancelButtonColor: '#d33',
-                            confirmButtonText: 'Yes, delete it!'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                $.ajax({
-                                    type: 'post',
-                                    url: 'deleteinfo.php',
-                                    data: {student_id:student_id},
-                                    success: function(response){
-                                        if(response === "Deleted"){
-                                            Swal.fire(
-                                                'Deleted!',
-                                                'Your file has been deleted.',
-                                                'success'
-                                            )
-                                        }else{
-                                            Swal.fire(
-                                                'Error',
-                                                'Error deleting data.',
-                                                'error'
-                                            )
-                                        }
-                                        
-                                        setTimeout(() => { 
-                                            location.reload(true);
-                                        }, 1000);
-                                    } 
-                                })
-                            }
-                        })
-                    })
-                },
-            });
-        });
-    </script>
-    
     <!-- <script src="../assets/js/student-info.js"></script> -->
     
     <script defer src="../assets/js//modal.js"></script>

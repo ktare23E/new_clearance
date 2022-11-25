@@ -188,7 +188,7 @@
                         icon: 'success',
                         title: 'Student Account Updated',
                         showConfirmButton: false,
-                        timer: 1500
+                        timer: 4000
                     })
                 });
             });

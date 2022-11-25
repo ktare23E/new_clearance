@@ -40,6 +40,24 @@ insert  into `admin`(`admin_id`,`admin_first_name`,`admin_last_name`,`admin_user
 (2,'admin2','admin2','admin2','admin2','','admin','2022-11-18 09:02:34',2),
 (3,'Phoebe','Ladua','phoebe23','123','','','2022-11-19 18:35:54',3);
 
+/*Table structure for table `clearance` */
+
+DROP TABLE IF EXISTS `clearance`;
+
+CREATE TABLE `clearance` (
+  `clearance_id` int(11) NOT NULL AUTO_INCREMENT,
+  `clearance_status` varchar(75) NOT NULL,
+  `date_created` datetime NOT NULL DEFAULT current_timestamp(),
+  `date_cleared` date NOT NULL,
+  `is_locked` tinyint(1) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `sy_sem_id` int(11) NOT NULL,
+  `clearance_type_id` int(11) NOT NULL,
+  PRIMARY KEY (`clearance_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `clearance` */
+
 /*Table structure for table `clearance_type` */
 
 DROP TABLE IF EXISTS `clearance_type`;
@@ -49,9 +67,14 @@ CREATE TABLE `clearance_type` (
   `clearance_type_name` varchar(75) NOT NULL,
   `clearance_type_description` varchar(1000) NOT NULL,
   PRIMARY KEY (`clearance_type_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `clearance_type` */
+
+insert  into `clearance_type`(`clearance_type_id`,`clearance_type_name`,`clearance_type_description`) values 
+(1,'Graduating ','This is the clearance for all graduating students of NMSCST students.'),
+(2,'Transferring','This is the clearance type for all transferrring students who wants to transfer for another school.'),
+(3,'Continuing','This is for the continuing students clearance.');
 
 /*Table structure for table `course` */
 
@@ -140,6 +163,26 @@ insert  into `office_account waly apil`(`office_account_id`,`office_account_user
 (2,'registrar2','admin','',1),
 (3,'cashier','123','Active',NULL);
 
+/*Table structure for table `signing_office` */
+
+DROP TABLE IF EXISTS `signing_office`;
+
+CREATE TABLE `signing_office` (
+  `signing_office_id` int(11) NOT NULL AUTO_INCREMENT,
+  `office_id` int(11) NOT NULL,
+  `sy_sem_id` int(11) NOT NULL,
+  `admin_id` int(11) NOT NULL,
+  `clearance_type_id` int(11) NOT NULL,
+  `is_locked` tinyint(1) NOT NULL,
+  PRIMARY KEY (`signing_office_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `signing_office` */
+
+insert  into `signing_office`(`signing_office_id`,`office_id`,`sy_sem_id`,`admin_id`,`clearance_type_id`,`is_locked`) values 
+(1,3,2,2,1,1),
+(2,0,0,0,0,0);
+
 /*Table structure for table `student` */
 
 DROP TABLE IF EXISTS `student`;
@@ -154,16 +197,16 @@ CREATE TABLE `student` (
   `student_email` varchar(255) NOT NULL,
   `student_username` varchar(75) NOT NULL,
   `student_password` varchar(75) NOT NULL,
-  `student_profile` varchar(255) NOT NULL,
   `student_status` varchar(75) NOT NULL,
+  `student_profile` varchar(255) NOT NULL,
   PRIMARY KEY (`student_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `student` */
 
-insert  into `student`(`student_id`,`student_first_name`,`student_last_name`,`student_year`,`course_id`,`student_gender`,`student_email`,`student_username`,`student_password`,`student_profile`,`student_status`) values 
-('2019-70227','Kristian','Tare','4th-Year',5,'Female','tare.kristian@gmail.com','2019-70227','123','','Active'),
-('2020-2342','Phoebe','Ladua','3rd-Year',5,'Female','phoebe@gmail.com','2020-2342','123','','Active');
+insert  into `student`(`student_id`,`student_first_name`,`student_last_name`,`student_year`,`course_id`,`student_gender`,`student_email`,`student_username`,`student_password`,`student_status`,`student_profile`) values 
+('2019-70227','Kristian','Tare','4th-Year',5,'Female','tare.kristian@gmail.com','2019-70227','123','Active',''),
+('2020-2342','Phoebe','Ladua','3rd-Year',5,'Female','phoebe@gmail.com','2020-2342','123','Active','');
 
 /*Table structure for table `sy_sem` */
 
@@ -216,6 +259,24 @@ DROP TABLE IF EXISTS `courses`;
  `department_name` varchar(75) 
 )*/;
 
+/*Table structure for table `signing_offices` */
+
+DROP TABLE IF EXISTS `signing_offices`;
+
+/*!50001 DROP VIEW IF EXISTS `signing_offices` */;
+/*!50001 DROP TABLE IF EXISTS `signing_offices` */;
+
+/*!50001 CREATE TABLE  `signing_offices`(
+ `signing_office_id` int(11) ,
+ `office_name` varchar(75) ,
+ `school_year` varchar(75) ,
+ `semester` varchar(75) ,
+ `admin_first_name` varchar(75) ,
+ `admin_last_name` varchar(75) ,
+ `clearance_type_name` varchar(75) ,
+ `is_locked` tinyint(1) 
+)*/;
+
 /*Table structure for table `student_details` */
 
 DROP TABLE IF EXISTS `student_details`;
@@ -250,6 +311,13 @@ DROP TABLE IF EXISTS `student_details`;
 /*!50001 DROP VIEW IF EXISTS `courses` */;
 
 /*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `courses` AS select `course`.`course_id` AS `course_id`,`course`.`course_name` AS `course_name`,`course`.`course_status` AS `course_status`,`course`.`course_description` AS `course_description`,`department`.`department_name` AS `department_name` from (`course` join `department`) where `course`.`department_id` = `department`.`department_id` */;
+
+/*View structure for view signing_offices */
+
+/*!50001 DROP TABLE IF EXISTS `signing_offices` */;
+/*!50001 DROP VIEW IF EXISTS `signing_offices` */;
+
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `signing_offices` AS select `signing_office`.`signing_office_id` AS `signing_office_id`,`office`.`office_name` AS `office_name`,`sy_sem`.`school_year` AS `school_year`,`sy_sem`.`semester` AS `semester`,`admin`.`admin_first_name` AS `admin_first_name`,`admin`.`admin_last_name` AS `admin_last_name`,`clearance_type`.`clearance_type_name` AS `clearance_type_name`,`signing_office`.`is_locked` AS `is_locked` from ((((`signing_office` join `office`) join `sy_sem`) join `admin`) join `clearance_type`) where `signing_office`.`office_id` = `office`.`office_id` and `signing_office`.`sy_sem_id` = `sy_sem`.`sy_sem_id` and `signing_office`.`admin_id` = `admin`.`admin_id` and `signing_office`.`clearance_type_id` = `clearance_type`.`clearance_type_id` */;
 
 /*View structure for view student_details */
 

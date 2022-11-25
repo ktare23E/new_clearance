@@ -1,6 +1,6 @@
 <?php
     include_once 'header.php';
-        $users = $db->result('office');
+        $users = $db->result('clearance_type');
     // $users = $db->result('offices');
     // $users = $db->result('office_account');
 
@@ -37,7 +37,7 @@
     
             </div>
 
-            <h1>Office</h1>
+            <h1>Clearance Type</h1>
         
             <div class="form-and-table-container">
                 
@@ -45,36 +45,34 @@
                 <div class="recent-orders-student">
                     <div class="add-button-container">
                         <div>
-                            <a href="office_registration.php">
-                                <button id="add-new-student">Add new office</button>
+                            <a href="signing_office_registration.php">
+                                <button id="add-new-student">Add new Clearance Type</button>
                             </a>
                         </div>
                     </div>
 
                     <div class="h2-container">
-                            <h2>Office List</h2>
+                            <h2>Clearance Type List</h2>
                     </div>
 
                     <table id="example" class="display" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Office Name</th>
-                                <th>Office Email</th>
-                                <th>Office Phone Number</th>
-                                <th>Office Status</th>
+                                <th></th>
+                                <th>Clearance Type Name</th>
+                                <th>Clearance Type Description</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($users as $user) : ?>
                             <tr>
-                                <td><?= $user->office_name; ?></td>
-                                <td><?= $user->office_email; ?></td>
-                                <td><?= $user->office_phone_number; ?></td>
-                                <td><?= $user->office_status; ?></td>
+                                <td><input type="checkbox"></td>
+                                <td><?= $user->clearance_type_name; ?></td>
+                                <td><?= $user->clearance_type_description; ?></td>
                                 <td class="primary table-action-container">
-                                    <a href="edit_office_info.php?edit=<?= $user->office_id?>">Update</a>
-                                    <a href="office_view.php?details=<?= $user->office_id?>">View Details</a>
+                                    <a href="edit_sy_sem_info.php?edit=<?= $user->sy_sem_id?>">Update</a>
+                                    <a href="sy_sem_view.php?details=<?= $user->sy_sem_id?>">View Details</a>
                                         <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
                                         <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
                                             <span class="material-symbols-outlined">delete</span>
@@ -84,10 +82,9 @@
                             <?php endforeach; ?>
                         <tfoot>
                             <tr>
-                                <th>Office Name</th>
-                                <th>Office Email</th>
-                                <th>Office Phone Number</th>
-                                <th>Office Status</th>
+                                <th></th>
+                                <th>Clearance Type Name</th>
+                                <th>Clearance Type Description</th>
                                 <th>Actions</th>
                             </tr>
                         </tfoot>
