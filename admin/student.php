@@ -47,6 +47,7 @@
                                 <button id="add-new-student">Add new student</button>
                             </a>
                             <input type="checkbox" id="checkAll" style='display:block;background-color:black; appearance:auto;'/>
+                            <span>Check All</span>
                         </div>
                         <div>
                             <div class="upload-student-csv-container">
