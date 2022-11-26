@@ -17,6 +17,7 @@
                     <button id="menu-btn" class="menu-btn">
                         <span class="material-symbols-sharp">menu</span>
                     </button>
+                    <h1>Student Account</h1>
                     <div class="theme-toggler">
                         <span class="material-symbols-sharp active">light_mode</span>
                         <span class="material-symbols-sharp">dark_mode</span>
@@ -35,29 +36,35 @@
     
             </div>
 
-            <h1>Student Account</h1>
+            
 
             <div class="form-and-table-container">
                 
                 <!-- -------------  TABLE OF STUDENT INFORMATION -------------- -->
                 <div class="recent-orders-student">
                     <div class="add-button-container">
+
+                        <div class="h2-container">
+                                <h2>Students List</h2>
+                                
+                        </div>
+
                         <div>
                             <a href="student_registration.php">
-                                <button id="add-new-student">Add new student</button>
+                                <button id="add-new-student"><span class="material-symbols-sharp">add</span>Add new student</button>
                             </a>
                             <input type="checkbox" id="checkAll" style='display:block;background-color:black; appearance:auto;'/>
-                            <span>Check All</span>
                         </div>
+                        <button id="register-csv-file-btn"><span class="material-symbols-sharp">upload_file</span>Register Via .csv file<span class="material-symbols-sharp">arrow_forward_ios</span></button>
                         <div>
                             <div class="upload-student-csv-container">
-                                <label for="" class="label-csv">Register Via .csv file</label>
                                 <form action="student_upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
                                     <div class="form-input-file-csv-container">
                                             <label for="input-file">Choose CSV File</label>
                                             <input type="file" name="file" accept=".csv" id="input-file">
                                             <button type="submit" name="import" class="submit-csv-file-button">
-                                                Import
+                                            
+                                            Import
                                                 <span class="material-symbols-sharp">file_upload</span>
                                             </button>
                                     </div>
@@ -65,12 +72,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="h2-container">
-                            <h2>Students List</h2>
-                    </div>
+                    
                     <table id="example" class="display" style="width:100%">
                         <thead>
                             <tr>
+                                <input type="checkbox" id="checkAll" style='
+                                    display:block;background-color:black; appearance:auto;
+                                    position:absolute;
+                                    top:150px;
+                                    left:45px;
+                                    z-index:10;
+                                    '/>
                                 <th></th>
                                 <th>Student ID</th>
                                 <th>First Name</th>
@@ -107,7 +119,15 @@
         
 <script>
             $(document).ready(function(){
-              
+                $("#register-csv-file-btn").click(function(){
+                    if($("#register-csv-file-btn span:nth-child(2)").html() == "arrow_forward_ios"){
+                        $("#register-csv-file-btn span:nth-child(2)").html("arrow_back_ios")
+                    }else {
+                        $("#register-csv-file-btn span:nth-child(2)").html("arrow_forward_ios")
+                    }
+                    
+                    $(".upload-student-csv-container").slideToggle(200)
+                })
             })
         </script>
         <script type="text/javascript">
@@ -132,7 +152,7 @@
                         $('#checkAll').prop('checked',false);
                     }
                 });
-            });
+            }); 
         </script>
 
     <script>

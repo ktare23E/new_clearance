@@ -632,9 +632,9 @@ main .recent-orders-student {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0px 20px;
+    gap: 10px;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .add-button-container form {
@@ -651,13 +651,19 @@ main .recent-orders-student {
 
 .upload-student-csv-container {
     border: 1.5px solid var(--color-primary-variant);
-    padding: 15px 20px 5px 20px;
+    padding: 11px 20px;
     border-radius: 5px;
     position: relative;
-    display: flex;
+    display: none;
     justify-content: center;
     flex: 1;
 }
+
+#register-csv-file-btn span:nth-child(1){
+    color: var(--color-dark);
+}
+
+
 
 .upload-student-csv-container input[type="file"]::-webkit-file-upload-button{
     display: none;
@@ -739,6 +745,9 @@ table thead tr th, table tbody tr td {
 
 
 #add-new-student {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
     cursor: pointer;
     padding: 15px 20px;
@@ -754,13 +763,46 @@ table thead tr th, table tbody tr td {
     background-color: var(--color-primary-variant);
 }
 
+#add-new-student span {
+    font-size: 1.3rem;
+}
+
+#register-csv-file-btn {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 15px 10px 15px 20px;
+    border: 1px solid var(--color-primary);
+    background: var(--color-white);
+    color: var(--color-primary);
+    transition: all 150ms ease;
+}
+#register-csv-file-btn:hover {
+    background-color: var(--color-primary-variant);
+}
+
+#register-csv-file-btn:hover span:nth-child(1) {
+    color: white;
+}
+
+#register-csv-file-btn:active {
+    background-color: var(--color-primary-variant);
+}
+
+#register-csv-file-btn span {
+    font-size: 1.3rem;
+}
+
 
 main .recent-orders h2 {
     margin-bottom: 0.8rem;
 }
-main .recent-orders-student h2 {
+/* main .recent-orders-student h2 {
     margin-bottom: 0.8rem;
-}
+} */
 
 main .recent-orders table {
     background: var(--color-white);
@@ -772,13 +814,13 @@ main .recent-orders table {
     transition: all 300ms ease;
 }
 main .recent-orders-student table {
-    background: var(--color-white);
+    /* background: var(--color-white);
     width: 100%;
     border-radius: var(--card-border-radius);
     padding-top: 50px !important;
-    padding: var(--card-padding);
+    padding: var(--card-padding); */
     text-align: center;
-    box-shadow: var(--box-shadow);
+    /* box-shadow: var(--box-shadow); */
     transition: all 300ms ease;
 }
 
@@ -868,17 +910,16 @@ input[type="search"]{
 }
 
 .h2-container {
-    position: absolute;
-    z-index: 1;
-    top: 110px;
-    width: 100%;
+    
+/*    
     display: flex;
     align-items: center;
     justify-content: center;
     padding-top: 10px;
-    /* background-color: var(--color-light); */
+    background-color: var(--color-light);
     margin-bottom: 5px;
     border-radius: var(--card-border-radius);
+     */
     
 }
 
@@ -948,6 +989,12 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     display: flex;
     justify-content: end;
     gap: 2rem;
+}
+
+.right .top h1 {
+    
+    position: absolute;
+    left: 15%;
 }
 
 .right .top button {
@@ -1142,9 +1189,9 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     main .recent-orders table {
         width: 83vw;
     }
-    .h2-container {
+    /* .h2-container {
         width: 100% !important;
-    }
+    } */
     main .recent-orders-student table {
         width: 100% !important;
     }
@@ -1210,9 +1257,7 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
         gap: 10px;
     }
 
-    .h2-container {
-        top: 110px;
-    }
+    
 
     aside {
         position: fixed;
@@ -1346,9 +1391,9 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
         display: none;
     }
 
-    .h2-container {
+    /* .h2-container {
         width: 100%;
-    }
+    } */
     .right {
         width: 94%;
         margin: 0 auto 4rem;
@@ -1374,6 +1419,12 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
         left: 66%;
     }
 
+    .right .top h1 {
+        font-size: 1.2rem;
+        
+        left: 12%;
+    }
+
     .right .profile .info {
         display: none;
     }
@@ -1393,15 +1444,13 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
 }
 
 @media screen and (max-width: 640px) {
-    .h2-container {
-        top: 185px;
-    }
+    
 }
 
 @media screen and (max-width: 428px) {
-    .h2-container {
+    /* .h2-container {
         top: 200px;
-    }
+    } */
 }
 
 @media screen and (max-width: 640px) {
@@ -1420,6 +1469,10 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     }
 
     .add-button-container #add-new-student {
+        width: 100%;
+    }
+
+    .add-button-container #register-csv-file-btn {
         width: 100%;
     }
 
@@ -1606,6 +1659,17 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     pointer-events: all;
 }
 
+.dataTables_wrapper {
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--border-radius-1);
+    box-shadow: var(--box-shadow);
+    transition: all 200ms ease;
+}
+
+.dataTables_wrapper:hover {
+    box-shadow: none;
+}
 
 #overlay-update {
     position: fixed;
@@ -1629,3 +1693,75 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     font-size: 27px;
     font-weight: 600;
 }
+
+
+
+.loader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background-color: black;
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+}
+
+
+.loader .center{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.loader .center  .ring{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    animation: ring 2s linear infinite;
+}
+@keyframes ring {
+    0%{
+        transform: rotate(0deg);
+        box-shadow: 1px 5px 2px #e65c00;
+    }
+    50%{
+        transform: rotate(180deg);
+        box-shadow: 1px 5px 2px #18b201;
+    }
+    100%{
+        transform: rotate(360deg);
+        box-shadow: 1px 5px 2px #0456c8;
+    }
+}
+.ring:before{
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(255,255,255,.3);
+}
+.loader .center span{
+    width: 120px;
+    color: #737373;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    animation: text 3s ease-in-out infinite;
+}
+  @keyframes text {
+    50%{
+      color: black;
+    }
+  }
