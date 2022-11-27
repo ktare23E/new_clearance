@@ -198,8 +198,13 @@
                                     </div>
 
                                     <div class="left">
-                                        <h4 class="text-muted">Sy-sem:</h4>
-                                        <h1>2022 - 2023, 1st sem</h1>
+                                        <h4 class="text-muted">School Year:</h4>
+                                        <h1>2022 - 2023</h1>
+                                    </div>
+
+                                    <div class="left">
+                                        <h4 class="text-muted">Semester:</h4>
+                                        <h1>1st Semester</h1>
                                     </div>
                                     
                                     <div class="left">
@@ -291,11 +296,12 @@
                             <tr>
                                 
                                 <th></th>
-                                <th>Student Name</th>
-                                <th>Date Created</th>
-                                <th>Date Cleared</th>
-                                <th>Clearance Type</th>
-                                <th>Status</th>
+                                <th>Student ID</th>
+                                <th>Student First Name</th>
+                                <th>Student Last Name</th>
+                                <th>School Year</th>
+                                <th>Semester</th>
+                                <th>Clearance Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -305,11 +311,12 @@
                         <tfoot>
                             <tr>
                                 <th><input type="checkbox"></th>
-                                <th>Student Name</th>
-                                <th>Date Created</th>
-                                <th>Date Cleared</th>
-                                <th>Clearance Type</th>
-                                <th>Status</th>
+                                <th>Student ID</th>
+                                <th>Student First Name</th>
+                                <th>Student Last Name</th>
+                                <th>School Year</th>
+                                <th>Semester</th>
+                                <th>Clearance Status</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
@@ -365,48 +372,7 @@
             $('#example').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: 'server_processing.php',
-                drawCallback:  () => {
-                    $('.delete').on('click',function(){
-                        let student_id = $(this).attr('data-id');
-                        Swal.fire({
-                            title: 'Are you sure?',
-                            text: "You won't be able to revert this!",
-                            icon: 'warning',
-                            showCancelButton: true,
-                            confirmButtonColor: '#3085d6',
-                            cancelButtonColor: '#d33',
-                            confirmButtonText: 'Yes, delete it!'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                $.ajax({
-                                    type: 'post',
-                                    url: 'deleteinfo.php',
-                                    data: {student_id:student_id},
-                                    success: function(response){
-                                        if(response === "Deleted"){
-                                            Swal.fire(
-                                                'Deleted!',
-                                                'Your file has been deleted.',
-                                                'success'
-                                            )
-                                        }else{
-                                            Swal.fire(
-                                                'Error',
-                                                'Error deleting data.',
-                                                'error'
-                                            )
-                                        }
-                                        
-                                        setTimeout(() => { 
-                                            location.reload(true);
-                                        }, 1000);
-                                    } 
-                                })
-                            }
-                        })
-                    })
-                },
+                ajax: 'server_clearance.php',
             });
         });
     </script>

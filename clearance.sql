@@ -54,9 +54,27 @@ CREATE TABLE `clearance` (
   `sy_sem_id` int(11) NOT NULL,
   `clearance_type_id` int(11) NOT NULL,
   PRIMARY KEY (`clearance_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `clearance` */
+
+insert  into `clearance`(`clearance_id`,`clearance_status`,`date_created`,`date_cleared`,`is_locked`,`student_id`,`sy_sem_id`,`clearance_type_id`) values 
+(1,'Pending','2022-11-27 15:21:16','2022-11-27',0,2019,1,2);
+
+/*Table structure for table `clearance_details` */
+
+DROP TABLE IF EXISTS `clearance_details`;
+
+CREATE TABLE `clearance_details` (
+  `clearance_details_id` int(11) NOT NULL AUTO_INCREMENT,
+  `clearance_id` int(11) NOT NULL,
+  `sem_sy_id` int(11) NOT NULL,
+  `signing_office_id` int(11) NOT NULL,
+  `date_cleared` datetime NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`clearance_details_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `clearance_details` */
 
 /*Table structure for table `clearance_type` */
 
@@ -205,8 +223,12 @@ CREATE TABLE `student` (
 /*Data for the table `student` */
 
 insert  into `student`(`student_id`,`student_first_name`,`student_last_name`,`student_year`,`course_id`,`student_gender`,`student_email`,`student_username`,`student_password`,`student_status`,`student_profile`) values 
-('2019-70227','Kristian','Tare','4th-Year',5,'Female','tare.kristian@gmail.com','2019-70227','123','Active',''),
-('2020-2342','Phoebe','Ladua','3rd-Year',5,'Female','phoebe@gmail.com','2020-2342','123','Active','');
+('2018-8324','Lebron','Gay','1st Year',5,'Male','alcedric@gmail.com','2018-8324','test','Active',''),
+('2019-70227','Kristian','Tare','4th Year',5,'Male','tare.kristian@gmail.com','2019-70227','123','Active',''),
+('2020-2324','Jesha','Pondoc','3rd Year',4,'Female','jesha@gmail.com','2020-2324','321','Active',''),
+('2020-2342','Phoebe','Ladua','3rd-Year',5,'Female','phoebe@gmail.com','2020-2342','123','Active',''),
+('2021-232','Naruto','Uzumaki','2nd Year',2,'Male','naruto@gmail.com','2021-232','hokage','Inactive',''),
+('﻿2021-2321','John','Hatdog','2nd Year',4,'Male','johnhatdog@gmail.com','2019-8232','123','Active','');
 
 /*Table structure for table `sy_sem` */
 
@@ -298,6 +320,26 @@ DROP TABLE IF EXISTS `student_details`;
  `student_profile` varchar(255) 
 )*/;
 
+/*Table structure for table `view_clearance` */
+
+DROP TABLE IF EXISTS `view_clearance`;
+
+/*!50001 DROP VIEW IF EXISTS `view_clearance` */;
+/*!50001 DROP TABLE IF EXISTS `view_clearance` */;
+
+/*!50001 CREATE TABLE  `view_clearance`(
+ `clearance_id` int(11) ,
+ `student_id` varchar(75) ,
+ `student_first_name` varchar(75) ,
+ `student_last_name` varchar(75) ,
+ `school_year` varchar(75) ,
+ `semester` varchar(75) ,
+ `clearance_type_name` varchar(75) ,
+ `clearance_status` varchar(75) ,
+ `date_created` datetime ,
+ `date_cleared` date 
+)*/;
+
 /*View structure for view admin_account */
 
 /*!50001 DROP TABLE IF EXISTS `admin_account` */;
@@ -325,6 +367,13 @@ DROP TABLE IF EXISTS `student_details`;
 /*!50001 DROP VIEW IF EXISTS `student_details` */;
 
 /*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `student_details` AS select `student`.`student_id` AS `student_id`,`student`.`student_first_name` AS `student_first_name`,`student`.`student_last_name` AS `student_last_name`,`student`.`student_year` AS `student_year`,`course`.`course_name` AS `course_name`,`student`.`student_email` AS `student_email`,`student`.`student_gender` AS `student_gender`,`student`.`student_status` AS `student_status`,`student`.`student_username` AS `student_username`,`student`.`student_password` AS `student_password`,`student`.`student_profile` AS `student_profile` from (`student` join `course`) where `student`.`course_id` = `course`.`course_id` */;
+
+/*View structure for view view_clearance */
+
+/*!50001 DROP TABLE IF EXISTS `view_clearance` */;
+/*!50001 DROP VIEW IF EXISTS `view_clearance` */;
+
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_clearance` AS select `clearance`.`clearance_id` AS `clearance_id`,`student`.`student_id` AS `student_id`,`student`.`student_first_name` AS `student_first_name`,`student`.`student_last_name` AS `student_last_name`,`sy_sem`.`school_year` AS `school_year`,`sy_sem`.`semester` AS `semester`,`clearance_type`.`clearance_type_name` AS `clearance_type_name`,`clearance`.`clearance_status` AS `clearance_status`,`clearance`.`date_created` AS `date_created`,`clearance`.`date_cleared` AS `date_cleared` from (((`clearance` join `student`) join `sy_sem`) join `clearance_type`) where `clearance`.`student_id` = `student`.`student_id` and `clearance`.`sy_sem_id` = `sy_sem`.`sy_sem_id` and `clearance`.`clearance_type_id` = `clearance_type`.`clearance_type_id` */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
