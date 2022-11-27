@@ -40,7 +40,7 @@
                 <a href="signing_office.php">
                     <span class="material-symbols-sharp">edit_note</span>
                     <h3>Signing Office</h3>
-                    <span class="message-count">26</span>
+                    
                 </a>
                 <a href="sy_sem.php">
                     <span class="material-symbols-sharp">calendar_month</span>
