@@ -17,7 +17,7 @@
                     <button id="menu-btn" class="menu-btn">
                         <span class="material-symbols-sharp">menu</span>
                     </button>
-                    <h1>Student Account</h1>
+                    <h1>Clearance</h1>
                     <div class="theme-toggler">
                         <span class="material-symbols-sharp active">light_mode</span>
                         <span class="material-symbols-sharp">dark_mode</span>
@@ -41,36 +41,85 @@
             <div class="form-and-table-container">
                 
                 <!-- -------------  TABLE OF STUDENT INFORMATION -------------- -->
+                <div class="insights">
+                    <div class="income">
+                        <span class="material-symbols-sharp">stacked_line_chart</span>
+                        
+                        <div class="middle">
+                            <div class="left">
+                                <h3>Active Clearance</h3>
+                                <h1>3,548</h1>
+                            </div>
+                            <div class="progress">
+                                <svg>
+                                    <circle cx="38" cy="38" r="36"></circle>
+                                </svg>
+                                <div class="number">
+                                    <p>44%</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <small class="text-muted">Sy-sem : 2022 - 2023, 1st sem</small>
+                    </div>
+
+                    <div class="expenses">
+                        <span class="material-symbols-sharp">bar_chart</span>
+                        
+                        <div class="middle">
+                            <div class="left">
+                                <h3>Uncleared / Pending</h3>
+                                <h1>274</h1>
+                            </div>
+                            <div class="progress">
+                                <svg>
+                                    <circle cx="38" cy="38" r="36"></circle>
+                                </svg>
+                                <div class="number">
+                                    <p>62%</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <small class="text-muted">Sy-sem : 2022 - 2023, 1st sem</small>
+                    </div>
+                    <!-- -------------  END OF EXPENSES -------------- -->
+
+                    <div class="sales">
+                        <span class="material-symbols-sharp">analytics</span>
+                        
+                        <div class="middle">
+                            <div class="left">
+                                <h3>Cleared Active</h3>
+                                <h1>3,822</h1>
+                            </div>
+                            <div class="progress">
+                                <svg>
+                                    <circle cx="38" cy="38" r="36"></circle>
+                                </svg>
+                                <div class="number">
+                                    <p>81%</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <small class="text-muted">Sy-sem : 2022 - 2023, 1st sem</small>
+                    </div>
+                    <!-- -------------  END OF SALES -------------- -->
+
+                    
+
+                
+                </div>
                 <div class="recent-orders-student">
                     <div class="add-button-container">
 
                         <div class="h2-container">
-                                <h2>Students List</h2>
+                                <h2>Clearance list</h2>
                                 
                         </div>
 
-                        <div>
-                            <a href="student_registration.php">
-                                <button id="add-new-student"><span class="material-symbols-sharp">add</span>Add new student</button>
-                            </a>
-                            
-                        </div>
-                        <button id="register-csv-file-btn"><span class="material-symbols-sharp">upload_file</span>Register Via .csv file<span class="material-symbols-sharp">arrow_forward_ios</span></button>
-                        <div>
-                            <div class="upload-student-csv-container">
-                                <form action="student_upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
-                                    <div class="form-input-file-csv-container">
-                                            <label for="input-file">Choose CSV File</label>
-                                            <input type="file" name="file" accept=".csv" id="input-file">
-                                            <button type="submit" name="import" class="submit-csv-file-button">
-                                            
-                                            Import
-                                                <span class="material-symbols-sharp">file_upload</span>
-                                            </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+                        
                     </div>
                     
                     <table id="example" class="display" style="width:100%">
@@ -84,11 +133,10 @@
                                     z-index:10;
                                     '/>
                                 <th></th>
-                                <th>Student ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Year</th>
-                                <th>Course</th>
+                                <th>Student Name</th>
+                                <th>Date Created</th>
+                                <th>Date Cleared</th>
+                                <th>Clearance Type</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -98,12 +146,11 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th></th>
-                                <th>Student ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Year</th>
-                                <th>Course</th>
+                                <th><input type="checkbox"></th>
+                                <th>Student Name</th>
+                                <th>Date Created</th>
+                                <th>Date Cleared</th>
+                                <th>Clearance Type</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
