@@ -43,11 +43,27 @@
                 <!-- -------------  TABLE OF STUDENT INFORMATION -------------- -->
                 <div class="insights">
                     <div class="income">
-                        <span class="material-symbols-sharp">stacked_line_chart</span>
+                        <div style="
+                            display:flex;
+                            gap:5px;
+                            align-items:center
+                        ">
+                            <span class="material-symbols-sharp">stacked_line_chart</span>
+                            <h3>Active Clearance</h3>
+                        </div>
+                        
                         
                         <div class="middle">
                             <div class="left">
-                                <h3>Active Clearance</h3>
+                                <h4 class="text-muted">Continuing:</h4>
+                                <h1>3,548</h1>
+                            </div>
+                            <div class="left">
+                                <h4 class="text-muted">Transfering:</h4>
+                                <h1>3,548</h1>
+                            </div>
+                            <div class="left">
+                                <h4 class="text-muted">Graduating:</h4>
                                 <h1>3,548</h1>
                             </div>
                             <div class="progress">
@@ -64,12 +80,28 @@
                     </div>
 
                     <div class="expenses">
-                        <span class="material-symbols-sharp">bar_chart</span>
+                        <div style="
+                            display:flex;
+                            gap:5px;
+                            align-items:center
+                        ">
+                            <span style="background: var(--color-warning)" class="material-symbols-sharp">bar_chart</span>
+                            <h3>Uncleared / Pending</h3>
+                        </div>
+                        
                         
                         <div class="middle">
                             <div class="left">
-                                <h3>Uncleared / Pending</h3>
-                                <h1>274</h1>
+                                <h4 class="text-muted">Continuing:</h4>
+                                <h1>3,548</h1>
+                            </div>
+                            <div class="left">
+                                <h4 class="text-muted">Transfering:</h4>
+                                <h1>3,548</h1>
+                            </div>
+                            <div class="left">
+                                <h4 class="text-muted">Graduating:</h4>
+                                <h1>3,548</h1>
                             </div>
                             <div class="progress">
                                 <svg>
@@ -86,12 +118,28 @@
                     <!-- -------------  END OF EXPENSES -------------- -->
 
                     <div class="sales">
-                        <span class="material-symbols-sharp">analytics</span>
+                        <div style="
+                            display:flex;
+                            gap:5px;
+                            align-items:center
+                        ">
+                            <span class="material-symbols-sharp">analytics</span>  
+                            <h3>Cleared Active</h3>
+                        </div>
+                        
                         
                         <div class="middle">
                             <div class="left">
-                                <h3>Cleared Active</h3>
-                                <h1>3,822</h1>
+                                <h4 class="text-muted">Continuing:</h4>
+                                <h1>3,548</h1>
+                            </div>
+                            <div class="left">
+                                <h4 class="text-muted">Transfering:</h4>
+                                <h1>3,548</h1>
+                            </div>
+                            <div class="left">
+                                <h4 class="text-muted">Graduating:</h4>
+                                <h1>3,548</h1>
                             </div>
                             <div class="progress">
                                 <svg>
