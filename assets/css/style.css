@@ -446,6 +446,14 @@ main .student-registration .form .title::before{
     
 }
 
+.input-field textarea {
+    height: 50px;
+    border: 2px solid #ccc;
+    width: 100%;
+    padding: 1px 3px;
+    border-radius: var(--border-radius-1);
+}
+
 .input-field select{
     position: absolute;
     width:100%;
@@ -463,6 +471,10 @@ main .student-registration .form .title::before{
 }
 
 
+
+.input-field textarea:is(:focus){
+    border-color: #4070f4;
+}
 
 .input-field input:is(:focus, :valid){
     border-bottom-color: #4070f4;

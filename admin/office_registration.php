@@ -86,8 +86,8 @@
                                     <i class="uil uil-user"></i>
                                 </div>
                                 <div class="input-field">
-                                    <label for="">Office Description</label>
-                                    <textarea style="border-style: 1px solid;" name="office_description" id="" rows="4" cols="50"></textarea>
+                                    
+                                    <textarea placeholder="Office Description" style="border-style: 1px solid;" name="office_description" id="" rows="4" cols="50"></textarea>
                                 </div>
                             </div>
                             <div class="input-field-container">
