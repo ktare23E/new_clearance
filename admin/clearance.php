@@ -41,6 +41,13 @@
             <div class="form-and-table-container">
                 
                 <!-- -------------  TABLE OF STUDENT INFORMATION -------------- -->
+                <div style="margin-top: 20px;">
+                    <button id="show-clearance-insights">
+                        <span class="material-symbols-sharp">show_chart</span>
+                        Show Clearance Insights
+                    </button>
+                </div>
+                <div id="clearance-insights">
                 <div class="insights">
                     <div class="income">
                         <div style="
@@ -159,7 +166,110 @@
 
                 
                 </div>
+                </div>
+                
+
+                
+
+                <br>
                 <div class="recent-orders-student">
+                    <div class="insights info">
+                        <div class="income">
+                            <div style="
+                                display:flex;
+                                gap:5px;
+                                align-items:center
+                            ">
+                                <span class="material-symbols-sharp" style="background-color: var(--color-primary-variant);">account_circle</span>
+                                <h3>Clearance Details</h3>
+                            </div>
+                            
+                            <div class="clearance-detail">
+                                <div class="left first-left">
+
+                                    <div class="left">
+                                        <h4 class="text-muted">Owner:</h4>
+                                        <h1>Peter Pans</h1>
+                                    </div>
+
+                                    <div class="left">
+                                        <h4 class="text-muted">Clearance type:</h4>
+                                        <h1>Graduating</h1>
+                                    </div>
+
+                                    <div class="left">
+                                        <h4 class="text-muted">Sy-sem:</h4>
+                                        <h1>2022 - 2023, 1st sem</h1>
+                                    </div>
+                                    
+                                    <div class="left">
+                                        <h4 class="text-muted">Date Created:</h4>
+                                        <h1>11/22/2022</h1>
+                                    </div>
+                                    <div class="left">
+                                        <h4 class="text-muted">Date Cleared:</h4>
+                                        <h1>12/13/2022</h1>
+                                    </div>
+                                    <div class="left">
+                                        <h4 class="text-muted">Status:</h4>
+                                        <h1 class="warning">Pending</h1>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="left">
+                                    <div class="clearance-detail-status-header">
+                                        <h2>Clearance signing office status</h2>
+                                    </div>
+                                    <div class="clearance-detail-status-table-container">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Signing Office</th>
+                                                    <th>Status</th>
+                                                    <th>Date cleared</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Cashier</td>
+                                                    <td>Not Cleared</td>
+                                                    <td>N/A</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>OSA</td>
+                                                    <td>Cleared</td>
+                                                    <td>11/28/2022</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>SCC</td>
+                                                    <td>Not Cleared</td>
+                                                    <td>N/A</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Department Office</td>
+                                                    <td>Cleared</td>
+                                                    <td>11/25/2022</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Registrat</td>
+                                                    <td>Not Cleared</td>
+                                                    <td>N/A</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+
+
+                                
+                            </div>
+
+                            <small class="text-muted">Youtube Channel : codingwithKristian</small>
+                        </div>
+                    </div>
+
                     <div class="add-button-container">
 
                         <div class="h2-container">
@@ -167,19 +277,19 @@
                                 
                         </div>
 
-                        
+                        <input type="checkbox" id="checkAll" style='
+                                    display:block;background-color:black; appearance:auto;
+                                    position:absolute;
+                                    top:100px;
+                                    left:40px;
+                                    z-index:10;
+                                    '/>
                     </div>
                     
                     <table id="example" class="display" style="width:100%">
                         <thead>
                             <tr>
-                                <input type="checkbox" id="checkAll" style='
-                                    display:block;background-color:black; appearance:auto;
-                                    position:absolute;
-                                    top:150px;
-                                    left:45px;
-                                    z-index:10;
-                                    '/>
+                                
                                 <th></th>
                                 <th>Student Name</th>
                                 <th>Date Created</th>
@@ -312,7 +422,16 @@
     <script>
         $(document).ready(function () {
             $('#example').DataTable();
+
+            $("#show-clearance-insights").click(function(){
+                $("#clearance-insights").slideToggle()
+            })
+            
+
+            
         });
+
+
     </script>
 </body>
 </html>
