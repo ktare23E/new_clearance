@@ -46,7 +46,7 @@
                     <span class="material-symbols-sharp">calendar_month</span>
                     <h3>School Year and Sem</h3>
                 </a>
-                <a href="clearance.html">
+                <a href="clearance.php">
                     <span class="material-symbols-sharp">inventory</span>
                     <h3>Clearance</h3>
                 </a>
