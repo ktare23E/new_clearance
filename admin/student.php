@@ -53,6 +53,7 @@
                             <a href="student_registration.php">
                                 <button id="add-new-student"><span class="material-symbols-sharp">add</span>Add new student</button>
                             </a>
+                            <input type="checkbox" id="checkAll" style='display:block;background-color:black; appearance:auto;'/>
                         </div>
                         <button id="register-csv-file-btn"><span class="material-symbols-sharp">upload_file</span>Register Via .csv file<span class="material-symbols-sharp">arrow_forward_ios</span></button>
                         <div>

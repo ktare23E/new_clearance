@@ -94,8 +94,43 @@
                         </div>
                         <div class="input-field-container">
                             <div class="input-field">
-                                <input type="text" name="student_year" placeholder="Year" required value="<?php echo $student_year; ?>">
-                                <i class="uil uil-user"></i>
+                                <label for="">Year Level</label>
+                                <select name="student_year" id="student_year" required>
+                                    
+                                    <!-- <option value="<?php echo $student_year; ?>"><?php echo $student_year; ?></option> -->
+                                    <option value="1st Year"
+                                        <?php
+                                                if($student_year == '1st Year'){
+                                                    echo "selected";
+                                                }
+                                        ?>
+                                    >1st Year</option>
+                                    <option value="2nd Year"
+                                        <?php
+                                                if($student_year == '2nd Year'){
+                                                    echo "selected";
+                                                }
+                                        ?>
+                                    >2nd Year</option>
+                                    <option value="3rd Year"
+                                        <?php
+                                                if($student_year == '3rd Year'){
+                                                    echo "selected";
+                                                }
+                                        ?>
+                                    >3rd Year</option>
+                                    <option value="4th Year"
+                                        <?php
+                                                if($student_year == '4th Year'){
+                                                    echo "selected";
+                                                }
+                                        ?>
+                                    >4th Year</option>
+                                    <!-- <option value="1st Year">1st Year</option>
+                                    <option value="2nd Year">2nd Year</option>
+                                    <option value="3rd Year">3rd Year</option>
+                                    <option value="4th Year">4th Year</option> -->
+                                </select>
                             </div>
                             <div class="input-field">
                                     <label for="">Course</label>
