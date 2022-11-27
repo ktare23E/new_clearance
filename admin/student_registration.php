@@ -65,9 +65,29 @@
                                 </div>
                             </div>
                             <div class="input-field-container">
-                            <div class="input-field">
-                                    <label for="">Year Level</label>
-                                    <select name="student_year" id="">
+                                
+                                <div class="input-field">
+                                    <i class="uil uil-question-circle"></i>
+                                    <select name="student_gender" id="gender-options">
+                                        <option value="Male">Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </div>
+                                <div class="input-field">
+                                    <i class="uil uil-bolt"></i>
+                                    <select name="student_status" id="">
+                                        <option value="Active">Active</option>
+                                        <option value="Inactive">Inactive</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="input-field-container">
+                                <div class="input-field">
+                                    <i class="uil uil-analysis"></i>
+                                    
+                                    <select name="student_year" id="year-level-option">
+                                        <option value="0" >Year Level</option>
                                         <option value="1st Year">1st Year</option>
                                         <option value="2nd Year">2nd Year</option>
                                         <option value="3rd Year">3rd Year</option>
@@ -75,7 +95,7 @@
                                     </select>
                                 </div>
                                 <div class="input-field">
-                                    <label for="">Course</label>
+                                    <i class="uil uil-analysis"></i>
                                     <select name="course_id" id="">
                                             <?php $courses = $db->result('course');?>
                                             <?php foreach($courses as $course):?>
@@ -87,27 +107,12 @@
                                             <?php endforeach; ?>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="input-field-container">
                                 <div class="input-field">
                                     <input type="email" name="student_email" placeholder="Email Address" required>
-                                    <i class="uil uil-email"></i>
-                                </div>
-                                <div class="input-field">
-                                    <label for="">Gender</label>
-                                    <select name="student_gender" id="">
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                    </select>
-                                </div>
-                                <div class="input-field">
-                                    <label for="">Student Status</label>
-                                    <select name="student_status" id="">
-                                        <option value="Active">Active</option>
-                                        <option value="Inactive">Inactive</option>
-                                    </select>
+                                    <i class="uil uil-envelope"></i>
                                 </div>
                             </div>
+                            
                             <div class="input-field-container">
                                 <div class="input-field">
                                     <input type="text" placeholder="Username" name="student_username" required>
@@ -258,7 +263,12 @@
                 $('#update_username').val(data[5]);
                 $('#update_password').val(data[6]);
             });
+
+
+            
         });
+        
+        
     </script>
 
 <script>
@@ -293,6 +303,19 @@
                         }
                     })
                 })
+            })
+        </script>
+
+        <script>
+
+            let selectYearLevel = document.getElementById("year-level-option")
+            selectYearLevel.addEventListener("change",() => {
+                document.getElementById("year-level-option").options.remove(0)
+            })
+
+            let selectGender = document.getElementById("gender-options")
+            selectGender.addEventListener("change",() => {
+                document.getElementById("gender-options").options.remove(0)
             })
         </script>
     
