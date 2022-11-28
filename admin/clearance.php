@@ -195,6 +195,7 @@
                             <tr>
                                 
                                 <th></th>
+                                <th>Clearance ID</th>
                                 <th>Student ID</th>
                                 <th>Student First Name</th>
                                 <th>Student Last Name</th>
@@ -210,6 +211,7 @@
                         <tfoot>
                             <tr>
                                 <th><input type="checkbox"></th>
+                                <th>Clearance ID</th>
                                 <th>Student ID</th>
                                 <th>Student First Name</th>
                                 <th>Student Last Name</th>

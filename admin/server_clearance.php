@@ -24,12 +24,13 @@ $primaryKey = 'clearance_id';
 // parameter represents the DataTables column identifier. In this case simple
 // indexes
 $columns = array(
-    array( 'db' => 'student_id', 'dt' => 1 ),
-    array( 'db' => 'student_first_name',  'dt' => 2 ),
-    array( 'db' => 'student_last_name',   'dt' => 3 ),
-    array( 'db' => 'school_year',     'dt' => 4 ),
-    array( 'db' => 'semester',     'dt' => 5 ),
-    array( 'db' => 'clearance_status',     'dt' => 6 ),
+    array( 'db' => 'clearance_id', 'dt' => 1 ),
+    array( 'db' => 'student_id', 'dt' => 2 ),
+    array( 'db' => 'student_first_name',  'dt' => 3 ),
+    array( 'db' => 'student_last_name',   'dt' => 4 ),
+    array( 'db' => 'school_year',     'dt' => 5 ),
+    array( 'db' => 'semester',     'dt' => 6 ),
+    array( 'db' => 'clearance_status',     'dt' => 7 ),
 );
 // SQL server connection information
 $sql_details = array(
@@ -56,7 +57,7 @@ foreach($data['data'] as $i => $entry){
         array_push($new_entry, $value);
     }
     array_push($new_entry, "<td class='primary table-action-container'><a href='edit_student_info.php?edit=".$entry[1]."'>Update</a>
-    <a href='clearance.php?details=".$entry[1]."'>View Details</a>
+    <a href='clearance_view.php?details=".$entry[1]."'>View Details</a>
         <input type='hidden' name='student_id' value='".$entry[1]."'> 
     </td>");
     $data['data'][$i] = $new_entry;

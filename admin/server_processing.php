@@ -50,7 +50,7 @@ $data = SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns );
 // die();
 foreach($data['data'] as $i => $entry){
     $new_entry = array();
-    array_push($new_entry, "<td><input name='update[]' type='checkbox' /></td>");
+    array_push($new_entry, "<td><input name='update[]' class='row' student_id = '$entry[1]' type='checkbox' /></td>");
 
     foreach($entry as $j => $value){
         array_push($new_entry, $value);

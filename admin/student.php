@@ -71,6 +71,10 @@
                                 </form>
                             </div>
                         </div>
+                        <div>
+                            <button type="button" id="active" >Set as Active</button><br>
+                            <button type="button" id="inactive" onclick="">Set as Inactive</button>
+                        </div>
                     </div>
                     
                     <table id="example" class="display" style="width:100%">
@@ -117,6 +121,28 @@
 
     </div>
         
+    <script>
+        //jquery onclick event for update button
+        $(document).on("click", '#active', function(){
+            let list_student_id = [];
+            let list_inputs = $('.row')
+            list_inputs.map((index,elem,arr) => {
+                let is_check = $(elem).prop("checked")
+                if(is_check == true ){
+                    list_student_id.push($(elem).attr("student_id"))
+                }
+            });
+            console.log(list_student_id);
+            $.ajax({
+                url: "student_update_status.php",
+                method: "POST",
+                data: {list_student_id:list_student_id},
+                success: (response) =>{
+                    console.log(response);
+                }
+            })
+        });
+    </script>
 <script>
             $(document).ready(function(){
                 $("#register-csv-file-btn").click(function(){
@@ -130,6 +156,7 @@
                 })
             })
         </script>
+
         <script type="text/javascript">
             $(document).ready(function(){
                 // Check/Uncheck ALl
