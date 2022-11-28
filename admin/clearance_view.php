@@ -25,7 +25,7 @@
         ?>
         <!------------------ END OF ASIDE ---------------->
 
-        <main class="main-student">
+        <main class="main-student" style="margin-top: 0px;">
             <div class="right">
                 <div class="top">
                     <button id="menu-btn" class="menu-btn">
@@ -53,6 +53,22 @@
             
 
             <div class="form-and-table-container">
+                <a href="clearance.php" style="
+                display:inline-block;
+                background-color:var(--color-primary-variant);
+                width:fit-content;
+                padding: 6px 20px;
+                color:white;
+                border-radius: var(--border-radius-1);
+                margin-bottom: 5px; 
+                display:flex;
+                align-items:center;
+                font-size: 1rem;
+                ">
+                    <span class="material-symbols-sharp" style="font-size: 1rem;">arrow_back_ios</span>
+                    Back
+                </a>
+                
                 <div class="clearance-detail-container">
                     <div class="clearance-detail-left">
                         <div class="detail-left-header-title">
