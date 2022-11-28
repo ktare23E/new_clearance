@@ -675,6 +675,7 @@ main .insights svg circle {
 .clearance-detail-container .clearance-detail-left .detail-left-main-content {
     display: flex;
     flex-direction: column;
+    gap: 20px;
 }
 
 .clearance-detail-container .clearance-detail-left .detail-left-main-content > div {
@@ -683,6 +684,17 @@ main .insights svg circle {
     align-items: center;
     justify-content: space-between;
     padding-right: 30px;
+}
+
+.clearance-detail-container .clearance-detail-left .detail-left-main-content > div .clearance-info-container h3 {
+    color: var(--color-dark-variant);
+    font-size: 1rem;
+}
+
+
+.clearance-detail-container .clearance-detail-left .detail-left-main-content > div .clearance-info-container h4 {
+    
+    font-size: 1.1rem;
 }
 
 main .insights .sales svg circle {

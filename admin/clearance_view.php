@@ -79,7 +79,6 @@
                                     <h3>Department</h3>
                                     <h4>SICT</h4>
                                 </div>
-                                
                             </div>
                             <div>
                                 <div class="clearance-info-container">
