@@ -647,7 +647,7 @@ main .insights svg circle {
 
 .clearance-detail-container {
     display: grid;
-    grid-template-columns: 5fr 4fr;
+    grid-template-columns: 2fr 3fr;
     background: var(--color-white);
     box-shadow: var(--box-shadow);
     border-radius: var(--border-radius-1);
@@ -667,7 +667,9 @@ main .insights svg circle {
     border-right: 1px solid var(--color-info-dark) ;
 }
 
-.clearance-detail-container .clearance-detail-left .detail-left-header-title {
+.clearance-detail-container 
+.clearance-detail-left 
+.detail-left-header-title {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -676,41 +678,39 @@ main .insights svg circle {
     padding-bottom: 5px;
 }
 
-.clearance-detail-container .clearance-detail-left .detail-left-header-title .status-title {
+.clearance-detail-container .clearance-detail-left 
+.detail-left-header-title .status-title {
     display: flex;
     gap: 5px;
     align-items: center;
 }
 
-.clearance-detail-container .clearance-detail-left .detail-left-main-content {
+.clearance-detail-container .clearance-detail-left 
+.detail-left-main-content {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 0px 10px;
+    padding: 0px 20px;
 }
 
-.clearance-detail-container .clearance-detail-left .detail-left-main-content > div {
+.clearance-detail-container .clearance-detail-left 
+.detail-left-main-content .clearance-info-container {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding-right: 30px;
+    flex-direction: column;
 }
 
-.clearance-detail-container .clearance-detail-left .detail-left-main-content > div .clearance-info-container {
-    width: 100%;
-}
-
-.clearance-detail-container .clearance-detail-left .detail-left-main-content > div .clearance-info-container h3 {
+.clearance-detail-container .clearance-detail-left 
+.detail-left-main-content .clearance-info-container h3 {
     color: var(--color-dark-variant);
     font-size: 1rem;
 }
 
-
-.clearance-detail-container .clearance-detail-left .detail-left-main-content > div .clearance-info-container h4 {
-    
+.clearance-detail-container .clearance-detail-left 
+.detail-left-main-content .clearance-info-container h4 {
     font-size: 1.1rem;
+    
 }
+
 
 .clearance-detail-container .clearance-detail-right {
     display: flex;

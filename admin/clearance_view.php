@@ -65,7 +65,7 @@
                             </div>
                         </div>
                         <div class="detail-left-main-content">
-                            <div>
+                            
                                 <div class="clearance-info-container">
                                     <h3>Owner</h3>
                                     <h4><?= $row['student_first_name'].' '.$row['student_last_name'];?></h4>
@@ -78,8 +78,6 @@
                                     <h3>Department</h3>
                                     <h4><?= $row['department_name']; ?></h4>
                                 </div>
-                            </div>
-                            <div>
                                 <div class="clearance-info-container">
                                     <h3>Clearance type</h3>
                                     <h4><?= $row['clearance_type_name']; ?></h4>
@@ -92,13 +90,10 @@
                                     <h3>School year -  sem</h3>
                                     <h4><?= $row['school_year'].', '.$row['semester'];?></h4>
                                 </div>
-                            </div>
-                            <div>
                                 <div class="clearance-info-container">
                                     <h3>Date Cleared</h3>
                                     <h4><?= $row['date_cleared'];?></h4>
                                 </div>
-                            </div>
                             
                         </div>
                     </div>
