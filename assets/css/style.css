@@ -612,39 +612,10 @@ main .insights > div .middle {
     justify-content: space-between;
 }
 
-main .insights > div .clearance-detail {
-    margin-top: 10px;
-    display: grid;
-    grid-template-columns: 2fr 5fr;
-    padding: 10px 30px;
-}
 
-main .insights > div .clearance-detail .left.first-left {
-    border-right: 2px solid var(--color-info-dark);
-}
-
-main .insights > div .clearance-detail > div:nth-child(1) {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
 
 .insights.info {
     margin-bottom: 20px;
-}
-
-.clearance-detail-status-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.clearance-detail-status-table-container table {
-    width: 100%;
-    font-size: 1.2rem;
-}
-
-.clearance-detail-status-table-container table tbody tr td {
-    
 }
 
 main .insights h3 {
@@ -672,6 +643,46 @@ main .insights svg circle {
     transform: translate(5px, 5px);
     stroke-dasharray: 110;
     stroke-dashoffset: 92;
+}
+
+.clearance-detail-container {
+    display: grid;
+    grid-template-columns: 5fr 4fr;
+    background: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius-1);
+    padding: var(--card-padding);
+}
+
+.clearance-detail-container .clearance-detail-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.clearance-detail-container .clearance-detail-left .detail-left-header-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 30px;
+}
+
+.clearance-detail-container .clearance-detail-left .detail-left-header-title .status-title {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.clearance-detail-container .clearance-detail-left .detail-left-main-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.clearance-detail-container .clearance-detail-left .detail-left-main-content > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 30px;
 }
 
 main .insights .sales svg circle {
