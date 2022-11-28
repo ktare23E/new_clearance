@@ -109,60 +109,24 @@
                         </div>
                         <div class="clearance-detail-right-main-content">
                             <table>
+                                    
                                 <thead>
-                                    <tr>
                                         <th>Signing office</th>
                                         <th>Status</th>
                                         <th>Date Cleared</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <?php   $users = $db->result('signing_offices'); ?>
+                                    <?php foreach($users as $user):?>
                                     <tr>
-                                        <td>Signing office 1</td>
-                                        <td>Cleared</td>
-                                        <td>11/01/2022</td>
-                                    </tr>
                                     <tr>
-                                        <td>Signing office 2</td>
-                                        <td>Not Cleared</td>
-                                        <td>N/A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Signing office 3</td>
-                                        <td>Cleared</td>
-                                        <td>11/13/2022</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Signing office 4</td>
-                                        <td>Not Cleared</td>
-                                        <td>N/A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Signing office 5</td>
-                                        <td>Not Cleared</td>
-                                        <td>N/A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Signing office 2</td>
-                                        <td>Not Cleared</td>
-                                        <td>N/A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Signing office 3</td>
-                                        <td>Cleared</td>
-                                        <td>11/13/2022</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Signing office 4</td>
-                                        <td>Not Cleared</td>
-                                        <td>N/A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Signing office 5</td>
-                                        <td>Not Cleared</td>
-                                        <td>N/A</td>
+                                        <td><?= $user->office_name;?></td>
+                                        <td><?= $user->status;?></td>
+                                        <td><?= $user->date_cleared; ?></td>
                                     </tr>
                                 </tbody>
+                                <?php endforeach; ?>
                             </table>
                         </div>
                     </div>
