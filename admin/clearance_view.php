@@ -128,7 +128,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php   $users = $db->result('signing_offices'); ?>
+                                <?php   $users = $db->result('clearance_signatory'); ?>
                                     <?php foreach($users as $user):?>
                                     <tr>
                                     <tr>
