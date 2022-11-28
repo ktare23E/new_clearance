@@ -231,20 +231,20 @@
         </div>
 
     </div>
-    <script>
-        $(document).ready(function(){
-            const loadingSpan = document.getElementById("loading-span") 
-            const loader = document.getElementById("loader");
-            setTimeout(() => {
-                // loader.style.display = "none"
-                loadingSpan.innerHTML = "Welcome Kristianiter";
+        <script>
+            $(document).ready(function(){
+                const loadingSpan = document.getElementById("loading-span") 
+                const loader = document.getElementById("loader");
                 setTimeout(() => {
-                    loader.style.display = "none"
-                },1500)
-            }, 1500)
-        })
-        
-    </script>
+                    // loader.style.display = "none"
+                    loadingSpan.innerHTML = "Welcome Kristianiter";
+                    setTimeout(() => {
+                        loader.style.display = "none"
+                    },1500)
+                }, 1500)
+            })
+            
+        </script>
     <script src="../assets/javascript/"></script>
     <script src="../assets/js/index.js"></script>
     
