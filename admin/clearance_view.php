@@ -16,7 +16,6 @@
         $sql = "SELECT * FROM view_clearance WHERE clearance_id = '$id'";
         $students = $conn->query($sql) or die($conn->error);
         $row = $students->fetch_assoc();
-    } // dapat sa ubos ni
 ?>
 
 <div class="container-student">
@@ -62,46 +61,42 @@
                             </div>
                             <div class="status-title">
                                 <h4>Status:</h4>
-                                <h3 class="warning">Not Cleared</h3>
+                                <h3 class="warning"><?= $row['clearance_status']; ?></h3>
                             </div>
                         </div>
                         <div class="detail-left-main-content">
                             <div>
                                 <div class="clearance-info-container">
                                     <h3>Owner</h3>
-                                    <h4>Petered Pans</h4>
+                                    <h4><?= $row['student_first_name'].' '.$row['student_last_name'];?></h4>
                                 </div>
                                 <div class="clearance-info-container">
                                     <h3>Course and Year</h3>
-                                    <h4>BSIT - 4th Year</h4>
+                                    <h4><?= $row['course_name'].'-'.$row['student_year']; ?></h4>
                                 </div>
                                 <div class="clearance-info-container">
                                     <h3>Department</h3>
-                                    <h4>SICT</h4>
+                                    <h4><?= $row['department_name']; ?></h4>
                                 </div>
                             </div>
                             <div>
                                 <div class="clearance-info-container">
                                     <h3>Clearance type</h3>
-                                    <h4>Continuing</h4>
+                                    <h4><?= $row['clearance_type_name']; ?></h4>
                                 </div>
                                 <div class="clearance-info-container">
                                     <h3>Date created</h3>
-                                    <h4>10/29/2022</h4>
+                                    <h4><?= $row['date_created'];?></h4>
                                 </div>
                                 <div class="clearance-info-container">
                                     <h3>School year -  sem</h3>
-                                    <h4>2022 - 2023, 1st sem</h4>
+                                    <h4><?= $row['school_year'].', '.$row['semester'];?></h4>
                                 </div>
                             </div>
                             <div>
                                 <div class="clearance-info-container">
-                                    <h3>Status</h3>
-                                    <h4>Not cleared</h4>
-                                </div>
-                                <div class="clearance-info-container">
                                     <h3>Date Cleared</h3>
-                                    <h4>N/A</h4>
+                                    <h4><?= $row['date_cleared'];?></h4>
                                 </div>
                             </div>
                             
@@ -182,5 +177,6 @@
 
 
     </script>
+    <?php   } ?>
 </body>
 </html>

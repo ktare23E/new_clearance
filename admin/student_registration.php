@@ -108,6 +108,19 @@
                                     </select>
                                 </div>
                                 <div class="input-field">
+                                    <i class="uil uil-analysis"></i>
+                                    <select name="department_id" id="">
+                                            <?php $departments = $db->result('department');?>
+                                            <?php foreach($departments as $department):?>
+                                            <?php if($department->department_id == $department_id):?>  
+                                            <option value="<?= $department->department_id; ?>" selected><?= $department->department_name; ?></option>
+                                            <?php else:?>
+                                                <option value="<?= $department->department_id; ?>" selected><?= $department->department_name; ?></option>
+                                            <?php endif;?>
+                                            <?php endforeach; ?>
+                                    </select>
+                                </div>
+                                <div class="input-field">
                                     <input type="email" name="student_email" placeholder="Email Address" required>
                                     <i class="uil uil-envelope"></i>
                                 </div>

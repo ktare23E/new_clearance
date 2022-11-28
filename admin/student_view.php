@@ -152,7 +152,7 @@
                                     <h2 class="label">Department :</h2><span class="removable-span">&emsp;&emsp;</span>
                                 </div>
                                 
-                                <h2><span>SICT</span></h2>
+                                <h2><span><?= $row['department_name']?></span></h2>
                             </div>
                             <div class="student-info-name-container clearance-status-btn-container">
                                 <button id="clearance-status-button">Clearance Status</button>

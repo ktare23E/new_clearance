@@ -87,7 +87,7 @@
                                     left:45px;
                                     z-index:10;
                                     '/>
-                                <th></th>
+                                <th> Select All</th>
                                 <th>Student ID</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
@@ -136,13 +136,48 @@
             $.ajax({
                 url: "student_update_status.php",
                 method: "POST",
-                data: {list_student_id:list_student_id},
+                data: {
+                    list_student_id:list_student_id,
+                    status:'Active'
+                },
                 success: (response) =>{
-                    console.log(response);
+                    $("#checkAll").prop("checked",false);
+                    $('#example').DataTable().ajax.reload();
                 }
             })
         });
     </script>
+
+        <script>
+            //jquery onclick event for update button
+            $(document).on("click", '#inactive', function(){
+                let list_student_id = [];
+                let list_inputs = $('.row')
+                list_inputs.map((index,elem,arr) => {
+                    let is_check = $(elem).prop("checked")
+                    if(is_check == true ){
+                        list_student_id.push($(elem).attr("student_id"))
+                    }
+                });
+                console.log(list_student_id);
+                $.ajax({
+                    url: "student_inactive_status.php",
+                    method: "POST",
+                    data: {
+                        list_student_id:list_student_id,
+                        status:'Inactive'
+                    },
+                    success: (response) =>{
+                        $("#checkAll").prop("checked",false);
+                        $('#example').DataTable().ajax.reload();
+                        
+                    }
+                })
+            });
+
+        </script>
+
+
 <script>
             $(document).ready(function(){
                 $("#register-csv-file-btn").click(function(){
@@ -235,7 +270,7 @@
     
     <!-- <script src="../assets/js/student-info.js"></script> -->
     
-    <script defer src="../assets/js//modal.js"></script>
+    <!-- <script defer src="../assets/js//modal.js"></script> -->
     <script src="../assets/js/index.js"></script>
     <script defer src="../assets/js/active.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

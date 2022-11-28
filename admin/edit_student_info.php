@@ -145,6 +145,19 @@
                                             <?php endforeach; ?>
                                     </select>
                                 </div>
+                                <div class="input-field">
+                                    <label for="">Department</label>
+                                    <select name="department_id" id="">
+                                            <?php $departments = $db->result('department');?>
+                                            <?php foreach($departments as $department):?>
+                                            <?php if($department->department_id == $department_id):?>  
+                                            <option value="<?= $department->department_id; ?>" selected><?= $department->department_name; ?></option>
+                                            <?php else:?>
+                                                <option value="<?= $department->department_id; ?>" selected><?= $department->department_name; ?></option>
+                                            <?php endif;?>
+                                            <?php endforeach; ?>
+                                    </select>
+                                </div>
                         </div>
                         <div class="input-field-container">
                                 <div class="input-field">
