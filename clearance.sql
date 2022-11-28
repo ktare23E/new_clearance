@@ -57,13 +57,13 @@ CREATE TABLE `clearance` (
   `course_id` int(11) NOT NULL,
   `department_id` int(11) NOT NULL,
   PRIMARY KEY (`clearance_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `clearance` */
 
 insert  into `clearance`(`clearance_id`,`clearance_status`,`date_created`,`date_cleared`,`is_locked`,`student_id`,`sy_sem_id`,`clearance_type_id`,`course_id`,`department_id`) values 
 (17,'Approved','2022-11-28 15:03:04','2022-11-16',1,'2019-2023',1,1,2,1),
-(18,'Pending','2022-11-28 15:13:26','2022-11-22',1,'2019-70227',1,1,2,1);
+(19,'Pending','2022-11-28 16:14:26','2022-11-22',1,'2020-2324',1,2,5,3);
 
 /*Table structure for table `clearance_details` */
 
@@ -231,6 +231,7 @@ CREATE TABLE `student` (
 
 insert  into `student`(`student_id`,`student_first_name`,`student_last_name`,`student_year`,`course_id`,`department_id`,`student_gender`,`student_email`,`student_username`,`student_password`,`student_status`,`student_profile`) values 
 ('2019-2023','Al Cedric','Dario','4th Year',2,1,'Male','alcedric@gmail.com','2019-2023','123','Active',''),
+('2020-2324','Phoebe','Ladua','3rd Year',5,3,'Female','alcedric@gmail.com','2020-2324','123','Active',''),
 ('﻿2019-70227','Kristian Kharl','Tare','2nd Year',4,1,'Male','tare.kristian@gmail.com','2019-70227','123','Active','');
 
 /*Table structure for table `sy_sem` */
