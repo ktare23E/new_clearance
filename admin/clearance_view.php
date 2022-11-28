@@ -102,6 +102,7 @@
                             
                         </div>
                     </div>
+
                     <div class="clearance-detail-right">
                         <div class="clearance-detail-right-title">
                             <h2>Signing office status</h2>
@@ -120,6 +121,26 @@
                                         <td>Signing office 1</td>
                                         <td>Cleared</td>
                                         <td>11/01/2022</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Signing office 2</td>
+                                        <td>Not Cleared</td>
+                                        <td>N/A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Signing office 3</td>
+                                        <td>Cleared</td>
+                                        <td>11/13/2022</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Signing office 4</td>
+                                        <td>Not Cleared</td>
+                                        <td>N/A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Signing office 5</td>
+                                        <td>Not Cleared</td>
+                                        <td>N/A</td>
                                     </tr>
                                     <tr>
                                         <td>Signing office 2</td>
@@ -165,12 +186,12 @@
 
     <script>
         $(document).ready(function () {
-            $('#example').DataTable();
 
             $("#show-clearance-insights").click(function(){
                 $("#clearance-insights").slideToggle()
             })
             
+
 
             
         });

@@ -652,11 +652,19 @@ main .insights svg circle {
     box-shadow: var(--box-shadow);
     border-radius: var(--border-radius-1);
     padding: var(--card-padding);
+    transition: all 200ms ease;
+}
+
+.clearance-detail-container:hover {
+    box-shadow: none;
 }
 
 .clearance-detail-container .clearance-detail-left {
     display: flex;
     flex-direction: column;
+    gap: 10px;
+    margin-right: 10px;
+    border-right: 1px solid var(--color-info-dark) ;
 }
 
 .clearance-detail-container .clearance-detail-left .detail-left-header-title {
@@ -664,6 +672,8 @@ main .insights svg circle {
     align-items: center;
     justify-content: space-between;
     padding-right: 30px;
+    border-bottom: 1px solid var(--color-info-dark);
+    padding-bottom: 5px;
 }
 
 .clearance-detail-container .clearance-detail-left .detail-left-header-title .status-title {
@@ -676,6 +686,7 @@ main .insights svg circle {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding: 0px 10px;
 }
 
 .clearance-detail-container .clearance-detail-left .detail-left-main-content > div {
@@ -684,6 +695,10 @@ main .insights svg circle {
     align-items: center;
     justify-content: space-between;
     padding-right: 30px;
+}
+
+.clearance-detail-container .clearance-detail-left .detail-left-main-content > div .clearance-info-container {
+    width: 100%;
 }
 
 .clearance-detail-container .clearance-detail-left .detail-left-main-content > div .clearance-info-container h3 {
@@ -695,6 +710,25 @@ main .insights svg circle {
 .clearance-detail-container .clearance-detail-left .detail-left-main-content > div .clearance-info-container h4 {
     
     font-size: 1.1rem;
+}
+
+.clearance-detail-container .clearance-detail-right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.clearance-detail-container .clearance-detail-right .clearance-detail-right-title {
+    padding-bottom: 5px;
+}
+
+.clearance-detail-container .clearance-detail-right .clearance-detail-right-main-content {
+    padding-left: 10px;
+    width: 100%;
+}
+
+.clearance-detail-container .clearance-detail-right .clearance-detail-right-main-content table {
+    width: 100%;
 }
 
 main .insights .sales svg circle {
