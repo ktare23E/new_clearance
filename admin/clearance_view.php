@@ -108,7 +108,7 @@
                                 </div>
                                 <div class="clearance-info-container">
                                     <h3>Date Cleared</h3>
-                                    <h4><?= $row['date_cleared'];?></h4>
+                                    <h4 class="success"><?= $row['date_cleared'];?></h4>
                                 </div>
                             
                         </div>
