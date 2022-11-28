@@ -196,14 +196,16 @@ CREATE TABLE `signing_office` (
   `admin_id` int(11) NOT NULL,
   `clearance_type_id` int(11) NOT NULL,
   `is_locked` tinyint(1) NOT NULL,
+  `status` varchar(75) NOT NULL,
+  `date_cleared` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`signing_office_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `signing_office` */
 
-insert  into `signing_office`(`signing_office_id`,`office_id`,`sy_sem_id`,`admin_id`,`clearance_type_id`,`is_locked`) values 
-(1,3,2,2,1,1),
-(3,1,1,5,1,1);
+insert  into `signing_office`(`signing_office_id`,`office_id`,`sy_sem_id`,`admin_id`,`clearance_type_id`,`is_locked`,`status`,`date_cleared`) values 
+(1,3,2,2,1,1,'Cleared','2022-11-28 15:44:32'),
+(3,1,1,5,1,1,'Not Cleared','2022-11-28 15:44:32');
 
 /*Table structure for table `student` */
 
@@ -292,12 +294,8 @@ DROP TABLE IF EXISTS `signing_offices`;
 /*!50001 CREATE TABLE  `signing_offices`(
  `signing_office_id` int(11) ,
  `office_name` varchar(75) ,
- `school_year` varchar(75) ,
- `semester` varchar(75) ,
- `admin_first_name` varchar(75) ,
- `admin_last_name` varchar(75) ,
- `clearance_type_name` varchar(75) ,
- `is_locked` tinyint(1) 
+ `status` varchar(75) ,
+ `date_cleared` datetime 
 )*/;
 
 /*Table structure for table `student_details` */
@@ -364,7 +362,7 @@ DROP TABLE IF EXISTS `view_clearance`;
 /*!50001 DROP TABLE IF EXISTS `signing_offices` */;
 /*!50001 DROP VIEW IF EXISTS `signing_offices` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `signing_offices` AS select `signing_office`.`signing_office_id` AS `signing_office_id`,`office`.`office_name` AS `office_name`,`sy_sem`.`school_year` AS `school_year`,`sy_sem`.`semester` AS `semester`,`admin`.`admin_first_name` AS `admin_first_name`,`admin`.`admin_last_name` AS `admin_last_name`,`clearance_type`.`clearance_type_name` AS `clearance_type_name`,`signing_office`.`is_locked` AS `is_locked` from ((((`signing_office` join `office`) join `sy_sem`) join `admin`) join `clearance_type`) where `signing_office`.`office_id` = `office`.`office_id` and `signing_office`.`sy_sem_id` = `sy_sem`.`sy_sem_id` and `signing_office`.`admin_id` = `admin`.`admin_id` and `signing_office`.`clearance_type_id` = `clearance_type`.`clearance_type_id` */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `signing_offices` AS select `signing_office`.`signing_office_id` AS `signing_office_id`,`office`.`office_name` AS `office_name`,`signing_office`.`status` AS `status`,`signing_office`.`date_cleared` AS `date_cleared` from (`signing_office` join `office`) where `signing_office`.`office_id` = `office`.`office_id` */;
 
 /*View structure for view student_details */
 
