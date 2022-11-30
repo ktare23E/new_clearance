@@ -17,7 +17,7 @@
     </div>
     
     
-    <script src="./index.js"></script>
+    <script src="./office_admin_index.js"></script>
     
 </body>
 </html>

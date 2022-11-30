@@ -6,23 +6,23 @@
                 </div>
             </div>
             <div class="nav-middle-container">
-                <a href="office_admin_index.php">
+                <a href="./office_admin_index.php">
                     <span class="material-symbols-sharp">home</span>
                     <h3>Home</h3>
                 </a>
-                <a href="office_students.php">
+                <a href="./office_students.php">
                     <span class="material-symbols-sharp">account_circle</span>
                     <h3>Students</h3>
                 </a>
-                <a href="office_clearance.php">
+                <a href="./office_clearance.php">
                     <span class="material-symbols-sharp">inventory</span>
                     <h3>Clearance</h3>
                 </a>
-                <a href="office_requirements.php">
+                <a href="./office_requirements.php">
                     <span class="material-symbols-sharp">receipt_long</span>
                     <h3>Requirements</h3>
                 </a>
-                <a href="office_submissions.php">
+                <a href="./office_submissions.php">
                     <span class="material-symbols-sharp">move_to_inbox</span>
                     <h3>Submissions</h3>
                 </a>

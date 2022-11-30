@@ -137,6 +137,7 @@ b {
     display: flex;
     flex-direction: column;
     gap: 1.8rem;
+    align-items: center;
     
 }
 
@@ -147,7 +148,7 @@ b {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 20px 0px 20px;
     width: 100%;
     background: var(--color-white);
     box-shadow: var(--box-shadow);
@@ -178,7 +179,7 @@ b {
 .office-container .office-top-container .nav-middle-container {
     display: flex;
     flex-direction: row;
-    gap: 30px;
+    gap: 5px;
     align-items: center;
 }
 
@@ -187,6 +188,16 @@ b {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    padding: 5px 20px;
+    transition: all 200ms ease;
+}
+
+.office-container .office-top-container .nav-middle-container a:hover {
+    color: var(--color-primary-variant);
+}
+
+a.active {
+    border-bottom: 4px solid rgb(0, 217, 255);
 }
 
 .office-container .office-top-container .nav-right-container {
@@ -201,4 +212,207 @@ b {
     flex-direction: row;
     gap: 10px;
 }
+
+.main-requirements-container {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-requirements-container .first-main-content-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+}
+
+.form {
+    width: 100%;
+    height: fit-content;
+    padding: 15px 30px 30px 30px;
+    background-color: var(--color-white);
+    transition:all 200ms ease;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+span.title {
+    display: flex;
+    border-bottom: 1px solid var(--color-dark-variant);
+    padding: 10px 0px;
+}
+
+.form:hover {
+    box-shadow: none;
+}
+
+
+.input-field-container {
+    display: flex;
+    gap: 10px;
+}
+
+
+.form .input-field{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.form .input-field.sy-sem-select {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 30px;
+}
+
+.input-field input{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0 35px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-bottom: 2px solid #ccc;
+    border-top: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.input-field select {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-bottom: 2px solid #ccc;
+    border-top: 2px solid transparent;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    z-index: 100;
+    background: none;
+    color: var(--color-dark);
+    
+}
+
+.input-field select option {
+    background: var(--color-white);
+}
+
+
+.input-field textarea {
+    height: 100%;
+    min-height: 80px;
+    width: 100%;
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border: 1px solid var(--color-dark-variant);
+    border-bottom: 2px solid #ccc;
+    transition: all 0.2s ease;
+    background: none;
+    border-radius: var(--border-radius-1);
+    color: var(--color-dark);
+}
+
+.input-field textarea:is(:focus, :valid){
+    border-bottom-color: #4070f4;
+}
+
+.input-field input:is(:focus, :valid){
+    border-bottom-color: #4070f4;
+}
+
+.input-field i{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 23px;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.input-field i#uil-arrow-down{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 23px;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.input-field input:is(:focus, :valid) ~ i{
+    color: #4070f4;
+}
+
+.input-field i.icon{
+    left: 0;
+}
+.input-field i.showHidePw{
+    right: 0;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.form .checkbox-text{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.checkbox-text .checkbox-content{
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-content input{
+    margin: 0 8px -2px 4px;
+    accent-color: #4070f4;
+}
+
+.form .text{
+    color: #333;
+    font-size: 14px;
+}
+
+.form a.text{
+    color: #4070f4;
+    text-decoration: none;
+}
+.form a:hover{
+    text-decoration: underline;
+}
+
+.form .button{
+    margin-top: 35px;
+    margin-bottom: 30px;
+}
+
+.form .button input{
+    border: none;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    background-color: #4070f4;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.button input:hover{
+    background-color: #265df2;
+}
+
 
