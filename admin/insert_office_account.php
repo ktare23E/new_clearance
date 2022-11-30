@@ -3,8 +3,7 @@
 require ('../dbconnect.php');
 
 
-$admin_first_name    = $_POST['admin_first_name'];
-$admin_last_name      = $_POST['admin_last_name'];
+$admin_name    = $_POST['admin_name'];
 $admin_username  = $_POST['admin_username'];
 $admin_password  = $_POST['admin_password'];
 $office_id = $_POST['office_id'];
@@ -12,8 +11,7 @@ $office_id = $_POST['office_id'];
 
 
 $data = array(
-    'admin_first_name' => $admin_first_name,
-    'admin_last_name' => $admin_last_name,
+    'admin_name' => $admin_name,
     'admin_username' => $admin_username,
     'admin_password' => $admin_password,
     'office_id' => $office_id,

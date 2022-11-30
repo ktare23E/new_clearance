@@ -132,8 +132,8 @@
                                     <?php foreach($users as $user):?>
                                     <tr>
                                     <tr>
-                                        <td><?= $user->office_name;?></td>
-                                        <td><?= $user->status;?></td>
+                                        <td><?= $user->office_name; ?></td>
+                                        <td><?= $user->status; ?></td>
                                         <td><?= $user->date_cleared; ?></td>
                                     </tr>
                                 </tbody>

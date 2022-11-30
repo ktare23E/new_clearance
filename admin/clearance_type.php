@@ -45,7 +45,7 @@
                 <div class="recent-orders-student">
                     <div class="add-button-container">
                         <div>
-                            <a href="signing_office_registration.php">
+                            <a href="clearance_type_registration.php">
                                 <button id="add-new-student">Add new Clearance Type</button>
                             </a>
                         </div>
@@ -71,7 +71,7 @@
                                 <td><?= $user->clearance_type_name; ?></td>
                                 <td><?= $user->clearance_type_description; ?></td>
                                 <td class="primary table-action-container">
-                                    <a href="edit_sy_sem_info.php?edit=<?= $user->sy_sem_id?>">Update</a>
+                                    <a href="edit_clearance_type.php?edit=<?= $user->clearance_type_id?>">Update</a>
                                     <a href="sy_sem_view.php?details=<?= $user->sy_sem_id?>">View Details</a>
                                         <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
                                         <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">

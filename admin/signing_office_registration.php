@@ -1,7 +1,7 @@
 <?php
     include_once 'header.php';
     // $users1 = $db->result('office');
-    
+    // $users = $db->result('offices');
 
 
 ?>
@@ -36,7 +36,7 @@
     
             </div>
 
-            <h1>Office Account</h1>
+            <h1>Signing Office</h1>
 
             <div class="form-and-table-container">
 
@@ -44,30 +44,17 @@
                 <div class="student-registration">
                     <div class="form signup">
                         <div class="back-button">
-                            <a href="office_account.php">
+                            <a href="signing_office.php">
                                 <button id="back-button-to-office">
                                 <span class="material-symbols-sharp">arrow_back</span>
                             </button>
                             </a>
                             
                         </div>
-                        <span class="title">Add New User Account</span>
+                        <span class="title">Add New Signing Office</span>
         
-                        <form action="insert_office_account.php" method="POST">
+                        <form action="insert_signing_office.php" method="POST">
                             <div class="input-field-container">
-                            <div class="input-field">
-                                    <input type="text" name="admin_name" placeholder="Admin Name" required>
-                                    <i class="uil uil-user"></i>
-                                </div>
-                                <div class="input-field">
-                                    <input type="text" name="admin_username" placeholder="Username" required>
-                                    <i class="uil uil-user"></i>
-                                </div>
-                                <div class="input-field">
-                                    <input type="text" name="admin_password" placeholder="Password" required>
-                                    <i class="uil uil-envelope icon"></i>
-                                </div>
-                            </div>
                             <div class="input-field">
                                     <label for="">Office Name</label>
                                     <select name="office_id" id="">
@@ -80,9 +67,53 @@
                                             <?php endif;?>
                                             <?php endforeach; ?>
                                     </select>
+                            </div>
+                                    <div class="input-field">
+                                        <span id="check_office"></span>
+                                        <input type="text" name="school_year" placeholder="School Year" required>
+                                        <i class="uil uil-user"></i>
+                                    </div>
+                            </div>
+                            <div class="input-field-container">
+                                <div class="input-field">
+                                        <i class="uil uil-bolt"></i>
+                                        <select name="semester" id="">
+                                            <option value="Semester">Semester</option>
+                                            <option value="1st Semester">1st Semester</option>
+                                            <option value="2nd Semester">2nd Semester</option>
+                                        </select>
                                 </div>
+                                <div class="input-field">
+                                    <label for="">Admin Name</label>
+                                    <select name="admin_id" id="">
+                                            <?php $admins = $db->result('admin');?>
+                                            <?php foreach($admins as $admin):?>
+                                            <?php if($admin->admin_id == $admin_id):?>  
+                                            <option value="<?= $admin->admin_id; ?>" selected><?= $admin->admin_name; ?></option>
+                                            <?php else:?>
+                                                <option value="<?= $admin->admin_id; ?>"><?= $admin->admin_name; ?></option>
+                                            <?php endif;?>
+                                            <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="input-field-container">
+                                        <div class="input-field">
+                                            <label for="">Clearance Type</label>
+                                            <select name="clearance_type_id" id="">
+                                                    <?php $clearances = $db->result('clearance_type');?>
+                                                    <?php foreach($clearances as $clearance):?>
+                                                    <?php if($clearance->clearance_type_id == $clearance_type_id):?>  
+                                                    <option value="<?= $clearance->clearance_type_id; ?>" selected><?= $clearance->clearance_type_name; ?></option>
+                                                    <?php else:?>
+                                                        <option value="<?= $clearance->clearance_type_id; ?>"><?= $clearance->clearance_type_name; ?></option>
+                                                    <?php endif;?>
+                                                    <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                            </div>
                             <div class="input-field button">
-                                <input type="submit" value="Create Account">
+                                <input type="submit" id="submit" value="Create Course">
                             </div>
                         </form>
                     </div>
@@ -197,66 +228,20 @@
     </div>
     <div id="overlay-update"></div>
 
-    <script>
-        $(document).ready(function () {
-
-            $('.edit_button').on('click', function () {
-
-                $('#update-modal').modal('show');
-
-                $tr = $(this).closest('tr');
-
-                var data = $tr.children("td").map(function () {
-                    return $(this).text();
-                }).get();
-
-                console.log(data);
-
-                $('#update_student_id').val(data[0]);
-                $('#update_fname').val(data[1]);
-                $('#update_lname').val(data[2]);
-                $('#update_year').val(data[3]);
-                $('#update_course').val(data[4]);
-                $('#update_username').val(data[5]);
-                $('#update_password').val(data[6]);
-            });
-        });
-    </script>
-
 <script>
-            $(document).ready(function(){
-                $('.delete').on('click',function(){
-                    let student_id = $(this).attr('data-id');
-                    Swal.fire({
-                        title: 'Are you sure?',
-                        text: "You won't be able to revert this!",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Yes, delete it!'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            $.ajax({
-                                type: 'post',
-                                url: 'deleteinfo.php',
-                                data: {student_id:student_id},
-                                success: function(response){
-                                    Swal.fire(
-                                        'Deleted!',
-                                        'Your file has been deleted.',
-                                        'success'
-                                    )
-                                    setTimeout(() => { 
-                                        location.reload(true);
-                                    }, 3000);
-                                } 
-                            })
-                        }
-                    })
-                })
-            })
-        </script>
+function checkCourse() {
+    
+    jQuery.ajax({
+    url: "check_course.php",
+    data:'course_name='+$("#course_name").val(),
+    type: "POST",
+    success:function(data){
+        $("#check_office").html(data);
+    },
+    error:function (){}
+    });
+}
+</script>
     
     <!-- <script src="../assets/js/student-info.js"></script> -->
     
