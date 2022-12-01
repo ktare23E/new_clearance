@@ -8,6 +8,8 @@
 
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="assets/css/login.css">
+
+    
 </head>
 <body>
     <div class="container">
@@ -49,11 +51,14 @@
             
         </div>
     </div>
-
+    <script type="text/javascript">
+        window.history.forward();
+    </script>
     <!--<script src="script.js"></script>-->
 
     <script src="assets/js/login.js"></script>
 
+    
     
 </body>
 </html>

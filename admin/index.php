@@ -2,6 +2,7 @@
 
     include_once 'header.php';
 ?>
+
     <div class="container">
         <!-- sidebar -->
         <?php
