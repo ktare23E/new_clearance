@@ -60,8 +60,7 @@
                     <table id="example" class="display" style="width:100%">
                         <thead>
                             <tr>
-                                <th>First Name</th>
-                                <th>Last Name</th>
+                                <th>Admin Name</th>
                                 <th>Office Name</th>
                                 <th>Office Account Username</th>
                                 <th>Actions</th>
@@ -70,8 +69,7 @@
                         <tbody>
                             <?php foreach ($users as $user) : ?>
                             <tr>
-                                <td><?= $user->admin_first_name; ?></td>
-                                <td><?= $user->admin_last_name; ?></td>
+                                <td><?= $user->admin_name; ?></td>
                                 <td><?= $user->office_name;?></td>
                                 <td><?= $user->admin_username;?></td>
                                 <td class="primary table-action-container">
@@ -86,8 +84,7 @@
                             <?php endforeach; ?>
                         <tfoot>
                             <tr>
-                                <th>First Name</th>
-                                <th>Last Name</th>
+                                <th>Admin Name</th>
                                 <th>Office Name</th>
                                 <th>Office Account Username</th>
                                 <th>Actions</th>

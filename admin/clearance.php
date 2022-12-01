@@ -161,16 +161,8 @@
                         <small class="text-muted">Sy-sem : 2022 - 2023, 1st sem</small>
                     </div>
                     <!-- -------------  END OF SALES -------------- -->
-
-                    
-
-                
                 </div>
                 </div>
-                
-
-                
-
                 <br>
                 <div class="recent-orders-student">
 

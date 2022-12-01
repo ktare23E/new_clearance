@@ -43,7 +43,7 @@
                 <div class="recent-orders-student">
                     <div class="add-button-container">
                         <div>
-                            <a href="office_account_registration.php">
+                            <a href="signing_office_registration.php">
                                 <button id="add-new-student">
                                 <i class="uis uis-airplay"></i> New Users</button>
                             </a>
@@ -60,8 +60,7 @@
                                 <th>Office Name</th>
                                 <th>School Year</th>
                                 <th>Semester</th>
-                                <th>Admin First Name</th>
-                                <th>Admin Last Name</th>
+                                <th>Admin Name</th>
                                 <th>Clearance Type</th>
                                 <th>Actions</th>
                             </tr>
@@ -72,8 +71,7 @@
                                 <td><?= $user->office_name; ?></td>
                                 <td><?= $user->school_year; ?></td>
                                 <td><?= $user->semester; ?></td>
-                                <td><?= $user->admin_first_name; ?></td>
-                                <td><?= $user->admin_last_name; ?></td>
+                                <td><?= $user->admin_name; ?></td>
                                 <td><?= $user->clearance_type_name; ?></td>
                                 <td class="primary table-action-container">
                                     <a href="edit_office_account_info.php?edit=<?= $user->admin_id;?>">Update</a>
@@ -90,8 +88,7 @@
                                 <th>Office Name</th>
                                 <th>School Year</th>
                                 <th>Semester</th>
-                                <th>Admin First Name</th>
-                                <th>Admin Last Name</th>
+                                <th>Admin Name</th>
                                 <th>Clearance Type</th>
                                 <th>Actions</th>
                             </tr>

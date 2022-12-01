@@ -128,12 +128,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php   $users = $db->result('signing_offices'); ?>
+                                <?php   $users = $db->result('clearance_signatory'); ?>
                                     <?php foreach($users as $user):?>
                                     <tr>
                                     <tr>
-                                        <td><?= $user->office_name;?></td>
-                                        <td><?= $user->status;?></td>
+                                        <td><?= $user->office_name; ?></td>
+                                        <td><?= $user->status; ?></td>
                                         <td><?= $user->date_cleared; ?></td>
                                     </tr>
                                 </tbody>

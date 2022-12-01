@@ -69,7 +69,7 @@
                                 <div class="input-field">
                                     <i class="uil uil-question-circle"></i>
                                     <select name="student_gender" id="gender-options">
-                                        <option value="Male">Gender</option>
+                                        <option value="Gender">Gender</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                     </select>
@@ -77,6 +77,7 @@
                                 <div class="input-field">
                                     <i class="uil uil-bolt"></i>
                                     <select name="student_status" id="">
+                                        <option value="Status">Status</option>
                                         <option value="Active">Active</option>
                                         <option value="Inactive">Inactive</option>
                                     </select>
