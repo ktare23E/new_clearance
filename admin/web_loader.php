@@ -24,7 +24,7 @@
                 const loader = document.getElementById("loader");
                 setTimeout(() => {
                     // loader.style.display = "none"
-                    loadingSpan.innerHTML = "Welcome Kristianiter";
+                    loadingSpan.innerHTML = "Welcome To Dario's Framework";
                     setTimeout(() => {
                         window.location.href = "index.php"
                     },1500)
