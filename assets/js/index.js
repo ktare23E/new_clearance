@@ -163,11 +163,7 @@ const container = document.querySelector(".container"),
 
 // back button to student.php
 
-const backBtn = document.querySelector("#back-button-to-student")
 
-backBtn.addEventListener('click', function(){
-    window.location.href = "student.php";
-})
 
 // const EditProfileBtn = document.querySelector("#edit-profile-button")
 

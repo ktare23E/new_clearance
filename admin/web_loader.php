@@ -32,7 +32,7 @@
             })
             
         </script>
-    <script src="../assets/javascript/"></script>
+    
     <script src="../assets/js/index.js"></script>
     
     

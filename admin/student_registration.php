@@ -331,6 +331,12 @@
             selectGender.addEventListener("change",() => {
                 document.getElementById("gender-options").options.remove(0)
             })
+
+            const backBtn = document.querySelector("#back-button-to-student")
+
+backBtn.addEventListener('click', function(){
+    window.location.href = "student.php";
+})
         </script>
     
     <!-- <script src="../assets/js/student-info.js"></script> -->
