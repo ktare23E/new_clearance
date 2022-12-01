@@ -449,3 +449,18 @@ span.title {
     font-size: 1.2rem;
     color: var(--color-dark-variant);
 }
+
+.office-admin-image-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    
+}
+
+.office-admin-image-container img {
+    border: 2px solid var(--color-dark-variant);
+    padding: 3px;
+    border-radius: 50%;
+}
