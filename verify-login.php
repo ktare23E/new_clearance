@@ -11,7 +11,7 @@ $exist = $db->is_exist('admin', "admin_username='$username' AND admin_password='
 session_start();
 if ($exist) {
     $_SESSION['isloggedin'] = 1;
-    header("location: admin/web_loader.php");
+    header("location: admin/index.php");
 } else {
     header("location: index.php?a=error");
 }
