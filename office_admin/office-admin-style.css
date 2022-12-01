@@ -416,3 +416,51 @@ span.title {
 }
 
 
+.office-main-container {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+}
+
+.office-main-container .first-div-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding: 10px;
+    background: var(--color-white);
+    border-radius: var(--border-radius-1);
+    padding-top: 50px;
+    box-shadow: var(--box-shadow);
+}
+
+.welcome-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome-top h2 {
+    font-size: 2.2rem;
+}
+
+.welcome-top div {
+    font-size: 1.2rem;
+    color: var(--color-dark-variant);
+}
+
+.office-admin-image-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    
+}
+
+.office-admin-image-container img {
+    border: 2px solid var(--color-dark-variant);
+    padding: 3px;
+    border-radius: 50%;
+}
