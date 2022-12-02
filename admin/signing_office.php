@@ -1,7 +1,7 @@
 <?php
     include_once 'header.php';
 
-        $users = $db->result('signing_offices');
+        $users = $db->result('new_signing_offices');
     
 ?>
     <div class="container-student">
@@ -58,8 +58,7 @@
                         <thead>
                             <tr>
                                 <th>Office Name</th>
-                                <th>School Year</th>
-                                <th>Semester</th>
+                                <th>School Year and Sem</th>
                                 <th>Admin Name</th>
                                 <th>Clearance Type</th>
                                 <th>Actions</th>
@@ -69,8 +68,7 @@
                             <?php foreach ($users as $user) : ?>
                             <tr>
                                 <td><?= $user->office_name; ?></td>
-                                <td><?= $user->school_year; ?></td>
-                                <td><?= $user->semester; ?></td>
+                                <td><?= $user->school_year_and_sem; ?></td>
                                 <td><?= $user->admin_name; ?></td>
                                 <td><?= $user->clearance_type_name; ?></td>
                                 <td class="primary table-action-container">
@@ -86,8 +84,7 @@
                         <tfoot>
                             <tr>
                                 <th>Office Name</th>
-                                <th>School Year</th>
-                                <th>Semester</th>
+                                <th>School Year and Sem</th>
                                 <th>Admin Name</th>
                                 <th>Clearance Type</th>
                                 <th>Actions</th>

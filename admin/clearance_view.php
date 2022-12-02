@@ -104,7 +104,7 @@
                                 </div>
                                 <div class="clearance-info-container">
                                     <h3>School year -  sem</h3>
-                                    <h4><?= $row['school_year'].', '.$row['semester'];?></h4>
+                                    <h4><?= $row['school_year_and_sem'];?></h4>
                                 </div>
                                 <div class="clearance-info-container">
                                     <h3>Date Cleared</h3>
@@ -128,7 +128,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php   $users = $db->result('clearance_signatory'); ?>
+                                <?php   $users = $db->result('new_signing_info',"clearance_id=$id"); ?>
                                     <?php foreach($users as $user):?>
                                     <tr>
                                     <tr>
@@ -138,7 +138,7 @@
                                     </tr>
                                 </tbody>
                                 <?php endforeach; ?>
-                            </table>
+                            </table> 
                         </div>
                     </div>
                 </div>

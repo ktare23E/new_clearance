@@ -28,9 +28,8 @@ $columns = array(
     array( 'db' => 'student_id', 'dt' => 2 ),
     array( 'db' => 'student_first_name',  'dt' => 3 ),
     array( 'db' => 'student_last_name',   'dt' => 4 ),
-    array( 'db' => 'school_year',     'dt' => 5 ),
-    array( 'db' => 'semester',     'dt' => 6 ),
-    array( 'db' => 'clearance_status',     'dt' => 7 ),
+    array( 'db' => 'school_year_and_sem',     'dt' => 5 ),
+    array( 'db' => 'clearance_status',     'dt' => 6 ),
 );
 // SQL server connection information
 $sql_details = array(

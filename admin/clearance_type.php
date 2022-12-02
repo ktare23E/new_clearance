@@ -72,11 +72,6 @@
                                 <td><?= $user->clearance_type_description; ?></td>
                                 <td class="primary table-action-container">
                                     <a href="edit_clearance_type.php?edit=<?= $user->clearance_type_id?>">Update</a>
-                                    <a href="sy_sem_view.php?details=<?= $user->sy_sem_id?>">View Details</a>
-                                        <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
-                                        <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
-                                            <span class="material-symbols-outlined">delete</span>
-                                        </button> -->
                                 </td>
                             </tr>
                             <?php endforeach; ?>

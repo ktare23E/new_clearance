@@ -11,6 +11,10 @@
         <div class="office-main-container">
             <div class="first-div-container">
                 <div class="top-left">
+                <div class="welcome-top">
+                    <div class="office-admin-image-container">
+                        <img src="../images/dp.png" alt="">
+                    </div>
                     <div>Clearance at ease!</div>
                     <h2><span class="primary">Nmsc</span> Online Clearance System</h2>
                     <h3>Post clearance requirements and sign students' clearance online! All in one place!  </h3>
@@ -80,7 +84,7 @@
     </div>
     
     
-    <script src="./office_admin_index.js"></script>
+    <script src="../assets/js/office_admin_index.js"></script>
     
 </body>
 </html>
