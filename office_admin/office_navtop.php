@@ -34,7 +34,7 @@
                 </div>
                 <div class="profile">
                     <div class="info">
-                        <p>Hey, <b>Daniel</b></p>
+                        <p>Hello, <b>World</b></p>
                         <small class="text-muted">Admin</small>
                     </div>
                     <div class="profile-photo">
