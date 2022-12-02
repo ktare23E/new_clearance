@@ -59,8 +59,7 @@
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>School Year</th>
-                                <th>Semester</th>
+                                <th>School Year And Sem</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
@@ -69,8 +68,7 @@
                             <?php foreach ($users as $user) : ?>
                             <tr>
                                 <td><input type="checkbox"></td>
-                                <td><?= $user->school_year; ?></td>
-                                <td><?= $user->semester; ?></td>
+                                <td><?= $user->school_year_and_sem; ?></td>
                                 <td><?= $user->status; ?></td>
                                 <td class="primary table-action-container">
                                     <a href="edit_sy_sem_info.php?edit=<?= $user->sy_sem_id?>">Update</a>
@@ -84,8 +82,7 @@
                         <tfoot>
                             <tr>
                                 <th></th>
-                                <th>School Year</th>
-                                <th>Semester</th>
+                                <th>School Year And Sem</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>

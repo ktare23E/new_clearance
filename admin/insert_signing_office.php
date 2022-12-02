@@ -4,8 +4,7 @@ require ('../dbconnect.php');
 
 
 $office_id    = $_POST['office_id'];
-$semester  = $_POST['semester'];
-$school_year = $_POST['school_year'];
+$sy_sem_id  = $_POST['sy_sem_id'];
 $admin_id  = $_POST['admin_id'];
 $clearance_type_id = $_POST['clearance_type_id'];
 
@@ -13,10 +12,9 @@ $clearance_type_id = $_POST['clearance_type_id'];
 
 $data = array(
     'office_id' => $office_id,
-    'semester' => $semester,
+    'sy_sem_id' => $sy_sem_id,
     'admin_id' => $admin_id,
     'clearance_type_id' => $clearance_type_id,
-    'school_year' => $school_year
 );
 
 $insert = $db->insert('signing_office', $data);

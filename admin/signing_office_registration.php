@@ -68,21 +68,21 @@
                                             <?php endforeach; ?>
                                     </select>
                             </div>
-                                    <div class="input-field">
-                                        <span id="check_office"></span>
-                                        <input type="text" name="school_year" placeholder="School Year" required>
-                                        <i class="uil uil-user"></i>
-                                    </div>
+                                <div class="input-field">
+                                    <label for="">Admin Name</label>
+                                    <select name="sy_sem_id" id="">
+                                            <?php $semesters = $db->result('sy_sem');?>
+                                            <?php foreach($semesters as $semester):?>
+                                            <?php if($semester->sy_sem_id == $sy_sem_id):?>  
+                                            <option value="<?= $semester->sy_sem_id; ?>" selected><?= $semester->school_year_and_sem; ?></option>
+                                            <?php else:?>
+                                                <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem; ?></option>
+                                            <?php endif;?>
+                                            <?php endforeach; ?>
+                                    </select>
+                                </div>
                             </div>
                             <div class="input-field-container">
-                                <div class="input-field">
-                                        <i class="uil uil-bolt"></i>
-                                        <select name="semester" id="">
-                                            <option value="Semester">Semester</option>
-                                            <option value="1st Semester">1st Semester</option>
-                                            <option value="2nd Semester">2nd Semester</option>
-                                        </select>
-                                </div>
                                 <div class="input-field">
                                     <label for="">Admin Name</label>
                                     <select name="admin_id" id="">
@@ -96,9 +96,7 @@
                                             <?php endforeach; ?>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="input-field-container">
-                                        <div class="input-field">
+                                <div class="input-field">
                                             <label for="">Clearance Type</label>
                                             <select name="clearance_type_id" id="">
                                                     <?php $clearances = $db->result('clearance_type');?>
@@ -113,7 +111,7 @@
                                         </div>
                             </div>
                             <div class="input-field button">
-                                <input type="submit" id="submit" value="Create Course">
+                                <input type="submit" id="submit" value="Create Signing Office">
                             </div>
                         </form>
                     </div>
