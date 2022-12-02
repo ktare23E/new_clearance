@@ -133,6 +133,22 @@ b {
     color: var(--color-warning);
 }
 
+.background-primary {
+    background-color: var(--color-primary);
+}
+
+.background-danger {
+    background-color: var(--color-danger);
+}
+
+.background-success {
+    background-color: var(--color-success);
+}
+
+.background-warning {
+    background-color: var(--color-warning);
+}
+
 .office-container {
     display: flex;
     flex-direction: column;
@@ -140,6 +156,8 @@ b {
     align-items: center;
     
 }
+
+
 
 /* ====================================== NAVBAR TOP =========================== */
 
@@ -470,26 +488,90 @@ span.title {
     box-shadow: none;
 }
 
+button {
+    cursor: pointer;
+}
+
+.student-panel-insights-container {
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    gap: 20px;
+}
+
+.student-insight-container {
+    background: var(--color-white);
+    border-radius: var(--border-radius-1);
+    padding: var(--card-padding);
+    box-shadow: var(--box-shadow);
+}
+
+.student-insight-container .upper-insight {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+
+.student-insight-container .upper-insight .left-logo-insight span  {
+    color: var(--color-warning);
+    font-size: 4rem;
+}
+
+.table-container {
+    border-radius: var(--border-radius-1);
+    box-shadow: var(--box-shadow);
+    background: var(--color-white);
+    padding: 10px 10px;
+}
+
+.get-started-section {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: var(--color-white);
+    padding: 15px;
+    border-radius: var(--border-radius-1);
+    box-shadow: var(--box-shadow);
+}
+
 .actions-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    grid-template-columns: 1fr 1fr 1fr ;
     gap: 10px;
     width: 100%;
+    padding: 20px;
     
-    
+}
+
+.get-started-title {
+    text-align: center;
 }
 
 .action-container {
     display: flex;
     flex-direction: column;
     padding: 3px 0px;
-    
+    gap: 10px;
     /* border: 1px solid var(--color-primary); */
     padding: 10px 15px;
     border-radius: var(--border-radius-1);
-    background: var(--color-white);
-    box-shadow: var(--box-shadow);
+    background: var(--color-background);
 }
+
+.action-container a {
+    width: 100%;
+    margin-top: auto;
+}
+
+.action-container a button {
+    width: 100%;
+    padding: 10px;
+    color: white;
+    border-radius: var(--border-radius-1);
+}
+
+
 
 .action-container .circles-style {
     display: flex;
@@ -521,9 +603,11 @@ span.title {
 
 .action-container .action-click {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    
     width: 100%;
-    margin-bottom: 10px;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .action-container .action-click h3 {
