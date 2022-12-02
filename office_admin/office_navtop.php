@@ -47,7 +47,3 @@
 
 
 
-<div class="footer">
-    <img src="../images/credit-logo.png" alt="">
-    <p>BSIT-Capstone project, 2023</p>
-</div>
