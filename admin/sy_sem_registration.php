@@ -48,25 +48,24 @@
                             
                         </div>
                         <span class="title">Add New School Year and Sem</span>
-        
+
+
                         <form action="insert_sy_sem.php" method="POST">
                             <div class="input-field-container">
                                 <div class="input-field">
                                     <span id="check_office"></span>
-                                    <input type="text" name="school_year" placeholder="School Year" required>
+                                    <input type="text" name="school_year_and_sem" placeholder="School Year And Sem" required>
                                     <i class="uil uil-user"></i>
                                 </div>
-                                <div class="input-field">
-                                    <input type="text" name="semester" placeholder="Semester" required>
-                                    <i class="uil uil-envelope icon"></i>
-                                </div>
                             </div>
-                            <div class="input-field-container">
                                 <div class="input-field">
-                                    <input type="text" placeholder="Status" name="status" required>
-                                    <i class="uil uil-envelope icon"></i>
+                                    <i class="uil uil-bolt"></i>
+                                    <select name="status" id="">
+                                        <option value="Status">Status</option>
+                                        <option value="Active">Active</option>
+                                        <option value="Inactive">Inactive</option>
+                                    </select>
                                 </div>
-                            </div>
                             <div class="input-field button">
                                 <input type="submit" value="Create School Year and Sem">
                             </div>
@@ -82,7 +81,10 @@
     </div>
     
     <!-- <script src="../assets/js/student-info.js"></script> -->
-    
+    <script>
+            //create insert ajax
+
+    </script>
     <script defer src="../assets/js//modal.js"></script>
     <script src="../assets/js/index.js"></script>
     <script defer src="../assets/js/active.js"></script>

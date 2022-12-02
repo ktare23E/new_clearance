@@ -93,18 +93,10 @@
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">
                                     <span class="material-symbols-sharp">person_outline</span>
-                                    <h2 class="label">First Name :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+                                    <h2 class="label">Admin Name :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;&emsp;</span>
                                 </div>
                                 
-                                <h2><span><?= $row['admin_first_name']; ?></span></h2>
-                            </div>
-                            <div class="student-info-name-container">
-                                <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">person_outline</span>
-                                    <h2 class="label">Last Name :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;&emsp;</span>
-                                </div>
-                                
-                                <h2><span><?= $row['admin_last_name']; ?></span></h2>
+                                <h2><span><?= $row['admin_name']; ?></span></h2>
                             </div>
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">

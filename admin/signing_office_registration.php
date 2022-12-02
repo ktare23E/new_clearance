@@ -58,10 +58,11 @@
                             <div class="input-field">
                                     <label for="">Office Name</label>
                                     <select name="office_id" id="">
+                                        <option default>Select Office</option>
                                             <?php $offices = $db->result('office');?>
                                             <?php foreach($offices as $office):?>
                                             <?php if($office->office_id == $office_id):?>  
-                                            <option value="<?= $office->office_id; ?>" selected><?= $office->office_name; ?></option>
+                                            <option value="<?= $office->office_id; ?>"><?= $office->office_name; ?></option>
                                             <?php else:?>
                                                 <option value="<?= $office->office_id; ?>"><?= $office->office_name; ?></option>
                                             <?php endif;?>
@@ -71,10 +72,11 @@
                                 <div class="input-field">
                                     <label for="">Admin Name</label>
                                     <select name="sy_sem_id" id="">
+                                            <option default>Select School Year and Sem</option>
                                             <?php $semesters = $db->result('sy_sem');?>
                                             <?php foreach($semesters as $semester):?>
                                             <?php if($semester->sy_sem_id == $sy_sem_id):?>  
-                                            <option value="<?= $semester->sy_sem_id; ?>" selected><?= $semester->school_year_and_sem; ?></option>
+                                            <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem; ?></option>
                                             <?php else:?>
                                                 <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem; ?></option>
                                             <?php endif;?>
@@ -86,10 +88,11 @@
                                 <div class="input-field">
                                     <label for="">Admin Name</label>
                                     <select name="admin_id" id="">
+                                            <option default>Select Admin Name</option>
                                             <?php $admins = $db->result('admin');?>
                                             <?php foreach($admins as $admin):?>
                                             <?php if($admin->admin_id == $admin_id):?>  
-                                            <option value="<?= $admin->admin_id; ?>" selected><?= $admin->admin_name; ?></option>
+                                            <option value="<?= $admin->admin_id; ?>"><?= $admin->admin_name; ?></option>
                                             <?php else:?>
                                                 <option value="<?= $admin->admin_id; ?>"><?= $admin->admin_name; ?></option>
                                             <?php endif;?>
@@ -99,10 +102,11 @@
                                 <div class="input-field">
                                             <label for="">Clearance Type</label>
                                             <select name="clearance_type_id" id="">
+                                                    <option default>Select Clearance Type</option>
                                                     <?php $clearances = $db->result('clearance_type');?>
                                                     <?php foreach($clearances as $clearance):?>
                                                     <?php if($clearance->clearance_type_id == $clearance_type_id):?>  
-                                                    <option value="<?= $clearance->clearance_type_id; ?>" selected><?= $clearance->clearance_type_name; ?></option>
+                                                    <option value="<?= $clearance->clearance_type_id; ?>" ><?= $clearance->clearance_type_name; ?></option>
                                                     <?php else:?>
                                                         <option value="<?= $clearance->clearance_type_id; ?>"><?= $clearance->clearance_type_name; ?></option>
                                                     <?php endif;?>

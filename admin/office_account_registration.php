@@ -71,10 +71,11 @@
                             <div class="input-field">
                                     <label for="">Office Name</label>
                                     <select name="office_id" id="">
+                                            <option default>Select Office</option>
                                             <?php $offices = $db->result('office');?>
                                             <?php foreach($offices as $office):?>
                                             <?php if($office->office_id == $office_id):?>  
-                                            <option value="<?= $office->office_id; ?>" selected><?= $office->office_name; ?></option>
+                                            <option value="<?= $office->office_id; ?>"><?= $office->office_name; ?></option>
                                             <?php else:?>
                                                 <option value="<?= $office->office_id; ?>"><?= $office->office_name; ?></option>
                                             <?php endif;?>

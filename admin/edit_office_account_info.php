@@ -13,8 +13,7 @@
         $row = mysqli_fetch_assoc($result);
 
         $admin_id = $row['admin_id'];
-        $admin_first_name = $row['admin_first_name'];
-        $admin_last_name = $row['admin_last_name'];
+        $admin_name = $row['admin_name'];
         $admin_username = $row['admin_username'];
         $admin_password = $row['admin_password'];
         $office_id = $row['office_id'];
@@ -72,11 +71,7 @@
                         <div class="input-field-container">
                             <div class="input-field">
                                 <input type="hidden" name="admin_id" value="<?= $admin_id?>">
-                                <input type="text" name="admin_first_name" placeholder="Admin First Name" required value="<?php echo $admin_first_name; ?>">
-                                <i class="uil uil-user"></i>
-                            </div>
-                            <div class="input-field">
-                                <input type="email" name="admin_last_name" placeholder="Admin Last Name" required value="<?php echo $admin_last_name; ?>">
+                                <input type="text" name="admin_name" placeholder="Admin Name" required value="<?php echo $admin_name; ?>">
                                 <i class="uil uil-user"></i>
                             </div>
                         </div>

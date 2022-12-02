@@ -2,13 +2,11 @@
 
 require ('../dbconnect.php');
 
-$school_year = $_POST['school_year'];
-$semester = $_POST['semester'];
+$school_year_and_sem = $_POST['school_year_and_sem'];
 $status  = $_POST['status'];
 
 $data = array(
-    'school_year' => $school_year,
-    'semester' => $semester,
+    'school_year_and_sem' => $school_year_and_sem,
     'status' => $status,
 );
 

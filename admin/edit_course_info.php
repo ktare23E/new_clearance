@@ -78,8 +78,19 @@
                                 <i class="uil uil-user"></i>
                             </div>
                             <div class="input-field">
-                                    <input type="text" placeholder="Course Status" name="course_status" required value="<?= $course_status?>">
-                                    <i class="uil uil-envelope icon"></i>
+                                <label for="">Status</label>
+                                    <select name="course_status" id="">
+                                        <?php if($course_status === 'Active'):?>
+                                        <option value="<?= $course_status; ?>" selected><?= $course_status; ?></option>
+                                        <?php else:?>
+                                                <option value="Active">Active</option>
+                                            <?php endif;?>
+                                        <?php if($course_status === 'Inactive'):?>
+                                        <option value="<?= $course_status; ?>" selected><?= $course_status; ?></option>
+                                        <?php else:?>
+                                                <option value="Inactive">Inactive</option>
+                                            <?php endif;?>
+                                    </select>
                                 </div>
                         </div>
                         <div class="input-field-container">
@@ -102,7 +113,7 @@
                             </div>
                         </div>
                         <div class="input-field button">
-                            <input type="submit" name="update" value="Update Account">
+                            <input type="submit" name="update" value="Update Course">
                         </div>
                 </form>
             </div>

@@ -96,8 +96,12 @@
                             </div>
                             <div class="input-field-container">
                                 <div class="input-field">
-                                    <input type="text" placeholder="Department Status" name="department_status" required>
-                                    <i class="uil uil-envelope icon"></i>
+                                    <i class="uil uil-bolt"></i>
+                                    <select name="department_status" id="">
+                                        <option value="Status">Status</option>
+                                        <option value="Active">Active</option>
+                                        <option value="Inactive">Inactive</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="input-field button">
