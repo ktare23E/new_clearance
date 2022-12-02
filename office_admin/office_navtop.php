@@ -38,7 +38,7 @@
                         <small class="text-muted">Admin</small>
                     </div>
                     <div class="profile-photo">
-                        <img src="../images/niga.jpg" alt="">
+                        <img src="../images/dp.png" alt="">
                     </div>
                 </div>
             </div>

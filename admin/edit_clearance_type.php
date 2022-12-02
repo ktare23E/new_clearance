@@ -54,7 +54,7 @@
     
             </div>
 
-            <h1>Department</h1>
+            <h1>Clearance Type</h1>
 
             <div class="form-and-table-container">
 
@@ -68,7 +68,7 @@
                                 </button>
                             </a>
                         </div>
-                        <span class="title">Edit Department Information</span>
+                        <span class="title">Edit Clearance Type Information</span>
 
                     <form action="update_clearance_type.php" method="POST">
                         <div class="input-field-container">
@@ -78,12 +78,12 @@
                                 <i class="uil uil-user"></i>
                             </div>
                             <div class="input-field">
-                                <input type="text" name="clearance_type_description" placeholder="Department Email" required value="<?php echo $clearance_type_description; ?>">
-                                <i class="uil uil-user"></i>
+                                <label for="">Clearance Type Description</label><br>
+                                <textarea name="clearance_type_description"  cols="30" rows="10"><?= $clearance_type_description?></textarea>
                             </div>
                         </div>
                         <div class="input-field button">
-                            <input type="submit" name="update" value="Update Account">
+                            <input type="submit" name="update" value="Update Clearance Type">
                         </div>
                 </form>
             </div>

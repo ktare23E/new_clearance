@@ -13,6 +13,6 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     
     <!-- stylesheet -->
-    <link rel="stylesheet" href="./office-admin-style.css">
+    <link rel="stylesheet" href="../assets/css/office-admin-style.css">
 </head>
 <body>

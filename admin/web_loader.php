@@ -15,8 +15,6 @@
                 <span id="loading-span">loading...</span>
             </div>
         </div>
-        
-
     </div>
         <script>
             $(document).ready(function(){

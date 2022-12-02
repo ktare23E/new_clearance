@@ -12,7 +12,7 @@
             <div class="first-div-container">
                 <div class="welcome-top">
                     <div class="office-admin-image-container">
-                        <img src="../images/dp-2.jpg" alt="">
+                        <img src="../images/dp.png" alt="">
                     </div>
                     <div>Clearance at ease!</div>
                     <h2>Nmsc Online Clearance System</h2>
@@ -30,7 +30,7 @@
     </div>
     
     
-    <script src="./office_admin_index.js"></script>
+    <script src="../assets/js/office_admin_index.js"></script>
     
 </body>
 </html>
