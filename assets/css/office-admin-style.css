@@ -517,6 +517,23 @@ button {
     font-size: 4rem;
 }
 
+.footer {
+    position: fixed;
+    bottom: 0;
+    padding: 5px 5px;
+    left: 0;
+    right: 0;
+    background-color: var(--color-white);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.footer img {
+    width: 15px;
+}
+
 .table-container {
     border-radius: var(--border-radius-1);
     box-shadow: var(--box-shadow);
