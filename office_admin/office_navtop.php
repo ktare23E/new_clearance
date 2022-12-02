@@ -1,7 +1,7 @@
 <div class="office-top-container">
             <div class="nav-logo-container">
                 <div class="logo-img">
-                    <img src="../images/logo.png" alt="">
+                    <img src="../images/nmsc-logo.png" alt="">
                     <h2>NMSC <span class="danger">CLEARANCE</span></h2>
                 </div>
             </div>
