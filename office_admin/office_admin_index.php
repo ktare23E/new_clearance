@@ -22,6 +22,9 @@
                 </div>
             </div>
 
+            <div class="get-started-section">
+                
+            </div>
             <div class="actions-container">
                 <div class="action-container">
                     <div class="circles-style">
