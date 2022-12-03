@@ -55,6 +55,25 @@
                     </div>
                 </div>
             </div>
+
+            <!-- ========================== TABS ========================== -->
+
+            <div class="clearance-tabs-section-container">
+                <div class="ul-tabs-container">
+                    <ul>
+                        <li>Continuing</li>
+                        <li>Graduating</li>
+                        <li>Transfering</li>
+                    </ul>
+                </div>
+                <div class="tab-content-container">
+                    
+                </div>
+            </div>
+
+
+
+
             <div class="student-table-data-container">
                 <h2>Lists of students</h2>
                 <div class="table-container">
