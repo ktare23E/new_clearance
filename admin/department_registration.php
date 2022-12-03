@@ -75,7 +75,7 @@
                         <form action="insert_department.php" method="POST">
                             <div class="input-field-container">
                                 <div class="input-field">
-                                    <span id="check_department"></span>
+                                    <span id="check_department"></span><br>
                                     <input type="text" name="department_name" id="department_name" oninput="checkDepartment()" placeholder="Department Name" required>
                                     <i class="uil uil-user"></i>
                                 </div>

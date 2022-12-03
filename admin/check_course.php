@@ -8,7 +8,7 @@ if(!empty($_POST["course_name"])) {
     $count = mysqli_num_rows($result);
 
 if(strtoupper(strtolower($count>0))) {
-    echo "<span style='color:red'> Sorry Course Name already exists .</span>";
+    echo "<span style='color:red'> Sorry this course is already exists .</span>";
     echo "<script>$('#submit').prop('disabled',true);</script>";
 }else{
     echo "<span style='color:green'> Course Name available for Registration .</span>";

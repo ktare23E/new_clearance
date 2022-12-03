@@ -75,7 +75,7 @@
                         <form action="insert_course.php" method="POST">
                             <div class="input-field-container">
                                 <div class="input-field">
-                                <span id="check_office"></span>
+                                <span id="check_office"></span><br>
                                     <input type="text" name="course_name" placeholder="Course Name"  oninput="checkCourse()" id="course_name" required>
                                     <i class="uil uil-user"></i>
                                 </div>
