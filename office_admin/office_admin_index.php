@@ -41,7 +41,7 @@
                             </div>
                         </div>
                         <div>Let students know what are your clearance requirements for specific type of clearance by adding it to the system</div>
-                        <a href="">
+                        <a href="office_requirements.php">
                             <button class="background-warning">add requirements</button>
                         </a>
                         <small>Updated version 2022</small>
@@ -57,7 +57,7 @@
                             </div>
                         </div>
                         <div>View/check the students' required submission for your clearance signation</div>
-                        <a href="" >
+                        <a href="office_submissions.php" >
                             <button class="background-primary">view submissions</button>
                         </a>
                         <small>Updated version 2022</small>
@@ -73,7 +73,7 @@
                             </div>
                         </div>
                         <div>View and sign the students' clearance and check their clearance status</div>
-                        <a href="" >
+                        <a href="office_clearance.php" >
                             <button class="background-success">view clearance</button>
                         </a>
                         <small>Updated version 2022</small>
