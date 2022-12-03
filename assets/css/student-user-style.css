@@ -6,14 +6,13 @@
     --color-danger: #ff7782;
     --color-success: #41f1b6;
     --color-warning: #ffbb55;
-    --color-white: #fff;
+    
     --color-info-dark: #7d8da1;
     --color-info-light: #dce1eb;
-    --color-dark: #363949;
-    --color-light: rgba(132, 139, 200, 0.18);
+    
+    
     --color-primary-variant: #111e88;
-    --color-dark-variant: #677483;
-    --color-background: #f6f6f9;
+    
     
     --card-border-radius: 2rem;
     --border-radius-1: 0.4rem;
@@ -23,17 +22,26 @@
     --card-padding: 1.8rem;
     --padding-1: 1.2rem;
 
-    --box-shadow: 0 0.5rem 3rem var(--color-light);
-}
-
-/* ======== DARK THEME VARIABLES ============= */
-.dark-theme-variables {
     --color-background: #181a1e;
     --color-white: #202528;
     --color-dark: #edeffd;
     --color-dark-variant: #a3bdcc;
     --color-light: rgba(0,0,0,0.4);
     --box-shadow: 0 2rem 3rem var(--color-light);
+
+    
+}
+
+/* ======== DARK THEME VARIABLES ============= */
+.dark-theme-variables {
+    
+    --color-white: #fff;
+    --color-dark: #363949;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --box-shadow: 0 0.5rem 3rem var(--color-light);
+
 }
 
 * {
@@ -168,7 +176,11 @@ b {
     align-items: center;
     padding: 10px 20px 0px 20px;
     width: 100%;
-    
+    box-shadow: var(--box-shadow);
+}
+
+.office-top-container.index-page {
+    box-shadow: none;
 }
 
 .office-container .office-top-container .nav-logo-container {
@@ -666,4 +678,67 @@ button {
     width: 800px;
     z-index: -1;
     opacity: 0.03;
+}
+
+
+
+/* ============ TABS STYLE ============= */
+
+.clearance-tabs-section-container {
+    background: var(--color-white);
+    margin: 20px 0px;
+}
+
+[data-tab-content] {
+    display: none;
+}
+
+.active[data-tab-content] {
+    display: block;
+}
+
+.tabs {
+    display: flex;
+    justify-content: flex-start;
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 0px 5px 20px;
+    border-bottom: 1px solid black;
+    gap: 5px;
+}
+
+.tab {
+    cursor: pointer;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.tab.active {
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.tab:hover {
+    background-color: var(--color-dark-variant);
+    color: white;
+}
+
+.tab-content {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.tab-info-container {
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tab-info-insight {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
 }

@@ -2,15 +2,15 @@ const themeToggler = document.querySelector(".theme-toggler");
 
 // change theme
 
-// themeToggler.addEventListener('click', () => {
-//     document.body.classList.toggle('dark-theme-variables');
+themeToggler.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme-variables');
 
-//     themeToggler.querySelector('span:nth-child(1)').classList.toggle('active');
-//     themeToggler.querySelector('span:nth-child(2)').classList.toggle('active');
-// })
+    themeToggler.querySelector('span:nth-child(1)').classList.toggle('active');
+    themeToggler.querySelector('span:nth-child(2)').classList.toggle('active');
+})
 
 
-    document.body.classList.add('dark-theme-variables');
+    // document.body.classList.add('dark-theme-variables');
 
     
 
@@ -24,4 +24,39 @@ sidebarLinks.forEach(link => {
     if(link.href.includes(`${activePage}`)){
         link.classList.add('active')
     }
+})
+
+const activePage1 = window.location.pathname;
+
+if(activePage1 == "/new_clearance/student_user/student_user_index.php"){
+    document.querySelector(".office-top-container").classList.add("index-page")
+}
+
+
+
+
+
+
+
+
+
+
+
+// tabs
+
+const tabs = document.querySelectorAll('[data-tab-target]')
+const tabContents = document.querySelectorAll('[data-tab-content]')
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        const target = document.querySelector(tab.dataset.tabTarget)
+        tabContents.forEach(tabContent => {
+            tabContent.classList.remove('active')
+        })
+        tabs.forEach(tab => {
+            tab.classList.remove('active')
+        })
+        tab.classList.add('active')
+        target.classList.add('active')
+    })
 })
