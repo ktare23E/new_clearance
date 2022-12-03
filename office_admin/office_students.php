@@ -58,76 +58,39 @@
             <div class="student-table-data-container">
                 <h2>Lists of students</h2>
                 <div class="table-container">
-                    <table id="example" class="display" style="width:100%">
+                <table id="example" class="display" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <input type="checkbox" id="checkAll" style='
+                                    display:block;background-color:black; appearance:auto;
+                                    position:absolute;
+                                    top:150px;
+                                    left:45px;
+                                    z-index:10;
+                                    '/>
+                                <th> Select All</th>
+                                <th>Student ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                                <th>Status</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011-04-25</td>
-                                <td>$320,800</td>
-                            </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011-07-25</td>
-                                <td>$170,750</td>
-                            </tr>
-                            
-                            <tr>
-                                <td>Jonas Alexander</td>
-                                <td>Developer</td>
-                                <td>San Francisco</td>
-                                <td>30</td>
-                                <td>2010-07-14</td>
-                                <td>$86,500</td>
-                            </tr>
-                            <tr>
-                                <td>Shad Decker</td>
-                                <td>Regional Director</td>
-                                <td>Edinburgh</td>
-                                <td>51</td>
-                                <td>2008-11-13</td>
-                                <td>$183,000</td>
-                            </tr>
-                            <tr>
-                                <td>Michael Bruce</td>
-                                <td>Javascript Developer</td>
-                                <td>Singapore</td>
-                                <td>29</td>
-                                <td>2011-06-27</td>
-                                <td>$183,000</td>
-                            </tr>
-                            <tr>
-                                <td>Donna Snider</td>
-                                <td>Customer Support</td>
-                                <td>New York</td>
-                                <td>27</td>
-                                <td>2011-01-25</td>
-                                <td>$112,000</td>
-                            </tr>
+                        
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th></th>
+                                <th>Student ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                                <th>Status</th>
+                                <th>Action</th>
                             </tr>
                         </tfoot>
                     </table>
@@ -136,15 +99,104 @@
                 
             
         </div>
-
-        
     </div>
+
+    <script>
+            $(document).ready(function () {
+            $('#example').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: 'office_server_processing.php',
+            });
+        });
+    </script>
     
     <script>
         $(document).ready(function () {
             $('#example').DataTable();
         });
     </script>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                // Check/Uncheck ALl
+                $('#checkAll').change(function(){
+                    if($(this).is(':checked')){
+                        $('input[name="update[]"]').prop('checked',true);
+                    }else{
+                        $('input[name="update[]"]').each(function(){
+                            $(this).prop('checked',false);
+                        }); 
+                    }
+                });
+                // Checkbox click
+                $('input[name="update[]"]').click(function(){
+                    var total_checkboxes = $('input[name="update[]"]').length;
+                    var total_checkboxes_checked = $('input[name="update[]"]:checked').length;
+                    if(total_checkboxes_checked == total_checkboxes){
+                        $('#checkAll').prop('checked',true);
+                    }else{
+                        $('#checkAll').prop('checked',false);
+                    }
+                });
+            }); 
+        </script>
+
+    <script>
+        //jquery onclick event for update button
+        $(document).on("click", '#active', function(){
+            let list_student_id = [];
+            let list_inputs = $('.row')
+            list_inputs.map((index,elem,arr) => {
+                let is_check = $(elem).prop("checked")
+                if(is_check == true ){
+                    list_student_id.push($(elem).attr("student_id"))
+                }
+            });
+            console.log(list_student_id);
+            $.ajax({
+                url: "student_update_status.php",
+                method: "POST",
+                data: {
+                    list_student_id:list_student_id,
+                    status:'Active'
+                },
+                success: (response) =>{
+                    $("#checkAll").prop("checked",false);
+                    $('#example').DataTable().ajax.reload();
+                }
+            })
+        });
+    </script>
+
+        <script>
+            //jquery onclick event for update button
+            $(document).on("click", '#inactive', function(){
+                let list_student_id = [];
+                let list_inputs = $('.row')
+                list_inputs.map((index,elem,arr) => {
+                    let is_check = $(elem).prop("checked")
+                    if(is_check == true ){
+                        list_student_id.push($(elem).attr("student_id"))
+                    }
+                });
+                console.log(list_student_id);
+                $.ajax({
+                    url: "student_inactive_status.php",
+                    method: "POST",
+                    data: {
+                        list_student_id:list_student_id,
+                        status:'Inactive'
+                    },
+                    success: (response) =>{
+                        $("#checkAll").prop("checked",false);
+                        $('#example').DataTable().ajax.reload();
+                        
+                    }
+                })
+            });
+
+        </script>
     
     <script src="../assets/js/office_admin_index.js"></script> 
     

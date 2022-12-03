@@ -49,7 +49,7 @@
                         </div>
                         <div>
                             <a href="department_registration.php">
-                                <button id="add-new-student">Add new office</button>
+                                <button id="add-new-student">Add new Department</button>
                             </a>
                         </div>
                     </div>
