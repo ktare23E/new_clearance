@@ -26,6 +26,14 @@ sidebarLinks.forEach(link => {
     }
 })
 
+const activePage1 = window.location.pathname;
+
+if(activePage1 == "/new_clearance/student_user/student_user_index.php"){
+    document.querySelector(".office-top-container").classList.add("index-page")
+}
+
+
+
 
 
 
