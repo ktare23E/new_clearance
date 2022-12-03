@@ -12,11 +12,13 @@
             <div class="left-title-container">
                 <h1>NMSC <span class="warning">ONLINE</span>  CLEARANCE SYSTEM</h1>
                 <p>View clearance requirements virtually and submit what is required. All in your hands!</p>
-                <h3>No line. Stress-free. Fast transaction.</h3>
+                <h3>No line &ensp; |  &ensp; Stress-free &ensp; |  &ensp; Fast transaction</h3>
                 <a href="">Get started</a>
+                
             </div>
             <div class="right-title-container">
                     <img src="../images/iso1.png" alt="">
+                    <img src="../images/iso1.png" alt="" class="opacity-low">
             </div>
         </div>
 
@@ -24,7 +26,7 @@
     </div>
     
     
-    <script src="../assets/js/office_admin_index.js"></script> 
+    <script src="../assets/js/student_index.js"></script> 
     
 </body>
 </html>

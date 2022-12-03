@@ -644,8 +644,26 @@ button {
 .student-landing-page-home-container .left-title-container h3 {
     color: var(--color-success);
     margin-top: 10px;
+    font-size: 1.2rem;
 }
+
+.student-landing-page-home-container .left-title-container p {
+    font-size: 1.1rem;
+}
+
+
+
 
 .student-landing-page-home-container .right-title-container {
     max-width: 800px;
+}
+
+
+.opacity-low {
+    position: fixed;
+    bottom: -30px;
+    left: 100px;
+    width: 800px;
+    z-index: -1;
+    opacity: 0.03;
 }

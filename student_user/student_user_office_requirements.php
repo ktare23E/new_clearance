@@ -134,7 +134,7 @@
     </div>
     
     
-    <script src="../assets/js/office_admin_index.js"></script>    
+    <script src="../assets/js/student_index.js"></script>   
 
     
 </body>
