@@ -98,12 +98,13 @@
                                 <div class="input-field">
                                     <i class="uil uil-analysis"></i>
                                     <select name="course_id" id="">
+                                            <option default="Select Course">Select Course</option>
                                             <?php $courses = $db->result('course');?>
                                             <?php foreach($courses as $course):?>
-                                            <?php if($course->course_id == $course_id):?>  
-                                            <option value="<?= $course->course_id; ?>" selected><?= $course->course_name; ?></option>
+                                            <?php if($course->course_id == $course_id):?> 
+                                            <option value="<?= $course->course_id; ?>"><?= $course->course_name; ?></option>
                                             <?php else:?>
-                                                <option value="<?= $course->course_id; ?>" selected><?= $course->course_name; ?></option>
+                                                <option value="<?= $course->course_id; ?>"><?= $course->course_name; ?></option>
                                             <?php endif;?>
                                             <?php endforeach; ?>
                                     </select>
@@ -111,12 +112,13 @@
                                 <div class="input-field">
                                     <i class="uil uil-analysis"></i>
                                     <select name="department_id" id="">
+                                            <option default="Select Department">Select Department</option>
                                             <?php $departments = $db->result('department');?>
                                             <?php foreach($departments as $department):?>
                                             <?php if($department->department_id == $department_id):?>  
-                                            <option value="<?= $department->department_id; ?>" selected><?= $department->department_name; ?></option>
+                                            <option value="<?= $department->department_id; ?>"><?= $department->department_name; ?></option>
                                             <?php else:?>
-                                                <option value="<?= $department->department_id; ?>" selected><?= $department->department_name; ?></option>
+                                                <option value="<?= $department->department_id; ?>"><?= $department->department_name; ?></option>
                                             <?php endif;?>
                                             <?php endforeach; ?>
                                     </select>

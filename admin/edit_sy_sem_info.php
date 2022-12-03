@@ -11,10 +11,8 @@
         $sql = "SELECT * FROM sy_sem WHERE sy_sem_id = '$id'";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_assoc($result);
-
         $sy_sem_id = $row['sy_sem_id'];
-        $school_year = $row['school_year'];
-        $semester = $row['semester'];
+        $school_year_and_sem = $row['school_year_and_sem'];
         $status = $row['status'];
         
     
@@ -75,22 +73,27 @@
                         <div class="input-field-container">
                             <div class="input-field">
                                 <input type="hidden" name="sy_sem_id" value="<?= $sy_sem_id?>">
-                                <input type="text" name="school_year" placeholder="School Year" required value="<?php echo $school_year; ?>">
+                                <input type="text" name="school_year_and_sem" placeholder="School Year And Sem" required value="<?php echo $school_year_and_sem; ?>">
                                 <i class="uil uil-user"></i>
                             </div>
                             <div class="input-field">
-                                <input type="text" name="semester" placeholder="Semester" required value="<?php echo $semester; ?>">
-                                <i class="uil uil-user"></i>
-                            </div>
-                        </div>
-                        <div class="input-field-container">
-                            <div class="input-field">
-                                    <input type="text" placeholder="Status" name="status" required value="<?= $status?>">
-                                    <i class="uil uil-envelope icon"></i>
+                                <label for="">Status</label>
+                                    <select name="status" id="">
+                                        <?php if($status === 'Active'):?>
+                                        <option value="<?= $status; ?>" selected><?= $status; ?></option>
+                                        <?php else:?>
+                                                <option value="Active">Active</option>
+                                            <?php endif;?>
+                                        <?php if($status === 'Inactive'):?>
+                                        <option value="<?= $status; ?>" selected><?= $status; ?></option>
+                                        <?php else:?>
+                                                <option value="Inactive">Inactive</option>
+                                            <?php endif;?>
+                                    </select>
                                 </div>
                         </div>
                         <div class="input-field button">
-                            <input type="submit" name="update" value="Update Details">
+                            <input type="submit" name="update" value="Update Sy and Sem">
                         </div>
                 </form>
             </div>

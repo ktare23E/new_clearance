@@ -90,8 +90,19 @@
                                 <i class="uil uil-user"></i>
                             </div>
                             <div class="input-field">
-                                    <input type="text" placeholder="Department Status" name="department_status" required value="<?= $department_status?>">
-                                    <i class="uil uil-envelope icon"></i>
+                                <label for="">Status</label>
+                                    <select name="department_status" id="">
+                                        <?php if($department_status === 'Active'):?>
+                                        <option value="<?= $department_status; ?>" selected><?= $department_status; ?></option>
+                                        <?php else:?>
+                                                <option value="Active">Active</option>
+                                            <?php endif;?>
+                                        <?php if($department_status === 'Inactive'):?>
+                                        <option value="<?= $department_status; ?>" selected><?= $department_status; ?></option>
+                                        <?php else:?>
+                                                <option value="Inactive">Inactive</option>
+                                            <?php endif;?>
+                                    </select>
                                 </div>
                         </div>
                         <div class="input-field-container">

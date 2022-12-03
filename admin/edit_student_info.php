@@ -15,16 +15,16 @@
         $student_id = $row['student_id'];
         $student_fname = $row['student_first_name'];
         $student_lname = $row['student_last_name'];
-        $student_year = $row['student_year'];
+        $student_year = $row['student_year']; 
         $student_email = $row['student_email'];
         $student_gender = $row['student_gender'];
         $student_status = $row['student_status'];
         $course_id = $row['course_id'];
         $student_username = $row['student_username'];
         $student_password = $row['student_password'];
-        
+        $department_id = $row['department_id'];
 
-    
+        echo $department_id;
 
 ?>
 
@@ -133,27 +133,27 @@
                                 </select>
                             </div>
                             <div class="input-field">
-                                    <label for="">Course</label>
+                                    <i class="uil uil-analysis"></i>
                                     <select name="course_id" id="">
                                             <?php $courses = $db->result('course');?>
                                             <?php foreach($courses as $course):?>
-                                            <?php if($course->course_id == $course_id):?>  
+                                            <?php if($course->course_id == $course_id):?> 
                                             <option value="<?= $course->course_id; ?>" selected><?= $course->course_name; ?></option>
                                             <?php else:?>
-                                                <option value="<?= $course->course_id; ?>" selected><?= $course->course_name; ?></option>
+                                                <option value="<?= $course->course_id; ?>"><?= $course->course_name; ?></option>
                                             <?php endif;?>
                                             <?php endforeach; ?>
                                     </select>
                                 </div>
                                 <div class="input-field">
-                                    <label for="">Department</label>
+                                    <i class="uil uil-analysis"></i>
                                     <select name="department_id" id="">
-                                            <?php $departments = $db->result('department');?>
+                                            <?php $departments = $db->result('department');;?>
                                             <?php foreach($departments as $department):?>
-                                            <?php if($department->department_id == $department_id):?>  
+                                            <?php if($department->department_id == $department_id):?> 
                                             <option value="<?= $department->department_id; ?>" selected><?= $department->department_name; ?></option>
                                             <?php else:?>
-                                                <option value="<?= $department->department_id; ?>" selected><?= $department->department_name; ?></option>
+                                                <option value="<?= $department->department_id; ?>"><?= $department->department_name; ?></option>
                                             <?php endif;?>
                                             <?php endforeach; ?>
                                     </select>

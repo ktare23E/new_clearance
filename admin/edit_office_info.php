@@ -90,18 +90,29 @@
                                 <i class="uil uil-user"></i>
                             </div>
                             <div class="input-field">
-                                    <input type="text" placeholder="Office Status" name="office_status" required value="<?= $office_status?>">
-                                    <i class="uil uil-envelope icon"></i>
+                                <label for="">Status</label>
+                                    <select name="office_status" id="">
+                                        <?php if($office_status === 'Active'):?>
+                                        <option value="<?= $office_status; ?>" selected><?= $office_status; ?></option>
+                                        <?php else:?>
+                                                <option value="Active">Active</option>
+                                            <?php endif;?>
+                                        <?php if($office_status === 'Inactive'):?>
+                                        <option value="<?= $office_status; ?>" selected><?= $office_status; ?></option>
+                                        <?php else:?>
+                                                <option value="Inactive">Inactive</option>
+                                            <?php endif;?>
+                                    </select>
                                 </div>
                         </div>
                         <div class="input-field-container">
                             <div class="input-field">
-                                <label for="">Office Description</label>
+                                <label for="">Office Description</label><br>
                                 <textarea style="border-style: 1px solid;" name="office_description" id="" rows="4" cols="50"><?= $office_description?></textarea>
                             </div>
                         </div>
                         <div class="input-field button">
-                            <input type="submit" name="update" value="Update Account">
+                            <input type="submit" name="update" value="Update Office">
                         </div>
                 </form>
             </div>

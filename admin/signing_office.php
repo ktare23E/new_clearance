@@ -45,7 +45,7 @@
                         <div>
                             <a href="signing_office_registration.php">
                                 <button id="add-new-student">
-                                <i class="uis uis-airplay"></i> New Users</button>
+                                <i class="uis uis-airplay"></i> New Signing Office</button>
                             </a>
                         </div>
                     </div>
@@ -72,8 +72,7 @@
                                 <td><?= $user->admin_name; ?></td>
                                 <td><?= $user->clearance_type_name; ?></td>
                                 <td class="primary table-action-container">
-                                    <a href="edit_office_account_info.php?edit=<?= $user->admin_id;?>">Update</a>
-                                    <a href="office_account_view.php?details=<?= $user->admin_id;?>">View Details</a>
+                                    <a href="edit_signing_office_info.php?edit=<?= $user->signing_office_id;?>">Update</a>
                                         <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
                                         <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
                                             <span class="material-symbols-outlined">delete</span>
