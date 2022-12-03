@@ -168,8 +168,7 @@ b {
     align-items: center;
     padding: 10px 20px 0px 20px;
     width: 100%;
-    background: var(--color-white);
-    box-shadow: var(--box-shadow);
+    
 }
 
 .office-container .office-top-container .nav-logo-container {
@@ -612,4 +611,41 @@ button {
 
 .action-container .action-click h3 {
     font-size: 1.1rem;
+}
+
+.student-landing-page-home-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 50px;
+}
+
+.student-landing-page-home-container .left-title-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.student-landing-page-home-container .left-title-container h1 {
+    font-size: 5rem;
+    line-height: normal;
+}
+
+.student-landing-page-home-container .left-title-container a {
+    border: 2px solid var(--color-primary-variant);
+    padding: 15px 30px;
+    width: fit-content;
+    margin-top: 20px;
+    border-radius: 100px;
+    color: var(--color-primary);
+}
+
+.student-landing-page-home-container .left-title-container h3 {
+    color: var(--color-success);
+    margin-top: 10px;
+}
+
+.student-landing-page-home-container .right-title-container {
+    max-width: 800px;
 }
