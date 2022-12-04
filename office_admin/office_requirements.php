@@ -12,14 +12,17 @@
             <div class="first-main-content-container">
                 <div class="form signup">
                     <span class="title"><h2>List of Clearances</h2></span>
-                    
+                    <?php   
+                    // $users = $db->result('student_details'); 
+
+                    ?>
                 </div>
                 <div class="form signup">
                     <span class="title"><h2>Add new requirements</h2></span>
                     <form action="" method="POST">
                         <div class="input-field-container">
                             <div class="input-field sy-sem-select">
-                                <select name="student_year" id="year-level-option">
+                                <select name="sy_sem_id" id="">
                                     <option value="0" >School year and sem</option>
                                     <option value="1st Year">1st Year</option>
                                     <option value="2nd Year">2nd Year</option>

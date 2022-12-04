@@ -48,7 +48,7 @@
                         </div>
                         <span class="title">Add New Student</span>
         
-                        <form action="insert_student.php" method="POST">
+                        <form action="insert_student.php" method="POST" enctype="multipart/form-data">
                             <div class="input-field">
                                     <input type="text" placeholder="Student Id" name="student_id" required>
                                     <i class="uil uil-keyhole-circle"></i>
@@ -139,6 +139,9 @@
                                     <i class="uil uil-lock icon"></i>
                                     <i class="uil uil-eye-slash showHidePw"></i>
                                 </div>
+                            </div>
+                            <div class="input-field-container">
+                                <input type="file" name="fileToUpload">
                             </div>
                             <div class="input-field button">
                                 <input type="submit" value="Create Account">

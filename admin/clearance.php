@@ -220,19 +220,6 @@
 
     </div>
         
-<script>
-            $(document).ready(function(){
-                $("#register-csv-file-btn").click(function(){
-                    if($("#register-csv-file-btn span:nth-child(2)").html() == "arrow_forward_ios"){
-                        $("#register-csv-file-btn span:nth-child(2)").html("arrow_back_ios")
-                    }else {
-                        $("#register-csv-file-btn span:nth-child(2)").html("arrow_forward_ios")
-                    }
-                    
-                    $(".upload-student-csv-container").slideToggle(200)
-                })
-            })
-        </script>
         <script type="text/javascript">
             $(document).ready(function(){
                 // Check/Uncheck ALl
@@ -283,9 +270,6 @@
             $("#show-clearance-insights").click(function(){
                 $("#clearance-insights").slideToggle()
             })
-            
-
-            
         });
 
 

@@ -14,6 +14,7 @@ $department_id  = $_POST['department_id'];
 $student_username   = $_POST['student_username'];
 $student_password        = $_POST['student_password'];
 
+
 $data = array(
     'student_id' => $student_id,
     'student_first_name' => $student_first_name,
