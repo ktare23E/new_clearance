@@ -47,6 +47,30 @@
                         Show Clearance Insights
                     </button>
                 </div>
+                <div class="add-button-container">
+                        <div>
+                            <a href="clearance_graduating.php">
+                                <button id="add-new-student">
+                                <i class="uis uis-airplay"></i>Graduating</button>
+                            </a>
+                        </div>
+                </div>
+                <div class="add-button-container">
+                        <div>
+                            <a href="clearance_transferring.php">
+                                <button id="add-new-student">
+                                <i class="uis uis-airplay"></i>Transferring</button>
+                            </a>
+                        </div>
+                </div>
+                <div class="add-button-container">
+                        <div>
+                            <a href="clearance_continuing.php">
+                                <button id="add-new-student">
+                                <i class="uis uis-airplay"></i>Continuing</button>
+                            </a>
+                        </div>
+                </div>
                 <div id="clearance-insights">
                 <div class="insights">
                     <div class="income">

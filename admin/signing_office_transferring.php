@@ -1,7 +1,7 @@
 <?php
     include_once 'header.php';
 
-        $users = $db->result('new_signing_offices');
+        $users = $db->result('new_signing_offices','clearance_type_id = 2');
     
 ?>
     <div class="container-student">
