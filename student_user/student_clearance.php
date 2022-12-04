@@ -120,6 +120,65 @@
                                         </div>
                                     </div>
                                 </div>
+                                
+                                <div class="clearance-section-container">
+                                    <div class="clearance-header-bar-container">
+                                        <h3>CLEARANCE INFORMATION</h3>
+                                        <div class="clearance-info-table-container">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th>NAME</th>
+                                                        <th>COURSE</th>
+                                                        <th>YEAR</th>
+                                                        <th>STATUS</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>AL CEDRIC DARIO</th>
+                                                        <th>BSIT</th>
+                                                        <th>4TH</th>
+                                                        <th class="warning">PENDING</th>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="clearance-details-container">
+                                        <h3>CLEARANCE DETAILS - SIGNING OFFICES STATUS</h3>
+                                        <div class="clearance-details-table-container">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th>SIGNING OFFICE</th>
+                                                        <th>STATUS</th>
+                                                        <th>DATE SIGNED</th>
+                                                        
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>CASHIER</th>
+                                                        <th class="warning">PENDING</th>
+                                                        <th>N/A</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>OSA</th>
+                                                        <th class="warning">PENDING</th>
+                                                        <th>N/A</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>LIBRARY</th>
+                                                        <th class="success">CLEARED</th>
+                                                        <th>11/22/2022</th>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="table-container" style="box-shadow: none;border:2px solid var(--color-light)">
                                     <table id="example1" class="display" style="width:100%">
                                         <thead>
