@@ -1,8 +1,21 @@
 <?php
     include_once 'header.php';
 
-        $users = $db->result('new_signing_offices');
-    
+        
+        // $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+
+
+        if(!isset($_GET['clearance_type_id'])){
+            $users = $db->result('new_signing_offices');
+        }else{
+
+            if($_GET['clearance_type_id'] == ""){
+                $users = $db->result('new_signing_offices');
+            }else{
+                $id = $_GET['clearance_type_id'];
+                $users = $db->result('new_signing_offices','clearance_type_id = '.$id);
+            }
+        }
 ?>
     <div class="container-student">
         <!-- sidebar -->
@@ -50,38 +63,22 @@
                         </div>
                     </div>
                     <div class="add-button-container">
-                        <div>
-                            <a href="signing_office.php">
-                                <button id="add-new-student">
-                                <i class="uis uis-airplay"></i>All Clearance Type</button>
-                            </a>
+                                <div>
+                                    <label for="">Filter via Clearance Type</label>
+                                    <select name="clearance_type_id" id="clearance_type">
+                                            <option default>Select Clearance Type</option>
+                                            <option value="">All</option>
+                                            <?php $signings = $db->result('clearance_type');?>
+                                            <?php foreach($signings as $signing):?>
+                                            <?php if($signing->clearance_type_id == $clearance_type_id):?>  
+                                            <option value="<?= $signing->clearance_type_id; ?>"><?= $signing->clearance_type_name; ?></option>
+                                            <?php else:?>
+                                                <option value="<?= $signing->clearance_type_id; ?>"><?= $signing->clearance_type_name; ?></option>
+                                            <?php endif;?>
+                                            <?php endforeach; ?>
+                                    </select>
                         </div>
                     </div>
-                    <div class="add-button-container">
-                        <div>
-                            <a href="signing_office_graduating.php">
-                                <button id="add-new-student">
-                                <i class="uis uis-airplay"></i>Graduating</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="add-button-container">
-                        <div>
-                            <a href="signing_office_continuing.php">
-                                <button id="add-new-student">
-                                <i class="uis uis-airplay"></i>Continuing</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="add-button-container">
-                        <div>
-                            <a href="signing_office_transferring.php">
-                                <button id="add-new-student">
-                                <i class="uis uis-airplay"></i>Transferring</button>
-                            </a>
-                        </div>
-                    </div>
-
                     <div class="h2-container">
                             <h2>Signing Offices List</h2>
                     </div>
@@ -128,57 +125,23 @@
         </main>
         <!-- ================ END OF MAIN =================== -->
     </div>
-<!-- <script>
-            $(document).ready(function(){
-                $('.delete').on('click',function(){
-                    let student_id = $(this).attr('data-id');
-                    Swal.fire({
-                        title: 'Are you sure?',
-                        text: "You won't be able to revert this!",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Yes, delete it!'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            $.ajax({
-                                type: 'post',
-                                url: 'deleteinfo.php',
-                                data: {student_id:student_id},
-                                success: function(response){
-                                    if(response === "Deleted"){
-                                        Swal.fire(
-                                            'Deleted!',
-                                            'Your file has been deleted.',
-                                            'success'
-                                        )
-                                    }else{
-                                        Swal.fire(
-                                            'Error',
-                                            'Error deleting data.',
-                                            'error'
-                                        )
-                                    }
-                                    
-                                    setTimeout(() => { 
-                                        location.reload(true);
-                                    }, 1000);
-                                } 
-                            })
-                        }
-                    })
-                })
-            })
-        </script> -->
-    
-    <!-- <script src="../assets/js/student-info.js"></script> -->
+
+
+    <script>
+        // on change event for the select tag
+        $('#clearance_type').on('change', function(){
+            // get the value of the selected option
+            let clearance_type_id = $(this).val();
+            // redirect to the page with the selected option
+            window.location.href = `signing_office.php?clearance_type_id=${clearance_type_id}`;
+        })
+    </script>                          
     
     <script defer src="../assets/js//modal.js"></script>
     <script src="../assets/js/index.js"></script>
     <script defer src="../assets/js/active.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    
 
     <script>
         $(document).ready(function () {

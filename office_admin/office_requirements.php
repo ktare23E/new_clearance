@@ -22,23 +22,31 @@
                     <form action="" method="POST">
                         <div class="input-field-container">
                             <div class="input-field sy-sem-select">
-                                <select name="sy_sem_id" id="">
-                                    <option value="0" >School year and sem</option>
-                                    <option value="1st Year">1st Year</option>
-                                    <option value="2nd Year">2nd Year</option>
-                                    <option value="3rd Year">3rd Year</option>
-                                    <option value="4th Year">4th Year</option>
-                                </select>
+                                    <select name="sy_sem_id" id="">
+                                            <option default>Select School Year and Sem</option>
+                                            <?php $semesters = $db->result('sy_sem');?>
+                                            <?php foreach($semesters as $semester):?>
+                                            <?php if($semester->sy_sem_id == $sy_sem_id):?>  
+                                            <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem; ?></option>
+                                            <?php else:?>
+                                                <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem; ?></option>
+                                            <?php endif;?>
+                                            <?php endforeach; ?>
+                                    </select>
                                 <i class="uil uil-angle-down" id="uil-arrow-down"></i>
                             </div>
                             <div class="input-field sy-sem-select">
-                                <select name="student_year" id="year-level-option">
-                                    <option value="0" >Clearance Type</option>
-                                    <option value="1st Year">Graduating</option>
-                                    <option value="2nd Year">Continuing</option>
-                                    <option value="3rd Year">Transfering</option>
-                                    
-                                </select>
+                                    <select name="clearance_type_id" id="">
+                                            <option default>Select Clearance Type</option>
+                                            <?php $clearances = $db->result('clearance_type');?>
+                                            <?php foreach($clearances as $clearance):?>
+                                            <?php if($clearance->clearance_type_id == $clearance_type_id):?>  
+                                            <option value="<?= $clearance->clearance_type_id; ?>"><?= $clearance->clearance_type_name; ?></option>
+                                            <?php else:?>
+                                                <option value="<?= $clearance->clearance_type_id; ?>"><?= $clearance->clearance_type_name; ?></option>
+                                            <?php endif;?>
+                                            <?php endforeach; ?>
+                                    </select>
                                 <i class="uil uil-angle-down" id="uil-arrow-down"></i>
                             </div>
                         </div>

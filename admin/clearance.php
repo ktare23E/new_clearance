@@ -2,7 +2,7 @@
     include_once 'header.php';
     // $users = $db->result('student_details');
 
-    
+    $id = isset($_GET['clearance_type_id)']) == true ? $_GET['clearance_type_id'] : '';
 ?>
     <div class="container-student">
         <!-- sidebar -->
@@ -48,29 +48,22 @@
                     </button>
                 </div>
                 <div class="add-button-container">
-                        <div>
-                            <a href="clearance_graduating.php">
-                                <button id="add-new-student">
-                                <i class="uis uis-airplay"></i>Graduating</button>
-                            </a>
+                                <div>
+                                    <label for="">Filter via Clearance Type</label>
+                                    <select name="clearance_type_id" id="clearance_type">
+                                            <option default>Select Clearance</option>
+                                            <option value="">All</option>
+                                            <?php $signings = $db->result('clearance_type');?>
+                                            <?php foreach($signings as $signing):?>
+                                            <?php if($signing->clearance_type_id == $clearance_type_id):?>  
+                                            <option value="<?= $signing->clearance_type_id; ?>"><?= $signing->clearance_type_name; ?></option>
+                                            <?php else:?>
+                                                <option value="<?= $signing->clearance_type_id; ?>"><?= $signing->clearance_type_name; ?></option>
+                                            <?php endif;?>
+                                            <?php endforeach; ?>
+                                    </select>
                         </div>
-                </div>
-                <div class="add-button-container">
-                        <div>
-                            <a href="clearance_transferring.php">
-                                <button id="add-new-student">
-                                <i class="uis uis-airplay"></i>Transferring</button>
-                            </a>
-                        </div>
-                </div>
-                <div class="add-button-container">
-                        <div>
-                            <a href="clearance_continuing.php">
-                                <button id="add-new-student">
-                                <i class="uis uis-airplay"></i>Continuing</button>
-                            </a>
-                        </div>
-                </div>
+                    </div>
                 <div id="clearance-insights">
                 <div class="insights">
                     <div class="income">
@@ -274,9 +267,19 @@
             $('#example').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: 'server_clearance.php',
+                ajax: 'server_clearance.php?clearance_type_id='<?=$id?>,
             });
         });
+    </script>
+
+    <script>
+        // on change event for the select tag
+        $('#clearance_type').on('change', function(){
+            // get the value of the selected option
+            let clearance_type_id = $(this).val();
+            // redirect to the page with the selected option
+            window.location.href = `clearance.php?clearance_type_id=${clearance_type_id}`;
+        })
     </script>
     
     <!-- <script src="../assets/js/student-info.js"></script> -->

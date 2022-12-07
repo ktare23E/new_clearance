@@ -44,18 +44,38 @@ $sql_details = array(
  * server-side, there is no need to edit below this line.
  */
 require( 'ssp.class.php' );
+// *  @param  array $request Data sent to server by DataTables
+// *  @param  array|PDO $conn PDO connection resource or connection parameters array
+// *  @param  string $table SQL table to query
+// *  @param  string $primaryKey Primary key of the table
+// *  @param  array $columns Column information array
+// *  @param  string $whereResult WHERE condition to apply to the result set
+// *  @param  string $whereAll WHERE condition to apply to all queries
+// *  @return array          Server-side processing response array
 
-$data = SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns );
+$id = (isset($_GET['clearance_type_id)']) ? $_GET['clearance_type_id'] : '');
+$where = "clearance_type_id = ".$id;
+
+if($id == ''){
+    $data = SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns);
+    echo "hi";
+    die();
+}else{
+    $data = SSP::complex( $_GET, $sql_details, $table, $primaryKey, $columns, $where, $where);
+    echo 'hello';
+    die();
+}
+
 // print_r($data);
 // die();
 foreach($data['data'] as $i => $entry){
     $new_entry = array();
-    array_push($new_entry, "<td><input name='update[]' type='checkbox' /></td>");
+    array_push($new_entry, "<td><input name='update[]' type='checkbox'></td>");
 
     foreach($entry as $j => $value){
         array_push($new_entry, $value);
     }
-    array_push($new_entry, "<td class='primary table-action-container'><a href='edit_student_info.php?edit=".$entry[1]."'>Update</a>
+    array_push($new_entry, "<td class='primary table-action-container'><a href='edit_clearance_info.php?edit=".$entry[1]."'>Update</a>
     <a href='clearance_view.php?details=".$entry[1]."'>View Details</a>
         <input type='hidden' name='student_id' value='".$entry[1]."'> 
     </td>");

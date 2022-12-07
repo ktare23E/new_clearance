@@ -13,7 +13,7 @@
                 <div class="top-left">
                     <div>Clearance at ease!</div>
                     <!-- <h2><span class="primary">Nmsc</span> Online Clearance System</h2> -->
-                    <h2>KRISTIAN LOVE PHOEBE</h2>
+                    <h2>KRISTIAN LOVE ...</h2>
                     <h3>AYAW NIG USBA. KABALO KONG GIKILIG KA!</h3>
                     <h3>Post clearance requirements and sign students' clearance online! All in one place!  </h3>
                 </div>
