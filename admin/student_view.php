@@ -78,7 +78,7 @@
                 <div class="student-registration">
                     <div class="student-view-profile-container">
                         <div class="student-view-profile-img-container">
-                            <img src="<?= $row['student_profile']; ?>" alt="">
+                            <img src="uploads/<?= $row['student_profile']; ?>" alt="">
                         </div>
 
                         <div class="student-view-profile-info-container">
