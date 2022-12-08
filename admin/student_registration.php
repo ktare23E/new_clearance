@@ -141,6 +141,7 @@
                                 </div>
                             </div>
                             <div class="input-field-container">
+                                <label for="">Student Profile</label>
                                 <input type="file" name="image">
                             </div>
                             <div class="input-field button">
