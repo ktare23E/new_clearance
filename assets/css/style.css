@@ -1001,17 +1001,18 @@ main .recent-orders-student table {
 
 .student-view-profile-img-container {
     display: flex;
+    align-items: flex-start;
     justify-content: center;
-    align-items:flex-start;
-    padding: 10px 20px;
+}
 
-}
+
 .student-view-profile-img-container img {
-    width: 90%;
-    border-radius: 50%;
-    border: 3px solid var(--color-primary);
-    padding: 5px;
+    width: 100%;
+    clip-path: circle();
+    
 }
+
+
 
 .student-view-profile-info-container {
     display: flex;
