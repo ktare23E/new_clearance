@@ -1007,9 +1007,9 @@ main .recent-orders-student table {
 
 
 .student-view-profile-img-container img {
-    width: 150px !important;
-    height: 150px !important;
-    border-radius: 50%;
+    width: 100%;
+    clip-path: circle();
+    
 }
 
 
