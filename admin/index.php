@@ -9,7 +9,7 @@
                 include_once 'aside.php';
         ?>
         <!------------------ END OF ASIDE ---------------->
-
+        
         
         <main>
             <h1>Dashboard</h1>
@@ -24,16 +24,8 @@
                     
                     <div class="middle">
                         <div class="left">
-                            <h3>Total Sales</h3>
-                            <h1>$25,024</h1>
-                        </div>
-                        <div class="progress">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="number">
-                                <p>81%</p>
-                            </div>
+                            <h3>Total Enrolled Students</h3>
+                            <h1 class="total_users"></h1>
                         </div>
                     </div>
 
@@ -46,20 +38,20 @@
                     
                     <div class="middle">
                         <div class="left">
-                            <h3>Total Expenses</h3>
-                            <h1>$16,274</h1>
+                            <h3>Total Active Student from Enrolled:</h3>
+                            <h1 class="total_users"></h1>
                         </div>
                         <div class="progress">
                             <svg>
                                 <circle cx="38" cy="38" r="36"></circle>
                             </svg>
                             <div class="number">
-                                <p>62%</p>
+                                <p id="active_users_percentage"></p>
                             </div>
                         </div>
                     </div>
 
-                    <small class="text-muted">Last 24 Hours</small>
+                    <a href="student.php">See for more details</a>
                 </div>
                 <!-- -------------  END OF EXPENSES -------------- -->
 
@@ -227,10 +219,25 @@
         </div>
 
     </div>
-        <script>
-            
-            
-        </script>
+    <script>
+            $.ajax({
+                url: 'get_total_users.php',
+                type: 'GET',
+                success: function(response) {
+                $('.total_users').text(response);
+                }
+            });
+    </script>
+
+<script>
+    $.ajax({
+        url: 'get_active_users_percentage.php',
+        type: 'GET',
+        success: function(response) {
+        $('#active_users_percentage').text(response);
+        }
+    });
+</script>
     
     <script src="../assets/js/index.js"></script>
     
