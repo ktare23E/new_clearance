@@ -141,10 +141,10 @@
                                 </div>
                             </div>
                             <div class="input-field-container">
-                                <input type="file" name="fileToUpload">
+                                <input type="file" name="image">
                             </div>
                             <div class="input-field button">
-                                <input type="submit" value="Create Account">
+                                <input type="submit" name="submit" value="Create Account">
                             </div>
                         </form>
                     </div>
