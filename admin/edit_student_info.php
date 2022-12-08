@@ -23,8 +23,9 @@
         $student_username = $row['student_username'];
         $student_password = $row['student_password'];
         $department_id = $row['department_id'];
+        $student_profile = $row['student_profile'];
 
-        echo $department_id;
+        
 
 ?>
 
@@ -75,7 +76,7 @@
                         </div>
                         <span class="title">Edit Student Information</span>
 
-                    <form action="update_student.php" method="POST">
+                    <form action="update_student.php" method="POST" enctype="multipart/form-data">
                         <div class="input-field">
                             <input type="text" placeholder="Student Id" name="student_id" required value="<?php echo $student_id; ?>">
                             <i class="uil uil-keyhole-circle"></i>
@@ -205,6 +206,9 @@
                                     <i class="uil uil-lock icon"></i>
                                     <i class="uil uil-eye-slash showHidePw"></i>
                                 </div>
+                            </div>
+                            <div class="input-field-container">
+                                <input type="file" name="image" value="<?= $student_profile; ?>">
                             </div>
                             <div class="input-field button">
                                 <input type="submit" class="update" name="update" value="Update Student">
