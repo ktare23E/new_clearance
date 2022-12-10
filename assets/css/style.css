@@ -315,8 +315,8 @@ main .student-registration {
 
 
 .student-view-top {
-    margin-top: 20px;
-    background: orange;
+    
+    background: var(--color-white);
     /* background: var(--color-white); */
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
@@ -380,20 +380,23 @@ main .student-registration .form .title{
 
 .action-button-container {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     
     justify-content: space-between;
 }
+
 
 .edit-profile-button {
     cursor: pointer;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 5px;
-    padding: 5px 10px;
+    padding: 10px 15px;
     background: var(--color-primary-variant);
     color: white;
     border-radius: var(--border-radius-1);
+    width: 100%;
 }
 
 .edit-profile-button h3 {
@@ -994,10 +997,6 @@ main .recent-orders-student table {
     transition: all 300ms ease;
 }
 
-.student-view-profile-container {
-    display: grid;
-    grid-template-columns: 2fr 5fr;
-}
 
 .student-view-profile-img-container {
     display: flex;
@@ -1007,21 +1006,47 @@ main .recent-orders-student table {
 
 
 .student-view-profile-img-container img {
+    max-width: 250px;
     width: 100%;
-    clip-path: circle();
-    
+    aspect-ratio : 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.set-active-button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 3px;
+}
+
+.set-active-button-container button {
+    padding: 3px 5px;
+    border-radius: 3px;
+}
+
+.set-active-button-container button:nth-child(1) {
+    background: var(--color-success);
+}
+
+.set-active-button-container button:nth-child(2) {
+    background: var(--color-danger);
 }
 
 
 
 .student-view-profile-info-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 3fr;
+    gap: 20px;
 }
 
-.student-view-profile-info-container .clearance-status-btn-container {
+.clearance-status-btn-container {
+    margin-top: 15px;
+}
+
+.student-view-profile-container {
     margin-top: 15px;
 }
 
@@ -1032,7 +1057,7 @@ main .recent-orders-student table {
     align-items: center;
 }
 
-.student-view-profile-info-container .clearance-status-btn-container button {
+.clearance-status-btn-container button {
     padding: 10px 15px;
     cursor: pointer;
     font-size: 1.3rem;
@@ -1043,20 +1068,21 @@ main .recent-orders-student table {
     transition: all 150ms ease;
 }
 
-.student-view-profile-info-container .clearance-status-btn-container button:hover {
+.clearance-status-btn-container button:hover {
     background: rgb(255, 213, 0);
     
 }
 
 .student-view-profile-info-container h2.label {
-    font-weight: 600;
-    margin-left: 5px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-info-dark);
 }
 
 .student-info-name-container {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     
 }
 .student-info-name-container span {
@@ -1453,10 +1479,7 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
         margin-left: 1rem;
     }
 
-    .student-view-profile-container .student-view-profile-info-container
-    .student-info-name-container .icon-label-container {
-        justify-content: center;
-    }
+    
 
     .student-view-profile-info-container .student-info-name-container .icon-label-container .label {
         font-size: 1rem;

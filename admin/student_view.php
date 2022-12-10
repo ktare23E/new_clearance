@@ -50,119 +50,80 @@
             </div>
             
 
-            <div class="student-view-top">
-                
-                <div class="action-button-container">
-                    <a href="student.php">
-                        <button id="back-button-to-student">
-                            <span class="material-symbols-sharp">arrow_back</span>
-                        </button>
-                    </a>
-                    <button onclick="location.href = 'edit_student_info.php?edit=<?= $row['student_id'];?>';" class="edit-profile-button" id="edit-profile-button">
-                        <span class="material-symbols-sharp">edit</span>
-                        <h3>Edit Profile</h3>
-                    </button>
-                </div>
-                <h1><span><?= $row['student_first_name']; ?></span><span>&nbsp;</span><span><?= $row['student_last_name'];?></span></h1>
-                <div class="icons-course-year-container">
-                    <span class="material-symbols-sharp">person_outline</span>
-                    <h2><span><?= $row['course_name'];?>&nbsp;-</span><span>&nbsp;<?= $row['student_year'];?></span></h2>
-                </div>
-                
-            </div>
+            
             
 
             <div class="form-and-table-container">
+                <div class="student-view-top">
+                    <div class="action-button-container">
+                        <a href="student.php">
+                            <button id="back-button-to-student">
+                                <span class="material-symbols-sharp">arrow_back</span>
+                            </button>
+                        </a>
 
-                <!-- -------------  STUDENT REGISTRATION FORM -------------- -->
-                <div class="student-registration">
-                    <div class="student-view-profile-container">
                         <div class="student-view-profile-img-container">
                             <img src="uploads/<?= $row['student_profile']; ?>" alt="">
-                            
                         </div>
+                        <div>
+                            <button onclick="location.href = 'edit_student_info.php?edit=<?= $row['student_id'];?>';" class="edit-profile-button" id="edit-profile-button">
+                                <span class="material-symbols-sharp">edit</span>
+                                <h3>Edit Profile</h3>
+                            </button>
 
-                        <div class="student-view-profile-info-container">
-                            <div class="student-info-name-container">
-                                <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">badge</span>
-                                    <h2 class="label">Student Id :</h2><span>&emsp;&nbsp;&nbsp;</span>
-                                </div>
-                                
-                                <h2><?php echo $row['student_id']?></h2>
-                            </div>
-                            <div class="student-info-name-container">
-                                <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">person_outline</span>
-                                    <h2 class="label">Name :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;&emsp;</span>
-                                </div>
-                                
-                                <h2><span><?= $row['student_first_name']; ?></span><span>&nbsp;</span><span><?= $row['student_last_name'];?></span></h2>
-                            </div>
-                            <div class="student-info-name-container">
-                                <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">menu_book</span>
-                                <h2 class="label">Course :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;</span>
-                                </div>
-                                
-                                <h2><span><?= $row['course_name'];?></span></h2>
-                            </div>
-                            <div class="student-info-name-container">
-                                <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">timeline</span>
-                                    <h2 class="label">Year :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
-                                </div>
-                                
-                                <h2><span><?= $row['student_year'];?></span></h2>
-                            </div>
-                            <div class="student-info-name-container">
-                                <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">timeline</span>
-                                    <h2 class="label">Gender :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
-                                </div>
-                                
-                                <h2><span><?= $row['student_gender'];?></span></h2>
-                            </div>
-                            <div class="student-info-name-container">
-                                <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">timeline</span>
-                                    <h2 class="label">Email :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
-                                </div>
-                                
-                                <h2><span><?= $row['student_email'];?></span></h2>
-                            </div>
-                            <div class="student-info-name-container">
-                                <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">contact_mail</span>
-                                    <h2 class="label">Username :</h2><span>&emsp;&nbsp;</span>
-                                </div>
-                                
-                                <h2><span><?= $row['student_username'] ?></span></h2>
-                            </div>
-                            <div class="student-info-name-container">
-                                <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">contact_mail</span>
-                                    <h2 class="label">Status :</h2><span>&emsp;&nbsp;</span>
-                                </div>
-                                
-                                <h2><span><?= $row['student_status'] ?></span></h2>
-                            </div>
-                            <div class="student-info-name-container">
-                                <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">corporate_fare</span>
-                                    <h2 class="label">Department :</h2><span class="removable-span">&emsp;&emsp;</span>
-                                </div>
-                                
-                                <h2><span><?= $row['department_name']?></span></h2>
-                            </div>
                             <div class="student-info-name-container clearance-status-btn-container">
                                 <button id="clearance-status-button">Clearance Status</button>
                             </div>
+                        </div>
+                        
+                        
+                    </div>
+
+                    <div class="student-view-profile-container">
+                        
+
+                        <div class="student-view-profile-info-container">
+                            <div class="student-info-name-container">
+                                <h2 class="label">Student Id :</h2>
+                                <h2><?php echo $row['student_id']?></h2>
+                            </div>
+                            <div class="student-info-name-container">
+                                <h2 class="label">Name :</h2>
+                                <h2><span><?= $row['student_first_name']; ?></span><span>&nbsp;</span><span><?= $row['student_last_name'];?></span></h2>
+                            </div>
+                            <div class="student-info-name-container">
+                                <h2 class="label">Course :</h2>
+                                <h2><span><?= $row['course_name'];?></span></h2>
+                            </div>
+                            <div class="student-info-name-container">
+                                <h2 class="label">Year :</h2>
+                                <h2><span><?= $row['student_year'];?></span></h2>
+                            </div>
+                            <div class="student-info-name-container">
+                                <h2 class="label">Gender :</h2>
+                                <h2><span><?= $row['student_gender'];?></span></h2>
+                            </div>
+                            <div class="student-info-name-container">
+                                <h2 class="label">Email :</h2>
+                                <h2><span><?= $row['student_email'];?></span></h2>
+                            </div>
+                            <div class="student-info-name-container">
+                                    <h2 class="label">Username :</h2>
+                                <h2><span><?= $row['student_username'] ?></span></h2>
+                            </div>
+                            <div class="student-info-name-container">
+                                <h2 class="label">Status :</h2>
+                                <h2><span><?= $row['student_status'] ?></span></h2>
+                            </div>
+                            <div class="student-info-name-container">
+                                <h2 class="label">Department :</h2>
+                                <h2><span><?= $row['department_name']?></span></h2>
+                            </div>
+                            
                             
                         </div>
-                    </div>  
+                    </div>
                 </div>
-                <!-- -------------  END OF REGISTRATION -------------- -->
             </div>
             
         </main>
