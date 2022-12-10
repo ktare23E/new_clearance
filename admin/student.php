@@ -71,8 +71,8 @@
                                 </form>
                             </div>
                         </div>
-                        <div>
-                            <button type="button" id="active" >Set as Active</button><br>
+                        <div class="set-active-button-container">
+                            <button type="button" id="active" >Set as Active</button>
                             <button type="button" id="inactive" onclick="">Set as Inactive</button>
                         </div>
                     </div>
