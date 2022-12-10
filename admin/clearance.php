@@ -2,7 +2,7 @@
     include_once 'header.php';
     // $users = $db->result('student_details');
 
-    $id = isset($_GET['clearance_type_id)']) == true ? $_GET['clearance_type_id'] : '';
+    $id = isset($_GET['clearance_type_id']) == true ? $_GET['clearance_type_id'] : '';
 ?>
     <div class="container-student">
         <!-- sidebar -->
@@ -47,6 +47,12 @@
                         Show Clearance Insights
                     </button>
                 </div>
+                <div>
+                            <a href="clearance_registration.php">
+                                <button id="add-new-student"><span class="material-symbols-sharp">add</span>Add new Clearance</button>
+                            </a>
+                            
+                        </div>
                 <div class="add-button-container">
                                 <div>
                                     <label for="">Filter via Clearance Type</label>

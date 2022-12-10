@@ -73,7 +73,11 @@
                         </div>
                         <div>
                             <button type="button" id="active" >Set as Active</button><br>
-                            <button type="button" id="inactive" onclick="">Set as Inactive</button>
+                            <button type="button" id="inactive" onclick="">Set as Inactive</button><br>
+                            <button type="button" id="1st_year">Set as 1st Year</button><br>
+                            <button type="button" id="2nd_year">Set as 2nd Year</button><br>
+                            <button type="button" id="3rd_year">Set as 3rd Year</button><br>
+                            <button type="button" id="4th_year">Set as 4th Year</button><br>
                         </div>
                     </div>
                     
@@ -176,7 +180,115 @@
             });
 
         </script>
+        
 
+<script>
+        //jquery onclick event for update button
+        $(document).on("click", '#1st_year', function(){
+            let list_student_id = [];
+            let list_inputs = $('.row')
+            list_inputs.map((index,elem,arr) => {
+                let is_check = $(elem).prop("checked")
+                if(is_check == true ){
+                    list_student_id.push($(elem).attr("student_id"))
+                }
+            });
+            console.log(list_student_id);
+            $.ajax({
+                url: "student_1st.php",
+                method: "POST",
+                data: {
+                    list_student_id:list_student_id,
+                    student_year:'1st Year'
+                },
+                success: (response) =>{
+                    $("#checkAll").prop("checked",false);
+                    $('#example').DataTable().ajax.reload();
+                }
+            })
+        });
+    </script>
+
+<script>
+        //jquery onclick event for update button
+        $(document).on("click", '#2nd_year', function(){
+            let list_student_id = [];
+            let list_inputs = $('.row')
+            list_inputs.map((index,elem,arr) => {
+                let is_check = $(elem).prop("checked")
+                if(is_check == true ){
+                    list_student_id.push($(elem).attr("student_id"))
+                }
+            });
+            console.log(list_student_id);
+            $.ajax({
+                url: "student_2nd.php",
+                method: "POST",
+                data: {
+                    list_student_id:list_student_id,
+                    student_year:'2nd Year'
+                },
+                success: (response) =>{
+                    $("#checkAll").prop("checked",false);
+                    $('#example').DataTable().ajax.reload();
+                }
+            })
+        });
+    </script>
+
+<script>
+        //jquery onclick event for update button
+        $(document).on("click", '#3rd_year', function(){
+            let list_student_id = [];
+            let list_inputs = $('.row')
+            list_inputs.map((index,elem,arr) => {
+                let is_check = $(elem).prop("checked")
+                if(is_check == true ){
+                    list_student_id.push($(elem).attr("student_id"))
+                }
+            });
+            console.log(list_student_id);
+            $.ajax({
+                url: "student_2nd.php",
+                method: "POST",
+                data: {
+                    list_student_id:list_student_id,
+                    student_year:'3rd Year'
+                },
+                success: (response) =>{
+                    $("#checkAll").prop("checked",false);
+                    $('#example').DataTable().ajax.reload();
+                }
+            })
+        });
+    </script>
+
+<script>
+        //jquery onclick event for update button
+        $(document).on("click", '#4th_year', function(){
+            let list_student_id = [];
+            let list_inputs = $('.row')
+            list_inputs.map((index,elem,arr) => {
+                let is_check = $(elem).prop("checked")
+                if(is_check == true ){
+                    list_student_id.push($(elem).attr("student_id"))
+                }
+            });
+            console.log(list_student_id);
+            $.ajax({
+                url: "student_2nd.php",
+                method: "POST",
+                data: {
+                    list_student_id:list_student_id,
+                    student_year:'4th Year'
+                },
+                success: (response) =>{
+                    $("#checkAll").prop("checked",false);
+                    $('#example').DataTable().ajax.reload();
+                }
+            })
+        });
+    </script>
 
 <script>
             $(document).ready(function(){

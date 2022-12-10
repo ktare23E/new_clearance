@@ -22,10 +22,6 @@
             <span class="material-symbols-sharp">receipt_long</span>
             <h3>Requirements</h3>
         </a>
-        <a href="./office_submissions.php">
-            <span class="material-symbols-sharp">move_to_inbox</span>
-            <h3>Submissions</h3>
-        </a>
     </div>
     <div class="nav-right-container">
         <div class="theme-toggler">

@@ -24,7 +24,7 @@
                             <div class="input-field sy-sem-select">
                                     <select name="sy_sem_id" id="">
                                             <option default>Select School Year and Sem</option>
-                                            <?php $semesters = $db->result('sy_sem');?>
+                                            <?php $semesters = $db->result('sy_sem','status="Active"');?>
                                             <?php foreach($semesters as $semester):?>
                                             <?php if($semester->sy_sem_id == $sy_sem_id):?>  
                                             <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem; ?></option>

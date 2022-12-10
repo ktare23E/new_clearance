@@ -220,23 +220,30 @@
 
     </div>
     <script>
+        setInterval(function(){
             $.ajax({
                 url: 'get_total_users.php',
                 type: 'GET',
                 success: function(response) {
-                $('.total_users').text(response);
+                        $('.total_users').text(response);
                 }
             });
+        },1000)
+            
     </script>
 
 <script>
-    $.ajax({
-        url: 'get_active_users_percentage.php',
-        type: 'GET',
-        success: function(response) {
-        $('#active_users_percentage').text(response);
-        }
-    });
+    setInterval(function(){
+            $.ajax({
+            url: 'get_active_users_percentage.php',
+            type: 'GET',
+            success: function(response) {
+                    $('#active_users_percentage').text(response);
+            }
+        });
+    },1000)
+
+    
 </script>
     
     <script src="../assets/js/index.js"></script>

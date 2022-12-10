@@ -53,17 +53,16 @@ require( 'ssp.class.php' );
 // *  @param  string $whereAll WHERE condition to apply to all queries
 // *  @return array          Server-side processing response array
 
-$id = (isset($_GET['clearance_type_id)']) ? $_GET['clearance_type_id'] : '');
+$id = $_GET['clearance_type_id'];
 $where = "clearance_type_id = ".$id;
+
 
 if($id == ''){
     $data = SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns);
-    echo "hi";
-    die();
+
 }else{
     $data = SSP::complex( $_GET, $sql_details, $table, $primaryKey, $columns, $where, $where);
-    echo 'hello';
-    die();
+
 }
 
 // print_r($data);
