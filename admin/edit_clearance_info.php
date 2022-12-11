@@ -92,52 +92,8 @@
                                             <?php endforeach; ?>
                                     </select>
                                 </div>
-                                <div class="input-field">
-                                    <label for="">Clearance Status</label>
-                                    <select name="clearance_status" id="">
-                                        <?php if($clearance_status === 'Not Cleared'):?>
-                                        <option value="<?= $clearance_status; ?>" selected><?= $clearance_status; ?></option>
-                                        <?php else:?>
-                                                <option value="Not Cleared">Not Cleared</option>
-                                            <?php endif;?>
-                                        <?php if($clearance_status === 'Cleared'):?>
-                                        <option value="<?= $clearance_status; ?>" selected><?= $clearance_status; ?></option>
-                                        <?php else:?>
-                                                <option value="Cleared">Cleared</option>
-                                            <?php endif;?>
-                                    </select>
-                                </div>
                             </div>
                             <div class="input-field-container">
-                                <div class="input-field">
-                                    <label for="">Course Name</label>
-                                    <i class="uil uil-analysis"></i>
-                                    <select name="course_id" id="">
-                                            <?php $courses = $db->result('course');?>
-                                            <?php foreach($courses as $course):?>
-                                            <?php if($course->course_id == $course_id):?> 
-                                            <option value="<?= $course->course_id; ?>" selected><?= $course->course_name; ?></option>
-                                            <?php else:?>
-                                                <option value="<?= $course->course_id; ?>"><?= $course->course_name; ?></option>
-                                            <?php endif;?>
-                                            <?php endforeach; ?>
-                                    </select>
-                                </div>
-                                
-                                <div class="input-field">
-                                    <label for="">Department Name</label>
-                                    <i class="uil uil-analysis"></i>
-                                    <select name="department_id" id="">
-                                            <?php $departments = $db->result('department');;?>
-                                            <?php foreach($departments as $department):?>
-                                            <?php if($department->department_id == $department_id):?> 
-                                            <option value="<?= $department->department_id; ?>" selected><?= $department->department_name; ?></option>
-                                            <?php else:?>
-                                                <option value="<?= $department->department_id; ?>"><?= $department->department_name; ?></option>
-                                            <?php endif;?>
-                                            <?php endforeach; ?>
-                                    </select>
-                                </div>
                                 <div class="input-field">
                                             <label for="">Clearance Type</label>
                                             <select name="clearance_type_id" id="">

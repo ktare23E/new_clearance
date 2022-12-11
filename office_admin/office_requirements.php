@@ -11,16 +11,29 @@
         <div class="main-requirements-container">
             <div class="first-main-content-container">
                 <div class="form signup">
-                    <span class="title"><h2>List of Clearances</h2></span>
+                    <span class="title"><h2>List of Requirements</h2></span>
                     <?php   
                     // $users = $db->result('student_details'); 
-
                     ?>
                 </div>
                 <div class="form signup">
                     <span class="title"><h2>Add new requirements</h2></span>
                     <form action="" method="POST">
                         <div class="input-field-container">
+                        <div class="input-field sy-sem-select">
+                                    <select name="signing_office_id" id="">
+                                            <option default>Signing Office</option>
+                                            <?php $offices = $db->result('new_signing_offices');?>
+                                            <?php foreach($offices as $office):?>
+                                            <?php if($office->signing_office_id == $signing_office_id):?>  
+                                            <option value="<?= $office->signing_office_id; ?>"><?= $office->office_name; ?></option>
+                                            <?php else:?>
+                                                <option value="<?= $office->signing_office_id; ?>"><?= $office->office_name; ?></option>
+                                            <?php endif;?>
+                                            <?php endforeach; ?>
+                                    </select>
+                                <i class="uil uil-angle-down" id="uil-arrow-down"></i>
+                            </div>
                             <div class="input-field sy-sem-select">
                                     <select name="sy_sem_id" id="">
                                             <option default>Select School Year and Sem</option>
@@ -49,15 +62,35 @@
                                     </select>
                                 <i class="uil uil-angle-down" id="uil-arrow-down"></i>
                             </div>
+                            <div class="input-field-container">
+                            <input type="file" name="single_upload">
+                            </div>
                         </div>
                         <div class="input-field">
                             <textarea name="" id="" cols="30" rows="10" required></textarea>
                         </div>
                         <div class="input-field button">
-                            <input type="submit" value="Create Account">
+                            <input type="submit" value="Post Requirements">
                         </div>
                     </form>
                 </div>
+
+                <button id="register-csv-file-btn"><span class="material-symbols-sharp">upload_file</span>Bulk Upload Via .csv file<span class="material-symbols-sharp">arrow_forward_ios</span></button>
+                        <div>
+                            <div class="upload-student-csv-container">
+                                <form action="bulk_upload.php" method="post" enctype="multipart/form-data" name="upload_csv">
+                                    <div class="form-input-file-csv-container">
+                                            <label for="input-file">Choose CSV File</label>
+                                            <input type="file" name="file" accept=".csv" id="input-file">
+                                            <button type="submit" name="import" class="submit-csv-file-button">
+                                            
+                                            Import
+                                                <span class="material-symbols-sharp">file_upload</span>
+                                            </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
             </div>
             
         </div>
