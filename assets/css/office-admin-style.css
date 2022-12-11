@@ -690,3 +690,161 @@ button {
 .action-container .action-click h3 {
     font-size: 1.1rem;
 }
+
+
+
+
+
+/* ============ TABS STYLE ============= */
+
+.clearance-tabs-section-container {
+    background: var(--color-white);
+    margin: 20px 0px;
+}
+
+[data-tab-content] {
+    display: none;
+}
+
+.active[data-tab-content] {
+    display: block;
+}
+
+.tabs {
+    display: flex;
+    justify-content: flex-start;
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 0px 5px 20px;
+    border-bottom: 1px solid black;
+    gap: 5px;
+}
+
+.tab {
+    cursor: pointer;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.tab.active {
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.tab:hover {
+    background-color: var(--color-dark-variant);
+    color: white;
+}
+
+.tab-content {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.tab-info-container {
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tab-info-insight {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.clearance-section-container {
+    border: 2px solid var(--color-primary-variant);
+    border-radius: var(--border-radius-3);
+    padding: 0px 20px;
+}
+
+.clearance-header-bar-container {
+    position: relative;
+    padding: 40px 0px 10px 0px;
+    border-bottom: 1px solid black;
+}
+
+.clearance-header-bar-container h3 {
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 50px;
+    position: absolute;
+    
+    top: -18px;
+    background-color: var(--color-white);
+    font-size: 1.2rem;
+}
+
+.clearance-header-bar-container .clearance-info-table-container {
+    width: 100%;
+}
+
+.clearance-header-bar-container .clearance-info-table-container table {
+    width: 100%;
+    
+}
+
+.clearance-header-bar-container .clearance-info-table-container table tr th {
+    text-align: left;
+}
+
+.clearance-header-bar-container .clearance-info-table-container table thead tr th {
+    color: var(--color-info-dark);
+}
+
+.clearance-header-bar-container .clearance-info-table-container table tbody tr th {
+    font-size: 1.2rem;
+}
+
+
+
+.clearance-details-container {
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.clearance-details-container h3 {
+    font-size: 1rem;
+    border-bottom: 2px solid var(--color-primary);
+    width: fit-content;
+    align-self:center;
+}
+
+.clearance-details-table-container {
+    width: 100%;
+    padding: 0px 20px;
+}
+
+.clearance-details-table-container table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.clearance-details-table-container table tr th  {
+    border-bottom: 1px solid black;
+    padding: 10px 0px;
+}
+
+
+
+.clearance-details-table-container table tr th {
+    text-align: left;
+}
+
+.clearance-details-table-container table thead tr th {
+    color: var(--color-info-dark);
+}
+
+.clearance-details-table-container table tbody tr th {
+    font-size: 1.2rem;
+}
+
+/* end of tabs */
