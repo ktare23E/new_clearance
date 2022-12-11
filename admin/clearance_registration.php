@@ -36,7 +36,7 @@
     
             </div>
 
-            <h1>Signing Office</h1>
+            <h1>Clearance</h1>
 
             <div class="form-and-table-container">
 
@@ -53,7 +53,7 @@
                         </div>
                         <span class="title">Add New Clearance</span>
         
-                        <form action="insert_signing_office.php" method="POST">
+                        <form action="insert_clearance.php" method="POST">
                             <div class="input-field-container">
                             <div class="input-field">
                                     <input type="text" name="student_id" placeholder="Student Id" required>
@@ -62,7 +62,7 @@
                                     <label for="">Select School Year and Sem</label>
                                     <select name="sy_sem_id" id="">
                                             <option default>Select School Year and Sem</option>
-                                            <?php $semesters = $db->result('sy_sem');?>
+                                            <?php $semesters = $db->result('sy_sem','status = "Active"');?>
                                             <?php foreach($semesters as $semester):?>
                                             <?php if($semester->sy_sem_id == $sy_sem_id):?>  
                                             <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem; ?></option>
@@ -70,6 +70,14 @@
                                                 <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem; ?></option>
                                             <?php endif;?>
                                             <?php endforeach; ?>
+                                    </select>
+                                </div>
+                                <div class="input-field">
+                                    <label for="">Clearance Status</label>
+                                    <select name="clearance_status" id="">
+                                        <option value="Clearance Status">Clearance Status</option>
+                                        <option value="Not Cleared">Not Cleared</option>
+                                        <option value="Cleared">Cleared</option>
                                     </select>
                                 </div>
                             </div>
@@ -88,6 +96,7 @@
                                             <?php endforeach; ?>
                                     </select>
                                 </div>
+                                
                                 <div class="input-field">
                                     <label for="">Department Name</label>
                                     <select name="department_id" id="">
@@ -115,10 +124,13 @@
                                                     <?php endif;?>
                                                     <?php endforeach; ?>
                                             </select>
-                                        </div>
+                                </div>
+                                <div class="input-field">
+                                    <input type="date" name="date_created" placeholder="Date Created" required>
+                                </div>
                             </div>
                             <div class="input-field button">
-                                <input type="submit" id="submit" value="Create Signing Office">
+                                <input type="submit" id="submit" value="Create Clearance">
                             </div>
                         </form>
                     </div>

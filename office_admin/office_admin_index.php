@@ -49,16 +49,16 @@
                     <div class="action-container">
                         <div class="action-click">
                             <span class="material-symbols-sharp">grid_view</span>
-                            <h3>View submissions</h3>
+                            <h3>View Students</h3>
                             <div class="circles-style">
                                 <div class="circle blue"></div>
                                 <div class="circle red"></div>
                                 <div class="circle orange"></div>
                             </div>
                         </div>
-                        <div>View/check the students' required submission for your clearance signation</div>
-                        <a href="office_submissions.php" >
-                            <button class="background-primary">view submissions</button>
+                        <div>View/check the students' list</div>
+                        <a href="office_students.php" >
+                            <button class="background-primary">view students</button>
                         </a>
                         <small>Updated version 2022</small>
                     </div>

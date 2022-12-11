@@ -66,7 +66,7 @@
                 <h1><span><?= $row['office_name']; ?></span><span>&nbsp;</span></h1>
                 <div class="icons-course-year-container">
                     <span class="material-symbols-sharp">person_outline</span>
-                    <!-- <h2><span><?= $row['student_course'];?>&nbsp;-</span><span>&nbsp;<?= $row['student_year'];?></span></h2> -->
+                    <h2><span><?= $row['user_type'];?>&nbsp;</span></h2>
                 </div>
                 
             </div>
@@ -122,10 +122,6 @@
                                 
                                 <h2><span><?= $row['date_registered'];?></span></h2>
                             </div>
-                            <div class="student-info-name-container clearance-status-btn-container">
-                                <button id="clearance-status-button">Clearance Status</button>
-                            </div>
-                            
                         </div>
                     </div>  
                 </div>

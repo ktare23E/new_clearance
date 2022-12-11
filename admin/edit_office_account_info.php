@@ -17,7 +17,7 @@
         $admin_username = $row['admin_username'];
         $admin_password = $row['admin_password'];
         $office_id = $row['office_id'];
-
+        $user_type = $row['user_type'];
 ?>
 
 <div class="container-student">
@@ -67,7 +67,7 @@
                         </div>
                         <span class="title">Edit Office Account Information</span>
 
-                    <form action="update_office.php" method="POST">
+                    <form action="update_office_account.php" method="POST">
                         <div class="input-field-container">
                             <div class="input-field">
                                 <input type="hidden" name="admin_id" value="<?= $admin_id?>">
@@ -77,14 +77,15 @@
                         </div>
                         <div class="input-field-container">
                         <div class="input-field">
-                                <input type="email" name="admin_username" placeholder="Admin Username" required value="<?php echo $admin_username; ?>">
+                                <input type="text" name="admin_username" placeholder="Admin Username" required value="<?php echo $admin_username; ?>">
                                 <i class="uil uil-user"></i>
                             </div>
                             <div class="input-field">
-                                <input type="email" name="admin_password" placeholder="Admin Password" required value="<?php echo $admin_password; ?>">
+                                <input type="text" name="admin_password" placeholder="Admin Password" required value="<?php echo $admin_password; ?>">
                                 <i class="uil uil-user"></i>
                             </div>
                         </div>
+                        <div class="input-field-container">
                         <div class="input-field">
                                     <label for="">Office Name</label>
                                     <select name="office_id" id="">
@@ -97,7 +98,23 @@
                                             <?php endif;?>
                                             <?php endforeach; ?>
                                     </select>
+                        </div>
+                        <div class="input-field">
+                                    <label for="">User Type</label>
+                                    <select name="user_type" id="">
+                                        <?php if($user_type === 'Admin'):?>
+                                        <option value="<?= $user_type; ?>" selected><?= $user_type; ?></option>
+                                        <?php else:?>
+                                                <option value="Admin">Admin</option>
+                                            <?php endif;?>
+                                        <?php if($user_type === 'Office Admin'):?>
+                                        <option value="<?= $user_type; ?>" selected><?= $user_type; ?></option>
+                                        <?php else:?>
+                                                <option value="Office Admin">Office Admin</option>
+                                            <?php endif;?>
+                                    </select>
                                 </div>
+                        </div>
                         <div class="input-field button">
                             <input type="submit" name="update" value="Update Account">
                         </div>

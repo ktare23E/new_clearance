@@ -207,9 +207,6 @@
                                     <i class="uil uil-eye-slash showHidePw"></i>
                                 </div>
                             </div>
-                            <div class="input-field-container">
-                                <input type="file" name="image" value="<?= $student_profile; ?>">
-                            </div>
                             <div class="input-field button">
                                 <input type="submit" class="update" name="update" value="Update Student">
                             </div>

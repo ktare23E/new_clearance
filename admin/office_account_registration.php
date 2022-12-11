@@ -58,7 +58,7 @@
                             <div class="input-field">
                                     <input type="text" name="admin_name" placeholder="Admin Name" required>
                                     <i class="uil uil-user"></i>
-                                </div>
+                            </div>
                                 <div class="input-field">
                                     <input type="text" name="admin_username" placeholder="Username" required>
                                     <i class="uil uil-user"></i>
@@ -68,6 +68,7 @@
                                     <i class="uil uil-envelope icon"></i>
                                 </div>
                             </div>
+                            <div class="input-field-container">
                             <div class="input-field">
                                     <label for="">Office Name</label>
                                     <select name="office_id" id="">
@@ -82,6 +83,15 @@
                                             <?php endforeach; ?>
                                     </select>
                                 </div>
+                            <div class="input-field">
+                                <label for="">User Type</label>
+                                <select name="user_type" id="">
+                                    <option value="Select User Type">Select User Type</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="Office Admin">Office Admin</option>
+                                </select>
+                            </div>
+                        </div>
                             <div class="input-field button">
                                 <input type="submit" value="Create Account">
                             </div>
