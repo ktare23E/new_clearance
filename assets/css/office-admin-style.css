@@ -62,7 +62,9 @@ body {
     color: var(--color-dark);
 }
 
-
+input[type="checkbox"] {
+    appearance: auto;
+}
 
 a {
     color: var(--color-dark);
@@ -443,6 +445,81 @@ span.title {
     gap: 10px;
 }
 
+.student-profile-container {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.student-profile-container .right-student-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: fit-content;
+}
+
+.student-name-container {
+    border-bottom: 1px solid var(--color-dark-variant);
+    padding-bottom: 5px;
+}
+
+.right-student-info-container .student-data-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    
+}
+
+.student-data-container .data {
+    display: flex;
+    flex-direction: column;
+}
+
+.student-data-container .data h5 {
+    color: var(--color-dark-variant);
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.right-student-info-container .student-buttons-container {
+    display: flex;
+    gap: 10px;
+}
+
+.right-student-info-container .student-buttons-container button:nth-child(1) {
+    background: var(--color-warning);
+    padding: 15px 0px;
+    font-weight: 600;
+    border-radius: 5px;
+    width: 150px;
+}
+
+.right-student-info-container .student-buttons-container button:nth-child(2) {
+    background: var(--color-success);
+    padding: 15px 0px;
+    font-weight: 600;
+    border-radius: 5px;
+    width: 150px;
+}
+
+.student-data-container .data h4 {
+    font-size: 1.1rem;
+}
+
+.left-photo-container {
+    width:fit-content;
+}
+
+.left-photo-container img {
+    max-width: 250px;
+    width: 100%;
+    aspect-ratio : 1 / 1;
+    border-radius: 5px;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid var(--color-dark-variant);
+}
+
 .office-main-container .first-div-container {
     display: flex;
     flex-direction: row;
@@ -613,3 +690,161 @@ button {
 .action-container .action-click h3 {
     font-size: 1.1rem;
 }
+
+
+
+
+
+/* ============ TABS STYLE ============= */
+
+.clearance-tabs-section-container {
+    background: var(--color-white);
+    margin: 20px 0px;
+}
+
+[data-tab-content] {
+    display: none;
+}
+
+.active[data-tab-content] {
+    display: block;
+}
+
+.tabs {
+    display: flex;
+    justify-content: flex-start;
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 0px 5px 20px;
+    border-bottom: 1px solid black;
+    gap: 5px;
+}
+
+.tab {
+    cursor: pointer;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.tab.active {
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.tab:hover {
+    background-color: var(--color-dark-variant);
+    color: white;
+}
+
+.tab-content {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.tab-info-container {
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tab-info-insight {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.clearance-section-container {
+    border: 2px solid var(--color-primary-variant);
+    border-radius: var(--border-radius-3);
+    padding: 0px 20px;
+}
+
+.clearance-header-bar-container {
+    position: relative;
+    padding: 40px 0px 10px 0px;
+    border-bottom: 1px solid black;
+}
+
+.clearance-header-bar-container h3 {
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 50px;
+    position: absolute;
+    
+    top: -18px;
+    background-color: var(--color-white);
+    font-size: 1.2rem;
+}
+
+.clearance-header-bar-container .clearance-info-table-container {
+    width: 100%;
+}
+
+.clearance-header-bar-container .clearance-info-table-container table {
+    width: 100%;
+    
+}
+
+.clearance-header-bar-container .clearance-info-table-container table tr th {
+    text-align: left;
+}
+
+.clearance-header-bar-container .clearance-info-table-container table thead tr th {
+    color: var(--color-info-dark);
+}
+
+.clearance-header-bar-container .clearance-info-table-container table tbody tr th {
+    font-size: 1.2rem;
+}
+
+
+
+.clearance-details-container {
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.clearance-details-container h3 {
+    font-size: 1rem;
+    border-bottom: 2px solid var(--color-primary);
+    width: fit-content;
+    align-self:center;
+}
+
+.clearance-details-table-container {
+    width: 100%;
+    padding: 0px 20px;
+}
+
+.clearance-details-table-container table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.clearance-details-table-container table tr th  {
+    border-bottom: 1px solid black;
+    padding: 10px 0px;
+}
+
+
+
+.clearance-details-table-container table tr th {
+    text-align: left;
+}
+
+.clearance-details-table-container table thead tr th {
+    color: var(--color-info-dark);
+}
+
+.clearance-details-table-container table tbody tr th {
+    font-size: 1.2rem;
+}
+
+/* end of tabs */
