@@ -1,3 +1,8 @@
+<?php
+    include_once 'dbconfig.php';
+    include_once 'office_header.php';
+?>
+
 <div class="office-top-container">
     <div class="nav-logo-container">
         <div class="logo-img">
@@ -34,11 +39,10 @@
         </div>
         <div class="profile">
             <div class="info">
-                <p>Hello, <b>World</b></p>
-                <small class="text-muted">Admin</small>
-            </div>
-            <div class="profile-photo">
-                <img src="../images/dp.png" alt="">
+                <p>Hello, <b><?php if ($_SESSION['admin_username']){
+                    echo $_SESSION['admin_name'];
+                } ?></b></p>
+                <small class="text-muted">Office Admin</small>
             </div>
         </div>
     </div>

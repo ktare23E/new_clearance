@@ -1,7 +1,23 @@
 <?php
     include_once 'office_header.php';
 
+
+    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+
+    if($conn->connect_error){
+        echo $conn->connect_error;
+    }
+    
+    if(!isset($_GET['details'])){
+        echo "<h1>There's an error while viewing details.</h1>";
+    }else{
+        $id = $_GET['details'];
+        $sql = "SELECT * FROM student_details WHERE student_id = '$id'";
+        $students = $conn->query($sql) or die($conn->error);
+        $row = $students->fetch_assoc();
+    }
 ?>
+
     <div class="office-container">
         <?php 
             include_once 'office_navtop.php'
@@ -17,41 +33,41 @@
 
             <div class="student-profile-container">
                 <div class="left-photo-container">
-                    <img src="../images/dp.png" alt="">
+                    <img src="../admin/uploads/<?= $row['student_profile']; ?>" alt="">
                 </div>
                 <div class="right-student-info-container">
                     <div class="student-name-container">
-                        <h4 style="font-size: 2rem;">AL CEDRIC DARIO</h4>
-                        <p style="margin-top: -5px;color:var(--color-primary)">alcedric.dario@email.com</p>
+                        <h4 style="font-size: 2rem;"><?= $row['student_first_name'].' '.$row['student_last_name']?></h4>
+                        <p style="margin-top: -5px;color:var(--color-primary)"><?= $row['student_email'];?></p>
                     </div>
                     <div class="student-data-container">
                         <div class="data">
                             <h5>Student Id :</h5>
-                            <h4>BSIT - 4th year</h4>
+                            <h4><?= $row['student_id']; ?></h4>
                         </div>
                         <div class="data">
                             <h5>Course :</h5>
-                            <h4>Bachelor of Science in Information Technology</h4>
+                            <h4><?= $row['course_name']; ?></h4>
                         </div>
                         <div class="data">
                             <h5>Year :</h5>
-                            <h4>4th year</h4>
+                            <h4><?= $row['student_year']; ?></h4>
                         </div>
                         <div class="data">
                             <h5>Department :</h5>
-                            <h4>School of Information and Technology</h4>
+                            <h4><?= $row['department_name']; ?></h4>
                         </div>
                         <div class="data">
                             <h5>Gender :</h5>
-                            <h4>Male</h4>
+                            <h4><?= $row['student_gender']; ?></h4>
                         </div>
                         <div class="data">
                             <h5>Username :</h5>
-                            <h4>planetman123</h4>
+                            <h4><?= $row['student_username']?></h4>
                         </div>
                         <div class="data">
                             <h5>Status :</h5>
-                            <h4>Active</h4>
+                            <h4><?= $row['student_status']?></h4>
                         </div>
                     </div>
                     <div class="student-buttons-container">
