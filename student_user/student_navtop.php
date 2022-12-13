@@ -1,3 +1,10 @@
+<?php
+    include_once 'dbconfig.php';
+    require_once 'student_header.php';
+
+    
+?>
+
 <div class="office-top-container">
     <div class="nav-logo-container">
         <div class="logo-img">
@@ -16,7 +23,7 @@
                 <span class="material-symbols-sharp">inventory</span>
                 <h3>Clearance</h3>
             </a>
-            <a href="./student_user_office_requirements.php">
+            <a href="../student_login.php">
                 <span class="material-symbols-sharp">receipt_long</span>
                 <h3>Logout</h3>
             </a>
@@ -27,11 +34,17 @@
         </div>
         <div class="profile">
             <div class="info">
-                <p>Hello, <b>World</b></p>
-                <small class="text-muted">Admin</small>
+                <p>Hello, <b><?php if($_SESSION['student_username'] == '2019-70227'){
+                    echo 'I love you'.' '. $_SESSION['student_first_name'];
+                }elseif ($_SESSION['student_username']){
+                    echo $_SESSION['student_first_name'];
+                } ?></b></p>
+                <small class="text-muted">Student</small>
             </div>
             <div class="profile-photo">
-                <img src="../images/dp.png" alt="">
+                <img src="../admin/uploads/<?php if($_SESSION['student_username']){
+                    echo $_SESSION['student_profile'];
+                } ?>" alt="">
             </div>
         </div>
     </div>
