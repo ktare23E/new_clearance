@@ -30,16 +30,16 @@ CREATE TABLE `admin` (
   `date_registered` timestamp NOT NULL DEFAULT current_timestamp(),
   `office_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`admin_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `admin` */
 
 insert  into `admin`(`admin_id`,`admin_name`,`admin_username`,`admin_password`,`isloggedin`,`user_type`,`date_registered`,`office_id`) values 
-(1,'Kristian Tare','admin','admin54E','true','office_admin','2022-11-18 08:48:09',5),
-(2,'admin2','admin2','admin2','','admin','2022-11-18 09:02:34',2),
-(3,'Phoebe Ladua','phoebe23','123','','','2022-11-19 18:35:54',3),
-(5,'Al Cedric','dario123','123','','office_admin','2022-11-28 15:22:48',1),
-(6,'Jesha Pondoc','jesha','123','','','2022-11-30 20:33:31',4);
+(1,'Kristian Tare','admin','admin54E','true','Admin','2022-11-18 08:48:09',5),
+(3,'Phoebe Ladua','phoebe23','123','','Office Admin','2022-11-19 18:35:54',3),
+(5,'Al Cedrics','dario123','123','','Office Admin','2022-11-28 15:22:48',1),
+(6,'Jesha Pondoc','jesha','123','','Office Admin','2022-11-30 20:33:31',4),
+(7,'Kenneth Tare','kenneth23','12345','','Office Admin','2022-12-11 17:52:35',3);
 
 /*Table structure for table `clearance` */
 
@@ -48,7 +48,7 @@ DROP TABLE IF EXISTS `clearance`;
 CREATE TABLE `clearance` (
   `clearance_id` int(11) NOT NULL AUTO_INCREMENT,
   `clearance_status` varchar(75) NOT NULL,
-  `date_created` datetime NOT NULL DEFAULT current_timestamp(),
+  `date_created` date NOT NULL,
   `date_cleared` date NOT NULL,
   `is_locked` tinyint(1) NOT NULL,
   `student_id` varchar(75) NOT NULL,
@@ -57,9 +57,13 @@ CREATE TABLE `clearance` (
   `course_id` int(11) NOT NULL,
   `department_id` int(11) NOT NULL,
   PRIMARY KEY (`clearance_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `clearance` */
+
+insert  into `clearance`(`clearance_id`,`clearance_status`,`date_created`,`date_cleared`,`is_locked`,`student_id`,`sy_sem_id`,`clearance_type_id`,`course_id`,`department_id`) values 
+(22,'Cleared','2022-12-11','0000-00-00',0,'2019-32423',3,4,2,1),
+(23,'Cleared','2022-12-11','0000-00-00',0,'2019-70227',1,2,2,1);
 
 /*Table structure for table `clearance_details` */
 
@@ -73,9 +77,12 @@ CREATE TABLE `clearance_details` (
   `status` varchar(75) NOT NULL,
   `sy_sem_id` int(11) NOT NULL,
   PRIMARY KEY (`clearance_details_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `clearance_details` */
+
+insert  into `clearance_details`(`clearance_details_id`,`clearance_id`,`signing_office_id`,`date_cleared`,`status`,`sy_sem_id`) values 
+(11,20,36,'2022-12-09 06:02:54','Cleared',3);
 
 /*Table structure for table `clearance_type` */
 
@@ -194,12 +201,19 @@ CREATE TABLE `requirement` (
   `requirement_details` varchar(255) NOT NULL,
   `signing_office_id` int(11) NOT NULL,
   `sy_sem_id` int(11) NOT NULL,
-  `department_id` int(11) NOT NULL,
-  `office_id` int(11) NOT NULL,
   PRIMARY KEY (`requirement_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `requirement` */
+
+insert  into `requirement`(`requirement_id`,`requirement_details`,`signing_office_id`,`sy_sem_id`) values 
+(1,'﻿require',36,1),
+(2,'﻿requires',36,1),
+(3,'requires2',36,1),
+(4,'require3',36,1),
+(5,'﻿requires4',36,1),
+(6,'requires5',36,1),
+(7,'require6',36,1);
 
 /*Table structure for table `signing_office` */
 
@@ -215,30 +229,14 @@ CREATE TABLE `signing_office` (
   `status` varchar(75) NOT NULL,
   `date_cleared` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`signing_office_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `signing_office` */
 
 insert  into `signing_office`(`signing_office_id`,`office_id`,`sy_sem_id`,`admin_id`,`clearance_type_id`,`is_locked`,`status`,`date_cleared`) values 
-(18,0,0,0,0,0,'','2022-12-08 16:24:35'),
-(19,0,0,0,0,0,'','2022-12-08 16:24:36'),
-(20,0,0,0,0,0,'','2022-12-08 16:24:36'),
-(21,0,0,0,0,0,'','2022-12-08 16:25:47'),
-(22,0,0,0,0,0,'','2022-12-08 16:25:47'),
-(23,0,0,0,0,0,'','2022-12-08 16:25:48'),
-(24,0,0,0,0,0,'','2022-12-08 16:25:48'),
-(25,0,0,0,0,0,'','2022-12-08 16:26:15'),
-(26,0,0,0,0,0,'','2022-12-08 16:26:17'),
-(27,0,0,0,0,0,'','2022-12-08 16:26:17'),
-(28,0,0,0,0,0,'','2022-12-08 16:26:22'),
-(29,0,0,0,0,0,'','2022-12-08 16:26:22'),
-(30,0,0,0,0,0,'','2022-12-08 16:26:23'),
-(31,0,0,0,0,0,'','2022-12-08 16:26:27'),
-(32,0,0,0,0,0,'','2022-12-08 16:26:28'),
-(33,0,0,0,0,0,'','2022-12-08 16:26:28'),
-(34,0,0,0,0,0,'','2022-12-08 16:26:29'),
-(35,0,0,0,0,0,'','2022-12-08 16:26:38'),
-(36,1,3,5,2,0,'','2022-12-08 16:27:12');
+(36,1,3,5,2,0,'','2022-12-08 16:27:12'),
+(37,0,1,0,2,0,'','2022-12-10 21:11:16'),
+(38,0,3,0,1,0,'','2022-12-10 21:14:00');
 
 /*Table structure for table `student` */
 
@@ -263,10 +261,11 @@ CREATE TABLE `student` (
 /*Data for the table `student` */
 
 insert  into `student`(`student_id`,`student_first_name`,`student_last_name`,`student_year`,`course_id`,`department_id`,`student_gender`,`student_email`,`student_username`,`student_password`,`student_status`,`student_profile`) values 
-('2018-832423','test2','test2','2nd Year',5,3,'Female','test23@gmail.com','2018-832423','12345','Active','1670486159kris.png'),
-('2019-202323','test','test','3rd Year',3,3,'Female','test@gmial.com','2019-202323','123','Inactive','1670479593trial.png'),
-('2019-32423','Al Cedric','Dario','4th Year',2,1,'Male','alcedric@gmail.com','2019-32423','12341','Inactive','1670481597dp.png'),
-('2019-70227','Kristian Kharl','Tare','4th Year',2,1,'Male','tare.kristian@gmail.com','2019-70227','12345','Active','1670496095yay.jpg');
+('2018-832423','test2','test2','1st Year',5,3,'Female','test23@gmail.com','2018-832423','12345','Active','1670486159kris.png'),
+('2019-202323','test','test','3rd Year',3,3,'Female','test@gmial.com','2019-202323','123','Active','1670479593trial.png'),
+('2019-202343','yrdy','yrey','3rd Year',4,3,'Male','twetw@gmail.com','2019-202343','123','Inactive','1670580903avatar.png'),
+('2019-32423','Al Cedric','Dario','3rd Year',2,1,'Male','alcedric@gmail.com','2019-32423','12341','Inactive','1670481597dp.png'),
+('2019-70227','Kristian Kharl','Tare','3rd Year',2,1,'Male','tare.kristian@gmail.com','2019-70227','12345','Inactive','1670496095yay.jpg');
 
 /*Table structure for table `sy_sem` */
 
@@ -283,7 +282,7 @@ CREATE TABLE `sy_sem` (
 
 insert  into `sy_sem`(`sy_sem_id`,`school_year_and_sem`,`status`) values 
 (1,'2022-2023 1st Semester','Active'),
-(3,'2022-2023 2nd Semester','Inactive'),
+(3,'2022-2023 2nd Semester','Active'),
 (4,'2024-2025 1st Sem','Inactive');
 
 /*Table structure for table `upload` */
@@ -427,7 +426,7 @@ DROP TABLE IF EXISTS `view_clearance`;
  `clearance_type_id` int(11) ,
  `clearance_type_name` varchar(75) ,
  `clearance_status` varchar(75) ,
- `date_created` datetime ,
+ `date_created` date ,
  `date_cleared` date 
 )*/;
 
