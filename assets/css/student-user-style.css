@@ -221,6 +221,61 @@ b {
     transition: all 200ms ease;
 }
 
+.profile-top-container .student-image img {
+    max-width: 150px;
+    width: 100%;
+    aspect-ratio : 1 / 1;
+    border-radius: 5px;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid var(--color-dark-variant);
+}
+
+.student-profile-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+}
+
+.edit-profile-btn {
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    padding: 5px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.edit-profile-btn:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.profile-main-info-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 0px 20px;
+}
+
+.student-data-container h3 {
+    font-size: 1rem;
+}
+
+.student-data-container h4 {
+    font-size: 1.2rem;
+}
+
+.student-profile-container .profile-top-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    border-bottom: 1px solid var(--color-dark-variant);
+    padding-bottom: 5px;
+}
+
 .office-container .office-top-container .nav-middle-container a:hover {
     color: var(--color-primary-variant);
 }
