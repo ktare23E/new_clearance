@@ -10,6 +10,7 @@ $clearance_type_id = $_POST['clearance_type_id'];
 
 
 
+
 $data = array(
     'office_id' => $office_id,
     'sy_sem_id' => $sy_sem_id,

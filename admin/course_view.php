@@ -13,7 +13,7 @@
         echo "<h1>There's an error while viewing details.</h1>";
     }else{
         $id = $_GET['details'];
-        $sql = "SELECT * FROM course WHERE course_id = '$id'";
+        $sql = "SELECT * FROM course_view WHERE course_id = '$id'";
         $students = $conn->query($sql) or die($conn->error);
         $row = $students->fetch_assoc();
     
@@ -74,7 +74,7 @@
 
             <div class="form-and-table-container">
 
-                <!-- -------------  STUDENT REGISTRATION FORM -------------- -->
+
                 <div class="student-registration">
                     <div class="student-view-profile-container">
                         <div class="student-view-profile-img-container">
@@ -114,8 +114,13 @@
                                 
                                 <h2><span><?= $row['course_description']?></span></h2>
                             </div>
-                            <div class="student-info-name-container clearance-status-btn-container">
-                                <button id="clearance-status-button">Clearance Status</button>
+                            <div class="student-info-name-container">
+                                <div class="icon-label-container">
+                                    <span class="material-symbols-sharp">corporate_fare</span>
+                                    <h2 class="label">Department Belong :</h2><span class="removable-span">&emsp;&emsp;</span>
+                                </div>
+                                
+                                <h2><span><?= $row['office_name']?></span></h2>
                             </div>
                             
                         </div>

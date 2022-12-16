@@ -21,10 +21,10 @@
                     <span class="material-symbols-sharp">person_outline</span>
                     <h3>Student</h3>
                 </a>
-                <a href="department.php">
+                <!-- <a href="department.php">
                     <span class="material-symbols-sharp">corporate_fare</span>
                     <h3>Department</h3>
-                </a>
+                </a> -->
                 <a href="course.php">
                     <span class="material-symbols-sharp">corporate_fare</span>
                     <h3>Course</h3>

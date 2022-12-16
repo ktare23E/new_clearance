@@ -117,7 +117,7 @@
                             </div>
                             <div class="student-info-name-container">
                                 <h2 class="label">Department :</h2>
-                                <h2><span><?= $row['department_name']?></span></h2>
+                                <h2><span><?= $row['office_name']?></span></h2>
                             </div>
                             
                             

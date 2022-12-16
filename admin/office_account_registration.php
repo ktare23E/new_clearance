@@ -64,7 +64,7 @@
                                     <i class="uil uil-user"></i>
                                 </div>
                                 <div class="input-field">
-                                    <input type="text" name="admin_password" placeholder="Password" required>
+                                    <input type="password" name="admin_password" placeholder="Password" required>
                                     <i class="uil uil-envelope icon"></i>
                                 </div>
                             </div>

@@ -53,7 +53,7 @@
         $course_id   = $_POST['course_id'];
         $student_username   = $_POST['student_username'];
         $student_password        = $_POST['student_password'];
-        $department_id = $_POST['department_id'];
+        $office_id = $_POST['office_id'];
 
         if(isset($_FILES['image'])){ //if file is upload
             $img_name = $_FILES['image']['name']; //getting user uploaded img name 
@@ -73,8 +73,8 @@
                 
                 if(move_uploaded_file($tmp_name, "uploads/".$new_img_name)){ // if user upload img move to our folder successfully
                     // let's insert all user data inside table
-                    $sql2 = mysqli_query($conn,"INSERT INTO student (student_id, student_first_name, student_last_name, student_year, course_id, department_id, student_gender, student_email, student_username, student_password, student_status, student_profile)
-                                        VALUES('{$student_id}','{$student_first_name}','{$student_last_name}','{$student_year}','{$course_id}','{$department_id}','{$student_gender}','{$student_email}','{$student_username}','{$student_password}','{$student_status}','$new_img_name')");    
+                    $sql2 = mysqli_query($conn,"INSERT INTO student (student_id, student_first_name, student_last_name, student_year, course_id, office_id, student_gender, student_email, student_username, student_password, student_status, student_profile)
+                                        VALUES('{$student_id}','{$student_first_name}','{$student_last_name}','{$student_year}','{$course_id}','{$office_id}','{$student_gender}','{$student_email}','{$student_username}','{$student_password}','{$student_status}','$new_img_name')");    
                     
                     header("Location: student.php");
                     exit();
