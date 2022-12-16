@@ -17,7 +17,6 @@
         $sy_sem_id = $row['sy_sem_id'];
         $clearance_status = $row['clearance_status'];
         $course_id = $row['course_id'];
-        $department_id = $row['department_id'];
         $clearance_type_id = $row['clearance_type_id'];
         $date_created = $row['date_created'];
         
