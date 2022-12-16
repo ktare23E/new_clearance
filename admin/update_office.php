@@ -9,10 +9,11 @@ if(isset($_POST['update'])){
     $office_phone_number = $_POST['office_phone_number'];
     $office_description = $_POST['office_description'];
     $office_status = $_POST['office_status'];
+    $is_department = $_POST['is_department'];
     
 
 
-    $sql = "UPDATE office SET office_name = '$office_name',office_email = '$office_email',office_phone_number='$office_phone_number',office_description='$office_description',office_status='$office_status' WHERE office_id = $office_id";
+    $sql = "UPDATE office SET office_name = '$office_name',office_email = '$office_email',office_phone_number='$office_phone_number',office_description='$office_description',office_status='$office_status', is_department = $is_department WHERE office_id = $office_id";
 
     $result= mysqli_query($conn,$sql);
     if($result){

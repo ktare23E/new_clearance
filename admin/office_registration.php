@@ -51,7 +51,7 @@
     
             </div>
 
-            <h1>Office Account</h1>
+            <h1>Office</h1>
 
             <div class="form-and-table-container">
 
@@ -71,7 +71,7 @@
                         <form action="insert_office.php" method="POST">
                             <div class="input-field-container">
                                 <div class="input-field">
-                                    <span id="check_office"></span>
+                                    <span id="check_office"></span><br>
                                     <input type="text" name="office_name" id="office_name" oninput="checkOffice()" placeholder="Office Name" required>
                                     <i class="uil uil-user"></i>
                                 </div>
@@ -97,6 +97,14 @@
                                         <option value="Status">Status</option>
                                         <option value="Active">Active</option>
                                         <option value="Inactive">Inactive</option>
+                                    </select>
+                                </div>
+                                <div class="input-field">
+                                    <i class="uil uil-bolt"></i>
+                                    <select name="is_department" id="">
+                                        <option value="Type">Type</option>
+                                        <option value="0">Office</option>
+                                        <option value="1">Department</option>
                                     </select>
                                 </div>
                             </div>

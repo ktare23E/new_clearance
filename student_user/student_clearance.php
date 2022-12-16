@@ -39,13 +39,12 @@
                                                 <tbody>
                                                     <tr>
                                                         <th><?php if ($_SESSION['student_username']){
-                    echo $_SESSION['student_first_name'].' '.$_SESSION['student_last_name'];
-                } ?></th>
+                    echo $_SESSION['student_first_name'].' '.$_SESSION['student_last_name'];} ?></th>
                                                         <th><?php if ($_SESSION['student_username']){
-                    echo $_SESSION['student_first_name'];
-                } ?></th>
-                                                        <th>4TH</th>
-                                                        <th class="warning">PENDING</th>
+                    echo $_SESSION['course_name'];} ?></th>
+                                                        <th><?php if ($_SESSION['student_username']){
+                    echo $_SESSION['student_year'];} ?></th>
+                                                        <th class="warning">Not Cleared</th>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -66,17 +65,17 @@
                                                 <tbody>
                                                     <tr>
                                                         <th>CASHIER</th>
-                                                        <th class="warning">PENDING</th>
+                                                        <th class="warning">APPROVED</th>
                                                         <th>N/A</th>
                                                     </tr>
                                                     <tr>
                                                         <th>OSA</th>
-                                                        <th class="warning">PENDING</th>
+                                                        <th class="warning">APPROVED</th>
                                                         <th>N/A</th>
                                                     </tr>
                                                     <tr>
                                                         <th>LIBRARY</th>
-                                                        <th class="success">CLEARED</th>
+                                                        <th class="success">NOT APPROVED</th>
                                                         <th>11/22/2022</th>
                                                     </tr>
                                                 </tbody>

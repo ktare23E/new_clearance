@@ -92,7 +92,7 @@
                                 </div>
                                 <div class="clearance-info-container">
                                     <h3>Department</h3>
-                                    <h4><?= $row['department_name']; ?></h4>
+                                    <h4><?= $row['office_name']; ?></h4>
                                 </div>
                                 <div class="clearance-info-container">
                                     <h3>Clearance type</h3>

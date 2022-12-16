@@ -11,7 +11,7 @@ $student_password = $_POST['student_password'];
 
 // $student = $db->is_exist('student',"student_username = '$student_username' AND student_password = '$student_password'");
 
-$sql = "SELECT * FROM student WHERE student_username = '$student_username' AND student_password = '$student_password'";
+$sql = "SELECT * FROM student_details WHERE student_username = '$student_username' AND student_password = '$student_password'";
 $result = $conn->query($sql);
 
 if($result->num_rows > 0){

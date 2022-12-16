@@ -1,6 +1,6 @@
 <?php
     include_once 'header.php';
-        $users = $db->result('courses');
+        $users = $db->result('course_view');
     // $users = $db->result('offices');
     // $users = $db->result('office_account');
 
@@ -71,7 +71,7 @@
                                 <td><input type="checkbox" name="update[]"></td>
                                 <td><?= $user->course_name; ?></td>
                                 <td><?= $user->course_status; ?></td>
-                                <td><?= $user->department_name; ?></td>
+                                <td><?= $user->office_name; ?></td>
                                 <td class="primary table-action-container">
                                     <a href="edit_course_info.php?edit=<?= $user->course_id; ?>">Update</a>
                                     <a href="course_view.php?details=<?= $user->course_id; ?>">View Details</a>

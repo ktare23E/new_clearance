@@ -68,6 +68,4 @@ if($result->num_rows > 0){
 //         exit();
 //     }
 // }
-else {
-    header("location: index.php?a=error");
-}
+

@@ -100,13 +100,13 @@
                             </div>
                             <div class="input-field">
                             <label for="">Department Name</label>
-                            <select name="department_id" id="">
-                                <?php $departments = $db->result('department');?>
-                                <?php foreach($departments as $department):?>
-                                <?php if($department->department_id == $department_id):?>  
-                                <option value="<?= $department->department_id; ?>" selected><?= $department->department_name; ?></option>
+                            <select name="office_id" id="">
+                                <?php $offices = $db->result('office','is_department = 1');?>
+                                <?php foreach($offices as $office):?>
+                                <?php if($office->office_id == $office_id):?>  
+                                <option value="<?= $office->office_id; ?>" selected><?= $office->office_name; ?></option>
                                 <?php else:?>
-                                    <option value="<?= $department->department_id; ?>"><?= $department->department_name; ?></option>
+                                    <option value="<?= $office->office_id; ?>"><?= $office->office_name; ?></option>
                                 <?php endif;?>
                                 <?php endforeach; ?>
                             </select>

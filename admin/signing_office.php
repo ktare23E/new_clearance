@@ -2,9 +2,7 @@
     include_once 'header.php';
 
         
-        // $conn = mysqli_connect('localhost', 'root', '', 'clearance');
-
-
+        // $conn = mysqli_connect('localhost', 'root', '', 'clearance')
         if(!isset($_GET['clearance_type_id'])){
             $users = $db->result('new_signing_offices');
         }else{

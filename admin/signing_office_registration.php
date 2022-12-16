@@ -112,7 +112,7 @@
                                                     <?php endif;?>
                                                     <?php endforeach; ?>
                                             </select>
-                                        </div>
+                                </div>
                             </div>
                             <div class="input-field button">
                                 <input type="submit" id="submit" value="Create Signing Office">

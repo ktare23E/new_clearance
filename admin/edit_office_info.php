@@ -18,6 +18,7 @@
         $office_phone_number = $row['office_phone_number'];
         $office_description = $row['office_description'];
         $office_status = $row['office_status'];
+        $is_department = $row['is_department'];
     
         
 
@@ -103,7 +104,14 @@
                                                 <option value="Inactive">Inactive</option>
                                             <?php endif;?>
                                     </select>
-                                </div>
+                            </div>
+                            <div class="input-field">
+                                <label for="">Office Type</label>
+                                    <select name="is_department" id="">
+                                        <option value="<?= $is_department; ?>" <?= $is_department == 1 ? 'selected = "selected"':''; ?>>Department</option>
+                                        <option value="<?= $is_department; ?>" <?= $is_department ==0 ?'selected = "selected"': ''; ?> >Office</option>
+                                    </select>
+                            </div>
                         </div>
                         <div class="input-field-container">
                             <div class="input-field">
