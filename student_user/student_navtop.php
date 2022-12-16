@@ -32,21 +32,24 @@
             <span class="material-symbols-sharp active">light_mode</span>
             <span class="material-symbols-sharp">dark_mode</span>
         </div>
-        <div class="profile">
-            <div class="info">
-                <p>Hello, <b><?php if($_SESSION['student_username'] == '2019-70227'){
-                    echo 'I love you'.' '. $_SESSION['student_first_name'];
-                }elseif ($_SESSION['student_username']){
-                    echo $_SESSION['student_first_name'];
-                } ?></b></p>
-                <small class="text-muted">Student</small>
+        <a href="student_profile.php">
+            <div class="profile">
+                <div class="info">
+                    <p>Hello, <b><?php if($_SESSION['student_username'] == '2019-70227'){
+                        echo 'I love you'.' '. $_SESSION['student_first_name'];
+                    }elseif ($_SESSION['student_username']){
+                        echo $_SESSION['student_first_name'];
+                    } ?></b></p>
+                    <small class="text-muted">Student</small>
+                </div>
+                <div class="profile-photo">
+                    <img src="../admin/uploads/<?php if($_SESSION['student_username']){
+                        echo $_SESSION['student_profile'];
+                    } ?>" alt="">
+                </div>
             </div>
-            <div class="profile-photo">
-                <img src="../admin/uploads/<?php if($_SESSION['student_username']){
-                    echo $_SESSION['student_profile'];
-                } ?>" alt="">
-            </div>
-        </div>
+        </a>
+        
     </div>
 </div>
 
