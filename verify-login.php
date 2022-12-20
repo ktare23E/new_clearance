@@ -30,7 +30,7 @@ $admin_password = $_POST['admin_password'];
 
 // $student = $db->is_exist('student',"student_username = '$student_username' AND student_password = '$student_password'");
 
-$sql = "SELECT * FROM admin WHERE admin_username = '$admin_username' AND admin_password = '$admin_password'";
+$sql = "SELECT * FROM admin_account WHERE admin_username = '$admin_username' AND admin_password = '$admin_password'";
 
 $result = $conn->query($sql);
 
@@ -39,6 +39,7 @@ if($result->num_rows > 0){
     $_SESSION['admin_username'] = $admin_username;
     $_SESSION['admin_name'] = $row['admin_name'];
     $_SESSION['office_id'] = $row['office_id'];
+    $_SESSION['office_name'] = $row['office_name'];
     $_SESSION['user_type'] = $row['user_type'];
     
 

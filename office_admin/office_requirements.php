@@ -1,6 +1,8 @@
 <?php
+    include_once 'dbconfig.php';
     include_once 'office_header.php';
-
+    
+    $list_of_clearances = $db->result('requirement_view','office_id = '.$_SESSION['office_id']);
 ?>
     <div class="office-container">
         <?php 
@@ -11,10 +13,23 @@
         <div class="main-requirements-container">
             <div class="first-main-content-container">
                 <div class="form signup">
-                    <span class="title"><h2>List of Requirements</h2></span>
-                    <?php   
-                    // $users = $db->result('student_details'); 
-                    ?>
+                    <span class="title"><h2>List of Requirements of <?= $_SESSION['office_name'];?></h2></span>
+                    <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th>Requirements</th>
+                                                        <th>Clearance Type</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php foreach($list_of_clearances as $clearance):?>
+                                                    <tr>
+                                                        <th><?= $clearance->requirement_details; ?></th>
+                                                        <th><?= $clearance->clearance_type_name;?></th>
+                                                    </tr>
+                                                    <?php endforeach; ?>
+                                                </tbody>
+                        </table>
                 </div>
                 <div class="form signup">
                     <span class="title"><h2>Add new requirements</h2></span>
