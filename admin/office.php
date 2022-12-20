@@ -75,13 +75,10 @@
                                 <td class="primary table-action-container">
                                     <a href="edit_office_info.php?edit=<?= $user->office_id?>">Update</a>
                                     <a href="office_view.php?details=<?= $user->office_id?>">View Details</a>
-                                        <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
-                                        <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
-                                            <span class="material-symbols-outlined">delete</span>
-                                        </button> -->
                                 </td>
                             </tr>
                             <?php endforeach; ?>
+                        </tbody>
                         <tfoot>
                             <tr>
                                 <th>Office Name</th>

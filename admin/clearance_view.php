@@ -77,7 +77,7 @@
                             </div>
                             <div class="status-title">
                                 <h4>Status:</h4>
-                                <h3 class="warning"><?= $row['clearance_status']; ?></h3>
+                                <h3 class="warning"><?= $row['clearance_status'] ? 'Cleared' : 'Not Cleared';?></h3>
                             </div>
                         </div>
                         <div class="detail-left-main-content">

@@ -18,7 +18,7 @@
                 </div>
                 <div class="form signup">
                     <span class="title"><h2>Add new requirements</h2></span>
-                    <form action="" method="POST">
+                    <form action="insert_requirement.php" method="POST">
                         <div class="input-field-container">
                         <div class="input-field sy-sem-select">
                                     <select name="signing_office_id" id="">
@@ -62,12 +62,23 @@
                                     </select>
                                 <i class="uil uil-angle-down" id="uil-arrow-down"></i>
                             </div>
-                            <div class="input-field-container">
-                            <input type="file" name="single_upload">
+                            <div class="input-field sy-sem-select">
+                                    <select name="student_id" id="">
+                                            <option default>Select Student</option>
+                                            <?php $students = $db->result('student','student_status = "Active"');?>
+                                            <?php foreach($students as $student):?>
+                                            <?php if($student->student_id == $student_id):?>  
+                                            <option value="<?= $student->student_id; ?>"><?= $student->student_id; ?></option>
+                                            <?php else:?>
+                                                <option value="<?= $student->student_id; ?>"><?= $student->student_id; ?></option>
+                                            <?php endif;?>
+                                            <?php endforeach; ?>
+                                    </select>
+                                <i class="uil uil-angle-down" id="uil-arrow-down"></i>
                             </div>
                         </div>
                         <div class="input-field">
-                            <textarea name="" id="" cols="30" rows="10" required></textarea>
+                            <textarea name="requirement_details" id="" cols="30" rows="10" required></textarea>
                         </div>
                         <div class="input-field button">
                             <input type="submit" value="Post Requirements">

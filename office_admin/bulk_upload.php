@@ -9,7 +9,7 @@
             $file = fopen($fileName, "r");
 
             while(($column = fgetcsv($file,1000,",")) !== FALSE){
-                $sqlInsert = "INSERT into requirement (requirement_details, signing_office_id, sy_sem_id) VALUES ('".$column[0]."','".$column[1]."','".$column[2]."')";
+                $sqlInsert = "INSERT into requirement (requirement_details, signing_office_id, sy_sem_id,student_id,clearance_type_id) VALUES ('".$column[0]."','".$column[1]."','".$column[2]."','".$column[3]."','".$column[4]."')";
                 $result = mysqli_query($conn, $sqlInsert);
 
                 if(!empty($result)){

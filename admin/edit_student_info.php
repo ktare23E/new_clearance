@@ -22,7 +22,6 @@
         $course_id = $row['course_id'];
         $student_username = $row['student_username'];
         $student_password = $row['student_password'];
-        $department_id = $row['department_id'];
         $student_profile = $row['student_profile'];
 
         

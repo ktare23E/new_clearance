@@ -107,6 +107,7 @@
                                 </td>
                             </tr>
                             <?php endforeach; ?>
+                        </tbody>
                         <tfoot>
                             <tr>
                                 <th>Office Name</th>

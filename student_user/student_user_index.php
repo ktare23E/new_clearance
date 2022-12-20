@@ -1,6 +1,8 @@
 <?php
     include_once 'student_header.php';
 
+    include_once '../dbconnect.php';
+
 ?>
     <div class="office-container">
         <?php 
@@ -25,8 +27,7 @@
         
     </div>
     
-    
-    
+
     
     <script src="../assets/js/student_index.js"></script> 
     

@@ -55,7 +55,7 @@
                         </div>
                         <div class="data">
                             <h5>Department :</h5>
-                            <h4><?= $row['department_name']; ?></h4>
+                            <h4><?= $row['office_name']; ?></h4>
                         </div>
                         <div class="data">
                             <h5>Gender :</h5>

@@ -35,6 +35,12 @@
                     echo $_SESSION['student_first_name'].' '.$_SESSION['student_last_name'];} ?></h1>
                         <h3 style="font-size: 1.5rem;" class="text-muted">Student</h3>
                     </div>
+                    <form action="update_profile.php" method="post" enctype="multipart/form-data">
+                    <label for="profile-image-input">Change profile image:</label>
+                    <input type="file" id="profile-image-input" name="profile_image" accept="image/*" />
+                    <button type="submit">Update Profile</button>
+                    </form>
+
                 </div>
                 <div class="profile-main-info-container">
                     <div class="student-data-container">
