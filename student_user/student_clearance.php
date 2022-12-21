@@ -11,9 +11,8 @@
         ?>
     
 
-                            <div class="clearance-section-container">
+                                <div class="clearance-section-container">
                                     <div class="clearance-header-bar-container">
-                                        
                                         <h3>CLEARANCE INFORMATION</h3>
                                         <div class="clearance-info-table-container">
                                             <table>
@@ -29,13 +28,13 @@
                                                 <tbody>
                                                 <?php foreach ($list_of_clearance as $clearance) : ?>
                                                     <tr>
-                                                        <th><?= $clearance->school_year_and_sem; ?></th>
-                                                        <th><?= $clearance->student_year?></th>
-                                                        <th><?= $clearance->clearance_type_name; ?></th>
-                                                        <th class="warning"><?= $clearance->clearance_status ? 'Cleared' : 'Not Cleared';?></th>
-                                                        <th class="primary table-action-container">
-                                                            <a href="sem_clearance.php?sy_sem_id=<?= $clearance->sy_sem_id?>&clearance_type_id=<?= $clearance->clearance_type_id; ?>">View Details</a>
-                                                        </th>
+                                                        <td><?= $clearance->school_year_and_sem; ?></td>
+                                                        <td><?= $clearance->student_year?></td>
+                                                        <td><?= $clearance->clearance_type_name; ?></td>
+                                                        <td class="warning"><?= $clearance->clearance_status ? 'Cleared' : 'Not Cleared';?></td>
+                                                        <td class="primary table-action-container">
+                                                            <a class="primary" href="sem_clearance.php?sy_sem_id=<?= $clearance->sy_sem_id?>&clearance_type_id=<?= $clearance->clearance_type_id; ?>">View Details</a>
+                                                        </td>
                                                     </tr>
                                                     <?php endforeach; ?>
                                                 </tbody>
