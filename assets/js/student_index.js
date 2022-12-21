@@ -33,6 +33,16 @@ if(activePage1 == "/new_clearance/student_user/student_user_index.php"){
 }
 
 
+let td = document.querySelectorAll("table tbody tr td")
+
+
+td.forEach(td => {
+    if(td.innerHTML == "Cleared"){
+        td.classList.add("success")
+    }else if(td.innerHTML == "Not Cleared"){
+        td.classList.add("warning")
+    }
+})
 
 
 

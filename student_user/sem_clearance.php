@@ -20,10 +20,10 @@
 
                             <div class="clearance-section-container">
                                     <div class="clearance-header-bar-container">
-                                        <h3>CLEARANCE INFORMATION</h3>
+                                        <h3 style="background-color:#2ad2ec">CLEARANCE DETAILS - SIGNING OFFICES STATUS</h3>
                                     </div>
                                     <div class="clearance-details-container">
-                                        <h3>CLEARANCE DETAILS - SIGNING OFFICES STATUS</h3>
+                                        
                                         <div class="clearance-details-table-container">
                                             <table>
                                                 <thead>

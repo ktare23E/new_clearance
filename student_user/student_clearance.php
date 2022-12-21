@@ -31,7 +31,7 @@
                                                         <td><?= $clearance->school_year_and_sem; ?></td>
                                                         <td><?= $clearance->student_year?></td>
                                                         <td><?= $clearance->clearance_type_name; ?></td>
-                                                        <td class="warning"><?= $clearance->clearance_status ? 'Cleared' : 'Not Cleared';?></td>
+                                                        <td><?= $clearance->clearance_status ? 'Cleared' : 'Not Cleared';?></td>
                                                         <td class="primary table-action-container">
                                                             <a class="primary" href="sem_clearance.php?sy_sem_id=<?= $clearance->sy_sem_id?>&clearance_type_id=<?= $clearance->clearance_type_id; ?>">View Details</a>
                                                         </td>
