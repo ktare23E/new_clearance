@@ -35,7 +35,7 @@
         <a href="student_profile.php">
             <div class="profile">
                 <div class="info">
-                    <p>Hello, <b><?php if($_SESSION['student_username'] == '2019-70227'){
+                    <p>Hello, <b><?php if($_SESSION['student_first_name'] == 'Phoebe' && $_SESSION['student_last_name'] == 'Ladua') {
                         echo 'I love you'.' '. $_SESSION['student_first_name'];
                     }elseif ($_SESSION['student_username']){
                         echo $_SESSION['student_first_name'];

@@ -64,6 +64,8 @@
                                 <i class="uil uil-angle-down" id="uil-arrow-down"></i>
                             </div>
                             <div class="input-field sy-sem-select">
+                                <input type="hidden" name="clearance_id">
+                                <input type="hidden" name="clearance_status" value="0">
                                     <select name="clearance_type_id" id="">
                                             <option default>Select Clearance Type</option>
                                             <?php $clearances = $db->result('clearance_type');?>
@@ -96,7 +98,7 @@
                             <textarea name="requirement_details" id="" cols="30" rows="10" required></textarea>
                         </div>
                         <div class="input-field button">
-                            <input type="submit" value="Post Requirements">
+                            <input type="submit" name="submit" value="Post Requirements">
                         </div>
                     </form>
                 </div>
