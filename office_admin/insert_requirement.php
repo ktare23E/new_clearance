@@ -41,7 +41,7 @@ if(isset($_POST['submit'])){
     $clearance_id = $_POST['clearance_id'];
     $clearance_status = $_POST['clearance_status'];
 
-    $sql = "UPDATE clearance SET clearance_status = '' WHERE clearance_id = '$clearance_id'";
+    $sql = "UPDATE clearance SET clearance_status = 0 WHERE clearance_id = '$clearance_id'";
 
     if(mysqli_query($conn, $sql)){
         header("location: office_requirements.php");

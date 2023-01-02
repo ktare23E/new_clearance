@@ -102,6 +102,8 @@
                         </div>
                     </form>
                 </div>
+                <br>
+                <h1>Bulk Requirements Via CSV File</h1>
 
                 <button id="register-csv-file-btn"><span class="material-symbols-sharp">upload_file</span>Bulk Upload Via .csv file<span class="material-symbols-sharp">arrow_forward_ios</span></button>
                         <div>

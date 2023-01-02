@@ -132,6 +132,7 @@
                                             </select>
                                 </div>
                                 <div class="input-field">
+                                    <label for="">Date Created</label>
                                     <input type="date" name="date_created" placeholder="Date Created" required>
                                 </div>
                             </div>

@@ -8,7 +8,7 @@
         echo "<h1>There's an error while viewing details.</h1>";
     }else{
         $id = $_GET['edit'];
-        $sql = "SELECT * FROM student WHERE student_id = '$id'";
+        $sql = "SELECT * FROM student_details WHERE student_id = '$id'";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_assoc($result);
 
@@ -19,7 +19,9 @@
         $student_email = $row['student_email'];
         $student_gender = $row['student_gender'];
         $student_status = $row['student_status'];
-        $course_id = $row['course_id'];
+        $course_name = $row['course_name'];
+        $office_id = $row['office_id'];
+        $office_name = $row['office_name'];
         $student_username = $row['student_username'];
         $student_password = $row['student_password'];
         $student_profile = $row['student_profile'];
