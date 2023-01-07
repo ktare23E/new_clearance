@@ -208,9 +208,9 @@
                     <table id="example" class="display" style="width:100%">
                         <thead>
                             <tr>
-                                
                                 <th></th>
                                 <th>Clearance ID</th>
+                                <th>School Year and Sem Id</th>
                                 <th>Student ID</th>
                                 <th>Student First Name</th>
                                 <th>Student Last Name</th>
@@ -224,8 +224,9 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th><input type="checkbox"></th>
+                                <th></th>
                                 <th>Clearance ID</th>
+                                <th>School Year and Sem Id</th>
                                 <th>Student ID</th>
                                 <th>Student First Name</th>
                                 <th>Student Last Name</th>

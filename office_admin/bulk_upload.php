@@ -11,15 +11,21 @@
             while(($column = fgetcsv($file,1000,",")) !== FALSE){
                 $sqlInsert = "INSERT into requirement (requirement_details, signing_office_id, sy_sem_id,student_id,clearance_type_id) VALUES ('".$column[0]."','".$column[1]."','".$column[2]."','".$column[3]."','".$column[4]."')";
                 $result = mysqli_query($conn, $sqlInsert);
+            
+            
+            // Update clearance_status_id in the clearance_status table for the student
+            // $clearance_id = mysqli_insert_id($conn);
+            // $updateQuery = "UPDATE clearance_status SET clearance_status = 0 WHERE clearance_id = $clearance_id";
+            // mysqli_query($conn, $updateQuery);
+            
 
-                if(!empty($result)){
-                    // echo "CSV File has been successfully Imported.";
-                    header("Location:office_requirements.php");
-                }else{
-                    echo "Problem in Importing CSV File.";
-                }
+            if(!empty($result)){
+                // echo "CSV File has been successfully Imported.";
+                header("Location:office_requirements.php");
+            }else{
+                echo "Problem in Importing CSV File.";
             }
         }
     }
+}
 ?>
-

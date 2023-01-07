@@ -9,11 +9,12 @@
         echo $conn->connect_error;
     }
     
-    if(!isset($_GET['details'])){
+    if(!isset($_GET['sy_sem_id']) && !isset($_GET['clearance_type_id'])){
         echo "<h1>There's an error while viewing details.</h1>";
     }else{
-        $id = $_GET['details'];
-        $sql = "SELECT * FROM view_clearance WHERE clearance_id = '$id'";
+        $clearance_type_id = $_GET['clearance_type_id'];
+        $sy_sem_id = $_GET['sy_sem_id'];
+        $sql = "SELECT * FROM view_clearance WHERE clearance_type_id = '$clearance_type_id' AND sy_sem_id = '$sy_sem_id'";
         $students = $conn->query($sql) or die($conn->error);
         $row = $students->fetch_assoc();
 ?>
@@ -128,12 +129,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php   $users = $db->result('new_signing_info',"clearance_id=$id"); ?>
+                                <?php   $users = $db->result('requirement_view','clearance_type_id = '.$clearance_type_id.' AND sy_sem_id = '.$sy_sem_id); ?>
                                     <?php foreach($users as $user):?>
                                     <tr>
                                     <tr>
                                         <td><?= $user->office_name; ?></td>
-                                        <td><?= $user->status; ?></td>
+                                        <td><?= $user->is_complied ? 'Cleared' : 'Not Cleared'; ?></td>
                                         <td><?= $user->date_cleared; ?></td>
                                     </tr>
                                 </tbody>

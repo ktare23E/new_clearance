@@ -1,7 +1,5 @@
 <?php
-    include_once '../admin/header.php';
-    // $users = $db->result('student');
-
+    include_once 'office_header.php';
     
     $conn = mysqli_connect('localhost', 'root', '', 'clearance');
 
@@ -9,51 +7,22 @@
         echo $conn->connect_error;
     }
     
-    if(!isset($_GET['details'])){
+    if(!isset($_GET['sy_sem_id']) && !isset($_GET['clearance_type_id'])){
         echo "<h1>There's an error while viewing details.</h1>";
     }else{
-        $id = $_GET['details'];
-        $sql = "SELECT * FROM view_clearance WHERE clearance_id = '$id'";
+        $clearance_type_id = $_GET['clearance_type_id'];
+        $sy_sem_id = $_GET['sy_sem_id'];
+        $sql = "SELECT * FROM view_clearance WHERE clearance_type_id = '$clearance_type_id' AND sy_sem_id = '$sy_sem_id'";
         $students = $conn->query($sql) or die($conn->error);
         $row = $students->fetch_assoc();
+    }
 ?>
 
 <div class="container-student">
         <!-- sidebar -->
-        <?php 
-                include_once '../admin/aside.php';
-        ?>
-        <!------------------ END OF ASIDE ---------------->
 
-        <main class="main-student" style="margin-top: 0px;">
-            <div class="right">
-                <div class="top">
-                    <button id="menu-btn" class="menu-btn">
-                        <span class="material-symbols-sharp">menu</span>
-                    </button>
-                    <h1>Clearance</h1>
-                    <div class="theme-toggler">
-                        <span class="material-symbols-sharp active">light_mode</span>
-                        <span class="material-symbols-sharp">dark_mode</span>
-                    </div>
-                    <div class="profile">
-                        <div class="info">
-                            <p>Hey, <b>World</b></p>
-                            <small class="text-muted">Admin</small>
-                        </div>
-                        <div class="profile-photo">
-                            <img src="../images/profile-1.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-                <!-- ========== END OF TOP ============= -->
-    
-            </div>
-
-            
-
-            <div class="form-and-table-container">
-                <a href="clearance.php" style="
+        <div class="form-and-table-container">
+                <a href="office_clearance.php" style="
                 display:inline-block;
                 background-color:var(--color-primary-variant);
                 width:fit-content;
@@ -77,7 +46,7 @@
                             </div>
                             <div class="status-title">
                                 <h4>Status:</h4>
-                                <h3 class="warning"><?= $row['clearance_status']; ?></h3>
+                                <h3 class="warning"><?= $row['clearance_status'] ? 'Cleared' : 'Not Cleared';?></h3>
                             </div>
                         </div>
                         <div class="detail-left-main-content">
@@ -128,12 +97,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php   $users = $db->result('new_signing_info',"clearance_id=$id"); ?>
+                                <?php   $users = $db->result('requirement_view','clearance_type_id = '.$clearance_type_id.' AND sy_sem_id = '.$sy_sem_id); ?>
                                     <?php foreach($users as $user):?>
                                     <tr>
                                     <tr>
                                         <td><?= $user->office_name; ?></td>
-                                        <td><?= $user->status; ?></td>
+                                        <td><?= $user->is_complied ? 'Cleared' : 'Not Cleared'; ?></td>
                                         <td><?= $user->date_cleared; ?></td>
                                     </tr>
                                 </tbody>
@@ -173,6 +142,5 @@
 
 
     </script>
-    <?php   } ?>
 </body>
 </html>

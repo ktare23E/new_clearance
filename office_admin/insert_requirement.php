@@ -36,25 +36,24 @@ if(isset($_POST['submit'])){
     $clearance_type_id  = $_POST['clearance_type_id'];
     $student_id = $_POST['student_id'];
     $requirement_details = $_POST['requirement_details'];
-
-    //update clearance status
+    
+    // Get the clearance_id and clearance_status values from the form
     $clearance_id = $_POST['clearance_id'];
     $clearance_status = $_POST['clearance_status'];
-
-    $sql = "UPDATE clearance SET clearance_status = 0 WHERE clearance_id = '$clearance_id'";
-
-    if(mysqli_query($conn, $sql)){
+    
+    // Update the clearance_status field in the clearance table
+    $updateQuery = "UPDATE clearance SET clearance_status = '$clearance_status' WHERE clearance_id = '$clearance_id'";
+    mysqli_query($conn, $updateQuery);
+    
+    // Insert a new requirement into the requirement table
+    $insertQuery = "INSERT INTO requirement (signing_office_id, sy_sem_id, clearance_type_id, student_id, requirement_details)
+                    VALUES ('$signing_office_id', '$sy_sem_id', '$clearance_type_id', '$student_id', '$requirement_details')";
+    mysqli_query($conn, $insertQuery);
+    
+    if(mysqli_query($conn, $updateQuery)){
         header("location: office_requirements.php");
     } else {
         echo 'Error inserting user account.';
     }
-
-    $sql = "INSERT INTO requirement (signing_office_id, sy_sem_id, clearance_type_id, student_id, requirement_details) VALUES ('$signing_office_id', '$sy_sem_id', '$clearance_type_id', '$student_id', '$requirement_details')";
-
-    if(mysqli_query($conn, $sql)){
-        header("location: office_requirements.php");
-    } else {
-        echo 'Error inserting user account.';
-    }
-
+    
 }

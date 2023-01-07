@@ -1,3 +1,4 @@
+
 <?php
     include_once 'office_header.php';
 
@@ -76,17 +77,30 @@
                 </div>
             </div>
 
+            <div class="recent-orders-student">
 
+                    <div class="add-button-container">
 
-            <div class="student-table-data-container">
-                <h2>Lists of students</h2>
-                <div class="table-container">
-                <table id="example" class="display" style="width:100%">
+                        <div class="h2-container">
+                                <h2>Clearance list</h2>
+                                
+                        </div>
+
+                        <input type="checkbox" id="checkAll" style='
+                                    display:block;background-color:black; appearance:auto;
+                                    position:absolute;
+                                    top:100px;
+                                    left:40px;
+                                    z-index:10;
+                                    '/>
+                    </div>
+                    
+                    <table id="example" class="display" style="width:100%">
                         <thead>
                             <tr>
-                                
                                 <th></th>
                                 <th>Clearance ID</th>
+                                <th>School Year and Sem Id</th>
                                 <th>Student ID</th>
                                 <th>Student First Name</th>
                                 <th>Student Last Name</th>
@@ -100,8 +114,9 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th><input type="checkbox"></th>
+                                <th></th>
                                 <th>Clearance ID</th>
+                                <th>School Year and Sem Id</th>
                                 <th>Student ID</th>
                                 <th>Student First Name</th>
                                 <th>Student Last Name</th>
@@ -112,12 +127,7 @@
                         </tfoot>
                     </table>
                 </div>
-            </div>
-                
-            
-        </div>
-
-        
+        </div> 
     </div>
     
     <script type="text/javascript">
