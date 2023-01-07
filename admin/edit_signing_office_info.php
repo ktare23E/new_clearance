@@ -73,7 +73,7 @@
                             <div class="input-field">
                                     <i class="uil uil-analysis"></i>
                                     <select name="office_id" id="">
-                                            <?php $offices = $db->result('office');?>
+                                            <?php $offices = $db->result('office','office_name != "System Administrator"');?>
                                             <?php foreach($offices as $office):?>
                                             <?php if($office->office_id == $office_id):?> 
                                             <option value="<?= $office->office_id; ?>" selected><?= $office->office_name; ?></option>
