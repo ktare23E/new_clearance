@@ -17,8 +17,24 @@
             include_once 'student_navtop.php';
         ?>
         
-
-                            <div class="clearance-section-container">
+<div class="clearance-view-details-container">
+    <a href="student_clearance.php" style="
+        display:inline-block;
+        background-color:var(--color-primary-variant);
+        width:fit-content;
+        padding: 6px 20px;
+        color:white;
+        border-radius: var(--border-radius-1);
+        margin-bottom: 5px; 
+        display:flex;
+        align-items:center;
+        font-size: 1rem;
+        ">
+            <span class="material-symbols-sharp" style="font-size: 1rem;">arrow_back_ios</span>
+            Back
+    </a>
+    <div class="clearance-section-container">
+                            
                                     <div class="clearance-header-bar-container">
                                         <h3 style="background-color:#2ad2ec">CLEARANCE DETAILS - SIGNING OFFICES STATUS</h3>
                                     </div>
@@ -48,6 +64,8 @@
                                         </div>
                                     </div>
                                 </div>
+</div>
+                            
 
 <script src="../assets/js/student_index.js"></script> 
     

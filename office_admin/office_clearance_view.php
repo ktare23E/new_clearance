@@ -18,104 +18,103 @@
     }
 ?>
 
-<div class="container-student">
+<div class="office-container">
         <!-- sidebar -->
+        <?php 
+            include_once 'office_navtop.php'
+        ?>
 
         <div class="form-and-table-container">
-                <a href="office_clearance.php" style="
-                display:inline-block;
-                background-color:var(--color-primary-variant);
-                width:fit-content;
-                padding: 6px 20px;
-                color:white;
-                border-radius: var(--border-radius-1);
-                margin-bottom: 5px; 
-                display:flex;
-                align-items:center;
-                font-size: 1rem;
-                ">
-                    <span class="material-symbols-sharp" style="font-size: 1rem;">arrow_back_ios</span>
-                    Back
-                </a>
-                
-                <div class="clearance-detail-container">
-                    <div class="clearance-detail-left">
-                        <div class="detail-left-header-title">
-                            <div>
-                                <h2>Clearance information</h2>
-                            </div>
-                            <div class="status-title">
-                                <h4>Status:</h4>
-                                <h3 class="warning"><?= $row['clearance_status'] ? 'Cleared' : 'Not Cleared';?></h3>
-                            </div>
+            <a href="office_clearance.php" style="
+            display:inline-block;
+            background-color:var(--color-primary-variant);
+            width:fit-content;
+            padding: 6px 20px;
+            color:white;
+            border-radius: var(--border-radius-1);
+            margin-bottom: 5px; 
+            display:flex;
+            align-items:center;
+            font-size: 1rem;
+            ">
+                <span class="material-symbols-sharp" style="font-size: 1rem;">arrow_back_ios</span>
+                Back
+            </a>
+            
+            <div class="clearance-detail-container">
+                <div class="clearance-detail-left">
+                    <div class="detail-left-header-title">
+                        <div>
+                            <h2>Clearance information</h2>
                         </div>
-                        <div class="detail-left-main-content">
-                            
-                                <div class="clearance-info-container">
-                                    <h3>Owner</h3>
-                                    <h4><?= $row['student_first_name'].' '.$row['student_last_name'];?></h4>
-                                </div>
-                                <div class="clearance-info-container">
-                                    <h3>Course and Year</h3>
-                                    <h4><?= $row['course_name'].'-'.$row['student_year']; ?></h4>
-                                </div>
-                                <div class="clearance-info-container">
-                                    <h3>Department</h3>
-                                    <h4><?= $row['office_name']; ?></h4>
-                                </div>
-                                <div class="clearance-info-container">
-                                    <h3>Clearance type</h3>
-                                    <h4><?= $row['clearance_type_name']; ?></h4>
-                                </div>
-                                <div class="clearance-info-container">
-                                    <h3>Date created</h3>
-                                    <h4><?= $row['date_created'];?></h4>
-                                </div>
-                                <div class="clearance-info-container">
-                                    <h3>School year -  sem</h3>
-                                    <h4><?= $row['school_year_and_sem'];?></h4>
-                                </div>
-                                <div class="clearance-info-container">
-                                    <h3>Date Cleared</h3>
-                                    <h4 class="success"><?= $row['date_cleared'];?></h4>
-                                </div>
-                            
+                        <div class="status-title">
+                            <h4>Status:</h4>
+                            <h3 class="warning"><?= $row['clearance_status'] ? 'Cleared' : 'Not Cleared';?></h3>
                         </div>
                     </div>
+                    <div class="detail-left-main-content">
+                        
+                            <div class="clearance-info-container">
+                                <h3>Owner</h3>
+                                <h4><?= $row['student_first_name'].' '.$row['student_last_name'];?></h4>
+                            </div>
+                            <div class="clearance-info-container">
+                                <h3>Course and Year</h3>
+                                <h4><?= $row['course_name'].'-'.$row['student_year']; ?></h4>
+                            </div>
+                            <div class="clearance-info-container">
+                                <h3>Department</h3>
+                                <h4><?= $row['office_name']; ?></h4>
+                            </div>
+                            <div class="clearance-info-container">
+                                <h3>Clearance type</h3>
+                                <h4><?= $row['clearance_type_name']; ?></h4>
+                            </div>
+                            <div class="clearance-info-container">
+                                <h3>Date created</h3>
+                                <h4><?= $row['date_created'];?></h4>
+                            </div>
+                            <div class="clearance-info-container">
+                                <h3>School year -  sem</h3>
+                                <h4><?= $row['school_year_and_sem'];?></h4>
+                            </div>
+                            <div class="clearance-info-container">
+                                <h3>Date Cleared</h3>
+                                <h4 class="success"><?= $row['date_cleared'];?></h4>
+                            </div>
+                        
+                    </div>
+                </div>
 
-                    <div class="clearance-detail-right">
-                        <div class="clearance-detail-right-title">
-                            <h2>Signing office status</h2>
-                        </div>
-                        <div class="clearance-detail-right-main-content">
-                            <table>
-                                    
-                                <thead>
-                                        <th>Signing office</th>
-                                        <th>Status</th>
-                                        <th>Date Cleared</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                <?php   $users = $db->result('requirement_view','clearance_type_id = '.$clearance_type_id.' AND sy_sem_id = '.$sy_sem_id); ?>
-                                    <?php foreach($users as $user):?>
-                                    <tr>
-                                    <tr>
-                                        <td><?= $user->office_name; ?></td>
-                                        <td><?= $user->is_complied ? 'Cleared' : 'Not Cleared'; ?></td>
-                                        <td><?= $user->date_cleared; ?></td>
-                                    </tr>
-                                </tbody>
-                                <?php endforeach; ?>
-                            </table> 
-                        </div>
+                <div class="clearance-detail-right">
+                    <div class="clearance-detail-right-title">
+                        <h2>Signing office status</h2>
+                    </div>
+                    <div class="clearance-detail-right-main-content">
+                        <table>
+                                
+                            <thead>
+                                    <th>Signing office</th>
+                                    <th>Status</th>
+                                    <th>Date Cleared</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php   $users = $db->result('requirement_view','clearance_type_id = '.$clearance_type_id.' AND sy_sem_id = '.$sy_sem_id); ?>
+                                <?php foreach($users as $user):?>
+                                <tr>
+                                <tr>
+                                    <td><?= $user->office_name; ?></td>
+                                    <td><?= $user->is_complied ? 'Cleared' : 'Not Cleared'; ?></td>
+                                    <td><?= $user->date_cleared; ?></td>
+                                </tr>
+                            </tbody>
+                            <?php endforeach; ?>
+                        </table> 
                     </div>
                 </div>
             </div>
-            
-        </main>
-        <!-- ================ END OF MAIN =================== -->
-
+        </div>
     </div>
         
 
