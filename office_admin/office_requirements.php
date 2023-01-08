@@ -23,11 +23,14 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php foreach($list_of_clearances as $clearance):?>
+                                                    <?php if($clearance->status == "Active"):?>
                                                     <tr>
                                                         <th><?= $clearance->requirement_details; ?></th>
                                                         <th><?= $clearance->clearance_type_name;?></th>
                                                     </tr>
+                                                    <?php endif; ?>
                                                     <?php endforeach; ?>
+
                                                 </tbody>
                         </table>
                 </div>
@@ -80,18 +83,7 @@
                                 <i class="uil uil-angle-down" id="uil-arrow-down"></i>
                             </div>
                             <div class="input-field sy-sem-select">
-                                    <select name="student_id" id="">
-                                            <option default>Select Student</option>
-                                            <?php $students = $db->result('student','student_status = "Active"');?>
-                                            <?php foreach($students as $student):?>
-                                            <?php if($student->student_id == $student_id):?>  
-                                            <option value="<?= $student->student_id; ?>"><?= $student->student_id; ?></option>
-                                            <?php else:?>
-                                                <option value="<?= $student->student_id; ?>"><?= $student->student_id; ?></option>
-                                            <?php endif;?>
-                                            <?php endforeach; ?>
-                                    </select>
-                                <i class="uil uil-angle-down" id="uil-arrow-down"></i>
+                                    <input type="text" name="student_id" placeholder="Student Id">
                             </div>
                         </div>
                         <div class="input-field">
