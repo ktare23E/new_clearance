@@ -37,13 +37,27 @@ if(isset($_POST['submit'])){
     $student_id = $_POST['student_id'];
     $requirement_details = $_POST['requirement_details'];
     
+    $query2 = "SELECT * FROM clearance WHERE student_id = '".$student_id."' AND sy_sem_id = " .$sy_sem_id;
+    $clearance = $conn->query($query2) or die($conn->error);
+    $row = $clearance->fetch_assoc();
+    $total = $clearance->num_rows;
+
+    // echo $query2;
+    // echo print_r($row);
+    if($total < 1){
+        header("location: office_requirements.php");
+        die();
+        echo "This student has no clearance for this semester.";
+    }
+
     // Get the clearance_id and clearance_status values from the form
-    $clearance_id = $_POST['clearance_id'];
     $clearance_status = $_POST['clearance_status'];
     
     // Update the clearance_status field in the clearance table
-    $updateQuery = "UPDATE clearance SET clearance_status = '$clearance_status' WHERE clearance_id = '$clearance_id'";
-    mysqli_query($conn, $updateQuery);
+    $updateQuery = "UPDATE clearance SET clearance_status = '".$clearance_status."' WHERE clearance_id = ".$row['clearance_id'];
+    // mysqli_query($conn, $updateQuery);
+
+    echo $updateQuery;
     
     // Insert a new requirement into the requirement table
     $insertQuery = "INSERT INTO requirement (signing_office_id, sy_sem_id, clearance_type_id, student_id, requirement_details)
