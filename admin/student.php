@@ -107,7 +107,7 @@
                                 <tbody>
                                 
                                 </tbody>
-                                <tfoot>
+                                <!-- <tfoot>
                                     <tr>
                                         <th></th>
                                         <th>Student ID</th>
@@ -118,7 +118,7 @@
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
-                                </tfoot>
+                                </tfoot> -->
                             </table>
                         </div>
                         
