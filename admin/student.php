@@ -71,52 +71,81 @@
                                 </form>
                             </div>
                         </div>
-                        <div>
-                            <button type="button" id="active" >Set as Active</button><br>
-                            <button type="button" id="inactive" onclick="">Set as Inactive</button><br>
-                            <button type="button" id="1st_year">Set as 1st Year</button><br>
-                            <button type="button" id="2nd_year">Set as 2nd Year</button><br>
-                            <button type="button" id="3rd_year">Set as 3rd Year</button><br>
-                            <button type="button" id="4th_year">Set as 4th Year</button><br>
+                        
+                    </div>
+                    
+                    <div style="
+                        display:flex;
+                        flex-direction:row; 
+                        gap:10px; 
+                        width:100%;
+                        justify-content:space-between;
+                        
+                        ">
+                        <div style="width:100%">
+                            <table id="example" class="display" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <input type="checkbox" id="checkAll" style='
+                                            display:block;background-color:black; 
+                                            appearance:auto;
+                                            position:absolute;
+                                            top:150px;
+                                            left:37px;
+                                            z-index:10;
+                                            '/>
+                                        <th></th>
+                                        <th>Student ID</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Year</th>
+                                        <th>Course</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                
+                                </tbody>
+                                <!-- <tfoot>
+                                    <tr>
+                                        <th></th>
+                                        <th>Student ID</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Year</th>
+                                        <th>Course</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </tfoot> -->
+                            </table>
+                        </div>
+                        
+
+                        <div class="bulk-actions-container">
+                            <h3 style="text-align: center;">Bulk Update</h3>
+                            <div class="bulk-action">
+                                <button type="button" id="active" >Set as Active</button>
+                            </div>
+                            <div class="bulk-action">
+                                <button type="button" id="inactive" onclick="">Set as Inactive</button>
+                            </div>
+                            <div class="bulk-action">
+                                <button type="button" id="1st_year">Set as 1st Year</button>
+                            </div>
+                            <div class="bulk-action">
+                                <button type="button" id="2nd_year">Set as 2nd Year</button>
+                            </div>
+                            <div class="bulk-action">
+                                <button type="button" id="3rd_year">Set as 3rd Year</button>
+                            </div>
+                            <div class="bulk-action">
+                                <button type="button" id="4th_year">Set as 4th Year</button>
+                            </div>
                         </div>
                     </div>
                     
-                    <table id="example" class="display" style="width:100%">
-                        <thead>
-                            <tr>
-                                <input type="checkbox" id="checkAll" style='
-                                    display:block;background-color:black; appearance:auto;
-                                    position:absolute;
-                                    top:150px;
-                                    left:45px;
-                                    z-index:10;
-                                    '/>
-                                <th> Select All</th>
-                                <th>Student ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Year</th>
-                                <th>Course</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th></th>
-                                <th>Student ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Year</th>
-                                <th>Course</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </tfoot>
-                    </table>
                 </div>
             </div>
             
