@@ -1955,8 +1955,30 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     
     animation: text 3s ease-in-out infinite;
 }
-  @keyframes text {
+@keyframes text {
     50%{
-      color: black;
+        color: black;
     }
-  }
+}
+
+
+
+
+
+.bulk-actions-container {
+    max-width: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.bulk-actions-container .bulk-action {
+    width: 100%;
+}
+
+.bulk-actions-container button {
+    background: var(--color-danger);
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: var(--border-radius-1);
+}
