@@ -312,7 +312,7 @@
                     $(".upload-student-csv-container").slideToggle(200)
                 })
             })
-        </script>
+</script>
 
         <script type="text/javascript">
             $(document).ready(function(){

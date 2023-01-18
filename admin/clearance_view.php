@@ -134,7 +134,7 @@
                                     <tr>
                                     <tr>
                                         <td><?= $user->office_name; ?></td>
-                                        <td><?= $user->is_complied ? 'Cleared' : 'Not Cleared'; ?></td>
+                                        <td><?= $user->is_complied ? 'Approve' : 'Not Cleared'; ?></td>
                                         <td><?= $user->date_cleared; ?></td>
                                     </tr>
                                 </tbody>

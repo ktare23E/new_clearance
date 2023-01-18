@@ -8,7 +8,7 @@
         echo "<h1>There's an error while viewing details.</h1>";
     }else{
         $id = $_GET['edit'];
-        $sql = "SELECT * FROM student_details WHERE student_id = '$id'";
+        $sql = 'SELECT * FROM student_details WHERE student_id = "'.$id.'"';
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_assoc($result);
 

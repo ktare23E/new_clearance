@@ -3,6 +3,7 @@
     include_once 'office_header.php';
     
     $list_of_clearances = $db->result('requirement_view','office_id = '.$_SESSION['office_id']);
+    
 ?>
     <div class="office-container">
         <?php 
@@ -41,7 +42,7 @@
                         <div class="input-field sy-sem-select">
                                     <select name="signing_office_id" id="">
                                             <option default>Signing Office</option>
-                                            <?php $offices = $db->result('new_signing_offices');?>
+                                            <?php $offices = $db->result('new_signing_offices','office_name = "'.$_SESSION['office_name'].'"');?>
                                             <?php foreach($offices as $office):?>
                                             <?php if($office->signing_office_id == $signing_office_id):?>  
                                             <option value="<?= $office->signing_office_id; ?>"><?= $office->office_name; ?></option>

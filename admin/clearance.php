@@ -48,10 +48,25 @@
                     </button>
                 </div>
                 <div>
-                            <a href="clearance_registration.php">
+                <a href="clearance_registration.php">
                                 <button id="add-new-student"><span class="material-symbols-sharp">add</span>Add new Clearance</button>
-                            </a>
-                            
+                </a>
+                </div>
+                <button id="register-csv-file-btn"><span class="material-symbols-sharp">upload_file</span>Register Via .csv file<span class="material-symbols-sharp">arrow_forward_ios</span></button>
+                        <div>
+                            <div class="upload-student-csv-container">
+                                <form action="clearance_upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
+                                    <div class="form-input-file-csv-container">
+                                            <label for="input-file">Choose CSV File</label>
+                                            <input type="file" name="file" accept=".csv" id="input-file">
+                                            <button type="submit" name="import" class="submit-csv-file-button">
+                                            
+                                            Import
+                                                <span class="material-symbols-sharp">file_upload</span>
+                                            </button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                 <div class="add-button-container">
                                 <div>
@@ -193,7 +208,6 @@
 
                         <div class="h2-container">
                                 <h2>Clearance list</h2>
-                                
                         </div>
 
                         <input type="checkbox" id="checkAll" style='
@@ -209,8 +223,9 @@
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>Clearance ID</th>
+                                <th>Clearance Type Id</th>
                                 <th>School Year and Sem Id</th>
+                                <th>Clearance Id</th>
                                 <th>Student ID</th>
                                 <th>Student First Name</th>
                                 <th>Student Last Name</th>
@@ -225,8 +240,9 @@
                         <tfoot>
                             <tr>
                                 <th></th>
-                                <th>Clearance ID</th>
+                                <th>Clearance Type Id</th>
                                 <th>School Year and Sem Id</th>
+                                <th>Clearance Id</th>
                                 <th>Student ID</th>
                                 <th>Student First Name</th>
                                 <th>Student Last Name</th>
@@ -243,6 +259,33 @@
         <!-- ================ END OF MAIN =================== -->
 
     </div>
+
+    <script>
+        //jquery onclick event for update button
+        $(document).on("click", '#active', function(){
+            let list_student_id = [];
+            let list_inputs = $('.row')
+            list_inputs.map((index,elem,arr) => {
+                let is_check = $(elem).prop("checked")
+                if(is_check == true ){
+                    list_student_id.push($(elem).attr("clearance_id"))
+                }
+            });
+            console.log(list_student_id);
+            $.ajax({
+                url: "student_update_status.php",
+                method: "POST",
+                data: {
+                    clearance_id:clearance_id,
+                    clearance_status:'Cleared'
+                },
+                success: (response) =>{
+                    $("#checkAll").prop("checked",false);
+                    $('#example').DataTable().ajax.reload();
+                }
+            })
+        });
+    </script>
         
         <script type="text/javascript">
             $(document).ready(function(){
@@ -278,6 +321,20 @@
             });
         });
     </script>
+
+<script>
+            $(document).ready(function(){
+                $("#register-csv-file-btn").click(function(){
+                    if($("#register-csv-file-btn span:nth-child(2)").html() == "arrow_forward_ios"){
+                        $("#register-csv-file-btn span:nth-child(2)").html("arrow_back_ios")
+                    }else {
+                        $("#register-csv-file-btn span:nth-child(2)").html("arrow_forward_ios")
+                    }
+                    
+                    $(".upload-student-csv-container").slideToggle(200)
+                })
+            })
+</script>
 
     <script>
         // on change event for the select tag
