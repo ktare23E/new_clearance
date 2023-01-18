@@ -56,18 +56,7 @@
                         <form action="insert_clearance.php" method="POST">
                             <div class="input-field-container">
                             <div class="input-field sy-sem-select">
-                                    <select name="student_id" id="">
-                                            <option default>Select Student</option>
-                                            <?php $students = $db->result('student','student_status = "Active"');?>
-                                            <?php foreach($students as $student):?>
-                                            <?php if($student->student_id == $student_id):?>  
-                                            <option value="<?= $student->student_id; ?>"><?= $student->student_id; ?></option>
-                                            <?php else:?>
-                                                <option value="<?= $student->student_id; ?>"><?= $student->student_id; ?></option>
-                                            <?php endif;?>
-                                            <?php endforeach; ?>
-                                    </select>
-                                <i class="uil uil-angle-down" id="uil-arrow-down"></i>
+                                <input type="text" name="student_id" placeholder="Student Id">
                             </div>
                                 <div class="input-field">
                                     <label for="">Select School Year and Sem</label>

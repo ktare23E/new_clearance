@@ -80,7 +80,12 @@
             <div class="recent-orders-student">
 
                     <div class="add-button-container">
-
+                    <div class="bulk-actions-container">
+                            <h3 style="text-align: center;">Bulk Update</h3>
+                            <div class="bulk-action">
+                                <button type="button" id="active" >Approve</button>
+                            </div>
+                        </div>
                         <div class="h2-container">
                                 <h2>Clearance list</h2>
                                 
@@ -129,6 +134,33 @@
                 </div>
         </div> 
     </div>
+
+    <script>
+        //jquery onclick event for update button
+        $(document).on("click", '#active', function(){
+            let requirement_id = [];
+            let list_inputs = $('.row')
+            list_inputs.map((index,elem,arr) => {
+                let is_check = $(elem).prop("checked")
+                if(is_check == true ){
+                    requirement_id.push($(elem).attr("requirement_id"))
+                }
+            });
+            console.log(requirement_id);
+            $.ajax({
+                url: "student_update_clearance_status.php",
+                method: "POST",
+                data: {
+                    requirement_id:requirement_id,
+                    is_complied:'Approve'
+                },
+                success: (response) =>{
+                    $("#checkAll").prop("checked",false);
+                    $('#example').DataTable().ajax.reload();
+                }
+            })
+        });
+    </script>
     
     <script type="text/javascript">
             $(document).ready(function(){

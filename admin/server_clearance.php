@@ -26,11 +26,12 @@ $primaryKey = 'clearance_id';
 $columns = array(
     array( 'db' => 'clearance_type_id', 'dt' => 1 ),
     array('db' => 'sy_sem_id', 'dt' => 2),
-    array( 'db' => 'student_id', 'dt' => 3 ),
-    array( 'db' => 'student_first_name',  'dt' => 4 ),
-    array( 'db' => 'student_last_name',   'dt' => 5 ),
-    array( 'db' => 'school_year_and_sem',     'dt' => 6 ),
-    array( 'db' => 'clearance_status',     'dt' => 7 ),
+    array('db' => 'clearance_id', 'dt' => 3),
+    array( 'db' => 'student_id', 'dt' => 4 ),
+    array( 'db' => 'student_first_name',  'dt' => 5 ),
+    array( 'db' => 'student_last_name',   'dt' => 6 ),
+    array( 'db' => 'school_year_and_sem',     'dt' => 7 ),
+    array( 'db' => 'clearance_status',     'dt' => 8 ),
 );
 // SQL server connection information
 $sql_details = array(
@@ -70,12 +71,12 @@ if($id == ''){
 // die();
 foreach($data['data'] as $i => $entry){
     $new_entry = array();
-    array_push($new_entry, "<td><input name='update[]' type='checkbox'></td>");
+    array_push($new_entry, "<td><input name='update[]'  class='row' clearance_id = '$entry[3]' type='checkbox'></td>");
 
     foreach($entry as $j => $value){
         array_push($new_entry, $value);
     }
-    array_push($new_entry, "<td class='primary table-action-container'><a href='edit_clearance_info.php?edit=".$entry[1]."'>Update</a>
+    array_push($new_entry, "<td class='primary table-action-container'><a href='edit_clearance_info.php?edit=".$entry[3]."'>Update</a>
     <a href='clearance_view.php?clearance_type_id=".$entry[1]."&sy_sem_id=".$entry[2]."'>View Details</a>
         <input type='hidden' name='student_id' value='".$entry[1]."'> 
     </td>");

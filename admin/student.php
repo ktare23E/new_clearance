@@ -53,7 +53,6 @@
                             <a href="student_registration.php">
                                 <button id="add-new-student"><span class="material-symbols-sharp">add</span>Add new student</button>
                             </a>
-                            
                         </div>
                         <button id="register-csv-file-btn"><span class="material-symbols-sharp">upload_file</span>Register Via .csv file<span class="material-symbols-sharp">arrow_forward_ios</span></button>
                         <div>
@@ -331,7 +330,7 @@
                     $(".upload-student-csv-container").slideToggle(200)
                 })
             })
-        </script>
+</script>
 
         <script type="text/javascript">
             $(document).ready(function(){
