@@ -32,13 +32,13 @@
                         </div>
                     </div>
                 </div>
-                <!-- ========== END OF TOP ============= -->
+                
     
             </div>
 
             
 
-            <div class="form-and-table-container">
+            
                 
                 <!-- -------------  TABLE OF STUDENT INFORMATION -------------- -->
                 <div class="recent-orders-student">
@@ -46,43 +46,37 @@
 
                         <div class="h2-container">
                                 <h2>Students List</h2>
-                                
                         </div>
 
-                        <div>
-                            <a href="student_registration.php">
-                                <button id="add-new-student"><span class="material-symbols-sharp">add</span>Add new student</button>
-                            </a>
-                        </div>
-                        <button id="register-csv-file-btn"><span class="material-symbols-sharp">upload_file</span>Register Via .csv file<span class="material-symbols-sharp">arrow_forward_ios</span></button>
-                        <div>
-                            <div class="upload-student-csv-container">
-                                <form action="student_upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
-                                    <div class="form-input-file-csv-container">
-                                            <label for="input-file">Choose CSV File</label>
-                                            <input type="file" name="file" accept=".csv" id="input-file">
-                                            <button type="submit" name="import" class="submit-csv-file-button">
-                                            
-                                            Import
-                                                <span class="material-symbols-sharp">file_upload</span>
-                                            </button>
-                                    </div>
-                                </form>
+                        <div style="display:flex;flex-direction:row;gap:5px;justify-content:space-between;">
+                            <div>
+                                <a href="student_registration.php">
+                                    <button id="add-new-student"><span class="material-symbols-sharp">add</span>Add new student</button>
+                                </a>
+                            </div>
+                            <button id="register-csv-file-btn"><span class="material-symbols-sharp">upload_file</span>Register Via .csv file<span class="material-symbols-sharp">arrow_forward_ios</span></button>
+                            <div>
+                                <div class="upload-student-csv-container">
+                                    <form action="student_upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
+                                        <div class="form-input-file-csv-container">
+                                                <label for="input-file">Choose CSV File</label>
+                                                <input type="file" name="file" accept=".csv" id="input-file">
+                                                <button type="submit" name="import" class="submit-csv-file-button">
+                                                
+                                                Import
+                                                    <span class="material-symbols-sharp">file_upload</span>
+                                                </button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                         
                     </div>
                     
-                    <div style="
-                        display:flex;
-                        flex-direction:row; 
-                        gap:10px; 
-                        width:100%;
-                        justify-content:space-between;
-                        
-                        ">
-                        <div style="width:100%">
-                            <table id="example" class="display" style="width:100%">
+                    <div class="update-container">
+                        <div class="table-container">
+                            <table id="example" class="display">
                                 <thead>
                                     <tr>
                                         <input type="checkbox" id="checkAll" style='
@@ -106,21 +100,8 @@
                                 <tbody>
                                 
                                 </tbody>
-                                <!-- <tfoot>
-                                    <tr>
-                                        <th></th>
-                                        <th>Student ID</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Year</th>
-                                        <th>Course</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </tfoot> -->
                             </table>
                         </div>
-                        
 
                         <div class="bulk-actions-container">
                             <h3 style="text-align: center;">Bulk Update</h3>
@@ -142,11 +123,12 @@
                             <div class="bulk-action">
                                 <button type="button" id="4th_year">Set as 4th Year</button>
                             </div>
-                        </div>
+                        </div>    
+                        
                     </div>
                     
                 </div>
-            </div>
+            
             
         </main>
         <!-- ================ END OF MAIN =================== -->
