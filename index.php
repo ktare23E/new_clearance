@@ -44,11 +44,9 @@
                             <div class="danger">
                                 Incorrect username or password.
                             </div>        
-                        <?php endif; ?>
-
+                    <?php endif; ?>
                 </form>
             </div>
-            
         </div>
     </div>
 
