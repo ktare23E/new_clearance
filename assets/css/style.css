@@ -76,7 +76,7 @@ body {
     width: 96%;
     margin: 0 auto;
     gap: 1.8rem;
-    grid-template-columns: 14rem auto;
+    grid-template-columns: 14rem 1fr;
 }
 
 
@@ -328,6 +328,8 @@ main .student-registration {
     box-shadow: none;
 }
 
+
+
 .student-view-top h1 {
     font-size: 3.5rem;
     font-weight: 700;
@@ -381,10 +383,30 @@ main .student-registration .form .title{
 .action-button-container {
     display: flex;
     align-items: flex-start;
-    
     justify-content: space-between;
 }
 
+.update-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 10px;
+    
+}
+
+.table-container {
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--border-radius-1);
+    box-shadow: var(--box-shadow);
+    transition: all 200ms ease;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.dataTables_wrapper {
+    width: 100%;
+}
 
 .edit-profile-button {
     cursor: pointer;
@@ -517,6 +539,7 @@ main .student-registration .form .title::before{
     justify-content: space-between;
     margin-top: 20px;
 }
+
 
 .checkbox-text .checkbox-content{
     display: flex;
@@ -774,7 +797,6 @@ main .recent-orders {
 
 main .recent-orders-student {
     margin-top: 0;
-    position: relative;
 }
 .add-button-container {
     /* position: absolute;
@@ -808,10 +830,6 @@ main .recent-orders-student {
 
 #clearance-insights {
     display: none;
-}
-
-.add-button-container form {
-   
 }
 
 .add-button-container div:nth-child(1) {
@@ -1164,7 +1182,6 @@ main .recent-orders a {
 main .recent-orders-student a {
     text-align: center;
     display: block;
-    margin: 1rem auto;
     color: var(--color-primary);
 }
 
@@ -1336,13 +1353,14 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     .container-student {
         width: 94%;
         grid-template-columns: 7rem auto;
-        
         padding: 0 10px;
     }
     
     .main-student {
         padding-right: 1rem;
     }
+
+    
 
     aside .logo h2 {
         display: none;
@@ -1386,22 +1404,6 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     main .recent-orders table {
         width: 83vw;
     }
-    /* .h2-container {
-        width: 100% !important;
-    } */
-    main .recent-orders-student table {
-        width: 100% !important;
-    }
-
-    main table thead tr th:nth-last-child(2),
-    main table thead tr th:nth-last-child(2) {
-        display: none;
-    }
-
-    main table tbody tr td:nth-last-child(2),
-    main table tfoot tr th:nth-last-child(2) {
-        display: none;
-    }
 }
 
 
@@ -1444,6 +1446,23 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
         grid-template-columns: 1fr;
     }
 
+    table tr td:last-child {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        height: 100%;
+        justify-content: space-between;
+    }
+
+    .update-container {
+        overflow-x: scroll;
+        width: 88vw;
+    }
+
+    .table-container {
+        width: fit-content;
+    }
+
     .student-view-profile-img-container img {
         width: 40%;
         border-radius: 50%;
@@ -1453,8 +1472,6 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
         display: flex;
         gap: 10px;
     }
-
-    
 
     aside {
         position: fixed;
@@ -1567,24 +1584,6 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
         margin: 0;
     }
 
-    main table thead tr th:nth-last-child(3),
-    main table thead tr th:nth-last-child(4),
-    main table thead tr th:nth-last-child(5),
-    main table thead tr th:nth-last-child(6) {
-        display: none;
-    }
-
-    main table tbody tr td:nth-last-child(3),
-    main table tbody tr td:nth-last-child(4),
-    main table tfoot tr th:nth-last-child(3),
-    main table tfoot tr th:nth-last-child(4),
-    main table tbody tr td:nth-last-child(5),
-    main table tbody tr td:nth-last-child(6),
-    main table tfoot tr th:nth-last-child(5),
-    main table tfoot tr th:nth-last-child(6) {
-        display: none;
-    }
-
     /* .h2-container {
         width: 100%;
     } */
@@ -1598,7 +1597,7 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
         top: 0;
         left: 0;
         align-items: center;
-        padding: 0 0.8rem;
+        padding: 0 0.8rem 0 50px;
         height: 4.6rem;
         background: var(--color-white);
         width: 100%;
@@ -1637,20 +1636,11 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     }
 }
 
-@media screen and (max-width: 640px) {
-    
-}
 
 @media screen and (max-width: 428px) {
     /* .h2-container {
         top: 200px;
     } */
-}
-
-@media screen and (max-width: 640px) {
-    .add-button-container {
-        top: 115px;
-    }
 }
 
 @media screen and (max-width: 570px) {
@@ -1687,209 +1677,14 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
 
 
 
-/* ========== MODAL ================ */
-
-
-.modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    transition: 200ms ease-in-out;
-    border-radius: var(--border-radius-3);
-    z-index: 10;
-    background-color: var(--color-white);
-    width: 400px;
-    max-width: 80%;
-    box-shadow: var(--box-shadow);
-    transition: all 300ms ease;
-}
-
-.update-modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    transition: 200ms ease-in-out;
-    border-radius: var(--border-radius-3);
-    z-index: 20;
-    background-color: var(--color-white);
-    width: 500px;
-    max-width: 80%;
-    box-shadow: var(--box-shadow);
-    transition: all 300ms ease;
-}
-
-.modal:hover {
-    box-shadow: none;
-}
-
-.update-modal:hover {
-    box-shadow: none;
-}
-
-.modal.active {
-    transform: translate(-50%, -50%) scale(1);
-}
-
-.update-modal.active {
-    transform: translate(-50%, -50%) scale(1);
-}
-
-.modal-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-}
-
-.update-modal-container {
-    padding: 20px;
-    
-    
-}
-
-.modal-info-container-header {
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    justify-content: end;
-}
-
-.modal-info-container-header button {
-    background: none;
-    margin-right: 10px;
-    margin-top: 5px;
-    color: var(--color-dark);
-    cursor: pointer;
-}
-
-.modal-info-container .first-name, .modal-info-container .last-name {
-    font-weight: bold;
-    font-size: 1.8rem;
-}
-
-.modal-info-container .course, .modal-info-container .year {
-    font-weight: 600;
-    font-size: 1rem;
-}
-
-.modal-info-container .email {
-    font-weight: 500;
-    font-size: 1rem;
-}
-
-.modal-info-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.modal-container .name-info {
-    margin-bottom: -10px;
-}
-
-.modal-container img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: 2px solid var(--color-primary);
-    padding: 5px;
-    object-fit: cover;
-    object-position: center;
-
-}
-
-    .modal-header .close-button {
-    cursor: pointer;
-    border: none;
-    outline: none;
-    background: none;
-    font-size: 1.25rem;
-    font-weight: bold;
-}
-
-
-.modal-container .buttons {
-    margin-bottom: 20px;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.modal-container .buttons button {
-    
-    font-size: 1.2rem;
-    cursor: pointer;
-    color: var(--color-white);
-}
-
-.modal-container .buttons .edit-button {
-    background-color: #9B26B6;
-    padding: 10px 40px;
-}
-
-.modal-container .buttons .delete-button {
-    background: none;
-    border: 1.5px solid #9B26B6;
-    color: #9B26B6;
-    padding: 8.5px 40px;
-}
-
-#overlay {
-    position: fixed;
-    opacity: 0;
-    transition: 200ms ease-in-out;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, .5);
-    pointer-events: none;
-}
-
-#overlay.active {
-    opacity: 1;
-    pointer-events: all;
-}
 
 .dataTables_wrapper {
-    background: var(--color-white);
-    padding: var(--card-padding);
-    border-radius: var(--border-radius-1);
-    box-shadow: var(--box-shadow);
-    transition: all 200ms ease;
-    margin-bottom: 30px;
+    
 }
 
 .dataTables_wrapper:hover {
-    box-shadow: none;
+    
 }
-
-#overlay-update {
-    position: fixed;
-    opacity: 0;
-    transition: 200ms ease-in-out;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, .5);
-    pointer-events: none;
-}
-
-#overlay-update.active {
-    opacity: 1;
-    pointer-events: all;
-}
-
-.update-modal .update-modal-container .title{
-    position: relative;
-    font-size: 27px;
-    font-weight: 600;
-}
-
-
 
 .loader {
     position: fixed;

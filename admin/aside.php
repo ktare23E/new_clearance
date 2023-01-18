@@ -1,6 +1,3 @@
-<?php
-        include_once 'header.php';
-?>
     <aside>
             <div class="top">
                 <div class="logo">
