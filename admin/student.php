@@ -48,7 +48,7 @@
                                 <h2>Students List</h2>
                         </div>
 
-                        <div style="display:flex;flex-direction:row;gap:5px;justify-content:space-between;">
+                        <div class="new-student-buttons" style="display:flex;flex-direction:row;gap:5px;justify-content:space-between;">
                             <div>
                                 <a href="student_registration.php">
                                     <button id="add-new-student"><span class="material-symbols-sharp">add</span>Add new student</button>

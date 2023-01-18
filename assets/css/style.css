@@ -844,10 +844,11 @@ main .recent-orders-student {
     border: 1.5px solid var(--color-primary-variant);
     padding: 11px 20px;
     border-radius: 5px;
-    position: relative;
     display: none;
     justify-content: center;
     flex: 1;
+    height: 100%;
+    
 }
 
 #register-csv-file-btn span:nth-child(1){
@@ -970,7 +971,9 @@ table thead tr th, table tbody tr td {
     background: var(--color-white);
     color: var(--color-primary);
     transition: all 150ms ease;
+    position: relative;
 }
+
 #register-csv-file-btn:hover {
     background-color: var(--color-primary-variant);
 }
@@ -1203,6 +1206,7 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     display: flex;
     justify-content: space-between;
     gap: 2rem;
+    margin-bottom: 20px;
 }
 
 /* .right .top h1 {
@@ -1446,6 +1450,28 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
         grid-template-columns: 1fr;
     }
 
+    .new-student-buttons {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding-bottom: 3px;
+    }
+
+    .upload-student-csv-container {
+        position: absolute;
+        right: 5px;
+        top: -60px;
+    }
+
+    .add-button-container div:nth-child(1) a {
+        display: block;
+    }
+
+    .add-button-container div:nth-child(1) a button {
+        width: 100%;
+    }
+
     table tr td:last-child {
         display: flex;
         flex-direction: column;
@@ -1644,11 +1670,11 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
 }
 
 @media screen and (max-width: 570px) {
-    .add-button-container {
+    /* .add-button-container {
         flex-direction: column;
-    }
+    } */
 
-    .add-button-container .upload-student-csv-container {
+    /* .add-button-container .upload-student-csv-container {
         flex: 1;
     }
 
@@ -1666,7 +1692,7 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
 
     .add-button-container div:nth-child(1) a {
         width: 100%;
-    }
+    } */
 }
 
 .input-field-container {
