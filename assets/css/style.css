@@ -394,6 +394,32 @@ main .student-registration .form .title{
     
 }
 
+.bulk-actions-container {
+    max-width: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.bulk-actions-container .bulk-action {
+    width: 100%;
+}
+
+.bulk-actions-container button {
+    background: var(--color-primary-variant);
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: var(--border-radius-1);
+    cursor: pointer;
+    color: white;
+    transition: all 200ms ease;
+}
+
+.bulk-actions-container button:hover {
+    background: var(--color-primary);
+}
+
+
 .table-container {
     background: var(--color-white);
     padding: var(--card-padding);
@@ -406,7 +432,9 @@ main .student-registration .form .title{
 
 .dataTables_wrapper {
     width: 100%;
+    
 }
+
 
 .edit-profile-button {
     cursor: pointer;
@@ -1458,6 +1486,10 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
         padding-bottom: 3px;
     }
 
+    .bulk-actions-container {
+        
+    }
+
     .upload-student-csv-container {
         position: absolute;
         right: 5px;
@@ -1486,7 +1518,7 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     }
 
     .table-container {
-        width: fit-content;
+        width: 88vw;
     }
 
     .student-view-profile-img-container img {
@@ -1662,46 +1694,11 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     }
 }
 
-
-@media screen and (max-width: 428px) {
-    /* .h2-container {
-        top: 200px;
-    } */
-}
-
-@media screen and (max-width: 570px) {
-    /* .add-button-container {
-        flex-direction: column;
-    } */
-
-    /* .add-button-container .upload-student-csv-container {
-        flex: 1;
-    }
-
-    .add-button-container #add-new-student {
-        width: 100%;
-    }
-
-    .add-button-container #register-csv-file-btn {
-        width: 100%;
-    }
-
-    .add-button-container div:nth-child(1), .add-button-container div:nth-child(2) {
-        width: 100%;
-    }
-
-    .add-button-container div:nth-child(1) a {
-        width: 100%;
-    } */
-}
-
 .input-field-container {
     display: flex;
     flex-direction: row;
     gap: 20px;
 }
-
-
 
 
 .dataTables_wrapper {
@@ -1783,30 +1780,3 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
 }
 
 
-
-
-
-.bulk-actions-container {
-    max-width: 100px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.bulk-actions-container .bulk-action {
-    width: 100%;
-}
-
-.bulk-actions-container button {
-    background: var(--color-primary-variant);
-    padding: 10px 20px;
-    width: 100%;
-    border-radius: var(--border-radius-1);
-    cursor: pointer;
-    color: white;
-    transition: all 200ms ease;
-}
-
-.bulk-actions-container button:hover {
-    background: var(--color-primary);
-}

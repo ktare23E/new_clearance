@@ -79,15 +79,8 @@
                             <table id="example" class="display">
                                 <thead>
                                     <tr>
-                                        <input type="checkbox" id="checkAll" style='
-                                            display:block;background-color:black; 
-                                            appearance:auto;
-                                            position:absolute;
-                                            top:150px;
-                                            left:37px;
-                                            z-index:10;
-                                            '/>
-                                        <th></th>
+                                        
+                                        <th><input type="checkbox" id="checkAll"/></th>
                                         <th>Student ID</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
@@ -342,6 +335,10 @@
     <script>
             $(document).ready(function () {
             $('#example').DataTable({
+                "scrollX": true,
+                "columnDefs": [
+                    { "bSortable": false, "aTargets": [ 0 ] }
+                ],
                 processing: true,
                 serverSide: true,
                 ajax: 'server_processing.php',
