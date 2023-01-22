@@ -391,7 +391,7 @@ main .student-registration .form .title{
     flex-direction: row;
     width: 100%;
     gap: 10px;
-    
+    position: relative;
 }
 
 .bulk-actions-container {
@@ -401,11 +401,15 @@ main .student-registration .form .title{
     gap: 5px;
 }
 
+.bulk-actions-container button#close-bulk-options-button {
+    display: none;
+}
+
 .bulk-actions-container .bulk-action {
     width: 100%;
 }
 
-.bulk-actions-container button {
+.bulk-actions-container .bulk-action button {
     background: var(--color-primary-variant);
     padding: 10px 20px;
     width: 100%;
@@ -417,6 +421,21 @@ main .student-registration .form .title{
 
 .bulk-actions-container button:hover {
     background: var(--color-primary);
+}
+
+.bulk-options-div {
+    display: none;
+    justify-content: end;
+    margin-bottom: 5px;
+}
+
+.bulk-options-div #bulk-options {
+    background: none;
+}
+
+.bulk-options-div #bulk-options span {
+    font-weight: 800;
+    font-size: 30px;
 }
 
 
@@ -431,10 +450,12 @@ main .student-registration .form .title{
 }
 
 .dataTables_wrapper {
-    width: 100%;
-    
+
 }
 
+.display.dataTable.no-footer {
+    width: 100% !important;
+}
 
 .edit-profile-button {
     cursor: pointer;
@@ -1486,8 +1507,48 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
         padding-bottom: 3px;
     }
 
+    .bulk-options-div {
+        display: flex;
+    }
+
     .bulk-actions-container {
-        
+        max-width: fit-content;
+        display: none;
+        flex-direction: column;
+        gap: 0px;
+        position: absolute;
+        top: 55px;
+        right: 0;
+        border: 3px solid var(--color-background);
+    }
+
+    .bulk-actions-container button#close-bulk-options-button {
+        display: block;
+        background: var(--color-background);
+        color: var(--color-dark);
+    }
+
+    .bulk-actions-container h3 {
+        display: none;
+    }
+    
+    .bulk-actions-container .bulk-action {
+        width: 100%;
+    }
+    
+    .bulk-actions-container .bulk-action button {
+        background: var(--color-white);
+        padding: 10px 20px;
+        width: 100%;
+        border-radius: 0px;
+        cursor: pointer;
+        color: var(--color-dark);
+        transition: all 200ms ease;
+        box-shadow: var(--box-shadow);
+    }
+    
+    .bulk-actions-container button:hover {
+        background: var(--color-primary);
     }
 
     .upload-student-csv-container {

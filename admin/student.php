@@ -78,8 +78,10 @@
                         <div class="table-container">
                             <table id="example" class="display">
                                 <thead>
+                                    <div class="bulk-options-div">
+                                        <button id="bulk-options"><span class="material-symbols-sharp">more_horiz</span></button>
+                                    </div>
                                     <tr>
-                                        
                                         <th><input type="checkbox" id="checkAll"/></th>
                                         <th>Student ID</th>
                                         <th>First Name</th>
@@ -91,13 +93,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                
+                                    
                                 </tbody>
                             </table>
                         </div>
 
                         <div class="bulk-actions-container">
                             <h3 style="text-align: center;">Bulk Update</h3>
+                            <button id="close-bulk-options-button">
+                                <span class="material-symbols-sharp">close</span>
+                            </button>
                             <div class="bulk-action">
                                 <button type="button" id="active" >Set as Active</button>
                             </div>

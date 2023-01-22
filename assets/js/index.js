@@ -172,3 +172,17 @@ const container = document.querySelector(".container"),
 // EditProfileBtn.addEventListener('click', function(){
 //     window.location.href = "student.php";
 // })
+
+
+
+let bulkOptionsButton = document.getElementById("bulk-options");
+let closeOptions = document.getElementById("close-bulk-options-button");
+let bulkActions = document.getElementsByClassName("bulk-actions-container")
+
+bulkOptionsButton.addEventListener("click", function() {
+    bulkActions[0].style.display = "flex"
+})
+
+closeOptions.addEventListener("click", function() {
+    bulkActions[0].style.display = "none"
+})
