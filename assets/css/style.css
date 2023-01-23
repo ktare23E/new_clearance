@@ -1554,7 +1554,8 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     .upload-student-csv-container {
         position: absolute;
         right: 5px;
-        top: -60px;
+        top: -70px;
+        background-color: var(--color-white);
     }
 
     .add-button-container div:nth-child(1) a {
