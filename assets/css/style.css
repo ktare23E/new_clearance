@@ -1842,3 +1842,22 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
 }
 
 
+
+
+
+
+
+.update-link {
+    background: var(--color-primary);
+    color: white !important;
+    padding: 3px 8px;
+    margin-right: 3px;
+    border-radius: 3px;
+}
+
+.view-link {
+    background: rgb(17, 134, 17);
+    color: white !important;
+    padding: 3px 8px;
+    border-radius: 3px;
+}
