@@ -43,6 +43,9 @@
                     <span class="material-symbols-sharp">calendar_month</span>
                     <h3>School Year and Sem</h3>
                 </a>
+                <a href="semester.php">
+                    <span class="material-symbols-sharp">inventory</span>
+                    <h3>Semester</h3>
                 <a href="clearance.php">
                     <span class="material-symbols-sharp">inventory</span>
                     <h3>Clearance</h3>

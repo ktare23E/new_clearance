@@ -70,10 +70,10 @@
                                     </select>
                             </div>
                                 <div class="input-field">
-                                    <label for="">Select School Year and Sem</label>
+                                    <label for="">Select School Year</label>
                                     <select name="sy_sem_id" id="">
-                                            <option default>Select School Year and Sem</option>
-                                            <?php $semesters = $db->result('sy_sem');?>
+                                            <option default>Select School Year</option>
+                                            <?php $semesters = $db->result('school_year', 'status = "Active"');?>
                                             <?php foreach($semesters as $semester):?>
                                             <?php if($semester->sy_sem_id == $sy_sem_id):?>  
                                             <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem; ?></option>
@@ -83,13 +83,27 @@
                                             <?php endforeach; ?>
                                     </select>
                                 </div>
+                                <div class="input-field">
+                                    <label for="">Semester</label>
+                                    <select name="sem_id" id="">
+                                        <option default>Select Semester</option>
+                                            <?php $semesters = $db->result('sem');?>
+                                            <?php foreach($semesters as $semester):?>
+                                            <?php if($semester->sem_id == $sem_id):?>  
+                                            <option value="<?= $semester->sem_id; ?>"><?= $semester->sem_name; ?></option>
+                                            <?php else:?>
+                                                <option value="<?= $semester->sem_id; ?>"><?= $semester->sem_name; ?></option>
+                                            <?php endif;?>
+                                            <?php endforeach; ?>
+                                    </select>
+                            </div>
                             </div>
                             <div class="input-field-container">
                                 <div class="input-field">
                                     <label for="">Admin Name</label>
                                     <select name="admin_id" id="">
                                             <option default>Select Admin Name</option>
-                                            <?php $admins = $db->result('admin');?>
+                                            <?php $admins = $db->result('admin','admin_name != "Admin"');?>
                                             <?php foreach($admins as $admin):?>
                                             <?php if($admin->admin_id == $admin_id):?>  
                                             <option value="<?= $admin->admin_id; ?>"><?= $admin->admin_name; ?></option>

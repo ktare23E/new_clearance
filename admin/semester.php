@@ -1,6 +1,6 @@
 <?php
     include_once 'header.php';
-        $users = $db->result('school_year');
+        $users = $db->result('sem');
     // $users = $db->result('offices');
     // $users = $db->result('office_account');
 
@@ -19,7 +19,7 @@
                     <button id="menu-btn" class="menu-btn">
                         <span class="material-symbols-sharp">menu</span>
                     </button>
-                    <h1>School Year and Semester</h1>
+                    <h1>Semester</h1>
                     <div class="theme-toggler">
                         <span class="material-symbols-sharp active">light_mode</span>
                         <span class="material-symbols-sharp">dark_mode</span>
@@ -47,44 +47,32 @@
                     <div class="add-button-container">
                         <div>
                             <a href="sy_sem_registration.php">
-                                <button id="add-new-student">Add new School Year And Sem</button>
+                                <button id="add-new-student">Add new Semester</button>
                             </a>
                         </div>
                     </div>
 
                     <div class="h2-container">
-                            <h2>School Year and Semester List</h2>
+                            <h2>Semester List</h2>
                     </div>
-
-                    <div class="bulk-actions-container">
-                            <h3 style="text-align: center;">Bulk Update</h3>
-                            <div class="bulk-action">
-                                <button type="button" id="active" >Set as Active</button>
-                            </div>
-                            <div class="bulk-action">
-                                <button type="button" id="inactive" onclick="">Set as Inactive</button>
-                            </div>
-                        </div>
 
                     <table id="example" class="display" style="width:100%">
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>School Year</th>
-                                <th>Semester</th>
-                                <th>Status</th>
+                                <th>Semester Name</th>
+                                <!-- <th>Status</th> -->
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($users as $user) : ?>
                             <tr>
-                                <td><input type="checkbox" name='update[]' class='row' sy_sem_id = <?= $user-> sy_sem_id; ?>></td>
-                                <td><?= $user->school_year_and_sem; ?></td>
+                                <td><input type="checkbox"></td>
                                 <td><?= $user->sem_name; ?></td>
-                                <td><?= $user->status; ?></td>
+                                <!-- <td><?= $user->status; ?></td> -->
                                 <td class="primary table-action-container">
-                                    <a href="edit_sy_sem_info.php?edit=<?= $user->sy_sem_id?>">Update</a>
+                                    <a href="edit_sem_info.php?edit=<?= $user->sem_id?>">Update</a>
                                         <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
                                         <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
                                             <span class="material-symbols-outlined">delete</span>
@@ -94,10 +82,9 @@
                             <?php endforeach; ?>
                         <tfoot>
                             <tr>
-                            <th></th>
-                                <th>School Year</th>
-                                <th>Semester</th>
-                                <th>Status</th>
+                                <th></th>
+                                <th>Semester Name</th>
+                                <!-- <th>Status</th> -->
                                 <th>Actions</th>
                             </tr>
                         </tfoot>
@@ -108,33 +95,6 @@
         </main>
         <!-- ================ END OF MAIN =================== -->
     </div>
-
-    <script>
-        //jquery onclick event for update button
-        $(document).on("click", '#active', function(){
-            let list_sy_sem_id = [];
-            let list_inputs = $('.row')
-            list_inputs.map((index,elem,arr) => {
-                let is_check = $(elem).prop("checked")
-                if(is_check == true ){
-                    list_sy_sem_id.push($(elem).attr("sy_sem_id"))
-                }
-            });
-            console.log(list_sy_sem_id);
-            $.ajax({
-                url: "sy_sem_update_status.php",
-                method: "POST",
-                data: {
-                    list_sy_sem_id:list_sy_sem_id,
-                    status:'Active'
-                },
-                success: (response) =>{
-                    $("#checkAll").prop("checked",false);
-                    $('#example').DataTable().ajax.reload();
-                }
-            })
-        });
-    </script>
 <!-- <script>
             $(document).ready(function(){
                 $('.delete').on('click',function(){

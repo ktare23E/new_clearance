@@ -7,7 +7,7 @@ $office_id    = $_POST['office_id'];
 $sy_sem_id  = $_POST['sy_sem_id'];
 $admin_id  = $_POST['admin_id'];
 $clearance_type_id = $_POST['clearance_type_id'];
-
+$sem_id = $_POST['sem_id'];
 
 
 
@@ -16,6 +16,7 @@ $data = array(
     'sy_sem_id' => $sy_sem_id,
     'admin_id' => $admin_id,
     'clearance_type_id' => $clearance_type_id,
+    'sem_id' => $sem_id
 );
 
 $insert = $db->insert('signing_office', $data);

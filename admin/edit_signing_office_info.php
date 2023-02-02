@@ -8,7 +8,7 @@
         echo "<h1>There's an error while viewing details.</h1>";
     }else{
         $id = $_GET['edit'];
-        $sql = "SELECT * FROM signing_office WHERE signing_office_id = '$id'";
+        $sql = "SELECT * FROM new_signing_offices WHERE signing_office_id = '$id'";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_assoc($result);
 
@@ -17,7 +17,8 @@
         $sy_sem_id = $row['sy_sem_id'];
         $admin_id = $row['admin_id']; 
         $clearance_type_id = $row['clearance_type_id'];
-
+        $sem_id = $row['sem_id'];
+        $sem_name = $row['sem_name'];
 ?>
 
 <div class="container-student">
@@ -51,7 +52,7 @@
     
             </div>
 
-            <h1>Student Account</h1>
+            <h1>Signing Offices</h1>
 
             <div class="form-and-table-container">
 
@@ -65,7 +66,7 @@
                                 </button>
                             </a>
                         </div>
-                        <span class="title">Edit Student Information</span>
+                        <span class="title">Edit Signing Office Information</span>
 
                     <form action="update_signing_office.php" method="POST">
                         <div class="input-field-container">
@@ -86,7 +87,7 @@
                                 <div class="input-field">
                                     <i class="uil uil-analysis"></i>
                                     <select name="sy_sem_id" id="">
-                                            <?php $semesters = $db->result('sy_sem');;?>
+                                            <?php $semesters = $db->result('school_year','status = "Active"');;?>
                                             <?php foreach($semesters as $semester):?>
                                             <?php if($semester->sy_sem_id == $sy_sem_id):?> 
                                             <option value="<?= $semester->sy_sem_id; ?>" selected><?= $semester->school_year_and_sem; ?></option>
@@ -96,12 +97,21 @@
                                             <?php endforeach; ?>
                                     </select>
                                 </div>
+                                <div class="input-field">
+                                <label for="">Semester</label>
+                        <select name="sem_id" id="">
+                                <?php $semesters = $db->result('sem');?>
+                                <?php foreach($semesters as $semester):?>
+                                    <option value="<?= $semester->sem_id ?>" <?= ($semester->sem_name == $sem_name)? "selected" : "" ?>><?= $semester->sem_name; ?></option>
+                                <?php endforeach; ?>
+                        </select>
+                            </div>
                         </div>
                         <div class="input-field-container">
                                 <div class="input-field">
                                     <i class="uil uil-analysis"></i>
                                     <select name="admin_id" id="">
-                                            <?php $admins = $db->result('admin');;?>
+                                            <?php $admins = $db->result('admin','admin_name != "Admin"');;?>
                                             <?php foreach($admins as $admin):?>
                                             <?php if($admin->admin_id == $admin_id):?> 
                                             <option value="<?= $admin->admin_id; ?>" selected><?= $admin->admin_name; ?></option>

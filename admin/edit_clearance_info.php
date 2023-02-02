@@ -8,7 +8,7 @@
         echo "<h1>There's an error while viewing details.</h1>";
     }else{
         $id = $_GET['edit'];
-        $sql = "SELECT * FROM clearance WHERE clearance_id = '$id'";
+        $sql = "SELECT * FROM view_clearance WHERE clearance_id = '$id'";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_assoc($result);
 
@@ -19,7 +19,7 @@
         $course_id = $row['course_id'];
         $clearance_type_id = $row['clearance_type_id'];
         $date_created = $row['date_created'];
-        
+        $sem_name = $row['sem_name'];
 
 
 ?>
@@ -91,8 +91,19 @@
                                             <?php endforeach; ?>
                                     </select>
                                 </div>
+                                
                             </div>
                             <div class="input-field-container">
+                                <input type="hidden" name="clearance_status" value="1">
+                            <div class="input-field">
+                                <label for="">Semester</label>
+                        <select name="sem_id" id="">
+                                <?php $semesters = $db->result('sem');?>
+                                <?php foreach($semesters as $semester):?>
+                                    <option value="<?= $semester->sem_id ?>" <?= ($semester->sem_name == $sem_name)? "selected" : "" ?>><?= $semester->sem_name; ?></option>
+                                <?php endforeach; ?>
+                        </select>
+                            </div>
                                 <div class="input-field">
                                             <label for="">Clearance Type</label>
                                             <select name="clearance_type_id" id="">
@@ -107,9 +118,7 @@
                                                     <?php endforeach; ?>
                                             </select>
                                 </div>
-                                <div class="input-field">
-                                    <input type="date" name="date_created" value="<?php echo $date_created; ?>" placeholder="Date Created" required>
-                                </div>
+                                
                             </div>
                         <div class="input-field button">
                             <input type="submit" name="update" value="Update Clearance">

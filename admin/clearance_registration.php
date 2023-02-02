@@ -59,22 +59,34 @@
                                 <input type="text" name="student_id" placeholder="Student Id">
                             </div>
                                 <div class="input-field">
-                                    <label for="">Select School Year and Sem</label>
+                                    <label for="">Select School Year</label>
                                     <select name="sy_sem_id" id="">
-                                            <option default>Select School Year and Sem</option>
-                                            <?php $semesters = $db->result('sy_sem','status = "Active"');?>
-                                            <?php foreach($semesters as $semester):?>
-                                            <?php if($semester->sy_sem_id == $sy_sem_id):?>  
-                                            <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem; ?></option>
+                                            <option default>Select School Year</option>
+                                            <?php $school_year = $db->result('sy_sem','status = "Active"');?>
+                                            <?php foreach($school_year as $year):?>
+                                            <?php if($year->sy_sem_id == $sy_sem_id):?>  
+                                            <option value="<?= $year->sy_sem_id; ?>"><?= $year->school_year_and_sem; ?></option>
                                             <?php else:?>
-                                                <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem; ?></option>
+                                                <option value="<?= $year->sy_sem_id; ?>"><?= $year->school_year_and_sem; ?></option>
                                             <?php endif;?>
                                             <?php endforeach; ?>
                                     </select>
                                 </div>
-                                <div class="input-field">
                                     <input type="hidden" name="clearance_status" value="1">
-                                </div>
+                                    <div class="input-field">
+                                    <label for="">Semester</label>
+                                    <select name="sem_id" id="">
+                                        <option default>Select Semester</option>
+                                            <?php $semesters = $db->result('sem');?>
+                                            <?php foreach($semesters as $semester):?>
+                                            <?php if($semester->sem_id == $sem_id):?>  
+                                            <option value="<?= $semester->sem_id; ?>"><?= $semester->sem_name; ?></option>
+                                            <?php else:?>
+                                                <option value="<?= $semester->sem_id; ?>"><?= $semester->sem_name; ?></option>
+                                            <?php endif;?>
+                                            <?php endforeach; ?>
+                                    </select>
+                            </div>
                             </div>
                             <div class="input-field-container">
                                 <div class="input-field">

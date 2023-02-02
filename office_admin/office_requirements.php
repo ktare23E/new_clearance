@@ -105,6 +105,17 @@
                                     <div class="form-input-file-csv-container">
                                             <label for="input-file">Choose CSV File</label>
                                             <input type="file" name="file" accept=".csv" id="input-file">
+                                            <select name="sy_sem_id2" id="">
+                                                <option default>Select School Year and Sem</option>
+                                                <?php $semesters = $db->result('sy_sem','status="Active"');?>
+                                                <?php foreach($semesters as $semester):?>
+                                                <?php if($semester->sy_sem_id == $sy_sem_id):?>  
+                                                <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem; ?></option>
+                                                <?php else:?>
+                                                    <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem; ?></option>
+                                                <?php endif;?>
+                                                <?php endforeach; ?>
+                                            </select>
                                             <button type="submit" name="import" class="submit-csv-file-button">
                                             
                                             Import
@@ -123,6 +134,14 @@
     
     
     <script src="../assets/js/office_admin_index.js"></script>    
+        
+    <script>
+
+        $('[name="sy_sem_id"]').change(function() {
+            $('[name="sy_sem_id2"]').val($('[name="sy_sem_id"]').val())
+        })
+
+    </script>
 
     
 </body>

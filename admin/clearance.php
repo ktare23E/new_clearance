@@ -229,7 +229,8 @@
                                 <th>Student ID</th>
                                 <th>Student First Name</th>
                                 <th>Student Last Name</th>
-                                <th>School Year and Sem</th>
+                                <th>School Year</th>
+                                <th>Semester</th>
                                 <th>Clearance Status</th>
                                 <th>Action</th>
                             </tr>
@@ -246,7 +247,8 @@
                                 <th>Student ID</th>
                                 <th>Student First Name</th>
                                 <th>Student Last Name</th>
-                                <th>School Year and Sem</th>
+                                <th>School Year</th>
+                                <th>Semester</th>
                                 <th>Clearance Status</th>
                                 <th>Action</th>
                             </tr>

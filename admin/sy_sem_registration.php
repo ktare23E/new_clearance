@@ -54,7 +54,7 @@
                             <div class="input-field-container">
                                 <div class="input-field">
                                     <span id="check_office"></span>
-                                    <input type="text" name="school_year_and_sem" placeholder="School Year And Sem" required>
+                                    <input type="text" name="school_year_and_sem" placeholder="School Year" required>
                                     <i class="uil uil-user"></i>
                                 </div>
                             </div>
@@ -66,6 +66,20 @@
                                         <option value="Inactive">Inactive</option>
                                     </select>
                                 </div>
+                                <div class="input-field">
+                                    <label for="">Semester</label>
+                                    <select name="sem_id" id="">
+                                        <option default>Select Semester</option>
+                                            <?php $semesters = $db->result('sem');?>
+                                            <?php foreach($semesters as $semester):?>
+                                            <?php if($semester->sem_id == $sem_id):?>  
+                                            <option value="<?= $semester->sem_id; ?>"><?= $semester->sem_name; ?></option>
+                                            <?php else:?>
+                                                <option value="<?= $semester->sem_id; ?>"><?= $semester->sem_name; ?></option>
+                                            <?php endif;?>
+                                            <?php endforeach; ?>
+                                    </select>
+                            </div>
                             <div class="input-field button">
                                 <input type="submit" value="Create School Year and Sem">
                             </div>

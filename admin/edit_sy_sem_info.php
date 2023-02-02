@@ -8,11 +8,13 @@
         echo "<h1>There's an error while viewing details.</h1>";
     }else{
         $id = $_GET['edit'];
-        $sql = "SELECT * FROM sy_sem WHERE sy_sem_id = '$id'";
+        $sql = "SELECT * FROM school_year WHERE sy_sem_id = '$id'";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_assoc($result);
         $sy_sem_id = $row['sy_sem_id'];
         $school_year_and_sem = $row['school_year_and_sem'];
+        $sem_id = $row['sem_id'];
+        $sem_name = $row['sem_name'];
         $status = $row['status'];
         
     
@@ -73,7 +75,7 @@
                         <div class="input-field-container">
                             <div class="input-field">
                                 <input type="hidden" name="sy_sem_id" value="<?= $sy_sem_id?>">
-                                <input type="text" name="school_year_and_sem" placeholder="School Year And Sem" required value="<?php echo $school_year_and_sem; ?>">
+                                <input type="text" name="school_year_and_sem" placeholder="School Year" required value="<?php echo $school_year_and_sem; ?>">
                                 <i class="uil uil-user"></i>
                             </div>
                             <div class="input-field">
@@ -90,7 +92,50 @@
                                                 <option value="Inactive">Inactive</option>
                                             <?php endif;?>
                                     </select>
-                                </div>
+                            </div>
+                            <div class="input-field">
+                                <label for="">Semester</label>
+                        <select name="sem_id" id="">
+                                <?php $semesters = $db->result('sem');?>
+                                <?php foreach($semesters as $semester):?>
+                                    <option value="<?= $semester->sem_id ?>" <?= ($semester->sem_name == $sem_name)? "selected" : "" ?>><?= $semester->sem_name; ?></option>
+                                <?php endforeach; ?>
+                        </select>
+                            </div>
+                            <!-- <div class="input-field">
+                                    <label for="">Semester</label>
+                                    <select name="sem_id" id="" required>
+                                    
+                                    <option value="<?= $sem_id;?>"
+                                        <?php
+                                                if($sem_name == '1st Semester'){
+                                                    echo "selected";
+                                                }
+                                        ?>
+                                    >1st Semester</option>
+                                    <option value="<?= $sem_id;?>"
+                                        <?php
+                                                if($sem_name == '2nd Semester'){
+                                                    echo "selected";
+                                                }
+                                        ?>
+                                    >2nd Semester</option>
+                                    <option value="<?= $sem_id;?>"
+                                        <?php
+                                                if($sem_name == 'Trimester'){
+                                                    echo "selected";
+                                                }
+                                        ?>
+                                    >Trimester</option>
+                                    <option value="<?= $sem_id;?>"
+                                        <?php
+                                                if($sem_name == 'Summer'){
+                                                    echo "selected";
+                                                }
+                                        ?>
+                                    >Summer</option>
+                                </select>
+                            </div> -->
                         </div>
                         <div class="input-field button">
                             <input type="submit" name="update" value="Update Sy and Sem">
