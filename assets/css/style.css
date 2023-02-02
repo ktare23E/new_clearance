@@ -391,8 +391,53 @@ main .student-registration .form .title{
     flex-direction: row;
     width: 100%;
     gap: 10px;
-    
+    position: relative;
 }
+
+.bulk-actions-container {
+    max-width: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.bulk-actions-container button#close-bulk-options-button {
+    display: none;
+}
+
+.bulk-actions-container .bulk-action {
+    width: 100%;
+}
+
+.bulk-actions-container .bulk-action button {
+    background: var(--color-primary-variant);
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: var(--border-radius-1);
+    cursor: pointer;
+    color: white;
+    transition: all 200ms ease;
+}
+
+.bulk-actions-container button:hover {
+    background: var(--color-primary);
+}
+
+.bulk-options-div {
+    display: none;
+    justify-content: end;
+    margin-bottom: 5px;
+}
+
+.bulk-options-div #bulk-options {
+    background: none;
+}
+
+.bulk-options-div #bulk-options span {
+    font-weight: 800;
+    font-size: 30px;
+}
+
 
 .table-container {
     background: var(--color-white);
@@ -405,7 +450,11 @@ main .student-registration .form .title{
 }
 
 .dataTables_wrapper {
-    width: 100%;
+
+}
+
+.display.dataTable.no-footer {
+    width: 100% !important;
 }
 
 .edit-profile-button {
@@ -844,10 +893,11 @@ main .recent-orders-student {
     border: 1.5px solid var(--color-primary-variant);
     padding: 11px 20px;
     border-radius: 5px;
-    position: relative;
     display: none;
     justify-content: center;
     flex: 1;
+    height: 100%;
+    
 }
 
 #register-csv-file-btn span:nth-child(1){
@@ -970,7 +1020,9 @@ table thead tr th, table tbody tr td {
     background: var(--color-white);
     color: var(--color-primary);
     transition: all 150ms ease;
+    position: relative;
 }
+
 #register-csv-file-btn:hover {
     background-color: var(--color-primary-variant);
 }
@@ -1203,6 +1255,7 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     display: flex;
     justify-content: space-between;
     gap: 2rem;
+    margin-bottom: 20px;
 }
 
 /* .right .top h1 {
@@ -1446,6 +1499,73 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
         grid-template-columns: 1fr;
     }
 
+    .new-student-buttons {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding-bottom: 3px;
+    }
+
+    .bulk-options-div {
+        display: flex;
+    }
+
+    .bulk-actions-container {
+        max-width: fit-content;
+        display: none;
+        flex-direction: column;
+        gap: 0px;
+        position: absolute;
+        top: 55px;
+        right: 0;
+        border: 3px solid var(--color-background);
+    }
+
+    .bulk-actions-container button#close-bulk-options-button {
+        display: block;
+        background: var(--color-background);
+        color: var(--color-dark);
+    }
+
+    .bulk-actions-container h3 {
+        display: none;
+    }
+    
+    .bulk-actions-container .bulk-action {
+        width: 100%;
+    }
+    
+    .bulk-actions-container .bulk-action button {
+        background: var(--color-white);
+        padding: 10px 20px;
+        width: 100%;
+        border-radius: 0px;
+        cursor: pointer;
+        color: var(--color-dark);
+        transition: all 200ms ease;
+        box-shadow: var(--box-shadow);
+    }
+    
+    .bulk-actions-container button:hover {
+        background: var(--color-primary);
+    }
+
+    .upload-student-csv-container {
+        position: absolute;
+        right: 5px;
+        top: -70px;
+        background-color: var(--color-white);
+    }
+
+    .add-button-container div:nth-child(1) a {
+        display: block;
+    }
+
+    .add-button-container div:nth-child(1) a button {
+        width: 100%;
+    }
+
     table tr td:last-child {
         display: flex;
         flex-direction: column;
@@ -1460,7 +1580,7 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     }
 
     .table-container {
-        width: fit-content;
+        width: 88vw;
     }
 
     .student-view-profile-img-container img {
@@ -1636,46 +1756,11 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     }
 }
 
-
-@media screen and (max-width: 428px) {
-    /* .h2-container {
-        top: 200px;
-    } */
-}
-
-@media screen and (max-width: 570px) {
-    .add-button-container {
-        flex-direction: column;
-    }
-
-    .add-button-container .upload-student-csv-container {
-        flex: 1;
-    }
-
-    .add-button-container #add-new-student {
-        width: 100%;
-    }
-
-    .add-button-container #register-csv-file-btn {
-        width: 100%;
-    }
-
-    .add-button-container div:nth-child(1), .add-button-container div:nth-child(2) {
-        width: 100%;
-    }
-
-    .add-button-container div:nth-child(1) a {
-        width: 100%;
-    }
-}
-
 .input-field-container {
     display: flex;
     flex-direction: row;
     gap: 20px;
 }
-
-
 
 
 .dataTables_wrapper {
@@ -1760,27 +1845,19 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
 
 
 
-.bulk-actions-container {
-    max-width: 100px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
 
-.bulk-actions-container .bulk-action {
-    width: 100%;
-}
 
-.bulk-actions-container button {
-    background: var(--color-primary-variant);
-    padding: 10px 20px;
-    width: 100%;
-    border-radius: var(--border-radius-1);
-    cursor: pointer;
-    color: white;
-    transition: all 200ms ease;
-}
-
-.bulk-actions-container button:hover {
+.update-link {
     background: var(--color-primary);
+    color: white !important;
+    padding: 3px 8px;
+    margin-right: 3px;
+    border-radius: 3px;
+}
+
+.view-link {
+    background: rgb(17, 134, 17);
+    color: white !important;
+    padding: 3px 8px;
+    border-radius: 3px;
 }

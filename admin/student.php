@@ -48,7 +48,7 @@
                                 <h2>Students List</h2>
                         </div>
 
-                        <div style="display:flex;flex-direction:row;gap:5px;justify-content:space-between;">
+                        <div class="new-student-buttons" style="display:flex;flex-direction:row;gap:5px;justify-content:space-between;">
                             <div>
                                 <a href="student_registration.php">
                                     <button id="add-new-student"><span class="material-symbols-sharp">add</span>Add new student</button>
@@ -78,16 +78,11 @@
                         <div class="table-container">
                             <table id="example" class="display">
                                 <thead>
+                                    <div class="bulk-options-div">
+                                        <button id="bulk-options"><span class="material-symbols-sharp">more_horiz</span></button>
+                                    </div>
                                     <tr>
-                                        <input type="checkbox" id="checkAll" style='
-                                            display:block;background-color:black; 
-                                            appearance:auto;
-                                            position:absolute;
-                                            top:150px;
-                                            left:37px;
-                                            z-index:10;
-                                            '/>
-                                        <th></th>
+                                        <th><input type="checkbox" id="checkAll"/></th>
                                         <th>Student ID</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
@@ -98,13 +93,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                
+                                    
                                 </tbody>
                             </table>
                         </div>
 
                         <div class="bulk-actions-container">
                             <h3 style="text-align: center;">Bulk Update</h3>
+                            <button id="close-bulk-options-button">
+                                <span class="material-symbols-sharp">close</span>
+                            </button>
                             <div class="bulk-action">
                                 <button type="button" id="active" >Set as Active</button>
                             </div>
@@ -342,6 +340,10 @@
     <script>
             $(document).ready(function () {
             $('#example').DataTable({
+                "scrollX": true,
+                "columnDefs": [
+                    { "bSortable": false, "aTargets": [ 0 ] }
+                ],
                 processing: true,
                 serverSide: true,
                 ajax: 'server_processing.php',

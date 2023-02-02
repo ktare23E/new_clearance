@@ -55,8 +55,8 @@ foreach($data['data'] as $i => $entry){
     foreach($entry as $j => $value){
         array_push($new_entry, $value);
     }
-    array_push($new_entry, "<td class='primary table-action-container'><a href='edit_student_info.php?edit=".$entry[1]."'>Update</a>
-    <a href='student_view.php?details=".$entry[1]."'>View Details</a>
+    array_push($new_entry, "<td class='primary table-action-container'><a href='edit_student_info.php?edit=".$entry[1]."' class='update-link'>Update</a>
+    <a href='student_view.php?details=".$entry[1]."' class='view-link'>View Details</a>
         <input type='hidden' name='student_id' value='".$entry[1]."'> 
         </td>");
     $data['data'][$i] = $new_entry;

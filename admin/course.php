@@ -56,6 +56,7 @@
                             <h2>Course List</h2>
                     </div>
 
+                    
                     <table id="example" class="display" style="width:100%">
                         <thead>
                             <tr>
