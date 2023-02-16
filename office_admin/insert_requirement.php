@@ -36,6 +36,7 @@ if(isset($_POST['submit'])){
     $clearance_type_id  = $_POST['clearance_type_id'];
     $student_id = $_POST['student_id'];
     $requirement_details = $_POST['requirement_details'];
+    $sem_id = $_POST['sem_id'];
     
     $query2 = "SELECT * FROM clearance WHERE student_id = '".$student_id."' AND sy_sem_id = " .$sy_sem_id;
     $clearance = $conn->query($query2) or die($conn->error);
@@ -60,8 +61,8 @@ if(isset($_POST['submit'])){
     echo $updateQuery;
     
     // Insert a new requirement into the requirement table
-    $insertQuery = "INSERT INTO requirement (signing_office_id, sy_sem_id, clearance_type_id, student_id, requirement_details)
-                    VALUES ('$signing_office_id', '$sy_sem_id', '$clearance_type_id', '$student_id', '$requirement_details')";
+    $insertQuery = "INSERT INTO requirement (signing_office_id, sy_sem_id, sem_id, clearance_type_id, student_id, requirement_details)
+                    VALUES ('$signing_office_id', '$sy_sem_id','$sem_id','$clearance_type_id', '$student_id', '$requirement_details')";
     mysqli_query($conn, $insertQuery);
     
     if(mysqli_query($conn, $updateQuery)){

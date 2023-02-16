@@ -16,6 +16,8 @@
         $students = $conn->query($sql) or die($conn->error);
         $row = $students->fetch_assoc();
     }
+
+    $signing_office_id = null;
 ?>
 
 <div class="office-container">
@@ -76,7 +78,7 @@
                             </div>
                             <div class="clearance-info-container">
                                 <h3>School year -  sem</h3>
-                                <h4><?= $row['school_year_and_sem'];?></h4>
+                                <h4><?= $row['school_year_and_sem'].$row['sem_name'];?></h4>
                             </div>
                             <div class="clearance-info-container">
                                 <h3>Date Cleared</h3>
@@ -95,22 +97,31 @@
                                 
                             <thead>
                                     <th>Signing office</th>
+                                    <th>Requirement</th>
                                     <th>Status</th>
                                     <th>Date Cleared</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php   $users = $db->result('requirement_view','clearance_type_id = '.$clearance_type_id.' AND sy_sem_id = '.$sy_sem_id); ?>
+                                <?php  $users = $db->result('requirement_view','clearance_type_id = '.$clearance_type_id.' AND sy_sem_id = '.$sy_sem_id); ?>
                                 <?php foreach($users as $user):?>
-                                <tr>
-                                <tr>
-                                    <td><?= $user->office_name; ?></td>
-                                    <td><?= $user->is_complied ? 'Cleared' : 'Not Cleared'; ?></td>
-                                    <td><?= $user->date_cleared; ?></td>
-                                </tr>
+                                    <tr>
+                                        <td><?= $user->office_name; ?></td>
+                                        <td><?= $user->requirement_details;?></td>
+                                        <td><?= $user->is_complied ? 'Approve' : 'Not Cleared'; ?></td>
+                                        <td><?= $user->date_cleared; ?></td>
+                                    </tr>
+                                <?php $signing_office_id = ($user->office_id == $_SESSION['office_id'])?$user->signing_office_id:null ?>
+                                <?php endforeach; ?>
                             </tbody>
-                            <?php endforeach; ?>
                         </table> 
+                        <?php if($signing_office_id != null): ?>
+                            <form action="update_status.php" method="POST">
+                                <input type="hidden" name="requirement_id" value="<?= $user->requirement_id; ?>"> 
+                                <input type="hidden" name="signing_office_id" value="<?= $user->signing_office_id; ?>">
+                                <button type="submit" name="approve" value="Get Current Date">Approve</button>
+                            </form>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

@@ -20,7 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // Update other profile data as needed
   // ...
   header('Location: student_profile.php');
+  // 
 }
+
 
 
 

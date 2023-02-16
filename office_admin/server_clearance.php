@@ -30,7 +30,8 @@ $columns = array(
     array( 'db' => 'student_first_name',  'dt' => 4 ),
     array( 'db' => 'student_last_name',   'dt' => 5 ),
     array( 'db' => 'school_year_and_sem',     'dt' => 6 ),
-    array( 'db' => 'clearance_status',     'dt' => 7 ),
+    array('db' => 'sem_name', 'dt' => 7),
+    array( 'db' => 'clearance_status',     'dt' => 8 ),
 );
 // SQL server connection information
 $sql_details = array(

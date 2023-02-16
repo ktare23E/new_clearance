@@ -1,11 +1,12 @@
 <?php
 
     include_once 'header.php';
+
 ?>
 
     <div class="container">
         <!-- sidebar -->
-        <?php
+        <?php   
                 include_once 'aside.php';
         ?>
         <!------------------ END OF ASIDE ---------------->

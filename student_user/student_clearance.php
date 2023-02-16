@@ -28,7 +28,7 @@
                                                 <tbody>
                                                 <?php foreach ($list_of_clearance as $clearance) : ?>
                                                     <tr>
-                                                        <td><?= $clearance->school_year_and_sem; ?></td>
+                                                        <td><?= $clearance->school_year_and_sem.$clearance->sem_name; ?></td>
                                                         <td><?= $clearance->student_year?></td>
                                                         <td><?= $clearance->clearance_type_name; ?></td>
                                                         <td><?= $clearance->clearance_status ? 'Cleared' : 'Not Cleared';?></td>

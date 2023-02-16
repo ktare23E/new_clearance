@@ -23,19 +23,19 @@ if(isset($_POST['import'])){
         while(($column = fgetcsv($file,1000,",")) !== FALSE){
 
             try{
-                $query2 = "SELECT * FROM clearance WHERE student_id = '".$column[3]."' AND sy_sem_id = " .$_POST['sy_sem_id2'];
+                $query2 = "SELECT * FROM clearance WHERE student_id = '".$column[4]."' AND sy_sem_id = " .$_POST['sy_sem_id2'] ;
                 $clearance = $conn->query($query2) or die($conn->error);
                 $row = $clearance->fetch_assoc();
                 $total = $clearance->num_rows;
 
                 if ($total == 0) {
-                    throw new Exception("This student $column[3] doesn't have a clearance yet.</br>");
+                    throw new Exception("This student $column[4] doesn't have a clearance yet. Please contact the admin first to create the clearance for this student.</br>");
                 }
                 
                 $sqlUpdate = "UPDATE clearance SET clearance_status = '0' WHERE clearance_id = ".$row['clearance_id'];
                 $update = $conn->query($sqlUpdate);
                 
-                $sqlInsert = "INSERT INTO requirement (requirement_details, signing_office_id, sy_sem_id,student_id,clearance_type_id) VALUES ('".$column[0]."','".$column[1]."','".$column[2]."','".$column[3]."','".$column[4]."')";
+                $sqlInsert = "INSERT INTO requirement (requirement_details, signing_office_id, sy_sem_id, sem_id, student_id,clearance_type_id) VALUES ('".$column[0]."','".$column[1]."','".$column[2]."','".$column[3]."','".$column[4]."','".$column[5]."')";
                 $result = mysqli_query($conn, $sqlInsert);
             } catch(Exception $e) {
                 echo $e->getMessage();

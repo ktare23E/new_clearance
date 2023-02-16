@@ -1,8 +1,10 @@
 <?php
     include_once 'dbconfig.php';
     include_once 'office_header.php';
+    $order_by = "ASC";
     
-    $list_of_clearances = $db->result('requirement_view','office_id = '.$_SESSION['office_id']);
+    
+    $list_of_clearances = $db->result('requirement_view','office_id = '.$_SESSION['office_id'],'requirement_details = "'.$order_by.'"');
     
 ?>
     <div class="office-container">
@@ -31,7 +33,7 @@
                                                     </tr>
                                                     <?php endif; ?>
                                                     <?php endforeach; ?>
-
+                                                        <button type="submit" disabled="true">Click me</button>
                                                 </tbody>
                         </table>
                 </div>
@@ -40,7 +42,7 @@
                     <form action="insert_requirement.php" method="POST">
                         <div class="input-field-container">
                         <div class="input-field sy-sem-select">
-                                    <select name="signing_office_id" id="">
+                                    <select name="signing_office_id" id="" required>
                                             <option default>Signing Office</option>
                                             <?php $offices = $db->result('new_signing_offices','office_name = "'.$_SESSION['office_name'].'"');?>
                                             <?php foreach($offices as $office):?>
@@ -54,8 +56,8 @@
                                 <i class="uil uil-angle-down" id="uil-arrow-down"></i>
                             </div>
                             <div class="input-field sy-sem-select">
-                                    <select name="sy_sem_id" id="">
-                                            <option default>Select School Year and Sem</option>
+                                    <select name="sy_sem_id" id="school_year" required>
+                                            <option default>Select School Year</option>
                                             <?php $semesters = $db->result('sy_sem','status="Active"');?>
                                             <?php foreach($semesters as $semester):?>
                                             <?php if($semester->sy_sem_id == $sy_sem_id):?>  
@@ -68,9 +70,22 @@
                                 <i class="uil uil-angle-down" id="uil-arrow-down"></i>
                             </div>
                             <div class="input-field sy-sem-select">
+                                    <select name="sem_id" id="semester">
+                                        <option default>Select Semester</option>
+                                            <?php $semesters = $db->result('sem');?>
+                                            <?php foreach($semesters as $semester):?>
+                                            <?php if($semester->sem_id == $sem_id):?>  
+                                            <option value="<?= $semester->sem_id; ?>"><?= $semester->sem_name; ?></option>
+                                            <?php else:?>
+                                                <option value="<?= $semester->sem_id; ?>"><?= $semester->sem_name; ?></option>
+                                            <?php endif;?>
+                                            <?php endforeach; ?>
+                                    </select>
+                            </div>
+                            <div class="input-field sy-sem-select">
                                 <input type="hidden" name="clearance_id">
                                 <input type="hidden" name="clearance_status" value="0">
-                                    <select name="clearance_type_id" id="">
+                                    <select name="clearance_type_id" id="" required>
                                             <option default>Select Clearance Type</option>
                                             <?php $clearances = $db->result('clearance_type');?>
                                             <?php foreach($clearances as $clearance):?>
@@ -84,7 +99,7 @@
                                 <i class="uil uil-angle-down" id="uil-arrow-down"></i>
                             </div>
                             <div class="input-field sy-sem-select">
-                                    <input type="text" name="student_id" placeholder="Student Id">
+                                    <input type="text" name="student_id" placeholder="Student Id" required>
                             </div>
                         </div>
                         <div class="input-field">
@@ -136,11 +151,17 @@
     <script src="../assets/js/office_admin_index.js"></script>    
         
     <script>
-
         $('[name="sy_sem_id"]').change(function() {
             $('[name="sy_sem_id2"]').val($('[name="sy_sem_id"]').val())
         })
+    </script>
 
+    <script>
+        $(document).ready(function(){
+            $("#school_year").click(function(){
+                $('#semester').c
+            })
+        })
     </script>
 
     

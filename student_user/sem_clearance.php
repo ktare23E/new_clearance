@@ -41,7 +41,7 @@
                                     <div class="clearance-details-container">
                                         
                                         <div class="clearance-details-table-container">
-                                            <table>
+                                            <table id="the-table">
                                                 <thead>
                                                     <tr>
                                                         <th>SIGNING OFFICE</th>
@@ -69,6 +69,16 @@
 
 <script src="../assets/js/student_index.js"></script> 
     
+<script>
+    let status = document.querySelectorAll("#the-table tbody tr td:nth-child(3)");
+    for(let i = 0; i < status.length; i++){
+        if(status[i].innerHTML == "Approve"){
+            status[i].style.color = "green";
+        }else{
+            status[i].style.color = "orange";
+        }
+    }
+</script>
 </body>
 </html>
     
