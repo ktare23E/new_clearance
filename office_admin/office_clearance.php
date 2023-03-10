@@ -112,6 +112,7 @@
                                 <th>School Year</th>
                                 <th>Semester</th>
                                 <th>Clearance Status</th>
+                                <th>Semester Id</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -129,6 +130,7 @@
                                 <th>School Year</th>
                                 <th>Semester</th>
                                 <th>Clearance Status</th>
+                                <th>Semester Id</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
@@ -195,6 +197,17 @@
                 processing: true,
                 serverSide: true,
                 ajax: 'server_clearance.php',
+                columnDefs: [ 
+                    { target: 1, visible: false, searchable: false, },
+                    { target: 2, visible: false, },
+                    { target: 9, visible: false, },
+                    { 
+                        target: 8,
+                        render: function (data, type, row) {
+                            return (data==1 ? 'Cleared' : 'Not Cleared');
+                        },
+                    }
+                ]
             });
         });
     </script>

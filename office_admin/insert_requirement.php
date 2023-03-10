@@ -26,18 +26,59 @@
 //     echo 'Error inserting user account.';
 // }
 
+include_once 'office_header.php';
+
 $conn = mysqli_connect('localhost', 'root', '', 'clearance');
 mysqli_select_db($conn, 'clearance');
 
 
+
 if(isset($_POST['submit'])){
-    $signing_office_id    = $_POST['signing_office_id'];
+
+    $is_deparment = $_SESSION['is_department'];
+    $office_id = $_SESSION['office_id'];
+    // $signing_office_id    = $_POST['signing_office_id'];
     $sy_sem_id  = $_POST['sy_sem_id'];
     $clearance_type_id  = $_POST['clearance_type_id'];
     $student_id = $_POST['student_id'];
     $requirement_details = $_POST['requirement_details'];
     $sem_id = $_POST['sem_id'];
     
+    
+    $sql = "SELECT * FROM signing_office WHERE office_id = '$office_id' AND sy_sem_id = '$sy_sem_id' AND sem_id = '$sem_id'";
+    $singing_office = $conn->query($sql) or die($conn->error);
+
+    if($singing_office->num_rows < 1){
+        
+        echo "<a href='office_requirements.php'>Back</a><br>";
+        echo "You are not signing office for these semester and school year that you selected.";
+        die();
+    }
+
+    $row2 = $singing_office->fetch_assoc();
+    $signing_office_id = $row2['signing_office_id'];
+    
+    if($is_deparment == 1){
+        $sql2 = "SELECT * FROM student WHERE student_id = '".$student_id."' AND office_id = '$office_id'";
+        $is_ok = $conn->query($sql2) or die($conn->error);
+
+        if($is_ok->num_rows < 1){
+            echo "<a href='office_requirements.php'>Back</a><br>";
+            echo "You cannot send a requirements to this student '".$student_id."' who are not under in your department.";
+            die();
+        }
+    }
+
+    $sql3 = "SELECT * FROM clearance WHERE student_id = '".$student_id."' AND sy_sem_id = " .$sy_sem_id;
+    $clearance_exist = $conn->query($sql3) or die($conn->error);
+
+    if($clearance_exist->num_rows < 1){
+        echo "<a href='office_requirements.php'>Back</a><br>";
+        echo "This student '".$student_id."' has no clearance for these school year and semester that you've been selected.";
+        die();
+    }
+
+
     $query2 = "SELECT * FROM clearance WHERE student_id = '".$student_id."' AND sy_sem_id = " .$sy_sem_id;
     $clearance = $conn->query($query2) or die($conn->error);
     $row = $clearance->fetch_assoc();
@@ -72,3 +113,5 @@ if(isset($_POST['submit'])){
     }
     
 }
+
+?>

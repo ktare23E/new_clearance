@@ -232,6 +232,7 @@
                                 <th>School Year</th>
                                 <th>Semester</th>
                                 <th>Clearance Status</th>
+                                <th>Semester Id</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -250,6 +251,7 @@
                                 <th>School Year</th>
                                 <th>Semester</th>
                                 <th>Clearance Status</th>
+                                <th>Semester Id</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
@@ -320,6 +322,19 @@
                 processing: true,
                 serverSide: true,
                 ajax: 'server_clearance.php?clearance_type_id='<?=$id?>,
+                columnDefs: [ 
+                    { target: 1, visible: false, searchable: false, },
+                    { target: 2, visible: false, },
+                    { target: 3, visible: false, },
+                    { target: 10, visible: false, },
+                    { 
+                        target: 9,
+                        render: function (data, type, row) {
+                            return (data==1 ? 'Cleared' : 'Not Cleared');
+                        },
+                    }
+                ]
+            
             });
         });
     </script>
@@ -358,7 +373,7 @@
 
     <script>
         $(document).ready(function () {
-            $('#example').DataTable();
+        
 
             $("#show-clearance-insights").click(function(){
                 $("#clearance-insights").slideToggle()

@@ -20,7 +20,7 @@
         $department_status = $row['department_status'];
     
         
-
+    }
     
 
 ?>
@@ -103,7 +103,7 @@
                                                 <option value="Inactive">Inactive</option>
                                             <?php endif;?>
                                     </select>
-                                </div>
+                            </div>
                         </div>
                         <div class="input-field-container">
                             <div class="input-field">
@@ -125,7 +125,7 @@
 
     </div>
 
-    <?php }?>
+
 
     <script defer src="../assets/js//modal.js"></script>
     <script src="../assets/js/index.js"></script>

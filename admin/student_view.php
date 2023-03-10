@@ -17,6 +17,7 @@
         $students = $conn->query($sql) or die($conn->error);
         $row = $students->fetch_assoc();
     
+    }
 ?>
     <div class="container-student">
         <!-- sidebar -->
@@ -71,9 +72,6 @@
                                 <h3>Edit Profile</h3>
                             </button>
 
-                            <div class="student-info-name-container clearance-status-btn-container">
-                                <button id="clearance-status-button">Clearance Status</button>
-                            </div>
                         </div>
                         
                         
@@ -119,6 +117,23 @@
                                 <h2 class="label">Department :</h2>
                                 <h2><span><?= $row['office_name']?></span></h2>
                             </div>
+
+                            <?php 
+
+                                $sql = "SELECT * FROM view_clearance WHERE student_id = '$id'";
+                                $clearance = $conn->query($sql) or die($conn->error);
+                                $row2 = $clearance->fetch_assoc();
+
+
+                                if($clearance->num_rows < 1){
+                                    echo "<a href='error.php'> <div class='student-info-name-container clearance-status-btn-container'>
+                                    <button id='clearance-status-button'>View Clearance</button></div></a><br>";
+                                    die();
+                                }else{
+                                    echo "<a href='clearance_view.php?clearance_type_id=".$row2['clearance_type_id']."&sy_sem_id=".$row2['sy_sem_id']."&sem_id=".$row2['sem_id']."'><div class='student-info-name-container clearance-status-btn-container'>
+                                    <button id='clearance-status-button'>View Clearance</button></div></a><br></a>";
+                                }
+                            ?>
                             
                             
                         </div>
@@ -129,8 +144,6 @@
         </main>
         <!-- ================ END OF MAIN =================== -->
     </div>
-
-    <?php  }?>
     
     <script defer src="../assets/js//modal.js"></script>
     <script src="../assets/js/index.js"></script>

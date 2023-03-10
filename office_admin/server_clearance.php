@@ -32,6 +32,7 @@ $columns = array(
     array( 'db' => 'school_year_and_sem',     'dt' => 6 ),
     array('db' => 'sem_name', 'dt' => 7),
     array( 'db' => 'clearance_status',     'dt' => 8 ),
+    array( 'db' => 'sem_id',     'dt' => 9 ),
 );
 // SQL server connection information
 $sql_details = array(
@@ -45,9 +46,25 @@ $sql_details = array(
  * If you just want to use the basic configuration for DataTables with PHP
  * server-side, there is no need to edit below this line.
  */
-require( 'ssp.class.php' );
 
-$data = SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns );
+require( 'ssp.class.php' );
+session_start();
+    if (!isset($_SESSION['isOffice'])) {
+    header("location: ../index.php");
+    exit();
+    }
+
+$is_department = $_SESSION['is_department'];
+
+if($is_department == 0){
+    $data = SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns);
+
+}else{
+    $where = "office_id=".$_SESSION['office_id'];
+    $data = SSP::complex( $_GET, $sql_details, $table, $primaryKey, $columns, $where, $where);
+    
+}
+
 // print_r($data);
 // die();
 foreach($data['data'] as $i => $entry){
@@ -58,7 +75,7 @@ foreach($data['data'] as $i => $entry){
         array_push($new_entry, $value);
     }
     array_push($new_entry, "<td class='primary table-action-container'><a href='edit_clearance_info.php?edit=".$entry[1]."'>Update</a>
-    <a href='office_clearance_view.php?clearance_type_id=".$entry[1]."&sy_sem_id=".$entry[2]."'>View Details</a>
+    <a href='office_clearance_view.php?clearance_type_id=".$entry[1]."&sy_sem_id=".$entry[2]."&sem_id=".$entry[9]."'>View Details</a>
         <input type='hidden' name='student_id' value='".$entry[1]."'> 
     </td>");
     $data['data'][$i] = $new_entry;

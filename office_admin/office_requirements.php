@@ -40,20 +40,9 @@
                 <div class="form signup">
                     <span class="title"><h2>Add new requirements</h2></span>
                     <form action="insert_requirement.php" method="POST">
-                        <div class="input-field-container">
+                    <div class="input-field-container">
                         <div class="input-field sy-sem-select">
-                                    <select name="signing_office_id" id="" required>
-                                            <option default>Signing Office</option>
-                                            <?php $offices = $db->result('new_signing_offices','office_name = "'.$_SESSION['office_name'].'"');?>
-                                            <?php foreach($offices as $office):?>
-                                            <?php if($office->signing_office_id == $signing_office_id):?>  
-                                            <option value="<?= $office->signing_office_id; ?>"><?= $office->office_name; ?></option>
-                                            <?php else:?>
-                                                <option value="<?= $office->signing_office_id; ?>"><?= $office->office_name; ?></option>
-                                            <?php endif;?>
-                                            <?php endforeach; ?>
-                                    </select>
-                                <i class="uil uil-angle-down" id="uil-arrow-down"></i>
+                            <input type="hidden" name="signing_office_id" >
                             </div>
                             <div class="input-field sy-sem-select">
                                     <select name="sy_sem_id" id="school_year" required>
@@ -101,7 +90,7 @@
                             <div class="input-field sy-sem-select">
                                     <input type="text" name="student_id" placeholder="Student Id" required>
                             </div>
-                        </div>
+                </div>
                         <div class="input-field">
                             <textarea name="requirement_details" id="" cols="30" rows="10" required></textarea>
                         </div>
@@ -149,6 +138,10 @@
     
     
     <script src="../assets/js/office_admin_index.js"></script>    
+
+    <script>
+        $()
+    </script>
         
     <script>
         $('[name="sy_sem_id"]').change(function() {

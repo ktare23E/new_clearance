@@ -44,8 +44,24 @@ $sql_details = array(
  * server-side, there is no need to edit below this line.
  */
 require( 'ssp.class.php' );
+session_start();
+    if (!isset($_SESSION['isOffice'])) {
+    header("location: ../index.php");
+    exit();
+    }
 
-$data = SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns );
+$is_department = $_SESSION['is_department'];
+
+if($is_department == 0){
+    $data = SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns);
+
+}else{
+    $where = "office_id=".$_SESSION['office_id'];
+    $data = SSP::complex( $_GET, $sql_details, $table, $primaryKey, $columns, $where, $where);
+    
+}
+
+// $data = SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns );
 // print_r($data);
 // die();
 foreach($data['data'] as $i => $entry){
@@ -63,3 +79,5 @@ foreach($data['data'] as $i => $entry){
 }
 
 echo json_encode($data);
+
+?>

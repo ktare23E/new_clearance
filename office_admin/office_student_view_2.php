@@ -16,6 +16,8 @@
         $students = $conn->query($sql) or die($conn->error);
         $row = $students->fetch_assoc();
     }
+    
+    
 ?>
 
     <div class="office-container">
@@ -71,8 +73,22 @@
                         </div>
                     </div>
                     <div class="student-buttons-container">
-                        <button>View Clearance</button>
-                        <button>Contact</button>
+                        <?php 
+
+                            $sql = "SELECT * FROM view_clearance WHERE student_id = '".$id."'";
+                            $students = $conn->query($sql) or die($conn->error);
+                            $row = $students->fetch_assoc();
+
+
+                            if($students->num_rows < 1){
+                                echo "<a href='error.php'><button>View Clearance</button></a>";
+
+                                die();
+                            }else{
+                                echo "<a href='office_clearance_view.php?clearance_type_id=".$row['clearance_type_id']."&sy_sem_id=".$row['sy_sem_id']."&sem_id=".$row['sem_id']."'><button>View Clearance</button></a>";
+                            }
+                            
+                        ?>
                     </div>
                 </div>
             </div>

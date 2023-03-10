@@ -19,6 +19,7 @@
         $clearance_type_id = $row['clearance_type_id'];
         $sem_id = $row['sem_id'];
         $sem_name = $row['sem_name'];
+    }
 ?>
 
 <div class="container-student">
@@ -83,7 +84,7 @@
                                             <?php endif;?>
                                             <?php endforeach; ?>
                                     </select>
-                                </div>
+                            </div>
                                 <div class="input-field">
                                     <i class="uil uil-analysis"></i>
                                     <select name="sy_sem_id" id="">
@@ -149,7 +150,7 @@
 
     </div>
 
-    <?php }?>
+   
 
     
     <script src="../assets/js/index.js"></script>

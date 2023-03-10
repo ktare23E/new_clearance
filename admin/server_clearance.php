@@ -33,6 +33,7 @@ $columns = array(
     array( 'db' => 'school_year_and_sem',     'dt' => 7 ),
     array('db' => 'sem_name', 'dt' =>8),
     array( 'db' => 'clearance_status',     'dt' => 9 ),
+    array( 'db' => 'sem_id',     'dt' => 10 ),
 );
 // SQL server connection information
 $sql_details = array(
@@ -78,7 +79,7 @@ foreach($data['data'] as $i => $entry){
         array_push($new_entry, $value);
     }
     array_push($new_entry, "<td class='primary table-action-container'><a href='edit_clearance_info.php?edit=".$entry[3]."'>Update</a>
-    <a href='clearance_view.php?clearance_type_id=".$entry[1]."&sy_sem_id=".$entry[2]."'>View Details</a>
+    <a href='clearance_view.php?clearance_type_id=".$entry[1]."&sy_sem_id=".$entry[2]."&sem_id=$entry[10]'>View Details</a>
         <input type='hidden' name='student_id' value='".$entry[1]."'> 
     </td>");
     $data['data'][$i] = $new_entry;

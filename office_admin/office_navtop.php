@@ -46,7 +46,7 @@
                 <p>Hello, <b><?php if ($_SESSION['admin_username']){
                     echo $_SESSION['admin_name'];
                 } ?></b></p>
-                <small class="text-muted">Office Admin</small>
+                <small class="text-muted">Office Admin of <?= $_SESSION['office_name'];?></small>
             </div>
         </div>
     </div>

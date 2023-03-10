@@ -1,6 +1,14 @@
 <?php
-    include_once 'student_header.php';
 
+    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+    include_once 'student_header.php';
+    $id = $_SESSION['student_id'];
+    $sql = "SELECT * FROM student_details WHERE student_id = '".$id."'";
+    $result = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_assoc($result);
+
+    $student_id = $row['student_id'];
+    $student_profile = $row['student_profile'];
 ?>
     <div class="office-container">
         <?php 
@@ -19,7 +27,7 @@
                 <div class="profile-top-container">
                     <div class="student-image" style="position: relative;">
                         <img src="../admin/uploads/<?php if($_SESSION['student_username']){
-                        echo $_SESSION['student_profile'];
+                        echo $student_profile;
                     } ?>" alt="">
                         <div style="position: absolute;
                             bottom: 5px;

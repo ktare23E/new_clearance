@@ -41,6 +41,7 @@ if($result->num_rows > 0){
     $_SESSION['office_id'] = $row['office_id'];
     $_SESSION['office_name'] = $row['office_name'];
     $_SESSION['user_type'] = $row['user_type'];
+    $_SESSION['is_department'] = $row['is_department'];
     
 
     if($row['user_type'] == 'Admin') {

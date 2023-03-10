@@ -4,7 +4,7 @@
     header("location: ../student_login.php");
     exit();
     }
-
+    
 ?>
 
 <!DOCTYPE html>
