@@ -15,7 +15,7 @@
                 <h1>NMSC <span class="warning">ONLINE</span>  CLEARANCE SYSTEM</h1>
                 <p>View clearance requirements virtually and submit what is required. All in your hands!</p>
                 <h3>No line &ensp; |  &ensp; Stress-free &ensp; |  &ensp; Fast transaction</h3>
-                <a href="">Get started</a>
+                <a href="student_clearance.php">Get started</a>
                 
             </div>
             <div class="right-title-container">

@@ -1,7 +1,7 @@
 <?php
 
 require ('../dbconnect.php');
-
+require ('phpmailer.php');
 
 $office_id    = $_POST['office_id'];
 $sy_sem_id  = $_POST['sy_sem_id'];
@@ -21,8 +21,23 @@ $data = array(
 
 $insert = $db->insert('signing_office', $data);
 
+$conn = mysqli_connect('localhost', 'root', '', 'clearance');
+
+
+$sql = "SELECT * FROM new_signing_offices WHERE office_id = '$office_id'";
+$result = mysqli_query($conn,$sql);
+$row = mysqli_fetch_assoc($result);
+
+$office_email = $row['office_email'];
+$clearance_type_name = $row['clearance_type_name'];
+$sem_name = $row['sem_name'];
+$school_year_and_sem = $row['school_year_and_sem'];
+$clearance = strtolower($clearance_type_name);
+
+sendEmail($office_email,"Clearance System Role Update","You have been set as a signing office of $clearance clearance type in school year $school_year_and_sem $sem_name.");
+
 if ($db->affected_rows >= 0) {
-    header("location: signing_office.php");
+    // header("location: signing_office.php");
 } else {
     echo 'Error inserting user account.';
 }

@@ -2,6 +2,27 @@
     include_once 'header.php';
     // $users = $db->result('student_details');
 
+    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+
+    if($conn->connect_error){
+        echo $conn->connect_error;
+    }
+    
+    if(!isset($_GET['student_id'])){
+        echo "<h1>There's an error while viewing details.</h1>";
+    }else{
+        $student_id = $_GET['student_id'];
+
+        $list_of_clearance = $db->result('view_clearance','student_id = "'.$student_id.'"');
+
+        $sql = "SELECT * FROM student_details WHERE student_id = '$student_id'";
+        $students = $conn->query($sql) or die($conn->error);
+        $row = $students->fetch_assoc();
+
+        $student_id = $row['student_id'];
+        $student_first_name = $row['student_first_name'];
+        $student_last_name = $row['student_last_name'];
+    }
     
 ?>
     <div class="container-student">
@@ -43,10 +64,14 @@
                 <!-- -------------  TABLE OF STUDENT INFORMATION -------------- -->
                 <div class="recent-orders-student">
                     <div class="add-button-container">
-
+                        <a href="student_view.php?details=<?= $student_id?>">
+                            <button id="back-button-to-student">
+                                <span class="material-symbols-sharp">arrow_back</span>
+                            </button>
+                        </a>
                         <div class="h2-container">
                             <h3>Clearance of</h3>
-                            <h2>AL CEDRIC DARIO</h2>
+                            <h2><?= $student_first_name." ".$student_last_name; ?></h2>
                         </div>
                         
                     </div>
@@ -59,15 +84,21 @@
                                         <th>Clearance Type</th>
                                         <th>Status</th>
                                         <th>Remarks</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php foreach($list_of_clearance as $clearance):?>
                                     <tr>
-                                        <td>2019-2222</td>
-                                        <td>Gradwaiting</td>
-                                        <td>Cleared</td>
+                                        <td><?= $clearance->school_year_and_sem." ".$clearance->sem_name; ?></td>
+                                        <td><?= $clearance->clearance_type_name; ?></td>
+                                        <td><?= $clearance->clearance_status ? 'Cleared' : 'Not Cleared';?></td>
                                         <td>Done</td>
+                                        <td class="primary table-action-container">
+                                        <a class="primary" href="clearance_view.php?sy_sem_id=<?= $clearance->sy_sem_id?>&clearance_type_id=<?= $clearance->clearance_type_id; ?>&sem_id=<?= $clearance->sem_id; ?>">View Details</a>
+                                        </td>
                                     </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
