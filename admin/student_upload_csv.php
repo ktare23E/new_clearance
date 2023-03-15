@@ -1,42 +1,91 @@
-<?php
 
-    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+<?php 
+    // $conn = mysqli_connect('localhost', 'root', '', 'clearance');
 
-        if(isset($_POST['import'])){
-            // Check if the file is a CSV file
-            $fileType = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
-            if($fileType != 'csv') {
-            echo "Error: Please upload a CSV file.";
-            return;
-            }
+    //     if(isset($_POST['import'])){
+    //         // Check if the file is a CSV file
+    //         $fileType = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
+    //         if($fileType != 'csv') {
+    //         echo "Error: Please upload a CSV file.";
+    //         return;
+    //         }
         
-            $fileName = $_FILES['file']['tmp_name'];
+    //         $fileName = $_FILES['file']['tmp_name'];
         
-            if($_FILES['file']['size'] > 0){
-            $file = fopen($fileName, "r");
+    //         if($_FILES['file']['size'] > 0){
+    //         $file = fopen($fileName, "r");
         
-            while(($column = fgetcsv($file,1000,",")) !== FALSE){
-                // Check if the student already exists
-                $sqlCheck = "SELECT * FROM student WHERE student_id = '" . $column[0] . "'";
-                $resultCheck = mysqli_query($conn, $sqlCheck);
-                if(mysqli_num_rows($resultCheck) > 0) {
-                // Student already exists
-                echo '<a href="student.php">Go back</a><br>';
-                echo "Error: Student with ID " . $column[0] . " already exists in the database.";
-                return;
+    //         while(($column = fgetcsv($file,1000,",")) !== FALSE){
+    //             // Check if the student already exists
+    //             $sqlCheck = "SELECT * FROM student WHERE student_id = '" . $column[0] . "'";
+    //             $resultCheck = mysqli_query($conn, $sqlCheck);
+    //             if(mysqli_num_rows($resultCheck) > 0) {
+    //             // Student already exists
+    //             echo '<a href="student.php">Go back</a><br>';
+    //             echo "Error: Student with ID " . $column[0] . " already exists in the database.";
+    //             return;
+    //             }
+        
+    //             $sqlInsert = "INSERT into student (student_id, student_first_name, student_last_name,student_year, course_id, office_id, student_gender,student_email, student_username, student_password,student_status) VALUES ('".$column[0]."','".$column[1]."','".$column[2]."','".$column[3]."','".$column[4]."','".$column[5]."', '".$column[6]."', '".$column[7]."', '".$column[8]."', '".$column[9]."','".$column[10]."')";
+    //             $result = mysqli_query($conn, $sqlInsert);
+        
+    //             if(!empty($result)){
+    //             //echo "CSV File has been successfully Imported.";
+    //             header("Location:student.php");
+    //             }else{
+    //             echo "Problem in Importing CSV File.";
+    //             }
+    //         }
+    //     }
+    // }
+?>
+
+    <?php
+
+$conn = mysqli_connect('localhost', 'root', '', 'clearance');
+
+if (isset($_POST['import'])) {
+    // Check if the file is a CSV file
+    $fileType = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
+    if ($fileType != 'csv') {
+        echo "Error: Please upload a CSV file.";
+        return;
+    }
+
+    $fileName = $_FILES['file']['tmp_name'];
+
+    if ($_FILES['file']['size'] > 0) {
+        $file = fopen($fileName, "r");
+
+        while (($column = fgetcsv($file, 1000, ",")) !== FALSE) {
+            // Check if the student already exists
+            $sqlCheck = "SELECT * FROM student WHERE student_id = '" . $column[0] . "'";
+            $resultCheck = mysqli_query($conn, $sqlCheck);
+            if (mysqli_num_rows($resultCheck) > 0) {
+                // Student already exists, update existing data
+                $sqlUpdate = "UPDATE student SET student_id = '".$column[0]."', student_first_name = '" . $column[1] . "', student_last_name = '" . $column[2] . "', student_year = '" . $column[3] . "', course_id = '" . $column[4] . "', office_id = '" . $column[5] . "', student_gender = '" . $column[6] . "', student_email = '" . $column[7] . "', student_username = '" . $column[8] . "', student_password = '" . $column[9] . "', student_status = '" . $column[10] . "' WHERE student_id = '" . $column[0] . "'";
+                $result = mysqli_query($conn, $sqlUpdate);
+
+                if (!empty($result)) {
+                    //echo "CSV File has been successfully Imported.";
+                    header("Location:student.php");
+                } else {
+                    echo "Problem in updating existing data.";
                 }
-        
-                $sqlInsert = "INSERT into student (student_id, student_first_name, student_last_name,student_year, course_id, office_id, student_gender,student_email, student_username, student_password,student_status) VALUES ('".$column[0]."','".$column[1]."','".$column[2]."','".$column[3]."','".$column[4]."','".$column[5]."', '".$column[6]."', '".$column[7]."', '".$column[8]."', '".$column[9]."','".$column[10]."')";
+            } else {
+                // Insert new student data
+                $sqlInsert = "INSERT into student (student_id, student_first_name, student_last_name,student_year, course_id, office_id, student_gender,student_email, student_username, student_password,student_status) VALUES ('" . $column[0] . "','" . $column[1] . "','" . $column[2] . "','" . $column[3] . "','" . $column[4] . "','" . $column[5] . "', '" . $column[6] . "', '" . $column[7] . "', '" . $column[8] . "', '" . $column[9] . "','" . $column[10] . "')";
                 $result = mysqli_query($conn, $sqlInsert);
-        
-                if(!empty($result)){
-                //echo "CSV File has been successfully Imported.";
-                header("Location:student.php");
-                }else{
-                echo "Problem in Importing CSV File.";
+
+                if (!empty($result)) {
+                    //echo "CSV File has been successfully Imported.";
+                    header("Location:student.php");
+                } else {
+                    echo "Problem in Importing CSV File.";
                 }
             }
         }
     }
-    ?>
+}
+?>
 

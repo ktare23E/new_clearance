@@ -19,6 +19,7 @@
         $student_email = $row['student_email'];
         $student_gender = $row['student_gender'];
         $student_status = $row['student_status'];
+        $course_id = $row['course_id'];
         $course_name = $row['course_name'];
         $office_id = $row['office_id'];
         $office_name = $row['office_name'];
