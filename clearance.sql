@@ -31,16 +31,18 @@ CREATE TABLE `admin` (
   `office_id` int(11) NOT NULL,
   `department_id` int(1) NOT NULL,
   PRIMARY KEY (`admin_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `admin` */
 
 insert  into `admin`(`admin_id`,`admin_name`,`admin_username`,`admin_password`,`isloggedin`,`user_type`,`date_registered`,`office_id`,`department_id`) values 
 (9,'Kristian Tare','kristian123','123','','Office Admin','2022-12-16 06:00:07',10,0),
-(10,'Phoebe Ladua','phoebe23','123','','Office Admin','2022-12-16 06:03:52',12,0),
 (11,'Admin','admin','admin54E','','Admin','2022-12-18 18:43:23',14,0),
 (12,'Invoker','invokelist123','123','','Office Admin','2022-12-20 19:53:37',11,0),
-(13,'Jesha Pondoc','jesha43','123','','Office Admin','2023-01-02 17:19:08',15,0);
+(13,'Jesha Pondoc','jesha43','123','','Office Admin','2023-01-02 17:19:08',15,0),
+(14,'Yongco','yongco123','123','','Office Admin','2023-02-03 15:46:34',16,0),
+(15,'Al Cedric Dario','dario123','123','','Office Admin','2023-02-03 15:51:40',13,0),
+(16,'Phoebe Ladua','phoebe23','123','','Office Admin','2023-02-03 15:55:24',17,0);
 
 /*Table structure for table `clearance` */
 
@@ -48,27 +50,24 @@ DROP TABLE IF EXISTS `clearance`;
 
 CREATE TABLE `clearance` (
   `clearance_id` int(11) NOT NULL AUTO_INCREMENT,
-  `clearance_status` tinyint(1) NOT NULL,
-  `date_created` date NOT NULL,
-  `date_cleared` date NOT NULL,
-  `is_locked` tinyint(1) NOT NULL,
+  `clearance_status` varchar(11) NOT NULL,
   `student_id` varchar(75) NOT NULL,
   `sy_sem_id` int(11) NOT NULL,
+  `sem_id` int(11) NOT NULL,
   `clearance_type_id` int(11) NOT NULL,
   `course_id` int(11) NOT NULL,
   `office_id` int(11) NOT NULL,
+  `date_created` varchar(75) NOT NULL,
+  `date_cleared` date NOT NULL,
+  `is_locked` tinyint(1) NOT NULL,
   PRIMARY KEY (`clearance_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `clearance` */
 
-insert  into `clearance`(`clearance_id`,`clearance_status`,`date_created`,`date_cleared`,`is_locked`,`student_id`,`sy_sem_id`,`clearance_type_id`,`course_id`,`office_id`) values 
-(27,1,'2022-12-27','0000-00-00',0,'2019-2023',1,2,10,12),
-(28,1,'2022-12-13','0000-00-00',0,'2019-2023',3,4,10,12),
-(29,1,'2022-12-20','0000-00-00',0,'2019-2023',3,4,10,12),
-(30,1,'2022-12-20','0000-00-00',0,'2019-70227',1,1,10,12),
-(31,0,'2022-12-20','0000-00-00',0,'2019-70227',4,4,10,12),
-(32,1,'2023-01-02','0000-00-00',0,'2018-2414',3,4,13,13);
+insert  into `clearance`(`clearance_id`,`clearance_status`,`student_id`,`sy_sem_id`,`sem_id`,`clearance_type_id`,`course_id`,`office_id`,`date_created`,`date_cleared`,`is_locked`) values 
+(47,'1','2019-70227',1,2,1,15,17,'2023-03-09','0000-00-00',0),
+(48,'1','2019-70227',3,1,4,15,17,'2023-03-10','0000-00-00',0);
 
 /*Table structure for table `clearance_details` */
 
@@ -118,15 +117,15 @@ CREATE TABLE `course` (
   `course_description` varchar(1000) NOT NULL,
   `office_id` int(11) NOT NULL,
   PRIMARY KEY (`course_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `course` */
 
 insert  into `course`(`course_id`,`course_name`,`course_status`,`course_description`,`office_id`) values 
-(10,'Bachelor of Science in Information Technology','Active','',12),
-(11,'Bachelor of Science in Information System','Active','',12),
 (12,'Bachelor of Science in Biology','Active','',13),
-(13,'AB PolScie','Active','',13);
+(13,'AB PolScie','Active','',13),
+(14,'Bachelor of Science in Information System','Active','This is the course for IS',17),
+(15,'Bachelor of Science in Information Technology','Active','This is the course for IT',17);
 
 /*Table structure for table `department` */
 
@@ -164,17 +163,18 @@ CREATE TABLE `office` (
   `office_status` varchar(75) NOT NULL,
   `is_department` tinyint(1) NOT NULL,
   PRIMARY KEY (`office_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `office` */
 
 insert  into `office`(`office_id`,`office_name`,`office_email`,`office_phone_number`,`office_description`,`office_status`,`is_department`) values 
-(10,'Accounting Office','accounting@gmail.com','09232414221','This is the office of Accounting','Active',0),
-(11,'School of Business Administration and Management','sbam@gmail.com','0923241234','This is the school of SBAM.','Active',1),
-(12,'School of Information and Technology','sict@gmail.com','09232488237','This is the school for the school of information and Technology.','Active',1),
-(13,'School of Arts and Sciences','sas@gmail.com','092342242','This is the department of SAS.','Active',1),
-(14,'System Administrator','admin@gmail.com','09150468327','This is the office of system administrator','Active',0),
-(15,'Cahier','cashier@gmail.com','092324123232','This is the office of the cashier.','Active',0);
+(10,'Accounting Office','tare.kristian@gmail.com','09232414221','This is the office of Accounting','Inactive',0),
+(11,'School of Business Administration and Management','tare.kristian@gmail.com','0923241234','This is the school of SBAM.','Active',1),
+(13,'School of Arts and Sciences','tare.kristian@gmail.com','092342242','This is the department of SAS.','Active',1),
+(14,'System Administrator','tare.kristian@gmail.com','09150468327','This is the office of system administrator','Active',0),
+(15,'Cahier','tare.kristian@gmail.com','092324123232','This is the office of the cashier.','Active',0),
+(16,'OSA','tare.kristian@gmail.com','09123131321','This is the office for the OSA.','Active',0),
+(17,'School of Information Communication and Technology','tare.kristian@gmail.com','0912312343','This is the office of SICT','Active',1);
 
 /*Table structure for table `office_account waly apil` */
 
@@ -205,26 +205,33 @@ CREATE TABLE `requirement` (
   `requirement_details` varchar(255) NOT NULL,
   `signing_office_id` int(11) NOT NULL,
   `sy_sem_id` int(11) NOT NULL,
+  `sem_id` int(11) NOT NULL,
   `student_id` varchar(75) NOT NULL,
   `clearance_type_id` int(11) NOT NULL,
   `is_complied` tinyint(1) NOT NULL,
-  `date_cleared` datetime DEFAULT NULL,
+  `date_cleared` date NOT NULL,
   PRIMARY KEY (`requirement_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `requirement` */
 
-insert  into `requirement`(`requirement_id`,`requirement_details`,`signing_office_id`,`sy_sem_id`,`student_id`,`clearance_type_id`,`is_complied`,`date_cleared`) values 
-(11,'Kiss ko papi dario',43,1,'2019-2023',2,1,'2022-12-20 16:59:18'),
-(12,'This is the requirements for the accounting office.',45,1,'2019-2023',4,1,'2022-12-19 17:00:20'),
-(13,'This is sbam requirements for 2nd semester of 2022-2023 semester year.',44,3,'2019-2023',4,0,'2022-12-22 17:00:24'),
-(15,'This is for you Kristian.',45,1,'2019-70227',1,0,'2022-12-21 17:08:39'),
-(16,'This is KRistian Tare.',43,1,'2019-70227',4,0,NULL),
-(17,'This is for Kristian Tare 2.',43,4,'2019-70227',4,0,NULL),
-(18,'This is for Kristian 3.',43,4,'2019-70227',4,0,NULL),
-(19,'This is for Kristian 4.',43,4,'2019-70227',4,0,NULL),
-(20,'This is the requirements of doday in cashier.',47,3,'2018-2414',4,0,NULL),
-(23,'Doday is my idol.',47,4,'2018-2414',4,0,NULL);
+/*Table structure for table `sem` */
+
+DROP TABLE IF EXISTS `sem`;
+
+CREATE TABLE `sem` (
+  `sem_id` int(11) NOT NULL AUTO_INCREMENT,
+  `sem_name` varchar(75) NOT NULL,
+  PRIMARY KEY (`sem_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `sem` */
+
+insert  into `sem`(`sem_id`,`sem_name`) values 
+(1,'1st Semester'),
+(2,'2nd Semester'),
+(3,'Summer'),
+(4,'Trimester');
 
 /*Table structure for table `signing_office` */
 
@@ -240,17 +247,18 @@ CREATE TABLE `signing_office` (
   `is_locked` tinyint(1) NOT NULL,
   `status` varchar(75) NOT NULL,
   `date_cleared` datetime NOT NULL DEFAULT current_timestamp(),
+  `sem_id` int(11) NOT NULL,
   PRIMARY KEY (`signing_office_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `signing_office` */
 
-insert  into `signing_office`(`signing_office_id`,`office_id`,`sy_sem_id`,`admin_id`,`department_id`,`clearance_type_id`,`is_locked`,`status`,`date_cleared`) values 
-(43,12,1,9,0,1,0,'','2022-12-16 06:02:36'),
-(44,11,1,9,0,4,0,'','2022-12-16 06:08:54'),
-(45,10,3,9,0,2,0,'','2022-12-20 14:38:12'),
-(46,10,3,9,0,4,0,'','2022-12-20 14:38:34'),
-(47,15,3,12,0,4,0,'','2023-01-02 17:17:34');
+insert  into `signing_office`(`signing_office_id`,`office_id`,`sy_sem_id`,`admin_id`,`department_id`,`clearance_type_id`,`is_locked`,`status`,`date_cleared`,`sem_id`) values 
+(50,10,1,9,0,1,0,'','2023-02-03 14:19:07',2),
+(51,15,1,13,0,1,0,'','2023-02-03 15:42:18',2),
+(55,16,1,14,0,4,0,'','2023-03-09 14:35:24',1),
+(56,13,1,15,0,4,0,'','2023-03-09 15:09:18',1),
+(75,17,1,16,0,1,0,'','2023-03-15 08:19:53',2);
 
 /*Table structure for table `student` */
 
@@ -275,12 +283,12 @@ CREATE TABLE `student` (
 /*Data for the table `student` */
 
 insert  into `student`(`student_id`,`student_first_name`,`student_last_name`,`student_year`,`course_id`,`office_id`,`student_gender`,`student_email`,`student_username`,`student_password`,`student_status`,`student_profile`) values 
-('2018-2414','Abby Gale','Rondina','3rd Year',13,13,'Male','doday@gmail.com','2018-2414','123','Active','1672651460doday.jpg'),
-('2019-2023','Al Cedric','Dario','2nd Year',10,12,'Female','alcedric@gmail.com','2019-2023','123','Active','63a1647997ee3.png'),
-('2019-70227','Kristian Kharl','Tare','4th Year',10,12,'Male','tare.kristian@gmail.com','2019-70227','123','Active','1671191358tars.jpg'),
-('2019-80074','Sahinamie','Camasura','4th Year',11,12,'Female','sahinamie@gmail.com','2019-80074','123','Active','1672828796porf.jpg'),
-('2020-3234','Phoebe','Ladua','4th Year',12,13,'Female','phoebe@gmail.com','2020-3234','123','Inactive','1671932689312491292_508684841138118_7881797655818735404_n.jpg'),
-('﻿2019-87283','John ','Doe','3rd Year',13,13,'Male','john@gmail.com','2019-87283','123','Inactive','63a7b8b7dd32a.jpg');
+('2018-2414','Abby Gale','Rondina','3rd Year',10,13,'Male','doday@gmail.com','2018-2414','123','Inactive','1672651460doday.jpg'),
+('2019-2014','Lebron','Siglos','2nd Year',13,11,'Male','lebron@gmail.com','2019-2014','123','Active','1678078178tulips.jpg'),
+('2019-70227','Kristian Kharl','Tare','4th Year',15,17,'Male','tare.kristian@gmail.com','2019-70227','123','Active','6409784822934.jpg'),
+('2020-3234','Phoebe','Ladua','4th Year',12,13,'Female','phoebe@gmail.com','2020-3234','123','Active','1671932689312491292_508684841138118_7881797655818735404_n.jpg'),
+('﻿2019-70227','Preach','Tare23','4th Year',15,17,'Male','tare.kristian@gmail.com','2019-70227Dario','123','Active',''),
+('﻿2019-87283','John ','Doe','3rd Year',13,13,'Male','john@gmail.com','2019-87283','123','Active','63a7b8b7dd32a.jpg');
 
 /*Table structure for table `sy_sem` */
 
@@ -290,15 +298,18 @@ CREATE TABLE `sy_sem` (
   `sy_sem_id` int(11) NOT NULL AUTO_INCREMENT,
   `school_year_and_sem` varchar(75) NOT NULL,
   `status` varchar(75) NOT NULL,
+  `sem_id` int(11) NOT NULL,
   PRIMARY KEY (`sy_sem_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sy_sem` */
 
-insert  into `sy_sem`(`sy_sem_id`,`school_year_and_sem`,`status`) values 
-(1,'2022-2023 1st Semester','Active'),
-(3,'2022-2023 2nd Semester','Active'),
-(4,'2024-2025 1st Sem','Active');
+insert  into `sy_sem`(`sy_sem_id`,`school_year_and_sem`,`status`,`sem_id`) values 
+(1,'2022-2023 ','Active',4),
+(3,'2023-2024','Active',3),
+(4,'2024-2025 ','Active',2),
+(5,'2025-2026','Inactive',4),
+(6,'2026-2027','Inactive',1);
 
 /*Table structure for table `upload` */
 
@@ -329,7 +340,8 @@ DROP TABLE IF EXISTS `admin_account`;
  `date_registered` timestamp ,
  `user_type` varchar(75) ,
  `office_id` int(11) ,
- `office_name` varchar(75) 
+ `office_name` varchar(75) ,
+ `is_department` tinyint(1) 
 )*/;
 
 /*Table structure for table `course_view` */
@@ -376,8 +388,14 @@ DROP TABLE IF EXISTS `new_signing_offices`;
 
 /*!50001 CREATE TABLE  `new_signing_offices`(
  `signing_office_id` int(11) ,
+ `office_id` int(11) ,
  `office_name` varchar(75) ,
+ `office_email` varchar(75) ,
+ `sy_sem_id` int(11) ,
  `school_year_and_sem` varchar(75) ,
+ `sem_id` int(11) ,
+ `sem_name` varchar(75) ,
+ `admin_id` int(11) ,
  `admin_name` varchar(75) ,
  `clearance_type_name` varchar(75) ,
  `clearance_type_id` int(11) 
@@ -395,6 +413,7 @@ DROP TABLE IF EXISTS `new_student`;
  `student_first_name` varchar(75) ,
  `student_last_name` varchar(75) ,
  `student_year` varchar(75) ,
+ `course_id` int(11) ,
  `course_name` varchar(225) ,
  `student_status` varchar(75) ,
  `office_name` varchar(75) ,
@@ -415,17 +434,33 @@ DROP TABLE IF EXISTS `requirement_view`;
  `requirement_id` int(11) ,
  `requirement_details` varchar(255) ,
  `is_complied` tinyint(1) ,
- `date_cleared` datetime ,
+ `date_cleared` date ,
  `signing_office_id` int(11) ,
  `office_id` int(11) ,
  `office_name` varchar(75) ,
  `sy_sem_id` int(11) ,
  `school_year_and_sem` varchar(75) ,
+ `status` varchar(75) ,
  `student_id` varchar(75) ,
  `student_first_name` varchar(75) ,
  `student_last_name` varchar(75) ,
  `clearance_type_id` int(11) ,
  `clearance_type_name` varchar(75) 
+)*/;
+
+/*Table structure for table `school_year` */
+
+DROP TABLE IF EXISTS `school_year`;
+
+/*!50001 DROP VIEW IF EXISTS `school_year` */;
+/*!50001 DROP TABLE IF EXISTS `school_year` */;
+
+/*!50001 CREATE TABLE  `school_year`(
+ `sy_sem_id` int(11) ,
+ `school_year_and_sem` varchar(75) ,
+ `sem_id` int(11) ,
+ `status` varchar(75) ,
+ `sem_name` varchar(75) 
 )*/;
 
 /*Table structure for table `student_details` */
@@ -440,6 +475,7 @@ DROP TABLE IF EXISTS `student_details`;
  `student_first_name` varchar(75) ,
  `student_last_name` varchar(75) ,
  `student_year` varchar(75) ,
+ `course_id` int(11) ,
  `course_name` varchar(225) ,
  `student_status` varchar(75) ,
  `office_id` int(11) ,
@@ -464,14 +500,19 @@ DROP TABLE IF EXISTS `view_clearance`;
  `student_first_name` varchar(75) ,
  `student_last_name` varchar(75) ,
  `student_year` varchar(75) ,
+ `course_id` int(11) ,
  `course_name` varchar(225) ,
+ `office_id` int(11) ,
  `office_name` varchar(75) ,
+ `is_department` tinyint(1) ,
  `sy_sem_id` int(11) ,
  `school_year_and_sem` varchar(75) ,
+ `sem_id` int(11) ,
+ `sem_name` varchar(75) ,
  `clearance_type_id` int(11) ,
  `clearance_type_name` varchar(75) ,
- `clearance_status` tinyint(1) ,
- `date_created` date ,
+ `clearance_status` varchar(11) ,
+ `date_created` varchar(75) ,
  `date_cleared` date 
 )*/;
 
@@ -480,7 +521,7 @@ DROP TABLE IF EXISTS `view_clearance`;
 /*!50001 DROP TABLE IF EXISTS `admin_account` */;
 /*!50001 DROP VIEW IF EXISTS `admin_account` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `admin_account` AS select `admin`.`admin_id` AS `admin_id`,`admin`.`admin_name` AS `admin_name`,`admin`.`admin_username` AS `admin_username`,`admin`.`admin_password` AS `admin_password`,`admin`.`date_registered` AS `date_registered`,`admin`.`user_type` AS `user_type`,`office`.`office_id` AS `office_id`,`office`.`office_name` AS `office_name` from (`admin` join `office`) where `admin`.`office_id` = `office`.`office_id` */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `admin_account` AS select `admin`.`admin_id` AS `admin_id`,`admin`.`admin_name` AS `admin_name`,`admin`.`admin_username` AS `admin_username`,`admin`.`admin_password` AS `admin_password`,`admin`.`date_registered` AS `date_registered`,`admin`.`user_type` AS `user_type`,`office`.`office_id` AS `office_id`,`office`.`office_name` AS `office_name`,`office`.`is_department` AS `is_department` from (`admin` join `office`) where `admin`.`office_id` = `office`.`office_id` */;
 
 /*View structure for view course_view */
 
@@ -501,35 +542,42 @@ DROP TABLE IF EXISTS `view_clearance`;
 /*!50001 DROP TABLE IF EXISTS `new_signing_offices` */;
 /*!50001 DROP VIEW IF EXISTS `new_signing_offices` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `new_signing_offices` AS select `signing_office`.`signing_office_id` AS `signing_office_id`,`office`.`office_name` AS `office_name`,`sy_sem`.`school_year_and_sem` AS `school_year_and_sem`,`admin`.`admin_name` AS `admin_name`,`clearance_type`.`clearance_type_name` AS `clearance_type_name`,`clearance_type`.`clearance_type_id` AS `clearance_type_id` from ((((`signing_office` join `office` on(`signing_office`.`office_id` = `office`.`office_id`)) join `sy_sem` on(`signing_office`.`sy_sem_id` = `sy_sem`.`sy_sem_id`)) join `admin` on(`signing_office`.`admin_id` = `admin`.`admin_id`)) join `clearance_type` on(`signing_office`.`clearance_type_id` = `clearance_type`.`clearance_type_id`)) */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `new_signing_offices` AS select `signing_office`.`signing_office_id` AS `signing_office_id`,`office`.`office_id` AS `office_id`,`office`.`office_name` AS `office_name`,`office`.`office_email` AS `office_email`,`sy_sem`.`sy_sem_id` AS `sy_sem_id`,`sy_sem`.`school_year_and_sem` AS `school_year_and_sem`,`sem`.`sem_id` AS `sem_id`,`sem`.`sem_name` AS `sem_name`,`admin`.`admin_id` AS `admin_id`,`admin`.`admin_name` AS `admin_name`,`clearance_type`.`clearance_type_name` AS `clearance_type_name`,`clearance_type`.`clearance_type_id` AS `clearance_type_id` from (((((`signing_office` join `office` on(`signing_office`.`office_id` = `office`.`office_id`)) join `sy_sem` on(`signing_office`.`sy_sem_id` = `sy_sem`.`sy_sem_id`)) join `sem` on(`signing_office`.`sem_id` = `sem`.`sem_id`)) join `admin` on(`signing_office`.`admin_id` = `admin`.`admin_id`)) join `clearance_type` on(`signing_office`.`clearance_type_id` = `clearance_type`.`clearance_type_id`)) */;
 
 /*View structure for view new_student */
 
 /*!50001 DROP TABLE IF EXISTS `new_student` */;
 /*!50001 DROP VIEW IF EXISTS `new_student` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `new_student` AS select `student`.`student_id` AS `student_id`,`student`.`student_first_name` AS `student_first_name`,`student`.`student_last_name` AS `student_last_name`,`student`.`student_year` AS `student_year`,`course`.`course_name` AS `course_name`,`student`.`student_status` AS `student_status`,`office`.`office_name` AS `office_name`,`student`.`student_gender` AS `student_gender`,`student`.`student_email` AS `student_email`,`student`.`student_username` AS `student_username`,`student`.`student_password` AS `student_password` from ((`student` join `course` on(`student`.`course_id` = `course`.`course_id`)) join `office` on(`student`.`office_id` = `office`.`office_id`)) */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `new_student` AS select `student`.`student_id` AS `student_id`,`student`.`student_first_name` AS `student_first_name`,`student`.`student_last_name` AS `student_last_name`,`student`.`student_year` AS `student_year`,`course`.`course_id` AS `course_id`,`course`.`course_name` AS `course_name`,`student`.`student_status` AS `student_status`,`office`.`office_name` AS `office_name`,`student`.`student_gender` AS `student_gender`,`student`.`student_email` AS `student_email`,`student`.`student_username` AS `student_username`,`student`.`student_password` AS `student_password` from ((`student` join `course` on(`student`.`course_id` = `course`.`course_id`)) join `office` on(`student`.`office_id` = `office`.`office_id`)) */;
 
 /*View structure for view requirement_view */
 
 /*!50001 DROP TABLE IF EXISTS `requirement_view` */;
 /*!50001 DROP VIEW IF EXISTS `requirement_view` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `requirement_view` AS select `requirement`.`requirement_id` AS `requirement_id`,`requirement`.`requirement_details` AS `requirement_details`,`requirement`.`is_complied` AS `is_complied`,`requirement`.`date_cleared` AS `date_cleared`,`signing_office`.`signing_office_id` AS `signing_office_id`,`office`.`office_id` AS `office_id`,`office`.`office_name` AS `office_name`,`sy_sem`.`sy_sem_id` AS `sy_sem_id`,`sy_sem`.`school_year_and_sem` AS `school_year_and_sem`,`student`.`student_id` AS `student_id`,`student`.`student_first_name` AS `student_first_name`,`student`.`student_last_name` AS `student_last_name`,`clearance_type`.`clearance_type_id` AS `clearance_type_id`,`clearance_type`.`clearance_type_name` AS `clearance_type_name` from (((((`requirement` join `signing_office` on(`requirement`.`signing_office_id` = `signing_office`.`signing_office_id`)) join `office` on(`signing_office`.`office_id` = `office`.`office_id`)) join `sy_sem` on(`requirement`.`sy_sem_id` = `sy_sem`.`sy_sem_id`)) join `student` on(`requirement`.`student_id` = `student`.`student_id`)) join `clearance_type` on(`requirement`.`clearance_type_id` = `clearance_type`.`clearance_type_id`)) */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `requirement_view` AS select `requirement`.`requirement_id` AS `requirement_id`,`requirement`.`requirement_details` AS `requirement_details`,`requirement`.`is_complied` AS `is_complied`,`requirement`.`date_cleared` AS `date_cleared`,`signing_office`.`signing_office_id` AS `signing_office_id`,`office`.`office_id` AS `office_id`,`office`.`office_name` AS `office_name`,`sy_sem`.`sy_sem_id` AS `sy_sem_id`,`sy_sem`.`school_year_and_sem` AS `school_year_and_sem`,`sy_sem`.`status` AS `status`,`student`.`student_id` AS `student_id`,`student`.`student_first_name` AS `student_first_name`,`student`.`student_last_name` AS `student_last_name`,`clearance_type`.`clearance_type_id` AS `clearance_type_id`,`clearance_type`.`clearance_type_name` AS `clearance_type_name` from (((((`requirement` join `signing_office` on(`requirement`.`signing_office_id` = `signing_office`.`signing_office_id`)) join `office` on(`signing_office`.`office_id` = `office`.`office_id`)) join `sy_sem` on(`requirement`.`sy_sem_id` = `sy_sem`.`sy_sem_id`)) join `student` on(`requirement`.`student_id` = `student`.`student_id`)) join `clearance_type` on(`requirement`.`clearance_type_id` = `clearance_type`.`clearance_type_id`)) */;
+
+/*View structure for view school_year */
+
+/*!50001 DROP TABLE IF EXISTS `school_year` */;
+/*!50001 DROP VIEW IF EXISTS `school_year` */;
+
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `school_year` AS select `sy_sem`.`sy_sem_id` AS `sy_sem_id`,`sy_sem`.`school_year_and_sem` AS `school_year_and_sem`,`sy_sem`.`sem_id` AS `sem_id`,`sy_sem`.`status` AS `status`,`sem`.`sem_name` AS `sem_name` from (`sy_sem` join `sem` on(`sy_sem`.`sem_id` = `sem`.`sem_id`)) */;
 
 /*View structure for view student_details */
 
 /*!50001 DROP TABLE IF EXISTS `student_details` */;
 /*!50001 DROP VIEW IF EXISTS `student_details` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `student_details` AS select `student`.`student_id` AS `student_id`,`student`.`student_first_name` AS `student_first_name`,`student`.`student_last_name` AS `student_last_name`,`student`.`student_year` AS `student_year`,`course`.`course_name` AS `course_name`,`student`.`student_status` AS `student_status`,`office`.`office_id` AS `office_id`,`office`.`office_name` AS `office_name`,`student`.`student_gender` AS `student_gender`,`student`.`student_email` AS `student_email`,`student`.`student_username` AS `student_username`,`student`.`student_password` AS `student_password`,`student`.`student_profile` AS `student_profile` from ((`student` join `course` on(`student`.`course_id` = `course`.`course_id`)) join `office` on(`student`.`office_id` = `office`.`office_id`)) */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `student_details` AS select `student`.`student_id` AS `student_id`,`student`.`student_first_name` AS `student_first_name`,`student`.`student_last_name` AS `student_last_name`,`student`.`student_year` AS `student_year`,`course`.`course_id` AS `course_id`,`course`.`course_name` AS `course_name`,`student`.`student_status` AS `student_status`,`office`.`office_id` AS `office_id`,`office`.`office_name` AS `office_name`,`student`.`student_gender` AS `student_gender`,`student`.`student_email` AS `student_email`,`student`.`student_username` AS `student_username`,`student`.`student_password` AS `student_password`,`student`.`student_profile` AS `student_profile` from ((`student` join `course` on(`student`.`course_id` = `course`.`course_id`)) join `office` on(`student`.`office_id` = `office`.`office_id`)) */;
 
 /*View structure for view view_clearance */
 
 /*!50001 DROP TABLE IF EXISTS `view_clearance` */;
 /*!50001 DROP VIEW IF EXISTS `view_clearance` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_clearance` AS select `clearance`.`clearance_id` AS `clearance_id`,`student`.`student_id` AS `student_id`,`student`.`student_first_name` AS `student_first_name`,`student`.`student_last_name` AS `student_last_name`,`student`.`student_year` AS `student_year`,`course`.`course_name` AS `course_name`,`office`.`office_name` AS `office_name`,`sy_sem`.`sy_sem_id` AS `sy_sem_id`,`sy_sem`.`school_year_and_sem` AS `school_year_and_sem`,`clearance_type`.`clearance_type_id` AS `clearance_type_id`,`clearance_type`.`clearance_type_name` AS `clearance_type_name`,`clearance`.`clearance_status` AS `clearance_status`,`clearance`.`date_created` AS `date_created`,`clearance`.`date_cleared` AS `date_cleared` from (((((`clearance` join `student` on(`clearance`.`student_id` = `student`.`student_id`)) join `course` on(`clearance`.`course_id` = `course`.`course_id`)) join `office` on(`clearance`.`office_id` = `office`.`office_id`)) join `sy_sem` on(`clearance`.`sy_sem_id` = `sy_sem`.`sy_sem_id`)) join `clearance_type` on(`clearance`.`clearance_type_id` = `clearance_type`.`clearance_type_id`)) */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_clearance` AS select `clearance`.`clearance_id` AS `clearance_id`,`student`.`student_id` AS `student_id`,`student`.`student_first_name` AS `student_first_name`,`student`.`student_last_name` AS `student_last_name`,`student`.`student_year` AS `student_year`,`course`.`course_id` AS `course_id`,`course`.`course_name` AS `course_name`,`office`.`office_id` AS `office_id`,`office`.`office_name` AS `office_name`,`office`.`is_department` AS `is_department`,`sy_sem`.`sy_sem_id` AS `sy_sem_id`,`sy_sem`.`school_year_and_sem` AS `school_year_and_sem`,`sem`.`sem_id` AS `sem_id`,`sem`.`sem_name` AS `sem_name`,`clearance_type`.`clearance_type_id` AS `clearance_type_id`,`clearance_type`.`clearance_type_name` AS `clearance_type_name`,`clearance`.`clearance_status` AS `clearance_status`,`clearance`.`date_created` AS `date_created`,`clearance`.`date_cleared` AS `date_cleared` from ((((((`clearance` join `student` on(`clearance`.`student_id` = `student`.`student_id`)) join `course` on(`clearance`.`course_id` = `course`.`course_id`)) join `office` on(`clearance`.`office_id` = `office`.`office_id`)) join `sy_sem` on(`clearance`.`sy_sem_id` = `sy_sem`.`sy_sem_id`)) join `sem` on(`clearance`.`sem_id` = `sem`.`sem_id`)) join `clearance_type` on(`clearance`.`clearance_type_id` = `clearance_type`.`clearance_type_id`)) */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
