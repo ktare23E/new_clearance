@@ -14,6 +14,8 @@
 
 $conn = mysqli_connect('localhost', 'root', '', 'clearance');
 
+$query = "SELECT * FROM sy_semester";
+
 if(isset($_POST['import'])){
     $fileName = $_FILES['file']['tmp_name'];
 

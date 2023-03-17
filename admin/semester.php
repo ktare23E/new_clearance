@@ -46,7 +46,7 @@
                 <div class="recent-orders-student">
                     <div class="add-button-container">
                         <div>
-                            <a href="sy_sem_registration.php">
+                            <a href="sem_registration.php">
                                 <button id="add-new-student">Add new Semester</button>
                             </a>
                         </div>

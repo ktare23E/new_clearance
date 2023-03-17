@@ -55,7 +55,7 @@
     
             </div>
 
-            <h1>School Year and Sem</h1>
+            <h1>School Year</h1>
 
             <div class="form-and-table-container">
 
@@ -69,7 +69,7 @@
                                 </button>
                             </a>
                         </div>
-                        <span class="title">Edit School Year and Sem Information</span>
+                        <span class="title">Edit School Year Information</span>
 
                     <form action="update_sy_sem.php" method="POST">
                         <div class="input-field-container">
@@ -78,7 +78,7 @@
                                 <input type="text" name="school_year_and_sem" placeholder="School Year" required value="<?php echo $school_year_and_sem; ?>">
                                 <i class="uil uil-user"></i>
                             </div>
-                            <div class="input-field">
+                            <!-- <div class="input-field">
                                 <label for="">Status</label>
                                     <select name="status" id="">
                                         <?php if($status === 'Active'):?>
@@ -92,8 +92,8 @@
                                                 <option value="Inactive">Inactive</option>
                                             <?php endif;?>
                                     </select>
-                            </div>
-                            <div class="input-field">
+                            </div> -->
+                            <!-- <div class="input-field">
                                 <label for="">Semester</label>
                         <select name="sem_id" id="">
                                 <?php $semesters = $db->result('sem');?>
@@ -101,7 +101,7 @@
                                     <option value="<?= $semester->sem_id ?>" <?= ($semester->sem_name == $sem_name)? "selected" : "" ?>><?= $semester->sem_name; ?></option>
                                 <?php endforeach; ?>
                         </select>
-                            </div>
+                            </div> -->
                             <!-- <div class="input-field">
                                     <label for="">Semester</label>
                                     <select name="sem_id" id="" required>
@@ -138,7 +138,7 @@
                             </div> -->
                         </div>
                         <div class="input-field button">
-                            <input type="submit" name="update" value="Update Sy and Sem">
+                            <input type="submit" name="update" value="Update School Year">
                         </div>
                 </form>
             </div>

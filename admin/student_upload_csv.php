@@ -48,6 +48,7 @@ if (isset($_POST['import'])) {
     // Check if the file is a CSV file
     $fileType = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
     if ($fileType != 'csv') {
+        echo "<a href='student.php'>Back</a><br>";
         echo "Error: Please upload a CSV file.";
         return;
     }
@@ -70,6 +71,7 @@ if (isset($_POST['import'])) {
                     //echo "CSV File has been successfully Imported.";
                     header("Location:student.php");
                 } else {
+                    echo "<a href='student.php'>Back</a><br>";
                     echo "Problem in updating existing data.";
                 }
             } else {
@@ -81,6 +83,7 @@ if (isset($_POST['import'])) {
                     //echo "CSV File has been successfully Imported.";
                     header("Location:student.php");
                 } else {
+                    echo "<a href='student.php'>Back</a><br>";
                     echo "Problem in Importing CSV File.";
                 }
             }

@@ -111,7 +111,7 @@
                                             <input type="file" name="file" accept=".csv" id="input-file">
                                             <select name="sy_sem_id2" id="">
                                                 <option default>Select School Year and Sem</option>
-                                                <?php $semesters = $db->result('sy_sem','status="Active"');?>
+                                                <?php $semesters = $db->result('school_year','status="Active"');?>
                                                 <?php foreach($semesters as $semester):?>
                                                 <?php if($semester->sy_sem_id == $sy_sem_id):?>  
                                                 <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem; ?></option>

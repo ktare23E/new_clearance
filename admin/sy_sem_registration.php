@@ -32,7 +32,7 @@
     
             </div>
 
-            <h1>School Year and Sem</h1>
+            <h1>School Year</h1>
 
             <div class="form-and-table-container">
 
@@ -47,7 +47,7 @@
                             </a>
                             
                         </div>
-                        <span class="title">Add New School Year and Sem</span>
+                        <span class="title">Add New School Year</span>
 
 
                         <form action="insert_sy_sem.php" method="POST">
@@ -58,30 +58,8 @@
                                     <i class="uil uil-user"></i>
                                 </div>
                             </div>
-                                <div class="input-field">
-                                    <i class="uil uil-bolt"></i>
-                                    <select name="status" id="">
-                                        <option value="Status">Status</option>
-                                        <option value="Active">Active</option>
-                                        <option value="Inactive">Inactive</option>
-                                    </select>
-                                </div>
-                                <div class="input-field">
-                                    <label for="">Semester</label>
-                                    <select name="sem_id" id="">
-                                        <option default>Select Semester</option>
-                                            <?php $semesters = $db->result('sem');?>
-                                            <?php foreach($semesters as $semester):?>
-                                            <?php if($semester->sem_id == $sem_id):?>  
-                                            <option value="<?= $semester->sem_id; ?>"><?= $semester->sem_name; ?></option>
-                                            <?php else:?>
-                                                <option value="<?= $semester->sem_id; ?>"><?= $semester->sem_name; ?></option>
-                                            <?php endif;?>
-                                            <?php endforeach; ?>
-                                    </select>
-                            </div>
                             <div class="input-field button">
-                                <input type="submit" value="Create School Year and Sem">
+                                <input type="submit" value="Create School Year">
                             </div>
                         </form>
                     </div>
