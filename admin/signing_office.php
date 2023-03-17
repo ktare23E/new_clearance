@@ -96,7 +96,7 @@
                             <?php foreach ($users as $user) : ?>
                             <tr>
                                 <td><?= $user->office_name; ?></td>
-                                <td><?= $user->school_year_and_sem.$user->sem_name; ?></td>
+                                <td><?= $user->school_year_and_sem.' '.$user->sem_name; ?></td>
                                 <td><?= $user->admin_name; ?></td>
                                 <td><?= $user->clearance_type_name; ?></td>
                                 <td class="primary table-action-container">

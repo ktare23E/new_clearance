@@ -9,12 +9,12 @@
         echo $conn->connect_error;
     }
     
-    if(!isset($_GET['sy_sem_id']) && !isset($_GET['clearance_type_id']) && !isset($_GET['sem_id'])){
+    if(!isset($_GET['clearance_progress_id']) && !isset($_GET['clearance_type_id'])){
         echo "<h1>There's an error while viewing details.</h1>";
     }else{
         $clearance_type_id = $_GET['clearance_type_id'];
-        $sy_sem_id = $_GET['sy_sem_id'];
-        $sql = "SELECT * FROM view_clearance WHERE clearance_type_id = '$clearance_type_id' AND sy_sem_id = '$sy_sem_id'";
+        $clearance_progress_id = $_GET['clearance_progress_id'];
+        $sql = "SELECT * FROM view_clearance WHERE clearance_type_id = '$clearance_type_id' AND clearance_progress_id = '$clearance_progress_id'";
         $students = $conn->query($sql) or die($conn->error);
         $row = $students->fetch_assoc();
     }
@@ -130,7 +130,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php   $users = $db->result('requirement_view','clearance_type_id = '.$clearance_type_id.' AND sy_sem_id = '.$sy_sem_id); ?>
+                                <?php   $users = $db->result('requirement_view','clearance_type_id = '.$clearance_type_id.' AND clearance_progress_id = '.$clearance_progress_id); ?>
                                     <?php foreach($users as $user):?>
                                     <tr>
                                     <tr>

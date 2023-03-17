@@ -1,166 +1,154 @@
 <?php
-    include_once 'header.php';
-    // $users1 = $db->result('office');
-    // $users = $db->result('offices');
+include_once 'header.php';
+// $users1 = $db->result('office');
+// $users = $db->result('offices');
 
 
 ?>
-    <div class="container-student">
-        <!-- sidebar -->
-        <?php
-                include_once 'aside.php';
-        ?>
-        <!------------------ END OF ASIDE ---------------->
+<div class="container-student">
+    <!-- sidebar -->
+    <?php
+    include_once 'aside.php';
+    ?>
+    <!------------------ END OF ASIDE ---------------->
 
-        <main class="main-student">
-            <div class="right">
-                <div class="top">
-                    <button id="menu-btn" class="menu-btn">
-                        <span class="material-symbols-sharp">menu</span>
-                    </button>
-                    <div class="theme-toggler">
-                        <span class="material-symbols-sharp active">light_mode</span>
-                        <span class="material-symbols-sharp">dark_mode</span>
+    <main class="main-student">
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn" class="menu-btn">
+                    <span class="material-symbols-sharp">menu</span>
+                </button>
+                <div class="theme-toggler">
+                    <span class="material-symbols-sharp active">light_mode</span>
+                    <span class="material-symbols-sharp">dark_mode</span>
+                </div>
+                <div class="profile">
+                    <div class="info">
+                        <p>Hey, <b>Daniel</b></p>
+                        <small class="text-muted">Admin</small>
                     </div>
-                    <div class="profile">
-                        <div class="info">
-                            <p>Hey, <b>Daniel</b></p>
-                            <small class="text-muted">Admin</small>
-                        </div>
-                        <div class="profile-photo">
-                            <img src="../images/profile-1.jpg" alt="">
-                        </div>
+                    <div class="profile-photo">
+                        <img src="../images/profile-1.jpg" alt="">
                     </div>
                 </div>
-                <!-- ========== END OF TOP ============= -->
-    
             </div>
+            <!-- ========== END OF TOP ============= -->
 
-            <h1>Clearance</h1>
+        </div>
 
-            <div class="form-and-table-container">
+        <h1>Clearance</h1>
 
-                <!-- -------------  STUDENT REGISTRATION FORM -------------- -->
-                <div class="student-registration">
-                    <div class="form signup">
-                        <div class="back-button">
-                            <a href="clearance.php">
-                                <button id="back-button-to-office">
+        <div class="form-and-table-container">
+
+            <!-- -------------  STUDENT REGISTRATION FORM -------------- -->
+            <div class="student-registration">
+                <div class="form signup">
+                    <div class="back-button">
+                        <a href="clearance.php">
+                            <button id="back-button-to-office">
                                 <span class="material-symbols-sharp">arrow_back</span>
                             </button>
-                            </a>
-                            
-                        </div>
-                        <span class="title">Add New Clearance</span>
-        
-                        <form action="insert_clearance.php" method="POST">
-                            <div class="input-field-container">
+                        </a>
+
+                    </div>
+                    <span class="title">Add New Clearance</span>
+
+                    <form action="insert_clearance.php" method="POST">
+                        <div class="input-field-container">
                             <div class="input-field sy-sem-select">
                                 <input type="text" name="student_id" placeholder="Student Id">
                             </div>
-                                <div class="input-field">
-                                    <label for="">Select School Year</label>
-                                    <select name="sy_sem_id" id="">
-                                            <option default>Select School Year</option>
-                                            <?php $school_year = $db->result('sy_sem','status = "Active"');?>
-                                            <?php foreach($school_year as $year):?>
-                                            <?php if($year->sy_sem_id == $sy_sem_id):?>  
-                                            <option value="<?= $year->sy_sem_id; ?>"><?= $year->school_year_and_sem; ?></option>
-                                            <?php else:?>
-                                                <option value="<?= $year->sy_sem_id; ?>"><?= $year->school_year_and_sem; ?></option>
-                                            <?php endif;?>
-                                            <?php endforeach; ?>
-                                    </select>
-                                </div>
-                                    <input type="hidden" name="clearance_status" value="1">
-                                    <div class="input-field">
-                                    <label for="">Semester</label>
-                                    <select name="sem_id" id="">
-                                        <option default>Select Semester</option>
-                                            <?php $semesters = $db->result('sem');?>
-                                            <?php foreach($semesters as $semester):?>
-                                            <?php if($semester->sem_id == $sem_id):?>  
-                                            <option value="<?= $semester->sem_id; ?>"><?= $semester->sem_name; ?></option>
-                                            <?php else:?>
-                                                <option value="<?= $semester->sem_id; ?>"><?= $semester->sem_name; ?></option>
-                                            <?php endif;?>
-                                            <?php endforeach; ?>
-                                    </select>
+                            <div class="input-field">
+                                <label for="">Select School Year</label>
+                                <select name="clearance_progress_id" id="">
+                                    <option default>Select School Year And Sem</option>
+                                    <?php $school_year = $db->result('clearance_progress_view', 'status = "Active"'); ?>
+                                    <?php foreach ($school_year as $year) : ?>
+                                        <?php if ($year->clearance_progress_id == $clearance_progress_id) : ?>
+                                            <option value="<?= $year->clearance_progress_id; ?>"><?= $year->school_year_and_sem . " " . $year->sem_name; ?></option>
+                                        <?php else : ?>
+                                            <option value="<?= $year->clearance_progress_id; ?>"><?= $year->school_year_and_sem . " " . $year->sem_name; ?></option>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
-                            </div>
-                            <div class="input-field-container">
-                                <div class="input-field">
-                                    <label for="">Course Name</label>
-                                    <select name="course_id" id="">
-                                            <option default>Select Course Name</option>
-                                            <?php $courses = $db->result('course');?>
-                                            <?php foreach($courses as $course):?>
-                                            <?php if($course->course_id == $course_id):?>  
+                            <input type="hidden" name="clearance_status" value="1">
+                            <div class="input-field">
+                                <label for="">Course Name</label>
+                                <select name="course_id" id="">
+                                    <option default>Select Course Name</option>
+                                    <?php $courses = $db->result('course'); ?>
+                                    <?php foreach ($courses as $course) : ?>
+                                        <?php if ($course->course_id == $course_id) : ?>
                                             <option value="<?= $course->course_id; ?>"><?= $course->course_name; ?></option>
-                                            <?php else:?>
-                                                <option value="<?= $course->course_id; ?>"><?= $course->course_name; ?></option>
-                                            <?php endif;?>
-                                            <?php endforeach; ?>
-                                    </select>
-                                </div>
-                                
-                                <div class="input-field">
-                                    <i class="uil uil-analysis"></i>
-                                    <select name="office_id" id="">
-                                            <option default="Select Department">Select Department</option>
-                                            <?php $offices = $db->result('office','is_department = 1');?>
-                                            <?php foreach($offices as $office):?>
-                                            <?php if($office->office_id == $office_id):?>  
+                                        <?php else : ?>
+                                            <option value="<?= $course->course_id; ?>"><?= $course->course_name; ?></option>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>            
+                        </div>
+                        <div class="input-field-container">
+                            
+
+                            <div class="input-field">
+                                <i class="uil uil-analysis"></i>
+                                <select name="office_id" id="">
+                                    <option default="Select Department">Select Department</option>
+                                    <?php $offices = $db->result('office', 'is_department = 1'); ?>
+                                    <?php foreach ($offices as $office) : ?>
+                                        <?php if ($office->office_id == $office_id) : ?>
                                             <option value="<?= $office->office_id; ?>"><?= $office_id->office_name; ?></option>
-                                            <?php else:?>
-                                                <option value="<?= $office->office_id; ?>"><?= $office->office_name; ?></option>
-                                            <?php endif;?>
-                                            <?php endforeach; ?>
-                                    </select>
-                                </div>
-                                <div class="input-field">
-                                            <label for="">Clearance Type</label>
-                                            <select name="clearance_type_id" id="">
-                                                    <option default>Select Clearance Type</option>
-                                                    <?php $clearances = $db->result('clearance_type');?>
-                                                    <?php foreach($clearances as $clearance):?>
-                                                    <?php if($clearance->clearance_type_id == $clearance_type_id):?>  
-                                                    <option value="<?= $clearance->clearance_type_id; ?>" ><?= $clearance->clearance_type_name; ?></option>
-                                                    <?php else:?>
-                                                        <option value="<?= $clearance->clearance_type_id; ?>"><?= $clearance->clearance_type_name; ?></option>
-                                                    <?php endif;?>
-                                                    <?php endforeach; ?>
-                                            </select>
-                                </div>
-                                <div class="input-field">
-                                    <label for="">Date Created</label>
-                                    <input type="date" name="date_created" placeholder="Date Created" required>
-                                </div>
+                                        <?php else : ?>
+                                            <option value="<?= $office->office_id; ?>"><?= $office->office_name; ?></option>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
-                            <div class="input-field button">
-                                <input type="submit" id="submit" value="Create Clearance">
+                            <div class="input-field">
+                                <label for="">Clearance Type</label>
+                                <select name="clearance_type_id" id="">
+                                    <option default>Select Clearance Type</option>
+                                    <?php $clearances = $db->result('clearance_type'); ?>
+                                    <?php foreach ($clearances as $clearance) : ?>
+                                        <?php if ($clearance->clearance_type_id == $clearance_type_id) : ?>
+                                            <option value="<?= $clearance->clearance_type_id; ?>"><?= $clearance->clearance_type_name; ?></option>
+                                        <?php else : ?>
+                                            <option value="<?= $clearance->clearance_type_id; ?>"><?= $clearance->clearance_type_name; ?></option>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
-                        </form>
-                    </div>
+                            <div class="input-field">
+                                <label for="">Date Created</label>
+                                <input type="date" name="date_created" placeholder="Date Created" required>
+                            </div>
+                        </div>
+                        <div class="input-field button">
+                            <input type="submit" id="submit" value="Create Clearance">
+                        </div>
+                    </form>
                 </div>
-                <!-- -------------  END OF REGISTRATION -------------- -->
             </div>
-            
-        </main>
-        <!-- ================ END OF MAIN =================== -->
+            <!-- -------------  END OF REGISTRATION -------------- -->
+        </div>
 
-    </div>
+    </main>
+    <!-- ================ END OF MAIN =================== -->
 
-
-    
-    <!-- <script src="../assets/js/student-info.js"></script> -->
-    
-    <script defer src="../assets/js//modal.js"></script>
-    <script src="../assets/js/index.js"></script>
-    <script defer src="../assets/js/active.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</div>
 
 
-    
+
+<!-- <script src="../assets/js/student-info.js"></script> -->
+
+<script defer src="../assets/js//modal.js"></script>
+<script src="../assets/js/index.js"></script>
+<script defer src="../assets/js/active.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
 </body>
+
 </html>

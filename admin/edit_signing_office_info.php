@@ -14,6 +14,7 @@
 
         $signing_office_id = $row['signing_office_id'];
         $office_id = $row['office_id'];
+        $clearance_progress_id = $row['clearance_progress_id'];
         $sy_sem_id = $row['sy_sem_id'];
         $admin_id = $row['admin_id']; 
         $clearance_type_id = $row['clearance_type_id'];
@@ -87,26 +88,17 @@
                             </div>
                                 <div class="input-field">
                                     <i class="uil uil-analysis"></i>
-                                    <select name="sy_sem_id" id="">
-                                            <?php $semesters = $db->result('school_year','status = "Active"');;?>
-                                            <?php foreach($semesters as $semester):?>
-                                            <?php if($semester->sy_sem_id == $sy_sem_id):?> 
-                                            <option value="<?= $semester->sy_sem_id; ?>" selected><?= $semester->school_year_and_sem; ?></option>
+                                    <select name="clearance_progress_id" id="">
+                                            <?php $progression = $db->result('clearance_progress_view','status = "Active"');;?>
+                                            <?php foreach($progression as $progress):?>
+                                            <?php if($progress->clearance_progress_id == $clearance_progress_id):?> 
+                                            <option value="<?= $progress->clearance_progress_id; ?>" selected><?= $progress->school_year_and_sem." ".$progress->sem_name; ?></option>
                                             <?php else:?>
-                                                <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem; ?></option>
+                                                <option value="<?= $progress->clearance_progress_id; ?>"><?= $progress->school_year_and_sem." ".$progress->sem_name; ?></option>
                                             <?php endif;?>
                                             <?php endforeach; ?>
                                     </select>
                                 </div>
-                                <div class="input-field">
-                                <label for="">Semester</label>
-                        <select name="sem_id" id="">
-                                <?php $semesters = $db->result('sem');?>
-                                <?php foreach($semesters as $semester):?>
-                                    <option value="<?= $semester->sem_id ?>" <?= ($semester->sem_name == $sem_name)? "selected" : "" ?>><?= $semester->sem_name; ?></option>
-                                <?php endforeach; ?>
-                        </select>
-                            </div>
                         </div>
                         <div class="input-field-container">
                                 <div class="input-field">

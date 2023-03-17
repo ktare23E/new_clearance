@@ -14,7 +14,7 @@
 
         $clearance_id = $row['clearance_id'];
         $student_id = $row['student_id'];
-        $sy_sem_id = $row['sy_sem_id'];
+        $clearance_progress_id = $row['clearance_progress_id'];
         $clearance_status = $row['clearance_status'];
         $course_id = $row['course_id'];
         $clearance_type_id = $row['clearance_type_id'];
@@ -79,14 +79,14 @@
                             </div>
                                 <div class="input-field">
                                     <label for="">Select School Year and Sem</label>
-                                    <select name="sy_sem_id" id="">
+                                    <select name="clearance_progress_id" id="">
                                             <option default>Select School Year and Sem</option>
-                                            <?php $semesters = $db->result('sy_sem','status = "Active"');?>
+                                            <?php $semesters = $db->result('clearance_progress_view','status = "Active"');?>
                                             <?php foreach($semesters as $semester):?>
-                                            <?php if($semester->sy_sem_id == $sy_sem_id):?>  
-                                            <option value="<?= $semester->sy_sem_id; ?>" selected><?= $semester->school_year_and_sem; ?></option>
+                                            <?php if($semester->clearance_progress_id == $clearance_progress_id):?>  
+                                            <option value="<?= $semester->clearance_progress_id; ?>" selected><?= $semester->school_year_and_sem.' '.$semester->sem_name; ?></option>
                                             <?php else:?>
-                                                <option value="<?= $semester->sy_sem_id; ?>" selected><?= $semester->school_year_and_sem; ?></option>
+                                                <option value="<?= $semester->clearance_progress_id; ?>" selected><?=$semester->school_year_and_sem.' '.$semester->sem_name; ?></option>
                                             <?php endif;?>
                                             <?php endforeach; ?>
                                     </select>
@@ -95,7 +95,7 @@
                             </div>
                             <div class="input-field-container">
                                 <input type="hidden" name="clearance_status" value="1">
-                            <div class="input-field">
+                            <!-- <div class="input-field">
                                 <label for="">Semester</label>
                         <select name="sem_id" id="">
                                 <?php $semesters = $db->result('sem');?>
@@ -103,7 +103,7 @@
                                     <option value="<?= $semester->sem_id ?>" <?= ($semester->sem_name == $sem_name)? "selected" : "" ?>><?= $semester->sem_name; ?></option>
                                 <?php endforeach; ?>
                         </select>
-                            </div>
+                            </div> -->
                                 <div class="input-field">
                                             <label for="">Clearance Type</label>
                                             <select name="clearance_type_id" id="">
