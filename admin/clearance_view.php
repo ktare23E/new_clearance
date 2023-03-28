@@ -106,7 +106,7 @@
                                 </div>
                                 <div class="clearance-info-container">
                                     <h3>School year -  sem</h3>
-                                    <h4><?= $row['school_year_and_sem'];?></h4>
+                                    <h4><?= $row['school_year_and_sem'].' '.$row['sem_name'];?></h4>
                                 </div>
                                 <div class="clearance-info-container">
                                     <h3>Date Cleared</h3>

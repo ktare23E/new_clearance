@@ -38,14 +38,13 @@ if(isset($_POST['submit'])){
     $is_deparment = $_SESSION['is_department'];
     $office_id = $_SESSION['office_id'];
     // $signing_office_id    = $_POST['signing_office_id'];
-    $sy_sem_id  = $_POST['sy_sem_id'];
+    $clearance_progress_id = $_POST['clearance_progress_id'];
     $clearance_type_id  = $_POST['clearance_type_id'];
     $student_id = $_POST['student_id'];
     $requirement_details = $_POST['requirement_details'];
-    $sem_id = $_POST['sem_id'];
     
     
-    $sql = "SELECT * FROM signing_office WHERE office_id = '$office_id' AND sy_sem_id = '$sy_sem_id' AND sem_id = '$sem_id'";
+    $sql = "SELECT * FROM signing_office WHERE office_id = '$office_id' AND clearance_progress_id = '$clearance_progress_id'";
     $singing_office = $conn->query($sql) or die($conn->error);
 
     if($singing_office->num_rows < 1){
@@ -69,7 +68,7 @@ if(isset($_POST['submit'])){
         }
     }
 
-    $sql3 = "SELECT * FROM clearance WHERE student_id = '".$student_id."' AND sy_sem_id = " .$sy_sem_id;
+    $sql3 = "SELECT * FROM clearance WHERE student_id = '".$student_id."' AND clearance_progress_id = " .$clearance_progress_id;
     $clearance_exist = $conn->query($sql3) or die($conn->error);
 
     if($clearance_exist->num_rows < 1){
@@ -79,7 +78,7 @@ if(isset($_POST['submit'])){
     }
 
 
-    $query2 = "SELECT * FROM clearance WHERE student_id = '".$student_id."' AND sy_sem_id = " .$sy_sem_id;
+    $query2 = "SELECT * FROM clearance WHERE student_id = '".$student_id."' AND clearance_progress_id = " .$clearance_progress_id;
     $clearance = $conn->query($query2) or die($conn->error);
     $row = $clearance->fetch_assoc();
     $total = $clearance->num_rows;
@@ -102,8 +101,8 @@ if(isset($_POST['submit'])){
     echo $updateQuery;
     
     // Insert a new requirement into the requirement table
-    $insertQuery = "INSERT INTO requirement (signing_office_id, sy_sem_id, sem_id, clearance_type_id, student_id, requirement_details)
-                    VALUES ('$signing_office_id', '$sy_sem_id','$sem_id','$clearance_type_id', '$student_id', '$requirement_details')";
+    $insertQuery = "INSERT INTO requirement (signing_office_id, clearance_progress_id, clearance_type_id, student_id, requirement_details)
+                    VALUES ('$signing_office_id', '$clearance_progress_id','$clearance_type_id', '$student_id', '$requirement_details')";
     mysqli_query($conn, $insertQuery);
     
     if(mysqli_query($conn, $updateQuery)){

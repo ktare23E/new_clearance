@@ -25,7 +25,7 @@ $primaryKey = 'clearance_id';
 // indexes
 $columns = array(
     array( 'db' => 'clearance_type_id', 'dt' => 1 ),
-    array('db' => 'sy_sem_id', 'dt' =>2),
+    array('db' => 'clearance_progress_id', 'dt' =>2),
     array( 'db' => 'student_id', 'dt' => 3 ),
     array( 'db' => 'student_first_name',  'dt' => 4 ),
     array( 'db' => 'student_last_name',   'dt' => 5 ),
@@ -75,7 +75,7 @@ foreach($data['data'] as $i => $entry){
         array_push($new_entry, $value);
     }
     array_push($new_entry, "<td class='primary table-action-container'><a href='edit_clearance_info.php?edit=".$entry[1]."'>Update</a>
-    <a href='office_clearance_view.php?clearance_type_id=".$entry[1]."&sy_sem_id=".$entry[2]."&sem_id=".$entry[9]."'>View Details</a>
+    <a href='office_clearance_view.php?clearance_type_id=".$entry[1]."&clearance_progress_id=".$entry[2]."'>View Details</a>
         <input type='hidden' name='student_id' value='".$entry[1]."'> 
     </td>");
     $data['data'][$i] = $new_entry;

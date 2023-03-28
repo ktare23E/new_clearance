@@ -3,9 +3,16 @@
     include_once 'office_header.php';
     $order_by = "ASC";
     
-    
     $list_of_clearances = $db->result('requirement_view','office_id = '.$_SESSION['office_id'],'requirement_details = "'.$order_by.'"');
-    
+
+    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+
+    $office_id = $_SESSION['office_id'];
+    $sql = "SELECT * FROM new_signing_offices WHERE office_id = '$office_id'";
+    $result = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_assoc($result);
+
+    $signing_office_id = $row['signing_office_id'];
 ?>
     <div class="office-container">
         <?php 
@@ -42,34 +49,21 @@
                     <form action="insert_requirement.php" method="POST">
                     <div class="input-field-container">
                         <div class="input-field sy-sem-select">
-                            <input type="hidden" name="signing_office_id" >
+                            <input type="hidden" name="signing_office_id" value="<?= $signing_office_id; ?>">
                             </div>
                             <div class="input-field sy-sem-select">
-                                    <select name="sy_sem_id" id="school_year" required>
-                                            <option default>Select School Year</option>
-                                            <?php $semesters = $db->result('sy_sem','status="Active"');?>
+                                    <select name="clearance_progress_id" id="school_year" required>
+                                            <option default>Select School Year And Semester</option>
+                                            <?php $semesters = $db->result('clearance_progress_view','status="Active"');?>
                                             <?php foreach($semesters as $semester):?>
-                                            <?php if($semester->sy_sem_id == $sy_sem_id):?>  
-                                            <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem; ?></option>
+                                            <?php if($semester->clearance_progress_id == $clearance_progress_id):?>  
+                                            <option value="<?= $semester->clearance_progress_id; ?>"><?= $semester->school_year_and_sem.' '.$semester->sem_name; ?></option>
                                             <?php else:?>
-                                                <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem; ?></option>
+                                                <option value="<?= $semester->clearance_progress_id; ?>"><?= $semester->school_year_and_sem.' '.$semester->sem_name; ?></option>
                                             <?php endif;?>
                                             <?php endforeach; ?>
                                     </select>
                                 <i class="uil uil-angle-down" id="uil-arrow-down"></i>
-                            </div>
-                            <div class="input-field sy-sem-select">
-                                    <select name="sem_id" id="semester">
-                                        <option default>Select Semester</option>
-                                            <?php $semesters = $db->result('sem');?>
-                                            <?php foreach($semesters as $semester):?>
-                                            <?php if($semester->sem_id == $sem_id):?>  
-                                            <option value="<?= $semester->sem_id; ?>"><?= $semester->sem_name; ?></option>
-                                            <?php else:?>
-                                                <option value="<?= $semester->sem_id; ?>"><?= $semester->sem_name; ?></option>
-                                            <?php endif;?>
-                                            <?php endforeach; ?>
-                                    </select>
                             </div>
                             <div class="input-field sy-sem-select">
                                 <input type="hidden" name="clearance_id">
@@ -109,14 +103,14 @@
                                     <div class="form-input-file-csv-container">
                                             <label for="input-file">Choose CSV File</label>
                                             <input type="file" name="file" accept=".csv" id="input-file">
-                                            <select name="sy_sem_id2" id="">
+                                            <select name="clearance_progress_id" id="">
                                                 <option default>Select School Year and Sem</option>
-                                                <?php $semesters = $db->result('school_year','status="Active"');?>
+                                                <?php $semesters = $db->result('clearance_progress_view','status="Active"');?>
                                                 <?php foreach($semesters as $semester):?>
                                                 <?php if($semester->sy_sem_id == $sy_sem_id):?>  
-                                                <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem; ?></option>
+                                                <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem.' '.$semester->sem_name; ?></option>
                                                 <?php else:?>
-                                                    <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem; ?></option>
+                                                    <option value="<?= $semester->sy_sem_id; ?>"><?=$semester->school_year_and_sem.' '.$semester->sem_name; ?></option>
                                                 <?php endif;?>
                                                 <?php endforeach; ?>
                                             </select>

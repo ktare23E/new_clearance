@@ -25,7 +25,7 @@ if(isset($_POST['import'])){
         while(($column = fgetcsv($file,1000,",")) !== FALSE){
 
             try{
-                $query2 = "SELECT * FROM clearance WHERE student_id = '".$column[4]."' AND sy_sem_id = " .$_POST['sy_sem_id2'] ;
+                $query2 = "SELECT * FROM clearance WHERE student_id = '".$column[4]."' AND clearance_progress_id = " .$_POST['clearance_progress_id'] ;
                 $clearance = $conn->query($query2) or die($conn->error);
                 $row = $clearance->fetch_assoc();
                 $total = $clearance->num_rows;
@@ -37,7 +37,7 @@ if(isset($_POST['import'])){
                 $sqlUpdate = "UPDATE clearance SET clearance_status = '0' WHERE clearance_id = ".$row['clearance_id'];
                 $update = $conn->query($sqlUpdate);
                 
-                $sqlInsert = "INSERT INTO requirement (requirement_details, signing_office_id, sy_sem_id, sem_id, student_id,clearance_type_id) VALUES ('".$column[0]."','".$column[1]."','".$column[2]."','".$column[3]."','".$column[4]."','".$column[5]."')";
+                $sqlInsert = "INSERT INTO requirement (requirement_details, signing_office_id, clearance_progress_id, student_id,clearance_type_id) VALUES ('".$column[0]."','".$column[1]."','".$column[2]."','".$column[3]."','".$column[4]."')";
                 $result = mysqli_query($conn, $sqlInsert);
             } catch(Exception $e) {
                 echo $e->getMessage();

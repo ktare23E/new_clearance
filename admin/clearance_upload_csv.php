@@ -19,11 +19,14 @@ if (isset($_POST['import'])) {
 
         while (($column = fgetcsv($file, 1000, ",")) !== FALSE) {
             // Check if the student already exists
-            $sqlCheck = "SELECT * FROM clearance WHERE clearance_id = '" . $column[0] . "'";
-            $resultCheck = mysqli_query($conn, $sqlCheck);
-            if (mysqli_num_rows($resultCheck) > 0) {
+            $sqlCheck = "SELECT * FROM clearance WHERE student_id = '" . $column[1] . "' AND clearance_progress_id = '".$column[2]."'";
+            $result= mysqli_query($conn,$sqlCheck);
+            $row = mysqli_fetch_assoc($result);
+
+            $clearance_id = $row['clearance_id'];
+            if (mysqli_num_rows($result) > 0) {
                 // Clearance already exists, update existing data
-                $sqlUpdate = "UPDATE clearance SET clearance_status = '".$column[0]."', student_id = '" . $column[1] . "', sy_sem_id = '" . $column[2] . "', sem_id = '" . $column[3] . "', clearance_type_id = '" . $column[4] . "', course_id = '" . $column[5] . "', office_id = '" . $column[6] . "', date_created = '" . $column[7] . "' WHERE clearance_id = '" . $column[0] . "'";
+                $sqlUpdate = "UPDATE clearance SET clearance_status = '".$column[0]."', student_id = '" . $column[1] . "', clearance_progress_id = '" . $column[2] . "', clearance_type_id = '" . $column[3] . "', course_id = '" . $column[4] . "', office_id = '" . $column[5] . "', date_created = '" . $column[6] . "' WHERE clearance_id = '".$clearance_id."'";
                 $result = mysqli_query($conn, $sqlUpdate);
 
                 if (!empty($result)) {
@@ -35,7 +38,7 @@ if (isset($_POST['import'])) {
                 }
             } else {
                 // Insert new clearance data
-                $sqlInsert = "INSERT into clearance (clearance_status, student_id, sy_sem_id,sem_id,clearance_type_id, course_id,office_id, date_created) VALUES ('" . $column[0] . "','" . $column[1] . "','" . $column[2] . "','" . $column[3] . "','" . $column[4] . "','" . $column[5] . "', '" . $column[6] . "', '" . $column[7] . "')";
+                $sqlInsert = "INSERT into clearance (clearance_status, student_id, clearance_progress_id,clearance_type_id, course_id,office_id, date_created) VALUES ('" . $column[0] . "','" . $column[1] . "','" . $column[2] . "','" . $column[3] . "','" . $column[4] . "','" . $column[5] . "', '" . $column[6] . "')";
                 $result = mysqli_query($conn, $sqlInsert);
 
                 if (!empty($result)) {

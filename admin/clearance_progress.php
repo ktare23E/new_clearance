@@ -19,7 +19,7 @@
                     <button id="menu-btn" class="menu-btn">
                         <span class="material-symbols-sharp">menu</span>
                     </button>
-                    <h1>Clearance Progress</h1>
+                    <h1>Clearance Period</h1>
                     <div class="theme-toggler">
                         <span class="material-symbols-sharp active">light_mode</span>
                         <span class="material-symbols-sharp">dark_mode</span>
@@ -83,18 +83,11 @@
                                 <td class="primary table-action-container">
                                     <a href="edit_clearance_progress.php?edit=<?= $user->clearance_progress_id; ?>">Update</a>
                                     <!-- <a href="office_view.php?clearance_progress_id=<?= $user->clearance_progress_id; ?>">View Details</a> -->
+                                    <a href="lock_requirements.php?clearance_progress_id=<?= $user->clearance_progress_id; ?>?"><button type="button">Lock Requirements</button></a>
                                 </td>
                             </tr>
                             <?php endforeach; ?>
                         </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Shool Year</th>
-                                <th>Semester</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </tfoot>
                     </table>
                 </div>
             </div>
