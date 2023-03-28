@@ -62,12 +62,12 @@ CREATE TABLE `clearance` (
   `is_locked` tinyint(1) NOT NULL,
   `clearance_progress_id` int(11) NOT NULL,
   PRIMARY KEY (`clearance_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `clearance` */
 
 insert  into `clearance`(`clearance_id`,`clearance_status`,`student_id`,`sy_sem_id`,`sem_id`,`clearance_type_id`,`course_id`,`office_id`,`date_created`,`date_cleared`,`is_locked`,`clearance_progress_id`) values 
-(72,'1','2019-70227',0,0,1,15,17,'2023-03-17','0000-00-00',0,2);
+(75,'0','2019-70227',0,0,1,15,17,'2023-03-27','0000-00-00',0,2);
 
 /*Table structure for table `clearance_details` */
 
@@ -103,8 +103,8 @@ CREATE TABLE `clearance_progress` (
 /*Data for the table `clearance_progress` */
 
 insert  into `clearance_progress`(`clearance_progress_id`,`sem_id`,`sy_sem_id`,`status`) values 
-(1,2,7,'Active'),
-(2,1,3,'Active');
+(1,2,7,'Inactive'),
+(2,1,7,'Active');
 
 /*Table structure for table `clearance_type` */
 
@@ -228,10 +228,14 @@ CREATE TABLE `requirement` (
   `clearance_type_id` int(11) NOT NULL,
   `is_complied` tinyint(1) NOT NULL,
   `date_cleared` date NOT NULL,
+  `clearance_progress_id` int(11) NOT NULL,
   PRIMARY KEY (`requirement_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `requirement` */
+
+insert  into `requirement`(`requirement_id`,`requirement_details`,`signing_office_id`,`sy_sem_id`,`sem_id`,`student_id`,`clearance_type_id`,`is_complied`,`date_cleared`,`clearance_progress_id`) values 
+(75,'This is from SICT',80,0,0,'2019-70227',1,1,'2023-03-27',2);
 
 /*Table structure for table `sem` */
 
@@ -268,12 +272,13 @@ CREATE TABLE `signing_office` (
   `sem_id` int(11) NOT NULL,
   `clearance_progress_id` int(11) NOT NULL,
   PRIMARY KEY (`signing_office_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `signing_office` */
 
 insert  into `signing_office`(`signing_office_id`,`office_id`,`sy_sem_id`,`admin_id`,`department_id`,`clearance_type_id`,`is_locked`,`status`,`date_cleared`,`sem_id`,`clearance_progress_id`) values 
-(77,17,0,16,0,1,0,'','2023-03-17 15:22:56',0,2);
+(80,17,0,16,0,1,0,'','2023-03-27 17:00:28',0,2),
+(81,15,0,15,0,1,0,'','2023-03-27 19:55:01',0,2);
 
 /*Table structure for table `student` */
 
@@ -300,7 +305,7 @@ CREATE TABLE `student` (
 insert  into `student`(`student_id`,`student_first_name`,`student_last_name`,`student_year`,`course_id`,`office_id`,`student_gender`,`student_email`,`student_username`,`student_password`,`student_status`,`student_profile`) values 
 ('2018-2414','Abby Gale','Rondina','3rd Year',10,13,'Male','doday@gmail.com','2018-2414','123','Inactive','1672651460doday.jpg'),
 ('2019-2014','Lebron','Siglos','2nd Year',13,11,'Male','lebron@gmail.com','2019-2014','123','Active','1678078178tulips.jpg'),
-('2019-70227','Kristian Kharl','Tare','4th Year',15,17,'Male','tare.kristian@gmail.com','2019-70227','123','Active','6409784822934.jpg'),
+('2019-70227','Kristian Kharl','Tare','4th Year',15,17,'Male','tare.kristian@gmail.com','2019-70227','123','Active','64223b7170010.jpg'),
 ('2019-800306','Al Cedric','Dario','4th Year',15,17,'Male','alcedric.dario@nmsc.edu.ph','2019-800306','123','Active','1678856650dp.png'),
 ('2020-3234','Phoebe','Ladua','4th Year',12,13,'Female','phoebe@gmail.com','2020-3234','123','Active','1671932689312491292_508684841138118_7881797655818735404_n.jpg'),
 ('﻿2019-70227','Preach','Tare23','4th Year',15,17,'Male','tare.kristian@gmail.com','2019-70227Dario','123','Active',''),
@@ -322,10 +327,6 @@ CREATE TABLE `sy_sem` (
 
 insert  into `sy_sem`(`sy_sem_id`,`school_year_and_sem`,`status`,`sem_id`) values 
 (1,'2022-2023 ','',0),
-(3,'2023-2024','Active',3),
-(4,'2024-2025 ','Active',2),
-(5,'2025-2026','Inactive',4),
-(6,'2026-2027','Inactive',1),
 (7,'2027-2028','',0);
 
 /*Table structure for table `upload` */
@@ -473,9 +474,12 @@ DROP TABLE IF EXISTS `requirement_view`;
  `signing_office_id` int(11) ,
  `office_id` int(11) ,
  `office_name` varchar(75) ,
+ `clearance_progress_id` int(11) ,
+ `status` varchar(11) ,
  `sy_sem_id` int(11) ,
  `school_year_and_sem` varchar(75) ,
- `status` varchar(75) ,
+ `sem_id` int(11) ,
+ `sem_name` varchar(75) ,
  `student_id` varchar(75) ,
  `student_first_name` varchar(75) ,
  `student_last_name` varchar(75) ,
@@ -601,7 +605,7 @@ DROP TABLE IF EXISTS `view_clearance`;
 /*!50001 DROP TABLE IF EXISTS `requirement_view` */;
 /*!50001 DROP VIEW IF EXISTS `requirement_view` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `requirement_view` AS select `requirement`.`requirement_id` AS `requirement_id`,`requirement`.`requirement_details` AS `requirement_details`,`requirement`.`is_complied` AS `is_complied`,`requirement`.`date_cleared` AS `date_cleared`,`signing_office`.`signing_office_id` AS `signing_office_id`,`office`.`office_id` AS `office_id`,`office`.`office_name` AS `office_name`,`sy_sem`.`sy_sem_id` AS `sy_sem_id`,`sy_sem`.`school_year_and_sem` AS `school_year_and_sem`,`sy_sem`.`status` AS `status`,`student`.`student_id` AS `student_id`,`student`.`student_first_name` AS `student_first_name`,`student`.`student_last_name` AS `student_last_name`,`clearance_type`.`clearance_type_id` AS `clearance_type_id`,`clearance_type`.`clearance_type_name` AS `clearance_type_name` from (((((`requirement` join `signing_office` on(`requirement`.`signing_office_id` = `signing_office`.`signing_office_id`)) join `office` on(`signing_office`.`office_id` = `office`.`office_id`)) join `sy_sem` on(`requirement`.`sy_sem_id` = `sy_sem`.`sy_sem_id`)) join `student` on(`requirement`.`student_id` = `student`.`student_id`)) join `clearance_type` on(`requirement`.`clearance_type_id` = `clearance_type`.`clearance_type_id`)) */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `requirement_view` AS select `requirement`.`requirement_id` AS `requirement_id`,`requirement`.`requirement_details` AS `requirement_details`,`requirement`.`is_complied` AS `is_complied`,`requirement`.`date_cleared` AS `date_cleared`,`signing_office`.`signing_office_id` AS `signing_office_id`,`office`.`office_id` AS `office_id`,`office`.`office_name` AS `office_name`,`clearance_progress`.`clearance_progress_id` AS `clearance_progress_id`,`clearance_progress`.`status` AS `status`,`sy_sem`.`sy_sem_id` AS `sy_sem_id`,`sy_sem`.`school_year_and_sem` AS `school_year_and_sem`,`sem`.`sem_id` AS `sem_id`,`sem`.`sem_name` AS `sem_name`,`student`.`student_id` AS `student_id`,`student`.`student_first_name` AS `student_first_name`,`student`.`student_last_name` AS `student_last_name`,`clearance_type`.`clearance_type_id` AS `clearance_type_id`,`clearance_type`.`clearance_type_name` AS `clearance_type_name` from (((((((`requirement` join `signing_office` on(`requirement`.`signing_office_id` = `signing_office`.`signing_office_id`)) join `office` on(`signing_office`.`office_id` = `office`.`office_id`)) join `clearance_progress` on(`requirement`.`clearance_progress_id` = `clearance_progress`.`clearance_progress_id`)) join `sy_sem` on(`clearance_progress`.`sy_sem_id` = `sy_sem`.`sy_sem_id`)) join `sem` on(`clearance_progress`.`sem_id` = `sem`.`sem_id`)) join `student` on(`requirement`.`student_id` = `student`.`student_id`)) join `clearance_type` on(`requirement`.`clearance_type_id` = `clearance_type`.`clearance_type_id`)) */;
 
 /*View structure for view school_year */
 
