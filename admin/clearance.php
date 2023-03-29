@@ -69,7 +69,7 @@
                             </div>
                         </div>
                 <div class="add-button-container">
-                                <div>
+                        <div>
                                     <label for="">Filter via Clearance Type</label>
                                     <select name="clearance_type_id" id="clearance_type">
                                             <option default>Select Clearance</option>
@@ -84,7 +84,7 @@
                                             <?php endforeach; ?>
                                     </select>
                         </div>
-                    </div>
+                </div>
                 <div id="clearance-insights">
                 <div class="insights">
                     <div class="income">

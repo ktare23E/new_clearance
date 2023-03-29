@@ -58,13 +58,14 @@ require( 'ssp.class.php' );
 // *  @return array          Server-side processing response array
 
 $id = $_GET['clearance_type_id'];
-$where = "clearance_type_id = ".$id;
+
 
 
 if($id == ''){
     $data = SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns);
 
 }else{
+    $where = "clearance_type_id = ".$id;
     $data = SSP::complex( $_GET, $sql_details, $table, $primaryKey, $columns, $where, $where);
 
 }
