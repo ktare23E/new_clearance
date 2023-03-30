@@ -59,7 +59,7 @@
                     <span class="material-symbols-sharp">inventory</span>
                     <h3>Clearance Progress</h3>
                 </a>
-                <a href="/reports.html">
+                <a href="reports.php">
                     <span class="material-symbols-sharp">report</span>
                     <h3>Reports</h3>
                 </a>
