@@ -80,7 +80,7 @@ foreach($data['data'] as $i => $entry){
         array_push($new_entry, $value);
     }
     array_push($new_entry, "<td class='primary table-action-container'><a href='edit_clearance_info.php?edit=".$entry[3]."'>Update</a>
-    <a href='clearance_view.php?clearance_type_id=".$entry[1]."&clearance_progress_id=".$entry[2]."&sem_id=$entry[10]'>View Details</a>
+    <a href='clearance_view.php?clearance_type_id=".$entry[1]."&clearance_progress_id=".$entry[2]."&student_id=".$entry[4]."'>View Details</a>
         <input type='hidden' name='student_id' value='".$entry[1]."'> 
     </td>");
     $data['data'][$i] = $new_entry;

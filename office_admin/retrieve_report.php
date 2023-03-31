@@ -1,38 +1,47 @@
 <?php
 
 
-include_once 'header.php';
+include_once 'office_header.php';
 $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+$is_department = $_SESSION['is_department'];
+$office_id = $_SESSION['office_id'];
 
 if (isset($_POST['submit'])) {
     $clearance_progress_id = $_POST['clearance_progress_id'];
+    // $office_id = $_POST['office_id'];
 
     // $query = "SELECT * FROM view_clearance WHERE clearance_progress_id = $clearance_progress_id";
     // $result = mysqli_query($conn, $query);
     // $row = mysqli_fetch_assoc($result);
 
-    $query = "SELECT * FROM office WHERE is_department = 1";
-    $result = mysqli_query($conn, $query);
-    $departments = array();
-    
-    while($row = mysqli_fetch_assoc($result)) {
-        array_push($departments,$row);
-    }
-    
+        if($_SESSION['is_department'] === 1) {
+            $query = "SELECT * FROM office WHERE is_department = 1 AND office_id = $office_id";
+        } else {
+            $query = "SELECT * FROM office WHERE is_department = 1";
+        }
 
-    $num_of_cleared = 0;
-    $number_not_cleared = 0;
+        
+        $result = mysqli_query($conn, $query);
+        $departments = array();
+        
+        while($row = mysqli_fetch_assoc($result)) {
+            array_push($departments,$row);
+        }
+        
+        // print_r($departments);
+        // die();
 
+        $num_of_cleared = 0;
+        $number_not_cleared = 0;
 }
-
 
 ?>
 
 <body style="width: 800px;">
-<div>
+    <div>
         <canvas id="myChart"></canvas>
         <?php foreach($departments as $i => $department):
-        $sql = "SELECT * FROM view_clearance WHERE clearance_progress_id = $clearance_progress_id AND office_id = '".$department['office_id']."'";
+            $sql = "SELECT * FROM student LEFT JOIN requirement_cleared ON student.`student_id` = requirement_cleared.`student_id` WHERE student.office_id = ".$department['office_id']." ORDER BY is_cleared DESC";
             $result2 = mysqli_query($conn, $sql); 
             $students = array();
 
@@ -50,12 +59,12 @@ if (isset($_POST['submit'])) {
                 <tbody>
     
                     <?php foreach($students as $student): 
-                        if($student['clearance_status'] == '1' || $student['clearance_status'] == null) {$num_of_cleared++;}
-                        if($student['clearance_status'] === '0') {$number_not_cleared++;}
+                        if($student['is_cleared'] == 1 || $student['is_cleared'] == null) {$num_of_cleared++;}
+                        if($student['is_cleared'] === 0) {$number_not_cleared++;}
                     ?>
                         <tr>
                             <td><?= $student['student_first_name'].' '.$student['student_last_name']; ?></td>
-                            <td><?=  ['clearance_status'] == '1' || $student['clearance_status'] == null ? "Not Cleared": 'Cleared'; ?></td>
+                            <td><?=  ['is_cleared'] == 1 || $student['is_cleared'] == null ? "Cleared": 'Not Cleared'; ?></td>
                         </tr>
                     <?php endforeach; ?>
                     
@@ -72,7 +81,7 @@ if (isset($_POST['submit'])) {
             data: {
                 labels: ['Cleared', 'Not Cleared'],
                 datasets: [{
-                    label: 'Clearance',
+                    label: ['Cleared','Not Cleared'],
                     data: [<?= $num_of_cleared; ?>, <?= $number_not_cleared?>],
                     borderWidth: 1
                 }]
@@ -86,6 +95,8 @@ if (isset($_POST['submit'])) {
             }
         });
     </script>
+
+    
 
 </body>
 

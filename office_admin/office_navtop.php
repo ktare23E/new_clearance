@@ -27,7 +27,7 @@
             <span class="material-symbols-sharp">receipt_long</span>
             <h3>Requirements</h3>
         </a>
-        <a href="./office_reports.php">
+        <a href="office_reports.php">
             <span class="material-symbols-sharp">monitoring</span>
             <h3>Reports</h3>
         </a>

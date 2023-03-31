@@ -1,5 +1,13 @@
 <?php
+
+        session_start();
+                if (!isset($_SESSION['isOffice'])) {
+                header("location: ../index.php");
+                exit();
+        }
+
 include_once '../dbconnect.php';
+$office_id = $_SESSION['office_id'];
 ?>
 
 <!DOCTYPE html>
@@ -10,6 +18,7 @@ include_once '../dbconnect.php';
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        
 
 </head>
 
@@ -26,6 +35,7 @@ include_once '../dbconnect.php';
                                         <option value="<?= $clearance->clearance_progress_id; ?>"><?= $clearance->school_year_and_sem . ' ' . $clearance->sem_name; ?></option>
                                 <?php endforeach; ?>
                         </select>
+                        <!-- <input type="hidden" name="office_id" value="<?= $office_id; ?>"> -->
                 </div>
                 <input type="submit" name="submit" value="submit">
         </form>

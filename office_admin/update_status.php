@@ -10,20 +10,23 @@ if(isset($_POST['approve'])){
         $clearance_progress_id = $_POST['clearance_progress_id'];
         $student_id = $_POST['student_id'];
         $clearance_id = $_POST['clearance_id'];
-    
 
+        // echo $clearance_progress_id;
+        // die();
 
         $sql = "UPDATE requirement SET is_complied = '1', date_cleared = '$current_date' WHERE requirement_id = $requirement_id AND signing_office_id = $signing_office_id";
 
-        echo $sql;
+        // echo $sql;
         $result= mysqli_query($conn,$sql);
 
-        $query = "SELECT * FROM requirement WHERE clearance_progress_id = $clearance_progress_id AND student_id = $student_id AND is_complied = 0";
+        $query = "SELECT * FROM requirement WHERE clearance_progress_id = $clearance_progress_id AND student_id = '$student_id' AND is_complied = 0";
         
         $result2 = mysqli_query($conn,$query);
         $num = mysqli_num_rows($result2);
-        echo $query;
-        echo $num;
+    
+
+        // echo $query;
+        // echo $num;
         if(mysqli_num_rows($result2) < 1 ){
             $update = "UPDATE clearance SET clearance_status = '1', date_cleared = '$current_date' WHERE clearance_id = $clearance_id";
             $query2 = mysqli_query($conn,$update);

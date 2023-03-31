@@ -4,12 +4,13 @@
 
 
 
-    if(!isset($_GET['sy_sem_id']) && !isset($_GET['clearance_type_id'])){
+    if(!isset($_GET['clearance_progress_id']) && !isset($_GET['student_id'])){
         echo "<h1>There's an error while viewing details.</h1>";
     }else{
-        $sy_sem_id = $_GET['sy_sem_id'];
-        $clearance_type_id = $_GET['clearance_type_id'];
-        $list_of_clearances = $db->result('requirement_view','clearance_type_id = '.$clearance_type_id.' AND sy_sem_id = '.$sy_sem_id);
+        $clearance_progress_id = $_GET['clearance_progress_id'];
+        // $clearance_type_id = $_GET['clearance_type_id'];
+        $student_id = $_GET['student_id'];
+        $list_of_clearances = $db->result('requirement_view', 'clearance_progress_id = '.$clearance_progress_id.' AND student_id = "'.$student_id.'"');
     }
 ?>
     <div class="office-container">
