@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
                     ?>
                         <tr>
                             <td><?= $student['student_first_name'].' '.$student['student_last_name']; ?></td>
-                            <td><?=  ['clearance_status'] == '1' || $student['clearance_status'] == null ? "Not Cleared": 'Cleared'; ?></td>
+                            <td><?=  $student['clearance_status'] == '1' || $student['clearance_status'] == null ? "Cleared": 'Not Cleared'; ?></td>
                         </tr>
                     <?php endforeach; ?>
                     
