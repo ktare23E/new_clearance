@@ -97,7 +97,7 @@
                                         <td><?= $clearance->clearance_status ? 'Cleared' : 'Not Cleared';?></td>
                                         <td>Done</td>
                                         <td class="primary table-action-container">
-                                        <a class="primary" href="clearance_view.php?sy_sem_id=<?= $clearance->sy_sem_id?>&clearance_type_id=<?= $clearance->clearance_type_id; ?>&sem_id=<?= $clearance->sem_id; ?>">View Details</a>
+                                        <a class="primary" href="clearance_view.php?student_id=<?= $clearance->student_id?>&clearance_type_id=<?= $clearance->clearance_type_id; ?>&clearance_progress_id=<?= $clearance->clearance_progress_id; ?>">View Details</a>
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>
