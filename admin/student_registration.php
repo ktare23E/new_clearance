@@ -16,6 +16,7 @@
                     <button id="menu-btn" class="menu-btn">
                         <span class="material-symbols-sharp">menu</span>
                     </button>
+                    <h1>Student Account</h1>
                     <div class="theme-toggler">
                         <span class="material-symbols-sharp active">light_mode</span>
                         <span class="material-symbols-sharp">dark_mode</span>
@@ -34,7 +35,7 @@
     
             </div>
 
-            <h1>Student Account</h1>
+            
 
             <div class="form-and-table-container">
 
@@ -51,23 +52,23 @@
                         <form action="insert_student.php" method="POST" enctype="multipart/form-data">
                             <div class="input-field">
                                     <input type="text" placeholder="Student Id" name="student_id" required>
-                                    <i class="uil uil-keyhole-circle"></i>
+                                    <i class="uil uil-keyhole-circle icon"></i>
                             </div>
 
                             <div class="input-field-container">
                                 <div class="input-field">
                                     <input type="text" name="student_first_name" placeholder="First Name" required>
-                                    <i class="uil uil-user"></i>
+                                    <i class="uil uil-user icon"></i>
                                 </div>
                                 <div class="input-field">
                                     <input type="text" name="student_last_name" placeholder="Last Name" required>
-                                    <i class="uil uil-user"></i>
+                                    <i class="uil uil-user icon"></i>
                                 </div>
                             </div>
                             <div class="input-field-container">
                                 
                                 <div class="input-field">
-                                    <i class="uil uil-question-circle"></i>
+                                    <i class="uil uil-question-circle icon"></i>
                                     <select name="student_gender" id="gender-options">
                                         <option value="Gender">Gender</option>
                                         <option value="Male">Male</option>
@@ -75,7 +76,7 @@
                                     </select>
                                 </div>
                                 <div class="input-field">
-                                    <i class="uil uil-bolt"></i>
+                                    <i class="uil uil-bolt icon"></i>
                                     <select name="student_status" id="">
                                         <option value="Status">Status</option>
                                         <option value="Active">Active</option>
@@ -85,7 +86,7 @@
                             </div>
                             <div class="input-field-container">
                                 <div class="input-field">
-                                    <i class="uil uil-analysis"></i>
+                                    <i class="uil uil-analysis icon"></i>
                                     
                                     <select name="student_year" id="year-level-option">
                                         <option value="0" >Year Level</option>
@@ -96,7 +97,7 @@
                                     </select>
                                 </div>
                                 <div class="input-field">
-                                    <i class="uil uil-analysis"></i>
+                                    <i class="uil uil-analysis icon"></i>
                                     <select name="course_id" id="">
                                             <option default="Select Course">Select Course</option>
                                             <?php $courses = $db->result('course');?>
@@ -110,7 +111,7 @@
                                     </select>
                                 </div>
                                 <div class="input-field">
-                                    <i class="uil uil-analysis"></i>
+                                    <i class="uil uil-analysis icon"></i>
                                     <select name="office_id" id="">
                                             <option default="Select Department">Select Department</option>
                                             <?php $offices = $db->result('office','is_department = 1');?>
@@ -125,7 +126,7 @@
                                 </div>
                                 <div class="input-field">
                                     <input type="email" name="student_email" placeholder="Email Address" required>
-                                    <i class="uil uil-envelope"></i>
+                                    <i class="uil uil-envelope icon"></i>
                                 </div>
                             </div>
                             
@@ -140,7 +141,7 @@
                                     <i class="uil uil-eye-slash showHidePw"></i>
                                 </div>
                             </div>
-                            <div class="input-field-container">
+                            <div class="input-field-container" style="margin-top: 20px;">
                                 <label for="">Student Profile</label>
                                 <input type="file" name="image">
                             </div>

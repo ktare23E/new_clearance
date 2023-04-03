@@ -410,7 +410,7 @@ main .student-registration .form .title{
 }
 
 .bulk-actions-container .bulk-action button {
-    background: var(--color-primary-variant);
+    background: var(--color-primary);
     padding: 10px 20px;
     width: 100%;
     border-radius: var(--border-radius-1);
@@ -559,6 +559,10 @@ main .student-registration .form .title::before{
     border-bottom-color: #4070f4;
 }
 
+.input-field select:is(:focus, :valid){
+    border-bottom-color: #4070f4;
+}
+
 .input-field i{
     position: absolute;
     top: 50%;
@@ -567,19 +571,32 @@ main .student-registration .form .title::before{
     font-size: 23px;
     transition: all 0.2s ease;
     z-index: 10;
+
 }
 
 .input-field input:is(:focus, :valid) ~ i{
     color: #4070f4;
 }
 
+.input-field select:is(:focus, :valid) ~ i{
+    color: #4070f4;
+}
+
 .input-field i.icon{
     left: 0;
+    pointer-events: none;
 }
 .input-field i.showHidePw{
     right: 0;
     cursor: pointer;
     padding: 10px;
+}
+
+.clearance-view-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
 }
 
 .form .checkbox-text{
@@ -623,13 +640,13 @@ main .student-registration .form .title::before{
     font-weight: 500;
     letter-spacing: 1px;
     border-radius: 6px;
-    background-color: #4070f4;
+    background-color: var(--color-primary-variant);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .button input:hover{
-    background-color: #265df2;
+    background-color: var(--color-primary);
 }
 
 .form .login-signup{
@@ -995,6 +1012,7 @@ table thead tr th, table tbody tr td {
     background: var(--color-primary-variant);
     color: white;
     transition: all 150ms ease;
+    gap: 3px;
 }
 #add-new-student:hover {
     background-color: var(--color-primary);
@@ -1406,7 +1424,7 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     .container-student {
         width: 94%;
         grid-template-columns: 7rem auto;
-        padding: 0 10px;
+        /* padding: 0 10px; */
     }
     
     .main-student {

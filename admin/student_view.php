@@ -66,7 +66,6 @@
                                 <span class="material-symbols-sharp">arrow_back</span>
                             </button>
                         </a>
-
                         <div class="student-view-profile-img-container">
                             <img src="uploads/<?= $row['student_profile']; ?>" alt="">
                         </div>
@@ -75,16 +74,12 @@
                                 <span class="material-symbols-sharp">edit</span>
                                 <h3>Edit Profile</h3>
                             </button>
-                            <a href="student-clearances.php?student_id=<?= $clearance_row['student_id']; ?>"><div class='student-info-name-container clearance-status-btn-container'><button id='clearance-status-button'>View Clearance</button></div></a>
+                            <a href="student-clearances.php?student_id=<?= $row['student_id']; ?>"><div class='student-info-name-container clearance-status-btn-container'><button id='clearance-status-button'>View Clearance</button></div></a>
 
                         </div>
-                        
-                        
                     </div>
 
                     <div class="student-view-profile-container">
-                        
-
                         <div class="student-view-profile-info-container">
                             <div class="student-info-name-container">
                                 <h2 class="label">Student Id :</h2>
