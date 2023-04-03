@@ -1,6 +1,6 @@
 <?php
     include_once 'header.php';
-        $users = $db->result('school_year');
+        $users = $db->result('sy_sem');
     // $users = $db->result('offices');
     // $users = $db->result('office_account');
 
