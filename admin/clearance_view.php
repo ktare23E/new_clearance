@@ -81,7 +81,7 @@
                             </div>
                             <div class="status-title">
                                 <h4>Status:</h4>
-                                <h3 class="warning"><?= $row['clearance_status'] ? 'Cleared' : 'Not Cleared';?></h3>
+                                <h3 class="overall-clearance-status"><?= $row['clearance_status'] ? 'Cleared' : 'Not Cleared';?></h3>
                             </div>
                         </div>
                         <div class="detail-left-main-content">
@@ -112,7 +112,7 @@
                                 </div>
                                 <div class="clearance-info-container">
                                     <h3>Date Cleared</h3>
-                                    <h4 class="success"><?= $row['date_cleared'];?></h4>
+                                    <h4><?= $row['date_cleared'];?></h4>
                                 </div>
                             
                         </div>
@@ -159,7 +159,6 @@
     
     <script defer src="../assets/js//modal.js"></script>
     <script src="../assets/js/index.js"></script>
-    <script defer src="../assets/js/active.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- <script src="../assets/js/update.js"></script> -->
 

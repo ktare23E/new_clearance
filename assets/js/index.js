@@ -26,32 +26,36 @@
 // setInterval(printDate,1000)
 
 
-
-
-const sideMenu = document.querySelector("aside");
-const menuBtn = document.querySelector("#menu-btn");
-const closeBtn = document.querySelector("#close-btn");
-
-const themeToggler = document.querySelector(".theme-toggler");
-
-menuBtn.addEventListener('click', () => {
-    sideMenu.style.display = "block";
-})
-
-closeBtn.addEventListener('click', () => {
-    sideMenu.style.display = "none";
-})
-
-// change theme
-
-themeToggler.addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme-variables');
-
-    themeToggler.querySelector('span:nth-child(1)').classList.toggle('active');
-    themeToggler.querySelector('span:nth-child(2)').classList.toggle('active');
-
+try {
+    const sideMenu = document.querySelector("aside");
+    const menuBtn = document.querySelector("#menu-btn");
+    const closeBtn = document.querySelector("#close-btn");
     
-})
+    const themeToggler = document.querySelector(".theme-toggler");
+    
+    menuBtn.addEventListener('click', () => {
+        sideMenu.style.display = "block";
+    })
+    
+    closeBtn.addEventListener('click', () => {
+        sideMenu.style.display = "none";
+    })
+    
+    // change theme
+    
+    themeToggler.addEventListener('click', () => {
+        document.body.classList.toggle('dark-theme-variables');
+    
+        themeToggler.querySelector('span:nth-child(1)').classList.toggle('active');
+        themeToggler.querySelector('span:nth-child(2)').classList.toggle('active');
+    
+        
+    })
+}catch(error) {
+    console.log(error);
+}
+
+
 
 
 
@@ -64,27 +68,31 @@ themeToggler.addEventListener('click', () => {
 
 
 
+try{
+    const container = document.querySelector(".container"),
+        pwShowHide = document.querySelectorAll(".showHidePw"),
+        pwFields = document.querySelectorAll(".password");
 
 
-const container = document.querySelector(".container"),
-    pwShowHide = document.querySelectorAll(".showHidePw"),
-    pwFields = document.querySelectorAll(".password");
+        
+        // code to show/hide password and change icon
 
-
-    
-    // code to show/hide password and change icon
-
-    pwShowHide.forEach(eyeIcon => {
-        eyeIcon.addEventListener('click', () => {
-            if(eyeIcon.parentElement.firstElementChild.type === "password"){
-                eyeIcon.parentElement.firstElementChild.type = "text";
-                eyeIcon.classList.replace("uil-eye-slash", "uil-eye")
-            }else {
-                eyeIcon.parentElement.firstElementChild.type = "password";
-                eyeIcon.classList.replace("uil-eye", "uil-eye-slash")
-            }
+        pwShowHide.forEach(eyeIcon => {
+            eyeIcon.addEventListener('click', () => {
+                if(eyeIcon.parentElement.firstElementChild.type === "password"){
+                    eyeIcon.parentElement.firstElementChild.type = "text";
+                    eyeIcon.classList.replace("uil-eye-slash", "uil-eye")
+                }else {
+                    eyeIcon.parentElement.firstElementChild.type = "password";
+                    eyeIcon.classList.replace("uil-eye", "uil-eye-slash")
+                }
+            })
         })
-    })
+}catch(error) {
+    console.log(error);
+}
+
+
 
 
 
@@ -174,15 +182,33 @@ const container = document.querySelector(".container"),
 // })
 
 
+try{
+    let bulkOptionsButton = document.getElementById("bulk-options");
+    let closeOptions = document.getElementById("close-bulk-options-button");
+    let bulkActions = document.getElementsByClassName("bulk-actions-container")
 
-let bulkOptionsButton = document.getElementById("bulk-options");
-let closeOptions = document.getElementById("close-bulk-options-button");
-let bulkActions = document.getElementsByClassName("bulk-actions-container")
+    bulkOptionsButton.addEventListener("click", function() {
+        bulkActions[0].style.display = "flex"
+    })
 
-bulkOptionsButton.addEventListener("click", function() {
-    bulkActions[0].style.display = "flex"
-})
+    closeOptions.addEventListener("click", function() {
+        bulkActions[0].style.display = "none"
+    })
+}catch(error){
+    console.log(error);
+}
 
-closeOptions.addEventListener("click", function() {
-    bulkActions[0].style.display = "none"
+
+
+
+
+
+let overallStatus = document.querySelectorAll(".overall-clearance-status")
+
+overallStatus.forEach(status => {
+    if(status.innerHTML == "Cleared"){
+        status.classList.add("success")
+    }else {
+        status.classList.add("warning")
+    }
 })

@@ -62,7 +62,7 @@
                 <div class="student-registration">
                     <div class="form signup">
                         <div class="back-button action-button-container">
-                            <a href="department.php">
+                            <a href="clearance_type.php">
                                 <button id="back-button-to-student">
                                     <span class="material-symbols-sharp">arrow_back</span>
                                 </button>
@@ -70,24 +70,23 @@
                         </div>
                         <span class="title">Edit Clearance Type Information</span>
 
-                    <form action="update_clearance_type.php" method="POST">
-                        <div class="input-field-container">
-                            <div class="input-field">
-                                <input type="hidden" name="clearance_type_id" value="<?= $clearance_type_id?>">
-                                <input type="text" name="clearance_type_name" placeholder="Clearance Type Name" required value="<?php echo $clearance_type_name; ?>">
-                                <i class="uil uil-user"></i>
+                        <form action="update_clearance_type.php" method="POST">
+                            <div class="input-field-container">
+                                <div class="input-field">
+                                    <input type="hidden" name="clearance_type_id" value="<?= $clearance_type_id?>">
+                                    <input type="text" name="clearance_type_name" placeholder="Clearance Type Name" required value="<?php echo $clearance_type_name; ?>">
+                                    <i class="uil uil-user"></i>
+                                </div>
+                                <div class="input-field">
+                                    <textarea name="clearance_type_description"  cols="30" rows="10"><?= $clearance_type_description?></textarea>
+                                </div>
                             </div>
-                            <div class="input-field">
-                                <label for="">Clearance Type Description</label><br>
-                                <textarea name="clearance_type_description"  cols="30" rows="10"><?= $clearance_type_description?></textarea>
+                            <div class="input-field button">
+                                <input type="submit" name="update" value="Update Clearance Type">
                             </div>
-                        </div>
-                        <div class="input-field button">
-                            <input type="submit" name="update" value="Update Clearance Type">
-                        </div>
-                </form>
-            </div>
-        </div>
+                        </form>
+                    </div>
+                </div>
                 <!-- -------------  END OF REGISTRATION -------------- -->
             </div>
             

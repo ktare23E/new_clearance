@@ -60,8 +60,8 @@
 
             <div class="form-and-table-container">
                 <div class="student-view-top">
-                    <div class="action-button-container">
-                        <a href="student.php">
+                    <div class="student-pic-container">
+                        <a href="student.php" style="align-self: flex-start;">
                             <button id="back-button-to-student">
                                 <span class="material-symbols-sharp">arrow_back</span>
                             </button>
@@ -69,13 +69,16 @@
                         <div class="student-view-profile-img-container">
                             <img src="uploads/<?= $row['student_profile']; ?>" alt="">
                         </div>
-                        <div>
+                        <div style="display:flex; flex-direction:row;align-items:center;gap:10px;margin-top:30px">
                             <button onclick="location.href = 'edit_student_info.php?edit=<?= $row['student_id'];?>';" class="edit-profile-button" id="edit-profile-button">
                                 <span class="material-symbols-sharp">edit</span>
                                 <h3>Edit Profile</h3>
                             </button>
-                            <a href="student-clearances.php?student_id=<?= $row['student_id']; ?>"><div class='student-info-name-container clearance-status-btn-container'><button id='clearance-status-button'>View Clearance</button></div></a>
-
+                            <a href="student-clearances.php?student_id=<?= $row['student_id']; ?>">
+                                <div class='student-info-name-container clearance-status-btn-container'>
+                                    <button id='clearance-status-button'>View Clearance</button>
+                                </div>
+                            </a>
                         </div>
                     </div>
 

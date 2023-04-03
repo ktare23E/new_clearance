@@ -54,6 +54,9 @@
                 <!-- -------------  TABLE OF STUDENT INFORMATION -------------- -->
                 <div class="recent-orders-student">
                     <div class="add-button-container">
+                    <div class="h2-container">
+                            <h2>Signing Offices List</h2>
+                    </div>
                         <div>
                             <a href="signing_office_registration.php">
                                 <button id="add-new-student">
@@ -61,8 +64,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="add-button-container">
-                                <div>
+                                <!-- <div>
                                     <label for="">Filter via Clearance Type</label>
                                     <select name="clearance_type_id" id="clearance_type">
                                             <option default>Select Clearance Type</option>
@@ -76,49 +78,48 @@
                                             <?php endif;?>
                                             <?php endforeach; ?>
                                     </select>
-                        </div>
+                        </div> -->
+                    
+                    <div class="table-container">
+                        <table id="example" class="display" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Office Name</th>
+                                    <th>School Year and Sem</th>
+                                    <th>Admin Name</th>
+                                    <th>Clearance Type</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($users as $user) : ?>
+                                <tr>
+                                    <td><?= $user->office_name; ?></td>
+                                    <td><?= $user->school_year_and_sem.' '.$user->sem_name; ?></td>
+                                    <td><?= $user->admin_name; ?></td>
+                                    <td><?= $user->clearance_type_name; ?></td>
+                                    <td class="primary table-action-container">
+                                        <a href="edit_signing_office_info.php?edit=<?= $user->signing_office_id;?>">Update</a>
+                                            <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
+                                            <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
+                                                <span class="material-symbols-outlined">delete</span>
+                                            </button> -->
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Office Name</th>
+                                    <th>School Year and Sem</th>
+                                    <th>Admin Name</th>
+                                    <th>Clearance Type</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
-                    <div class="h2-container">
-                            <h2>Signing Offices List</h2>
-                    </div>
-
-                    <table id="example" class="display" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Office Name</th>
-                                <th>School Year and Sem</th>
-                                <th>Admin Name</th>
-                                <th>Clearance Type</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($users as $user) : ?>
-                            <tr>
-                                <td><?= $user->office_name; ?></td>
-                                <td><?= $user->school_year_and_sem.' '.$user->sem_name; ?></td>
-                                <td><?= $user->admin_name; ?></td>
-                                <td><?= $user->clearance_type_name; ?></td>
-                                <td class="primary table-action-container">
-                                    <a href="edit_signing_office_info.php?edit=<?= $user->signing_office_id;?>">Update</a>
-                                        <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
-                                        <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
-                                            <span class="material-symbols-outlined">delete</span>
-                                        </button> -->
-                                </td>
-                            </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Office Name</th>
-                                <th>School Year and Sem</th>
-                                <th>Admin Name</th>
-                                <th>Clearance Type</th>
-                                <th>Actions</th>
-                            </tr>
-                        </tfoot>
-                    </table>
+                    
                 </div>
             </div>
             

@@ -57,8 +57,7 @@
                                     <i class="uil uil-user"></i>
                                 </div>
                                 <div class="input-field">
-                                    <label for="">Course Description</label>
-                                    <textarea style="border-style: 1px solid;" name="clearance_type_description" id="" rows="4" cols="50"></textarea>
+                                    <textarea placeholder="Description" style="border-style: 1px solid;" name="clearance_type_description" id="" rows="4" cols="50"></textarea>
                                 </div>
                             </div>
                             <div class="input-field button">

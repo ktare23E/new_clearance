@@ -45,6 +45,9 @@
                 <!-- -------------  TABLE OF STUDENT INFORMATION -------------- -->
                 <div class="recent-orders-student">
                     <div class="add-button-container">
+                        <div class="h2-container">
+                                <h2>School Year</h2>
+                        </div>
                         <div>
                             <a href="sy_sem_registration.php">
                                 <button id="add-new-student">Add new School Year</button>
@@ -52,40 +55,40 @@
                         </div>
                     </div>
 
-                    <div class="h2-container">
-                            <h2>School Year</h2>
-                    </div>
-
-                    <table id="example" class="display" style="width:100%">
-                        <thead>
-                            <tr>
+                    
+                    <div class="table-container">
+                        <table id="example" class="display" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>School Year</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($users as $user) : ?>
+                                <tr>
+                                    <td><input type="checkbox" name='update[]' class='row' sy_sem_id = <?= $user-> sy_sem_id; ?>></td>
+                                    <td><?= $user->school_year_and_sem; ?></td>
+                                    <td class="primary table-action-container">
+                                        <a href="edit_sy_sem_info.php?edit=<?= $user->sy_sem_id?>">Update</a>
+                                            <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
+                                            <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
+                                                <span class="material-symbols-outlined">delete</span>
+                                            </button> -->
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                            <tfoot>
+                                <tr>
                                 <th></th>
-                                <th>School Year</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($users as $user) : ?>
-                            <tr>
-                                <td><input type="checkbox" name='update[]' class='row' sy_sem_id = <?= $user-> sy_sem_id; ?>></td>
-                                <td><?= $user->school_year_and_sem; ?></td>
-                                <td class="primary table-action-container">
-                                    <a href="edit_sy_sem_info.php?edit=<?= $user->sy_sem_id?>">Update</a>
-                                        <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
-                                        <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
-                                            <span class="material-symbols-outlined">delete</span>
-                                        </button> -->
-                                </td>
-                            </tr>
-                            <?php endforeach; ?>
-                        <tfoot>
-                            <tr>
-                            <th></th>
-                                <th>School Year</th>
-                                <th>Actions</th>
-                            </tr>
-                        </tfoot>
-                    </table>
+                                    <th>School Year</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    
                 </div>
             </div>
             
