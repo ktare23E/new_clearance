@@ -315,7 +315,8 @@ main .student-registration {
 
 
 .student-view-top {
-    
+    display: grid;
+    grid-template-columns: 1fr 2fr;
     background: var(--color-white);
     /* background: var(--color-white); */
     padding: var(--card-padding);
@@ -401,6 +402,13 @@ main .student-registration .form .title{
     gap: 5px;
 }
 
+.student-pic-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
 .bulk-actions-container button#close-bulk-options-button {
     display: none;
 }
@@ -467,7 +475,6 @@ main .student-registration .form .title{
     background: var(--color-primary-variant);
     color: white;
     border-radius: var(--border-radius-1);
-    width: 100%;
 }
 
 .edit-profile-button h3 {
@@ -1126,16 +1133,20 @@ main .recent-orders-student table {
 
 .student-view-profile-info-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 3fr;
+    grid-template-columns: 2fr 2fr 4fr;
     gap: 20px;
+    width: 100%;
 }
 
 .clearance-status-btn-container {
-    margin-top: 15px;
+    
 }
 
 .student-view-profile-container {
-    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
 }
 
 .student-view-profile-container .student-view-profile-info-container
@@ -1146,7 +1157,7 @@ main .recent-orders-student table {
 }
 
 .clearance-status-btn-container button {
-    padding: 10px 15px;
+    padding: 11px 15px;
     cursor: pointer;
     font-size: 1.3rem;
     font-weight: 550;
