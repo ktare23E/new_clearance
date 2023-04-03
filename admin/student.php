@@ -51,7 +51,7 @@
                         <div class="new-student-buttons" style="display:flex;flex-direction:row;gap:5px;justify-content:space-between;">
                             <div>
                                 <a href="student_registration.php">
-                                    <button id="add-new-student"><span class="material-symbols-sharp">add</span>Add new student</button>
+                                    <button id="add-new-student"><span class="material-symbols-sharp">add</span>Student</button>
                                 </a>
                             </div>
                             <button id="register-csv-file-btn"><span class="material-symbols-sharp">upload_file</span>Register Via .csv file<span class="material-symbols-sharp">arrow_forward_ios</span></button>

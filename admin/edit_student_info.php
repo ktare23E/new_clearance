@@ -97,7 +97,7 @@
                         </div>
                         <div class="input-field-container">
                             <div class="input-field">
-                                <label for="">Year Level</label>
+                                
                                 <select name="student_year" id="student_year" required>
                                     
                                     <!-- <option value="<?php echo $student_year; ?>"><?php echo $student_year; ?></option> -->
@@ -134,9 +134,10 @@
                                     <option value="3rd Year">3rd Year</option>
                                     <option value="4th Year">4th Year</option> -->
                                 </select>
+                                <i class="uil uil-analysis"></i>
                             </div>
                             <div class="input-field">
-                                    <i class="uil uil-analysis"></i>
+                                    
                                     <select name="course_id" id="">
                                             <?php $courses = $db->result('course');?>
                                             <?php foreach($courses as $course):?>
@@ -147,9 +148,10 @@
                                             <?php endif;?>
                                             <?php endforeach; ?>
                                     </select>
+                                    <i class="uil uil-analysis"></i>
                                 </div>
                                 <div class="input-field">
-                                    <i class="uil uil-analysis"></i>
+                                    
                                     <select name="office_id" id="">
                                             <?php $offices = $db->result('office','is_department = 1');;?>
                                             <?php foreach($offices as $office):?>
@@ -160,6 +162,7 @@
                                             <?php endif;?>
                                             <?php endforeach; ?>
                                     </select>
+                                    <i class="uil uil-analysis"></i>
                                 </div>
                         </div>
                         <div class="input-field-container">
@@ -168,7 +171,7 @@
                                     <i class="uil uil-envelope"></i>
                                 </div>
                                 <div class="input-field">
-                                    <label for="">Gender</label>
+                                    
                                     <select name="student_gender" id="">
                                         <?php if($student_gender === 'Male'):?>
                                         <option value="<?= $student_gender; ?>" selected><?= $student_gender; ?></option>
@@ -181,9 +184,10 @@
                                                 <option value="Female">Female</option>
                                             <?php endif;?>
                                     </select>
+                                    <i class="uil uil-analysis"></i>
                                 </div>
                                 <div class="input-field">
-                                <label for="">Status</label>
+                                    
                                     <select name="student_status" id="">
                                         <?php if($student_status === 'Active'):?>
                                         <option value="<?= $student_status; ?>" selected><?= $student_status; ?></option>
@@ -196,6 +200,7 @@
                                                 <option value="Inactive">Inactive</option>
                                             <?php endif;?>
                                     </select>
+                                    <i class="uil uil-analysis"></i>
                                 </div>
                             </div>
                             <div class="input-field-container">

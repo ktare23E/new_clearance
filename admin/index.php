@@ -6,12 +6,8 @@
 
     <div class="container">
         <!-- sidebar -->
-        <?php   
-                include_once 'aside.php';
-        ?>
+        <?php   include_once 'aside.php'; ?>
         <!------------------ END OF ASIDE ---------------->
-        
-        
         <main>
             <h1>Dashboard</h1>
 

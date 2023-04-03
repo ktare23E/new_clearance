@@ -64,15 +64,17 @@
                 <!-- -------------  TABLE OF STUDENT INFORMATION -------------- -->
                 <div class="recent-orders-student">
                     <div class="add-button-container">
-                        <a href="student_view.php?details=<?= $student_id?>">
-                            <button id="back-button-to-student">
-                                <span class="material-symbols-sharp">arrow_back</span>
-                            </button>
-                        </a>
-                        <div class="h2-container">
-                            <h3>Clearance of</h3>
-                            <h2><?= $student_first_name." ".$student_last_name; ?></h2>
+                        <div class="clearance-view-header">
+                            <a href="student_view.php?details=<?= $student_id?>">
+                                <button id="back-button-to-student">
+                                    <span class="material-symbols-sharp">arrow_back</span>
+                                </button>
+                            </a>
+                            <div class="h2-container">
+                                <h2><?= $student_first_name." ".$student_last_name; ?></h2>
+                            </div>
                         </div>
+                        
                         
                     </div>
                     
