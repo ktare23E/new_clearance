@@ -74,7 +74,11 @@
                                 <span class="material-symbols-sharp">edit</span>
                                 <h3>Edit Profile</h3>
                             </button>
-                            <a href="student-clearances.php?student_id=<?= $row['student_id']; ?>"><div class='student-info-name-container clearance-status-btn-container'><button id='clearance-status-button'>View Clearance</button></div></a>
+                            <a href="student-clearances.php?student_id=<?= $row['student_id']; ?>">
+                                <div class='student-info-name-container clearance-status-btn-container'>
+                                    <button id='clearance-status-button'>View Clearance</button>
+                                </div>
+                            </a>
 
                         </div>
                     </div>
