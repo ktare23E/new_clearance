@@ -33,7 +33,8 @@
                     $result = mysqli_query($db_connection, $query); 
     
                     $total_users = mysqli_fetch_array($result); 
-    
+                    
+                    
                     mysqli_close($db_connection); 
                 }else{
                     $query = "SELECT COUNT(*) FROM view_clearance"; 
@@ -41,6 +42,9 @@
     
                     $total_users = mysqli_fetch_array($result); 
                 }
+
+                // $query = "SELECT * FROM requirement_view WHERE office = '$office_id'";
+                // echo $query;
             ?>
 
         <div class="student-panel-insights-container">
@@ -50,32 +54,8 @@
                         <span class="material-symbols-sharp">groups_2 </span>
                     </div>
                     <div class="right-insights">
-                        <h3 class="success">Active students</h3>
+                        <h3 class="success">Number of students clearance that assigned for you.</h3>
                         <h2><?= $total_users[0]; ?></h2>
-                    </div>
-
-                </div>
-                <div class="lower-insight">
-                    <small>Ajinomoto of sardines</small>
-                </div>
-            </div>
-
-            <div class="student-insight-container">
-                <div class="upper-insight">
-                    <div class="left-logo-insight">
-                        <span class="material-symbols-sharp">groups_2 </span>
-                    </div>
-                    <div class="right-insights">
-                        <h3 class="success">Active students <span class="text-muted">under you</span> </h3>
-                        <h2><?= $total_users[0]; ?></h2>
-                    </div>
-                    <div class="right-insights">
-                        <h3>Insight data 1</h3>
-                        <h2>1,234</h2>
-                    </div>
-                    <div class="right-insights">
-                        <h3>Insight data 2</h3>
-                        <h2>1,234</h2>
                     </div>
                 </div>
                 <div class="lower-insight">
@@ -84,7 +64,7 @@
             </div>
         </div>
 
-        <div class="clearance-tabs-section-container">
+        <!-- <div class="clearance-tabs-section-container">
             <div class="ul-tabs-container">
                 <ul class="tabs">
                     <li data-tab-target="#continuing" class="active tab">Continuing</li>
@@ -92,7 +72,7 @@
                     <li data-tab-target="#transfering" class="tab">Transfering</li>
                 </ul>
             </div>
-        </div>
+        </div> -->
 
         <div class="recent-orders-student">
 

@@ -29,6 +29,7 @@
                                                     <tr>
                                                         <th>Requirements</th>
                                                         <th>Clearance Type</th>
+                                                        <th>Actions</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -37,10 +38,10 @@
                                                     <tr>
                                                         <th><?= $clearance->requirement_details; ?></th>
                                                         <th><?= $clearance->clearance_type_name;?></th>
+                                                        <th><a href="edit_requirements.php?edit=<?= $clearance->requirement_id; ?>">Edit</a></th>
                                                     </tr>
                                                     <?php endif; ?>
                                                     <?php endforeach; ?>
-                                                        <button type="submit" disabled="true">Click me</button>
                                                 </tbody>
                         </table>
                 </div>
