@@ -457,6 +457,10 @@ main .student-registration .form .title{
     width: 100%;
 }
 
+.table-container:hover {
+    box-shadow: none;
+}
+
 .dataTables_wrapper {
 
 }
@@ -802,6 +806,7 @@ main .insights svg circle {
 .detail-left-main-content .clearance-info-container h3 {
     color: var(--color-dark-variant);
     font-size: 1rem;
+    font-weight: 500;
 }
 
 .clearance-detail-container .clearance-detail-left 
@@ -1204,6 +1209,7 @@ select {
 input[type="search"]{
     color: var(--color-dark) !important;
 }
+
 
 .h2-container {
     

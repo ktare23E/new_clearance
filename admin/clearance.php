@@ -40,19 +40,52 @@
 
             <div class="form-and-table-container">
                 
+                    
                 <!-- -------------  TABLE OF STUDENT INFORMATION -------------- -->
-                <div style="margin-top: 20px;">
+                <!-- <div style="margin-top: 20px;">
                     <button id="show-clearance-insights">
                         <span class="material-symbols-sharp">show_chart</span>
                         Show Clearance Insights
                     </button>
-                </div>
-                <div>
-                <a href="clearance_registration.php">
-                                <button id="add-new-student"><span class="material-symbols-sharp">add</span>Add new Clearance</button>
-                </a>
-                </div>
-                <button id="register-csv-file-btn"><span class="material-symbols-sharp">upload_file</span>Register Via .csv file<span class="material-symbols-sharp">arrow_forward_ios</span></button>
+                </div> -->
+                
+                        <!-- <div>
+                                    <label for="">Filter via Clearance Type</label>
+                                    <select name="clearance_type_id" id="clearance_type">
+                                            <option default>Select Clearance</option>
+                                            <option value="">All</option>
+                                            <?php $signings = $db->result('clearance_type');?>
+                                            <?php foreach($signings as $signing):?>
+                                            <?php if($signing->clearance_type_id == $clearance_type_id):?>  
+                                            <option value="<?= $signing->clearance_type_id; ?>"><?= $signing->clearance_type_name; ?></option>
+                                            <?php else:?>
+                                                <option value="<?= $signing->clearance_type_id; ?>"><?= $signing->clearance_type_name; ?></option>
+                                            <?php endif;?>
+                                            <?php endforeach; ?>
+                                    </select>
+                        </div> -->
+
+
+
+
+                <div class="recent-orders-student">
+
+                    <div class="add-button-container" style="margin-bottom: 20px;">
+                        <div class="h2-container">
+                            <h2>Clearance list</h2>
+                        </div>
+                        <div>
+                            <a href="clearance_registration.php">
+                                <button id="add-new-student">
+                                    <span class="material-symbols-sharp">add</span>Add new Clearance
+                                </button>
+                            </a>
+                        </div>
+                        <button id="register-csv-file-btn">
+                            <span class="material-symbols-sharp">upload_file</span>
+                            Register Via .csv file
+                            <span class="material-symbols-sharp">arrow_forward_ios</span>
+                        </button>
                         <div>
                             <div class="upload-student-csv-container">
                                 <form action="clearance_upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
@@ -68,194 +101,47 @@
                                 </form>
                             </div>
                         </div>
-                <div class="add-button-container">
-                        <div>
-                                    <label for="">Filter via Clearance Type</label>
-                                    <select name="clearance_type_id" id="clearance_type">
-                                            <option default>Select Clearance</option>
-                                            <option value="">All</option>
-                                            <?php $signings = $db->result('clearance_type');?>
-                                            <?php foreach($signings as $signing):?>
-                                            <?php if($signing->clearance_type_id == $clearance_type_id):?>  
-                                            <option value="<?= $signing->clearance_type_id; ?>"><?= $signing->clearance_type_name; ?></option>
-                                            <?php else:?>
-                                                <option value="<?= $signing->clearance_type_id; ?>"><?= $signing->clearance_type_name; ?></option>
-                                            <?php endif;?>
-                                            <?php endforeach; ?>
-                                    </select>
-                        </div>
-                </div>
-                <div id="clearance-insights">
-                <div class="insights">
-                    <div class="income">
-                        <div style="
-                            display:flex;
-                            gap:5px;
-                            align-items:center
-                        ">
-                            <span class="material-symbols-sharp">stacked_line_chart</span>
-                            <h3>Active Clearance</h3>
-                        </div>
-                        
-                        
-                        <div class="middle">
-                            <div class="left">
-                                <h4 class="text-muted">Continuing:</h4>
-                                <h1>3,548</h1>
-                            </div>
-                            <div class="left">
-                                <h4 class="text-muted">Transfering:</h4>
-                                <h1>3,548</h1>
-                            </div>
-                            <div class="left">
-                                <h4 class="text-muted">Graduating:</h4>
-                                <h1>3,548</h1>
-                            </div>
-                            <div class="progress">
-                                <svg>
-                                    <circle cx="38" cy="38" r="36"></circle>
-                                </svg>
-                                <div class="number">
-                                    <p>44%</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <small class="text-muted">Sy-sem : 2022 - 2023, 1st sem</small>
                     </div>
-
-                    <div class="expenses">
-                        <div style="
-                            display:flex;
-                            gap:5px;
-                            align-items:center
-                        ">
-                            <span style="background: var(--color-warning)" class="material-symbols-sharp">bar_chart</span>
-                            <h3>Uncleared / Pending</h3>
-                        </div>
-                        
-                        
-                        <div class="middle">
-                            <div class="left">
-                                <h4 class="text-muted">Continuing:</h4>
-                                <h1>3,548</h1>
-                            </div>
-                            <div class="left">
-                                <h4 class="text-muted">Transfering:</h4>
-                                <h1>3,548</h1>
-                            </div>
-                            <div class="left">
-                                <h4 class="text-muted">Graduating:</h4>
-                                <h1>3,548</h1>
-                            </div>
-                            <div class="progress">
-                                <svg>
-                                    <circle cx="38" cy="38" r="36"></circle>
-                                </svg>
-                                <div class="number">
-                                    <p>62%</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <small class="text-muted">Sy-sem : 2022 - 2023, 1st sem</small>
-                    </div>
-                    <!-- -------------  END OF EXPENSES -------------- -->
-
-                    <div class="sales">
-                        <div style="
-                            display:flex;
-                            gap:5px;
-                            align-items:center
-                        ">
-                            <span class="material-symbols-sharp">analytics</span>  
-                            <h3>Cleared Active</h3>
-                        </div>
-                        
-                        
-                        <div class="middle">
-                            <div class="left">
-                                <h4 class="text-muted">Continuing:</h4>
-                                <h1>3,548</h1>
-                            </div>
-                            <div class="left">
-                                <h4 class="text-muted">Transfering:</h4>
-                                <h1>3,548</h1>
-                            </div>
-                            <div class="left">
-                                <h4 class="text-muted">Graduating:</h4>
-                                <h1>3,548</h1>
-                            </div>
-                            <div class="progress">
-                                <svg>
-                                    <circle cx="38" cy="38" r="36"></circle>
-                                </svg>
-                                <div class="number">
-                                    <p>81%</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <small class="text-muted">Sy-sem : 2022 - 2023, 1st sem</small>
-                    </div>
-                    <!-- -------------  END OF SALES -------------- -->
-                </div>
-                </div>
-                <br>
-                <div class="recent-orders-student">
-
-                    <div class="add-button-container">
-
-                        <div class="h2-container">
-                                <h2>Clearance list</h2>
-                        </div>
-
-                        <input type="checkbox" id="checkAll" style='
-                                    display:block;background-color:black; appearance:auto;
-                                    position:absolute;
-                                    top:100px;
-                                    left:40px;
-                                    z-index:10;
-                                    '/>
+                    <div class="table-container">
+                        <table id="example" class="display" style="width:100%; ">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Clearance Type Id</th>
+                                    <th>School Year and Sem Id</th>
+                                    <th>Clearance Id</th>
+                                    <th>Student ID</th>
+                                    <th>Student First Name</th>
+                                    <th>Student Last Name</th>
+                                    <th>School Year</th>
+                                    <th>Semester</th>
+                                    <th>Clearance Status</th>
+                                    <th>Semester Id</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th></th>
+                                    <th>Clearance Type Id</th>
+                                    <th>School Year and Sem Id</th>
+                                    <th>Clearance Id</th>
+                                    <th>Student ID</th>
+                                    <th>Student First Name</th>
+                                    <th>Student Last Name</th>
+                                    <th>School Year</th>
+                                    <th>Semester</th>
+                                    <th>Clearance Status</th>
+                                    <th>Semester Id</th>
+                                    <th>Action</th>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
                     
-                    <table id="example" class="display" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Clearance Type Id</th>
-                                <th>School Year and Sem Id</th>
-                                <th>Clearance Id</th>
-                                <th>Student ID</th>
-                                <th>Student First Name</th>
-                                <th>Student Last Name</th>
-                                <th>School Year</th>
-                                <th>Semester</th>
-                                <th>Clearance Status</th>
-                                <th>Semester Id</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th></th>
-                                <th>Clearance Type Id</th>
-                                <th>School Year and Sem Id</th>
-                                <th>Clearance Id</th>
-                                <th>Student ID</th>
-                                <th>Student First Name</th>
-                                <th>Student Last Name</th>
-                                <th>School Year</th>
-                                <th>Semester</th>
-                                <th>Clearance Status</th>
-                                <th>Semester Id</th>
-                                <th>Action</th>
-                            </tr>
-                        </tfoot>
-                    </table>
                 </div>
             </div>
             

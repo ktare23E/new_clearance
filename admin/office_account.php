@@ -46,52 +46,55 @@
                 <!-- -------------  TABLE OF STUDENT INFORMATION -------------- -->
                 <div class="recent-orders-student">
                     <div class="add-button-container">
+                        <div class="h2-container">
+                                <h2>User Account List</h2>
+                        </div>
                         <div>
                             <a href="office_account_registration.php">
                                 <button id="add-new-student">
-                                <i class="uis uis-airplay"></i> New Users</button>
+                                <i class="uis uis-airplay"></i>Add New Users</button>
                             </a>
                         </div>
                     </div>
 
-                    <div class="h2-container">
-                            <h2>User Account List</h2>
+                    
+                    <div class="table-container">
+                        <table id="example" class="display" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Admin Name</th>
+                                    <th>Office Name</th>
+                                    <th>Office Account Username</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($users as $user) : ?>
+                                <tr>
+                                    <td><?= $user->admin_name; ?></td>
+                                    <td><?= $user->office_name;?></td>
+                                    <td><?= $user->admin_username;?></td>
+                                    <td class="primary table-action-container">
+                                        <a href="edit_office_account_info.php?edit=<?= $user->admin_id;?>">Update</a>
+                                        <a href="office_account_view.php?details=<?= $user->admin_id;?>">View Details</a>
+                                            <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
+                                            <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
+                                                <span class="material-symbols-outlined">delete</span>
+                                            </button> -->
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                            <tfoot>
+                                <tr>
+                                    <th>Admin Name</th>
+                                    <th>Office Name</th>
+                                    <th>Office Account Username</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
-
-                    <table id="example" class="display" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Admin Name</th>
-                                <th>Office Name</th>
-                                <th>Office Account Username</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($users as $user) : ?>
-                            <tr>
-                                <td><?= $user->admin_name; ?></td>
-                                <td><?= $user->office_name;?></td>
-                                <td><?= $user->admin_username;?></td>
-                                <td class="primary table-action-container">
-                                    <a href="edit_office_account_info.php?edit=<?= $user->admin_id;?>">Update</a>
-                                    <a href="office_account_view.php?details=<?= $user->admin_id;?>">View Details</a>
-                                        <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
-                                        <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
-                                            <span class="material-symbols-outlined">delete</span>
-                                        </button> -->
-                                </td>
-                            </tr>
-                            <?php endforeach; ?>
-                        <tfoot>
-                            <tr>
-                                <th>Admin Name</th>
-                                <th>Office Name</th>
-                                <th>Office Account Username</th>
-                                <th>Actions</th>
-                            </tr>
-                        </tfoot>
-                    </table>
+                    
                 </div>
             </div>
             

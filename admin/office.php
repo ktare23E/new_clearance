@@ -45,6 +45,9 @@
                 <!-- -------------  TABLE OF STUDENT INFORMATION -------------- -->
                 <div class="recent-orders-student">
                     <div class="add-button-container">
+                        <div class="h2-container">
+                                <h2>Office List</h2>
+                        </div>
                         <div>
                             <a href="office_registration.php">
                                 <button id="add-new-student">Add new office</button>
@@ -52,44 +55,44 @@
                         </div>
                     </div>
 
-                    <div class="h2-container">
-                            <h2>Office List</h2>
+                    
+                    <div class="table-container">
+                        <table id="example" class="display" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Office Name</th>
+                                    <th>Office Email</th>
+                                    <th>Office Phone Number</th>
+                                    <th>Office Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($users as $user) : ?>
+                                <tr>
+                                    <td><?= $user->office_name; ?></td>
+                                    <td><?= $user->office_email; ?></td>
+                                    <td><?= $user->office_phone_number; ?></td>
+                                    <td><?= $user->office_status; ?></td>
+                                    <td class="primary table-action-container">
+                                        <a href="edit_office_info.php?edit=<?= $user->office_id?>">Update</a>
+                                        <a href="office_view.php?details=<?= $user->office_id?>">View Details</a>
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Office Name</th>
+                                    <th>Office Email</th>
+                                    <th>Office Phone Number</th>
+                                    <th>Office Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
-
-                    <table id="example" class="display" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Office Name</th>
-                                <th>Office Email</th>
-                                <th>Office Phone Number</th>
-                                <th>Office Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($users as $user) : ?>
-                            <tr>
-                                <td><?= $user->office_name; ?></td>
-                                <td><?= $user->office_email; ?></td>
-                                <td><?= $user->office_phone_number; ?></td>
-                                <td><?= $user->office_status; ?></td>
-                                <td class="primary table-action-container">
-                                    <a href="edit_office_info.php?edit=<?= $user->office_id?>">Update</a>
-                                    <a href="office_view.php?details=<?= $user->office_id?>">View Details</a>
-                                </td>
-                            </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Office Name</th>
-                                <th>Office Email</th>
-                                <th>Office Phone Number</th>
-                                <th>Office Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </tfoot>
-                    </table>
+                    
                 </div>
             </div>
             

@@ -45,6 +45,9 @@
                 <!-- -------------  TABLE OF STUDENT INFORMATION -------------- -->
                 <div class="recent-orders-student">
                     <div class="add-button-container">
+                    <div class="h2-container">
+                            <h2>Clearance Type List</h2>
+                    </div>
                         <div>
                             <a href="clearance_type_registration.php">
                                 <button id="add-new-student">Add new Clearance Type</button>
@@ -52,11 +55,9 @@
                         </div>
                     </div>
 
-                    <div class="h2-container">
-                            <h2>Clearance Type List</h2>
-                    </div>
-
-                    <table id="example" class="display" style="width:100%">
+                    
+<div class="table-container">
+    <table id="example" class="display" style="width:100%">
                         <thead>
                             <tr>
                                 <th></th>
@@ -85,6 +86,8 @@
                             </tr>
                         </tfoot>
                     </table>
+</div>
+                    
                 </div>
             </div>
             
