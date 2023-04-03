@@ -16,6 +16,10 @@
         $sql = "SELECT * FROM student_details WHERE student_id = '$id'";
         $students = $conn->query($sql) or die($conn->error);
         $row = $students->fetch_assoc();
+
+        $query = "SELECT * FROM view_clearance WHERE student_id = '$id'";
+        $clearance = $conn->query($query) or die($conn->error);
+        $clearance_row = $clearance->fetch_assoc();
     
     }
 ?>
@@ -71,7 +75,7 @@
                                 <span class="material-symbols-sharp">edit</span>
                                 <h3>Edit Profile</h3>
                             </button>
-                            <a href="student-clearances.php?student_id=<?= $row['student_id']; ?>"><div class='student-info-name-container clearance-status-btn-container'><button id='clearance-status-button'>View Clearance</button></div></a>
+                            <a href="student-clearances.php?student_id=<?= $clearance_row['student_id']; ?>"><div class='student-info-name-container clearance-status-btn-container'><button id='clearance-status-button'>View Clearance</button></div></a>
 
                         </div>
                         

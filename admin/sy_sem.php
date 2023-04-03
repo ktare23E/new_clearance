@@ -56,8 +56,6 @@
                             <h2>School Year</h2>
                     </div>
 
-                    
-
                     <table id="example" class="display" style="width:100%">
                         <thead>
                             <tr>
