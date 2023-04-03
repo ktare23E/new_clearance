@@ -8,15 +8,12 @@
         echo "<h1>There's an error while viewing details.</h1>";
     }else{
         $id = $_GET['edit'];
-        $sql = "SELECT * FROM school_year WHERE sy_sem_id = '$id'";
+        $sql = "SELECT * FROM sy_sem WHERE sy_sem_id = '$id'";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_assoc($result);
+
         $sy_sem_id = $row['sy_sem_id'];
         $school_year_and_sem = $row['school_year_and_sem'];
-        $sem_id = $row['sem_id'];
-        $sem_name = $row['sem_name'];
-        $status = $row['status'];
-        
     
         
 
