@@ -43,7 +43,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'clearance');
 
         </div>
 
-        <h1>Clearance Progress</h1>
+        <h1>Clearance Period</h1>
 
         <div class="form-and-table-container">
 
@@ -58,7 +58,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'clearance');
                         </a>
 
                     </div>
-                    <span class="title">Add New Clearance Progress</span>
+                    <span class="title">Add New Clearance Period</span>
 
                     <form action="insert_clearance_progress.php" method="POST">
                         <div class="input-field-container">

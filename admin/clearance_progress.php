@@ -51,7 +51,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="bulk-actions-container">
+                    <!-- <div class="bulk-actions-container">
                             <h3 style="text-align: center;">Bulk Update</h3>
                             <div class="bulk-action">
                                 <button type="button" id="active" >Set as Active</button>
@@ -59,7 +59,7 @@
                             <div class="bulk-action">
                                 <button type="button" id="inactive" onclick="">Set as Inactive</button>
                             </div>
-                    </div>
+                    </div> -->
 
                     <div class="h2-container">
                             <h2>Clearance Progress List</h2>

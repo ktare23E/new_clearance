@@ -57,7 +57,7 @@
                 </a>
                 <a href="clearance_progress.php">
                     <span class="material-symbols-sharp">inventory</span>
-                    <h3>Clearance Progress</h3>
+                    <h3>Clearance Period</h3>
                 </a>
                 <a href="reports.php">
                     <span class="material-symbols-sharp">report</span>
