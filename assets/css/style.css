@@ -479,6 +479,11 @@ main .student-registration .form .title{
     background: var(--color-primary-variant);
     color: white;
     border-radius: var(--border-radius-1);
+    transition: all 200ms ease;
+}
+
+.edit-profile-button:hover {
+    background: var(--color-primary);
 }
 
 .edit-profile-button h3 {

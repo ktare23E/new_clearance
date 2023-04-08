@@ -34,6 +34,7 @@
                     <button id="menu-btn" class="menu-btn">
                         <span class="material-symbols-sharp">menu</span>
                     </button>
+                    <h1>School Year</h1>
                     <div class="theme-toggler">
                         <span class="material-symbols-sharp active">light_mode</span>
                         <span class="material-symbols-sharp">dark_mode</span>
@@ -52,7 +53,7 @@
     
             </div>
 
-            <h1>School Year</h1>
+            
 
             <div class="form-and-table-container">
 

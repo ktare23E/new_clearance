@@ -45,13 +45,16 @@
                 <!-- -------------  TABLE OF STUDENT INFORMATION -------------- -->
                 <div class="recent-orders-student">
                     <div class="add-button-container">
+                        <div class="h2-container">
+                                <h2>Clearance Progress List</h2>
+                        </div>
                         <div>
                             <a href="clearance_progress_registration.php">
                                 <button id="add-new-student">Add new Clearance Progress</button>
                             </a>
                         </div>
                     </div>
-                    <div class="bulk-actions-container">
+                    <!-- <div class="bulk-actions-container">
                             <h3 style="text-align: center;">Bulk Update</h3>
                             <div class="bulk-action">
                                 <button type="button" id="active" >Set as Active</button>
@@ -59,36 +62,36 @@
                             <div class="bulk-action">
                                 <button type="button" id="inactive" onclick="">Set as Inactive</button>
                             </div>
-                    </div>
+                    </div> -->
 
-                    <div class="h2-container">
-                            <h2>Clearance Progress List</h2>
+                    
+                    <div class="table-container">
+                        <table id="example" class="display" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Shool Year</th>
+                                    <th>Semester</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($users as $user) : ?>
+                                <tr>
+                                    <td><?= $user->school_year_and_sem; ?></td>
+                                    <td><?= $user->sem_name; ?></td>
+                                    <td><?= $user->status; ?></td>
+                                    <td class="primary table-action-container">
+                                        <a href="edit_clearance_progress.php?edit=<?= $user->clearance_progress_id; ?>">Update</a>
+                                        <!-- <a href="office_view.php?clearance_progress_id=<?= $user->clearance_progress_id; ?>">View Details</a> -->
+                                        <a href="lock_requirements.php?clearance_progress_id=<?= $user->clearance_progress_id; ?>?"><button type="button">Lock Requirements</button></a>
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
                     </div>
-
-                    <table id="example" class="display" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Shool Year</th>
-                                <th>Semester</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($users as $user) : ?>
-                            <tr>
-                                <td><?= $user->school_year_and_sem; ?></td>
-                                <td><?= $user->sem_name; ?></td>
-                                <td><?= $user->status; ?></td>
-                                <td class="primary table-action-container">
-                                    <a href="edit_clearance_progress.php?edit=<?= $user->clearance_progress_id; ?>">Update</a>
-                                    <!-- <a href="office_view.php?clearance_progress_id=<?= $user->clearance_progress_id; ?>">View Details</a> -->
-                                    <a href="lock_requirements.php?clearance_progress_id=<?= $user->clearance_progress_id; ?>?"><button type="button">Lock Requirements</button></a>
-                                </td>
-                            </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
+                    
                 </div>
             </div>
             
