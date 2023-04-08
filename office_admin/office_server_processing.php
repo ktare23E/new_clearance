@@ -66,13 +66,13 @@ if($is_department == 0){
 // die();
 foreach($data['data'] as $i => $entry){
     $new_entry = array();
-    array_push($new_entry, "<td><input name='update[]' class='row' student_id = '$entry[1]' type='checkbox' /></td>");
+    // array_push($new_entry, "<td><input name='update[]' class='row' student_id = '$entry[1]' type='checkbox' /></td>");
 
     foreach($entry as $j => $value){
         array_push($new_entry, $value);
     }
     array_push($new_entry, "<td class='primary table-action-container'>
-    <a href='office_student_view_2.php?details=".$entry[1]."'>View Details</a>
+    <a class='view-link' href='office_student_view_2.php?details=".$entry[1]."'>View Details</a>
         <input type='hidden' name='student_id' value='".$entry[1]."'> 
     </td>");
     $data['data'][$i] = $new_entry;
