@@ -325,6 +325,21 @@ main .student-registration {
     transition: all 300ms ease;
 }
 
+.course-view-top {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-white);
+    /* background: var(--color-white); */
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+.course-view-top:hover {
+    box-shadow: none;
+}
+
 .student-view-top:hover {
     box-shadow: none;
 }
@@ -1148,6 +1163,30 @@ main .recent-orders-student table {
     width: 100%;
 }
 
+.course-view {
+    grid-template-columns: 1fr 2fr 1fr !important;
+}
+
+.check-available {
+    position: absolute;
+    top: -10px;
+}
+
+.no-pointer {
+    pointer-events: none;
+}
+
+.course-view-chu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-check {
+    top: 80% !important;
+}
+
 .clearance-status-btn-container {
     
 }
@@ -1893,6 +1932,18 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     padding: 3px 8px;
     margin-right: 3px;
     border-radius: 3px;
+}
+
+.lock-period {
+    background: var(--color-danger);
+    color: white !important;
+    padding: 3px 8px;
+    margin-right: 3px;
+    border-radius: 3px;
+}
+
+.lock-period button {
+    color: white;
 }
 
 .view-link {

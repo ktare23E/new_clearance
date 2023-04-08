@@ -33,6 +33,7 @@
                     <button id="menu-btn" class="menu-btn">
                         <span class="material-symbols-sharp">menu</span>
                     </button>
+                    <h1>Office</h1>
                     <div class="theme-toggler">
                         <span class="material-symbols-sharp active">light_mode</span>
                         <span class="material-symbols-sharp">dark_mode</span>
@@ -51,7 +52,6 @@
     
             </div>
 
-            <h1>Office</h1>
 
             <div class="form-and-table-container">
 
@@ -71,7 +71,7 @@
                         <form action="insert_office.php" method="POST">
                             <div class="input-field-container">
                                 <div class="input-field">
-                                    <span id="check_office"></span><br>
+                                    <span id="check_office" class="check-available"></span>
                                     <input type="text" name="office_name" id="office_name" oninput="checkOffice()" placeholder="Office Name" required>
                                     <i class="uil uil-user"></i>
                                 </div>

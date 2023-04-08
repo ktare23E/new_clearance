@@ -37,6 +37,7 @@
                     <button id="menu-btn" class="menu-btn">
                         <span class="material-symbols-sharp">menu</span>
                     </button>
+                    <h1>Course</h1>
                     <div class="theme-toggler">
                         <span class="material-symbols-sharp active">light_mode</span>
                         <span class="material-symbols-sharp">dark_mode</span>
@@ -55,7 +56,7 @@
     
             </div>
 
-            <h1>Course</h1>
+            
 
             <div class="form-and-table-container">
 
@@ -79,7 +80,7 @@
                                 <i class="uil uil-user"></i>
                             </div>
                             <div class="input-field">
-                                <label for="">Status</label>
+                                    <i class="uil uil-bolt"></i>
                                     <select name="course_status" id="">
                                         <?php if($course_status === 'Active'):?>
                                         <option value="<?= $course_status; ?>" selected><?= $course_status; ?></option>
@@ -100,7 +101,7 @@
                                 <textarea style="border-style: 1px solid;" name="course_description" id="" rows="4" cols="50"><?= $course_description?></textarea>
                             </div>
                             <div class="input-field">
-                            <label for="">Department Name</label>
+                            <i class="uil uil-analysis"></i>
                             <select name="office_id" id="">
                                 <?php $offices = $db->result('office','is_department = 1');?>
                                 <?php foreach($offices as $office):?>

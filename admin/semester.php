@@ -50,7 +50,7 @@
                     </div>
                         <div>
                             <a href="sem_registration.php">
-                                <button id="add-new-student">Add new Semester</button>
+                                <button id="add-new-student"><span class="material-symbols-sharp">add</span> Semester</button>
                             </a>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                         <table id="example" class="display" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th></th>
+                                    <!-- <th></th> -->
                                     <th>Semester Name</th>
                                     <!-- <th>Status</th> -->
                                     <th>Actions</th>
@@ -69,11 +69,11 @@
                             <tbody>
                                 <?php foreach ($users as $user) : ?>
                                 <tr>
-                                    <td><input type="checkbox"></td>
+                                    <!-- <td><input type="checkbox"></td> -->
                                     <td><?= $user->sem_name; ?></td>
                                     <!-- <td><?= $user->status; ?></td> -->
                                     <td class="primary table-action-container">
-                                        <a href="edit_sem_info.php?edit=<?= $user->sem_id?>">Update</a>
+                                        <a class="update-link" href="edit_sem_info.php?edit=<?= $user->sem_id?>">Update</a>
                                             <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
                                             <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
                                                 <span class="material-symbols-outlined">delete</span>
@@ -83,7 +83,7 @@
                                 <?php endforeach; ?>
                             <tfoot>
                                 <tr>
-                                    <th></th>
+                                    <!-- <th></th> -->
                                     <th>Semester Name</th>
                                     <!-- <th>Status</th> -->
                                     <th>Actions</th>

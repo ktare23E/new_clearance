@@ -25,6 +25,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'clearance');
                 <button id="menu-btn" class="menu-btn">
                     <span class="material-symbols-sharp">menu</span>
                 </button>
+                <h1>Clearance Period</h1>
                 <div class="theme-toggler">
                     <span class="material-symbols-sharp active">light_mode</span>
                     <span class="material-symbols-sharp">dark_mode</span>
@@ -43,7 +44,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'clearance');
 
         </div>
 
-        <h1>Clearance Period</h1>
+        
 
         <div class="form-and-table-container">
 
@@ -63,7 +64,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'clearance');
                     <form action="insert_clearance_progress.php" method="POST">
                         <div class="input-field-container">
                             <div class="input-field">
-                                <label for="">Select School Year</label>
+                                <i class="uil uil-bolt"></i>
                                 <select name="sy_sem_id" id="">
                                     <option default>Select School Year</option>
                                     <?php $school_year = $db->result('sy_sem'); ?>
@@ -78,7 +79,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'clearance');
                             </div>
                             <input type="hidden" name="clearance_status" value="1">
                             <div class="input-field">
-                                <label for="">Semester</label>
+                                <i class="uil uil-bolt"></i>
                                 <select name="sem_id" id="">
                                     <option default>Select Semester</option>
                                     <?php $semesters = $db->result('sem'); ?>

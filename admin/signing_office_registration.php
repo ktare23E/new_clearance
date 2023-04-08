@@ -44,19 +44,18 @@
                 <div class="student-registration">
                     <div class="form signup">
                         <div class="back-button">
-                            <a href="signing_office.php">
+                            <a href="signing_office.php" style="display:inline-block">
                                 <button id="back-button-to-office">
                                 <span class="material-symbols-sharp">arrow_back</span>
                             </button>
                             </a>
-                            
                         </div>
                         <span class="title">Add New Signing Office</span>
         
                         <form action="insert_signing_office.php" method="POST">
                             <div class="input-field-container">
                             <div class="input-field">
-                                    <label for="">Office Name</label>
+                                    <i class="uil uil-bolt no-pointer"></i>
                                     <select name="office_id" id="">
                                         <option default>Select Office</option>
                                             <?php $offices = $db->result('office', 'office_name != "System Administrator"');?>
@@ -68,9 +67,10 @@
                                             <?php endif;?>
                                             <?php endforeach; ?>
                                     </select>
+
                             </div>
                                 <div class="input-field">
-                                    <label for="">Select School Year And Sem</label>
+                                    <i class="uil uil-bolt no-pointer"></i>
                                     <select name="clearance_progress_id" id="">
                                             <option default>Select School Year And Sem</option>
                                             <?php $clearances = $db->result('clearance_progress_view', 'status = "Active"');?>
@@ -86,7 +86,7 @@
                             </div>
                             <div class="input-field-container">
                                 <div class="input-field">
-                                    <label for="">Admin Name</label>
+                                    <i class="uil uil-bolt no-pointer"></i>
                                     <select name="admin_id" id="">
                                             <option default>Select Admin Name</option>
                                             <?php $admins = $db->result('admin','admin_name != "Admin"');?>
@@ -100,7 +100,7 @@
                                     </select>
                                 </div>
                                 <div class="input-field">
-                                            <label for="">Clearance Type</label>
+                                            <i class="uil uil-bolt no-pointer"></i>
                                             <select name="clearance_type_id" id="">
                                                     <option default>Select Clearance Type</option>
                                                     <?php $clearances = $db->result('clearance_type');?>

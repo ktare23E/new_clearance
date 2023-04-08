@@ -39,6 +39,7 @@
                     <button id="menu-btn" class="menu-btn">
                         <span class="material-symbols-sharp">menu</span>
                     </button>
+                    <h1>Office</h1>
                     <div class="theme-toggler">
                         <span class="material-symbols-sharp active">light_mode</span>
                         <span class="material-symbols-sharp">dark_mode</span>
@@ -57,7 +58,7 @@
     
             </div>
 
-            <h1>Office</h1>
+            
 
             <div class="form-and-table-container">
 
@@ -115,7 +116,7 @@
                         </div>
                         <div class="input-field-container">
                             <div class="input-field">
-                                <label for="">Office Description</label><br>
+                                
                                 <textarea style="border-style: 1px solid;" name="office_description" id="" rows="4" cols="50"><?= $office_description?></textarea>
                             </div>
                         </div>

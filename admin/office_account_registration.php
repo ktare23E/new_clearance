@@ -18,6 +18,7 @@
                     <button id="menu-btn" class="menu-btn">
                         <span class="material-symbols-sharp">menu</span>
                     </button>
+                    <h1>Office Account</h1>
                     <div class="theme-toggler">
                         <span class="material-symbols-sharp active">light_mode</span>
                         <span class="material-symbols-sharp">dark_mode</span>
@@ -36,7 +37,7 @@
     
             </div>
 
-            <h1>Office Account</h1>
+            
 
             <div class="form-and-table-container">
 
@@ -70,7 +71,7 @@
                             </div>
                             <div class="input-field-container">
                             <div class="input-field">
-                                    <label for="">Office Name</label>
+                                    <i class="uil uil-bolt"></i>
                                     <select name="office_id" id="">
                                             <option default>Select Office</option>
                                             <?php $offices = $db->result('office');?>
@@ -84,7 +85,7 @@
                                     </select>
                                 </div>
                             <div class="input-field">
-                                <label for="">User Type</label>
+                                <i class="uil uil-bolt"></i>
                                 <select name="user_type" id="">
                                     <option value="Select User Type">Select User Type</option>
                                     <option value="Admin">Admin</option>

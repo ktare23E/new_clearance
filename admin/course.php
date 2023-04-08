@@ -50,7 +50,7 @@
                         </div>
                         <div>
                             <a href="course_registration.php">
-                                <button id="add-new-student">Add new course</button>
+                                <button id="add-new-student"><span class="material-symbols-sharp">add</span>Course</button>
                             </a>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                         <table id="example" class="display" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th><input type="checkbox" id="checkAll"> Select All</th>
+                                    <!-- <th><input type="checkbox" id="checkAll"> Select All</th> -->
                                     <th>Course Name</th>
                                     <th>Course Status</th>
                                     <th>Department Name</th>
@@ -71,7 +71,7 @@
                             <tbody>
                                 <?php foreach ($users as $user) : ?>
                                 <tr>
-                                    <td><input type="checkbox" name="update[]"></td>
+                                    <!-- <td><input type="checkbox" name="update[]"></td> -->
                                     <td><?= $user->course_name; ?></td>
                                     <td><?= $user->course_status; ?></td>
                                     <td><?= $user->office_name; ?></td>
@@ -87,7 +87,7 @@
                                 <?php endforeach; ?>
                             <tfoot>
                                 <tr>
-                                    <th></th>
+                                
                                     <th>Course Name</th>
                                     <th>Course Status</th>
                                     <th>Department Name</th>

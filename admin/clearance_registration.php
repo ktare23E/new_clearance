@@ -18,6 +18,7 @@ include_once 'header.php';
                 <button id="menu-btn" class="menu-btn">
                     <span class="material-symbols-sharp">menu</span>
                 </button>
+                <h1>Clearance</h1>
                 <div class="theme-toggler">
                     <span class="material-symbols-sharp active">light_mode</span>
                     <span class="material-symbols-sharp">dark_mode</span>
@@ -36,7 +37,7 @@ include_once 'header.php';
 
         </div>
 
-        <h1>Clearance</h1>
+        
 
         <div class="form-and-table-container">
 
@@ -57,9 +58,10 @@ include_once 'header.php';
                         <div class="input-field-container">
                             <div class="input-field sy-sem-select">
                                 <input type="text" name="student_id" placeholder="Student Id">
+                                <i class="uil uil-keyhole-circle icon"></i>
                             </div>
                             <div class="input-field">
-                                <label for="">Select School Year</label>
+                            <i class="uil uil-keyhole-circle icon"></i>
                                 <select name="clearance_progress_id" id="">
                                     <option default>Select School Year And Sem</option>
                                     <?php $school_year = $db->result('clearance_progress_view', 'status = "Active"'); ?>
@@ -74,7 +76,7 @@ include_once 'header.php';
                             </div>
                             <input type="hidden" name="clearance_status" value="1">
                             <div class="input-field">
-                                <label for="">Course Name</label>
+                                <i class="uil uil-keyhole-circle icon"></i>
                                 <select name="course_id" id="">
                                     <option default>Select Course Name</option>
                                     <?php $courses = $db->result('course'); ?>
@@ -106,7 +108,7 @@ include_once 'header.php';
                                 </select>
                             </div>
                             <div class="input-field">
-                                <label for="">Clearance Type</label>
+                            <i class="uil uil-keyhole-circle icon"></i>
                                 <select name="clearance_type_id" id="">
                                     <option default>Select Clearance Type</option>
                                     <?php $clearances = $db->result('clearance_type'); ?>
@@ -120,8 +122,8 @@ include_once 'header.php';
                                 </select>
                             </div>
                             <div class="input-field">
-                                <label for="">Date Created</label>
-                                <input type="date" name="date_created" placeholder="Date Created" required>
+                                
+                                <input type="text" onfocus="(this.type='date')" name="date_created" placeholder="Date created" required>
                             </div>
                         </div>
                         <div class="input-field button">

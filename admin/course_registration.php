@@ -37,6 +37,7 @@
                     <button id="menu-btn" class="menu-btn">
                         <span class="material-symbols-sharp">menu</span>
                     </button>
+                    <h1>Course</h1>
                     <div class="theme-toggler">
                         <span class="material-symbols-sharp active">light_mode</span>
                         <span class="material-symbols-sharp">dark_mode</span>
@@ -55,7 +56,7 @@
     
             </div>
 
-            <h1>Course</h1>
+            
 
             <div class="form-and-table-container">
 
@@ -65,17 +66,16 @@
                         <div class="back-button">
                             <a href="course.php" style="display: inline-block;">
                                 <button id="back-button-to-office">
-                                <span class="material-symbols-sharp">arrow_back</span>
-                            </button>
+                                    <span class="material-symbols-sharp">arrow_back</span>
+                                </button>
                             </a>
-                            
                         </div>
                         <span class="title">Add New Course</span>
         
                         <form action="insert_course.php" method="POST">
                             <div class="input-field-container">
                                 <div class="input-field">
-                                <span id="check_office"></span><br>
+                                    <span id="check_office" class="check-available"></span>
                                     <input type="text" name="course_name" placeholder="Course Name"  oninput="checkCourse()" id="course_name" required>
                                     <i class="uil uil-user"></i>
                                 </div>
