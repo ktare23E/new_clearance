@@ -46,9 +46,18 @@ td.forEach(td => {
 
 
 
+let navtopMenuBtn = document.querySelector("#navtop-menu");
+let menuContainer = document.querySelectorAll(".office-top-container .nav-right-container .nav-middle-container")
 
-
-
-
+navtopMenuBtn.addEventListener("click", function() {
+    menuContainer.forEach(container => {
+        container.classList.toggle("active")
+    })
+    if(this.innerText == "menu"){
+        this.innerText = "close"
+    }else if(this.innerText == "close"){
+        this.innerText = "menu"
+    }
+})
 
 

@@ -2,8 +2,6 @@
     include_once 'dbconfig.php';
     require_once 'student_header.php';
 
-    
-    include_once 'student_header.php';
     $id = $_SESSION['student_id'];
     $sql = "SELECT * FROM student_details WHERE student_id = '".$id."'";
     $result = mysqli_query($conn,$sql);
@@ -15,6 +13,7 @@
 
 <div class="office-top-container">
     <div class="nav-logo-container">
+        <span class="material-symbols-sharp" id="navtop-menu">menu</span>
         <div class="logo-img">
             <img src="../images/nmsc-logo.png" alt="">
             <h2>NMSC <span class="danger">CLEARANCE</span></h2>
