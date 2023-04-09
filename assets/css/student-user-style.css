@@ -922,7 +922,7 @@ input[type='file']{
     }
 
     a.active {
-        background: rgb(0, 217, 255);
+        background: var(--color-primary);
         border: none;
         padding-bottom: 10px !important;
     }
