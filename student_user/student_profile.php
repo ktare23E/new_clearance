@@ -29,24 +29,16 @@
                         <img src="../admin/uploads/<?php if($_SESSION['student_username']){
                         echo $student_profile;
                     } ?>" alt="">
-                        <div style="position: absolute;
-                            bottom: 5px;
-                            right: 5px;
-                        ">
-                            <button class="edit-profile-btn">
-                                <span class="material-symbols-sharp">border_color</span>
-                            </button>
-                        </div>
                     </div>
                     <div class="name-student">
-                        <h1 style="font-size: 4rem;font-weight:500;margin-bottom:-15px;"><?php if ($_SESSION['student_username']){
-                    echo $_SESSION['student_first_name'].' '.$_SESSION['student_last_name'];} ?></h1>
+                        <h1 style="font-size:3rem;font-weight:500;white-space:nowrap"><?php if ($_SESSION['student_username']){
+                        echo $_SESSION['student_first_name'].' '.$_SESSION['student_last_name'];} ?></h1>
                         <h3 style="font-size: 1.5rem;" class="text-muted">Student</h3>
                     </div>
-                    <form action="update_profile.php" method="post" enctype="multipart/form-data">
-                    <label for="profile-image-input">Change profile image:</label>
-                    <input type="file" id="profile-image-input" name="profile_image" accept="image/*" />
-                    <button type="submit">Update Profile</button>
+                    <form class="upload-profile-pic" action="update_profile.php" method="post" enctype="multipart/form-data">
+                        <label for="">Change profile image:</label>
+                        <input type="file" id="profile-image-input" name="profile_image" accept="image/*" />
+                        <button type="submit">Update Profile</button>
                     </form>
 
                 </div>

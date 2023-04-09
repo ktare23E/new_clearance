@@ -76,33 +76,30 @@
 
         <div class="recent-orders-student">
 
-            <div class="add-button-container">
+            <div class="clearance-table-title">
+                <div class="h2-container">
+                    <h2>Clearance list</h2>
+                </div>
                 <div class="bulk-actions-container">
-                    <h3 style="text-align: center;">Bulk Update</h3>
-                    <div class="bulk-action">
-                        <button type="button" id="active">Approve</button>
-                    </div>
+                    <h3 style="text-align: center;">Bulk Update:</h3>
+                    <button type="button" id="active">Approve</button>
                 </div>
-                <div class="add-button-container">
-                    <div class="h2-container">
-                        <h2>Clearance list</h2>
-                    </div>
-                        <div>
-                            <label for="">Filter via Clearance Type</label>
-                            <select name="clearance_type_id" id="clearance_type">
-                                    <option default>Select Clearance</option>
-                                    <option value="">All</option>
-                                    <?php $signings = $db->result('clearance_type');?>
-                                    <?php foreach($signings as $signing):?>
-                                    <?php if($signing->clearance_type_id == $clearance_type_id):?>  
+                
+                    <!-- <div>
+                        <label for="">Filter via Clearance Type</label>
+                        <select name="clearance_type_id" id="clearance_type">
+                                <option default>Select Clearance</option>
+                                <option value="">All</option>
+                                <?php $signings = $db->result('clearance_type');?>
+                                <?php foreach($signings as $signing):?>
+                                <?php if($signing->clearance_type_id == $clearance_type_id):?>  
+                                <option value="<?= $signing->clearance_type_id; ?>"><?= $signing->clearance_type_name; ?></option>
+                                <?php else:?>
                                     <option value="<?= $signing->clearance_type_id; ?>"><?= $signing->clearance_type_name; ?></option>
-                                    <?php else:?>
-                                        <option value="<?= $signing->clearance_type_id; ?>"><?= $signing->clearance_type_name; ?></option>
-                                    <?php endif;?>
-                                    <?php endforeach; ?>
-                            </select>
-                        </div>
-                </div>
+                                <?php endif;?>
+                                <?php endforeach; ?>
+                        </select>
+                    </div> -->
             </div>
 
             <div class="table-container" style="position:relative">

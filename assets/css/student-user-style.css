@@ -113,6 +113,19 @@ small {
     overflow: hidden;
 }
 
+
+
+.profile-photo img{
+    max-width: 250px;
+    width: 100%;
+    aspect-ratio : 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+    
+
 .text-muted {
     color: var(--color-info-dark);
 }
@@ -614,6 +627,24 @@ button {
 
 .get-started-title {
     text-align: center;
+}
+
+.upload-profile-pic {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-left: auto;
+}
+
+.upload-profile-pic button {
+    background: rgb(17, 134, 17);
+    color: white !important;
+    padding: 5px 8px;
+    border-radius: 3px;
+}
+
+input[type='file']{
+    cursor: pointer;
 }
 
 .action-container {

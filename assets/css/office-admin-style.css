@@ -312,6 +312,31 @@ span.title .upload-csv-container {
     display: none;
 }
 
+.recent-orders-student .clearance-table-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0px 10px 0px;
+
+}
+
+.recent-orders-student .clearance-table-title
+.bulk-actions-container {
+    display: flex;
+    flex-direction: row;
+    align-items:baseline;
+    gap: 10px;
+}
+
+.recent-orders-student .clearance-table-title
+.bulk-actions-container button {
+    background: rgb(17, 134, 17);
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 3px;
+}
+
 span.title .upload-csv-container.active {
     display: block;
 }
