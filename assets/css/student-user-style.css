@@ -211,7 +211,8 @@ b {
     align-items: center;
 }
 
-.office-container .office-top-container .nav-logo-container .logo-img h2 {
+.office-container .office-top-container 
+.nav-logo-container .logo-img h2 {
     font-size: 1.05rem;
 }
 
@@ -867,5 +868,17 @@ input[type='file']{
     flex-direction: column;
     width: 100%;
 }
- 
+
+
+
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 768px) {
+    .office-container .office-top-container 
+    .nav-logo-container .logo-img h2 {
+        display: none;
+    }
+}
 
