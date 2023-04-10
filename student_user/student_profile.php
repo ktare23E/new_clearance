@@ -33,8 +33,11 @@
                     <div class="name-student">
                         <h1 style="font-size:3rem;font-weight:500;white-space:nowrap"><?php if ($_SESSION['student_username']){
                         echo $_SESSION['student_first_name'].' '.$_SESSION['student_last_name'];} ?></h1>
-                        <h3 style="font-size: 1.5rem;" class="text-muted">Student</h3>
+                        <h3 style="font-size: 1.5rem;" class="text-muted"><?php if($_SESSION['student_username']){
+                            echo $_SESSION['student_id'];
+                        } ?></h3>
                     </div>
+                    <button id="open-change-profile">Change Profile</button>
                     <form class="upload-profile-pic" action="update_profile.php" method="post" enctype="multipart/form-data">
                         <label for="">Change profile image:</label>
                         <input type="file" id="profile-image-input" name="profile_image" accept="image/*" />
@@ -44,44 +47,38 @@
                 </div>
                 <div class="profile-main-info-container">
                     <div class="student-data-container">
-                        <h3 class="text-muted">Student id</h3>
-                        <h4><?php if($_SESSION['student_username']){
-                            echo $_SESSION['student_id'];
-                        } ?></h4>
-                    </div>
-                    <div class="student-data-container">
                         <h3 class="text-muted">Year level</h3>
-                        <h4><h4><?php if($_SESSION['student_username']){
+                        <h4><?php if($_SESSION['student_username']){
                             echo $_SESSION['student_year'];
                         } ?></h4>
                     </div>
                     <div class="student-data-container">
                         <h3 class="text-muted">Course</h3>
-                        <h4><h4><?php if($_SESSION['student_username']){
+                        <h4><?php if($_SESSION['student_username']){
                             echo $_SESSION['course_name'];
                         } ?></h4>
                     </div>
                     <div class="student-data-container">
                         <h3 class="text-muted">Department</h3>
-                        <h4><h4><?php if($_SESSION['student_username']){
+                        <h4><?php if($_SESSION['student_username']){
                             echo $_SESSION['office_name'];
                         } ?></h4>
                     </div>
                     <div class="student-data-container">
                         <h3 class="text-muted">Gender</h3>
-                        <h4><h4><?php if($_SESSION['student_username']){
+                        <h4><?php if($_SESSION['student_username']){
                             echo $_SESSION['student_gender'];
                         } ?></h4>
                     </div>
                     <div class="student-data-container">
                         <h3 class="text-muted">Email</h3>
-                        <h4><h4><?php if($_SESSION['student_username']){
+                        <h4><?php if($_SESSION['student_username']){
                             echo $_SESSION['student_email'];
                         } ?></h4>
                     </div>
                     <div class="student-data-container">
                         <h3 class="text-muted">Username</h3>
-                        <h4><h4><?php if($_SESSION['student_username']){
+                        <h4><?php if($_SESSION['student_username']){
                             echo $_SESSION['student_username'];
                         } ?></h4>
                     </div>

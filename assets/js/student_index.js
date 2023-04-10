@@ -44,20 +44,41 @@ td.forEach(td => {
     }
 })
 
+try{
+    let navtopMenuBtn = document.querySelector("#navtop-menu");
+    let menuContainer = document.querySelectorAll(".office-top-container .nav-right-container .nav-middle-container")
+
+    navtopMenuBtn.addEventListener("click", function() {
+        menuContainer.forEach(container => {
+            container.classList.toggle("active")
+        })
+        if(this.innerText == "menu"){
+            this.innerText = "close"
+        }else if(this.innerText == "close"){
+            this.innerText = "menu"
+        }
+    })
+}catch(err){
+    console.log(error);
+}
 
 
-let navtopMenuBtn = document.querySelector("#navtop-menu");
-let menuContainer = document.querySelectorAll(".office-top-container .nav-right-container .nav-middle-container")
+let changeProfileButton = document.querySelector("#open-change-profile");
+let changeProfileContainer = document.querySelectorAll(".upload-profile-pic");
 
-navtopMenuBtn.addEventListener("click", function() {
-    menuContainer.forEach(container => {
+changeProfileButton.addEventListener("click", function() {
+    changeProfileContainer.forEach(container => {
         container.classList.toggle("active")
     })
-    if(this.innerText == "menu"){
-        this.innerText = "close"
-    }else if(this.innerText == "close"){
-        this.innerText = "menu"
+
+    if(this.innerText == "Change Profile"){
+        this.innerText = "Cancel Change"
+    } else if(this.innerText == "Cancel Change"){
+        this.innerText = "Change Profile"
     }
 })
+
+
+
 
 
