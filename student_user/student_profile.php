@@ -19,7 +19,7 @@
         <div class="office-main-container">
             <div class="first-div-container">
                 <div style="width: 100%;"> 
-                    <h3 style="font-size: 2.5rem;text-align:center">Profile</h3>
+                    <h3 style="font-size: 2.5rem;text-align:center">Your Personal Information</h3>
                 </div>
             </div>
 

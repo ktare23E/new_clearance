@@ -320,10 +320,20 @@ a.active {
     align-items: center;
 }
 
+.office-container .office-top-container .nav-right-container
+.theme-toggler {
+    cursor: pointer;
+}
+
 .office-container .office-top-container .nav-right-container .profile {
     display: flex;
     flex-direction: row;
     gap: 10px;
+}
+
+.office-container .office-top-container 
+.nav-right-container .profile .info {
+    text-align: right;
 }
 
 .main-requirements-container {
