@@ -31,6 +31,7 @@
                     <button id="menu-btn" class="menu-btn">
                         <span class="material-symbols-sharp">menu</span>
                     </button>
+                    <h1>Course details</h1>
                     <div class="theme-toggler">
                         <span class="material-symbols-sharp active">light_mode</span>
                         <span class="material-symbols-sharp">dark_mode</span>
@@ -50,24 +51,24 @@
             </div>
             
 
-            <div class="student-view-top">
+            <div class="course-view-top">
                 
                 <div class="action-button-container">
-                    <a href="course.php">
-                        <button id="back-button-to-student">
-                            <span class="material-symbols-sharp">arrow_back</span>
-                        </button>
-                    </a>
+                    <div class="course-view-chu">
+                        <a href="course.php">
+                            <button id="back-button-to-student">
+                                <span class="material-symbols-sharp">arrow_back</span>
+                            </button>
+                        </a>
+                        <h1><span><?= $row['course_name']; ?></span><span>&nbsp;</span></h1>
+                    </div>
+                    
                     <button onclick="location.href = 'edit_course_info.php?edit=<?= $row['course_id'];?>';" class="edit-profile-button" id="edit-profile-button">
                         <span class="material-symbols-sharp">edit</span>
                         <h3>Edit Course Information</h3>
                     </button>
                 </div>
-                <h1><span><?= $row['course_name']; ?></span><span>&nbsp;</span></h1>
-                <div class="icons-course-year-container">
-                    <span class="material-symbols-sharp">person_outline</span>
-                    <!-- <h2><span><?= $row['student_course'];?>&nbsp;-</span><span>&nbsp;<?= $row['student_year'];?></span></h2> -->
-                </div>
+                
                 
             </div>
             
@@ -77,14 +78,14 @@
 
                 <div class="student-registration">
                     <div class="student-view-profile-container">
-                        <div class="student-view-profile-img-container">
+                        <!-- <div class="student-view-profile-img-container">
                             <img src="../images/dp.png" alt="">
-                        </div>
+                        </div> -->
 
-                        <div class="student-view-profile-info-container">
+                        <div class="student-view-profile-info-container course-view">
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">badge</span>
+                                    
                                     <h2 class="label">Course Id :</h2><span>&emsp;&nbsp;&nbsp;</span>
                                 </div>
                                 
@@ -92,7 +93,7 @@
                             </div>
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">person_outline</span>
+                                    
                                     <h2 class="label">Course Name :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;&emsp;</span>
                                 </div>
                                 
@@ -100,7 +101,7 @@
                             </div>
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">timeline</span>
+                                    
                                     <h2 class="label">Course Status :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
                                 </div>
                                 
@@ -108,7 +109,7 @@
                             </div>
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">corporate_fare</span>
+                                    
                                     <h2 class="label">Course Description :</h2><span class="removable-span">&emsp;&emsp;</span>
                                 </div>
                                 
@@ -116,7 +117,7 @@
                             </div>
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">corporate_fare</span>
+                                    
                                     <h2 class="label">Department Belong :</h2><span class="removable-span">&emsp;&emsp;</span>
                                 </div>
                                 

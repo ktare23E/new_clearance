@@ -50,7 +50,7 @@
                     </div>
                         <div>
                             <a href="clearance_type_registration.php">
-                                <button id="add-new-student">Add new Clearance Type</button>
+                                <button id="add-new-student"><span class="material-symbols-sharp">add</span> Clearance Type</button>
                             </a>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                                 <td><?= $user->clearance_type_name; ?></td>
                                 <td><?= $user->clearance_type_description; ?></td>
                                 <td class="primary table-action-container">
-                                    <a href="edit_clearance_type.php?edit=<?= $user->clearance_type_id?>">Update</a>
+                                    <a class="update-link" href="edit_clearance_type.php?edit=<?= $user->clearance_type_id?>">Update</a>
                                 </td>
                             </tr>
                             <?php endforeach; ?>

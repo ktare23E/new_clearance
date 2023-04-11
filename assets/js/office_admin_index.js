@@ -56,3 +56,24 @@ tabs.forEach(tab => {
         target.classList.add('active')
     })
 })
+
+
+
+
+
+let openCsv = document.querySelector("#open-csv");
+let csvContainer = document.querySelectorAll(".upload-csv-container");
+
+openCsv.addEventListener("click", function() {
+    csvContainer.forEach(container => {
+        container.classList.toggle("active")
+    })
+
+    console.log(this.innerText);
+    if(this.innerText == "Bulk Upload Requirements"){
+        this.innerText = "Close"
+        console.log("sasasa");
+    }else if(this.innerText == "Close"){
+        this.innerText = "Bulk Upload Requirements"
+    }
+})

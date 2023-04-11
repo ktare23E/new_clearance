@@ -46,15 +46,44 @@
                         </table>
                 </div>
                 <div class="form signup">
-                    <span class="title"><h2>Add new requirements</h2></span>
+                    <span class="title">
+                        <h2>Add new requirements</h2>
+                        <button id="open-csv" class="open-csv">Bulk Upload Requirements</button>
+                        <div class="upload-csv-container">
+                            <form action="bulk_upload.php" method="post" enctype="multipart/form-data" name="upload_csv">
+                                <div class="form-input-file-csv-container">
+                                        <label for="input-file" style="font-size:16px;align-self: center;margin-bottom:10px"><b>Choose CSV File</b></label>
+                                        <input type="file" name="file" accept=".csv" id="input-file">
+                                        <select name="clearance_progress_id" id="">
+                                            <option default>Select School Year and Sem</option>
+                                            <?php $semesters = $db->result('clearance_progress_view','status="Active"');?>
+                                            <?php foreach($semesters as $semester):?>
+                                            <?php if($semester->sy_sem_id == $sy_sem_id):?>  
+                                            <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem.' '.$semester->sem_name; ?></option>
+                                            <?php else:?>
+                                                <option value="<?= $semester->sy_sem_id; ?>"><?=$semester->school_year_and_sem.' '.$semester->sem_name; ?></option>
+                                            <?php endif;?>
+                                            <?php endforeach; ?>
+                                        </select>
+                                        <button type="submit" name="import" class="submit-csv-file-button">
+                                        
+                                        Import
+                                            <span class="material-symbols-sharp">file_upload</span>
+                                        </button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                            
+                    </span>
                     <form action="insert_requirement.php" method="POST">
-                    <div class="input-field-container">
-                        <div class="input-field sy-sem-select">
-                            <input type="hidden" name="signing_office_id" value="<?= $signing_office_id; ?>">
-                            </div>
+                        <div class="input-field-container">
+                            <!-- <div class="input-field sy-sem-select">
+                                <input type="hidden" name="signing_office_id" value="<?= $signing_office_id; ?>">
+                            </div> -->
                             <div class="input-field sy-sem-select">
                                     <select name="clearance_progress_id" id="school_year" required>
-                                            <option default>Select School Year And Semester</option>
+                                            <option default>School Year And Semester</option>
                                             <?php $semesters = $db->result('clearance_progress_view','status="Active"');?>
                                             <?php foreach($semesters as $semester):?>
                                             <?php if($semester->clearance_progress_id == $clearance_progress_id):?>  
@@ -70,7 +99,7 @@
                                 <input type="hidden" name="clearance_id">
                                 <input type="hidden" name="clearance_status" value="0">
                                     <select name="clearance_type_id" id="" required>
-                                            <option default>Select Clearance Type</option>
+                                            <option default>Clearance Type</option>
                                             <?php $clearances = $db->result('clearance_type');?>
                                             <?php foreach($clearances as $clearance):?>
                                             <?php if($clearance->clearance_type_id == $clearance_type_id):?>  
@@ -83,11 +112,11 @@
                                 <i class="uil uil-angle-down" id="uil-arrow-down"></i>
                             </div>
                             <div class="input-field sy-sem-select">
-                                    <input type="text" name="student_id" placeholder="Student Id" required>
+                                <input type="text" name="student_id" placeholder="Student Id" required>
                             </div>
-                </div>
+                        </div>
                         <div class="input-field">
-                            <textarea name="requirement_details" id="" cols="30" rows="10" required></textarea>
+                            <textarea placeholder="Description" name="requirement_details" id="" cols="30" rows="10" required></textarea>
                         </div>
                         <div class="input-field button">
                             <input type="submit" name="submit" value="Post Requirements">
@@ -95,35 +124,15 @@
                     </form>
                 </div>
                 <br>
-                <h1>Bulk Requirements Via CSV File</h1>
 
-                <button id="register-csv-file-btn"><span class="material-symbols-sharp">upload_file</span>Bulk Upload Via .csv file<span class="material-symbols-sharp">arrow_forward_ios</span></button>
-                        <div>
-                            <div class="upload-student-csv-container">
-                                <form action="bulk_upload.php" method="post" enctype="multipart/form-data" name="upload_csv">
-                                    <div class="form-input-file-csv-container">
-                                            <label for="input-file">Choose CSV File</label>
-                                            <input type="file" name="file" accept=".csv" id="input-file">
-                                            <select name="clearance_progress_id" id="">
-                                                <option default>Select School Year and Sem</option>
-                                                <?php $semesters = $db->result('clearance_progress_view','status="Active"');?>
-                                                <?php foreach($semesters as $semester):?>
-                                                <?php if($semester->sy_sem_id == $sy_sem_id):?>  
-                                                <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem.' '.$semester->sem_name; ?></option>
-                                                <?php else:?>
-                                                    <option value="<?= $semester->sy_sem_id; ?>"><?=$semester->school_year_and_sem.' '.$semester->sem_name; ?></option>
-                                                <?php endif;?>
-                                                <?php endforeach; ?>
-                                            </select>
-                                            <button type="submit" name="import" class="submit-csv-file-button">
-                                            
-                                            Import
-                                                <span class="material-symbols-sharp">file_upload</span>
-                                            </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+                <!-- <button id="register-csv-file-btn">
+                    <span class="material-symbols-sharp">upload_file</span>
+                    Bulk Upload Via .csv file
+                    <span class="material-symbols-sharp">arrow_forward_ios</span>
+                </button> -->
+                
+                
+            
             </div>
             
         </div>

@@ -45,22 +45,23 @@
                 <!-- -------------  TABLE OF STUDENT INFORMATION -------------- -->
                 <div class="recent-orders-student">
                     <div class="add-button-container">
+                        <div class="h2-container">
+                                <h2>Course List</h2>
+                        </div>
                         <div>
                             <a href="course_registration.php">
-                                <button id="add-new-student">Add new course</button>
+                                <button id="add-new-student"><span class="material-symbols-sharp">add</span>Course</button>
                             </a>
                         </div>
                     </div>
 
-                    <div class="h2-container">
-                            <h2>Course List</h2>
-                    </div>
+                    
 
                     <div class="table-container">
                         <table id="example" class="display" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th><input type="checkbox" id="checkAll"> Select All</th>
+                                    <!-- <th><input type="checkbox" id="checkAll"> Select All</th> -->
                                     <th>Course Name</th>
                                     <th>Course Status</th>
                                     <th>Department Name</th>
@@ -70,13 +71,13 @@
                             <tbody>
                                 <?php foreach ($users as $user) : ?>
                                 <tr>
-                                    <td><input type="checkbox" name="update[]"></td>
+                                    <!-- <td><input type="checkbox" name="update[]"></td> -->
                                     <td><?= $user->course_name; ?></td>
                                     <td><?= $user->course_status; ?></td>
                                     <td><?= $user->office_name; ?></td>
                                     <td class="primary table-action-container">
-                                        <a href="edit_course_info.php?edit=<?= $user->course_id; ?>">Update</a>
-                                        <a href="course_view.php?details=<?= $user->course_id; ?>">View Details</a>
+                                        <a href="edit_course_info.php?edit=<?= $user->course_id; ?>" class="update-link">Update</a>
+                                        <a href="course_view.php?details=<?= $user->course_id; ?>" class="view-link">View Details</a>
                                             <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
                                             <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
                                                 <span class="material-symbols-outlined">delete</span>
@@ -86,7 +87,7 @@
                                 <?php endforeach; ?>
                             <tfoot>
                                 <tr>
-                                    <th></th>
+                                
                                     <th>Course Name</th>
                                     <th>Course Status</th>
                                     <th>Department Name</th>

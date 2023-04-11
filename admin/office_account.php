@@ -52,7 +52,7 @@
                         <div>
                             <a href="office_account_registration.php">
                                 <button id="add-new-student">
-                                <i class="uis uis-airplay"></i>Add New Users</button>
+                                <span class="material-symbols-sharp">add</span> Users</button>
                             </a>
                         </div>
                     </div>
@@ -75,8 +75,8 @@
                                     <td><?= $user->office_name;?></td>
                                     <td><?= $user->admin_username;?></td>
                                     <td class="primary table-action-container">
-                                        <a href="edit_office_account_info.php?edit=<?= $user->admin_id;?>">Update</a>
-                                        <a href="office_account_view.php?details=<?= $user->admin_id;?>">View Details</a>
+                                        <a class="update-link" href="edit_office_account_info.php?edit=<?= $user->admin_id;?>">Update</a>
+                                        <a class="view-link" href="office_account_view.php?details=<?= $user->admin_id;?>">View Details</a>
                                             <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
                                             <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
                                                 <span class="material-symbols-outlined">delete</span>

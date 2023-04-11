@@ -50,7 +50,7 @@
                         </div>
                         <div>
                             <a href="office_registration.php">
-                                <button id="add-new-student">Add new office</button>
+                                <button id="add-new-student"><span class="material-symbols-sharp">add</span>Office</button>
                             </a>
                         </div>
                     </div>
@@ -75,8 +75,8 @@
                                     <td><?= $user->office_phone_number; ?></td>
                                     <td><?= $user->office_status; ?></td>
                                     <td class="primary table-action-container">
-                                        <a href="edit_office_info.php?edit=<?= $user->office_id?>">Update</a>
-                                        <a href="office_view.php?details=<?= $user->office_id?>">View Details</a>
+                                        <a class="update-link" href="edit_office_info.php?edit=<?= $user->office_id?>">Update</a>
+                                        <a class="view-link" href="office_view.php?details=<?= $user->office_id?>">View Details</a>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>

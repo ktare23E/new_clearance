@@ -45,9 +45,12 @@
                 <!-- -------------  TABLE OF STUDENT INFORMATION -------------- -->
                 <div class="recent-orders-student">
                     <div class="add-button-container">
+                        <div class="h2-container">
+                                <h2>Clearance Period List</h2>
+                        </div>
                         <div>
                             <a href="clearance_progress_registration.php">
-                                <button id="add-new-student">Add new Clearance Progress</button>
+                                <button id="add-new-student"><span class="material-symbols-sharp">add</span> Clearance Progress</button>
                             </a>
                         </div>
                     </div>
@@ -61,34 +64,34 @@
                             </div>
                     </div> -->
 
-                    <div class="h2-container">
-                            <h2>Clearance Progress List</h2>
+                    
+                    <div class="table-container">
+                        <table id="example" class="display" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Shool Year</th>
+                                    <th>Semester</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($users as $user) : ?>
+                                <tr>
+                                    <td><?= $user->school_year_and_sem; ?></td>
+                                    <td><?= $user->sem_name; ?></td>
+                                    <td><?= $user->status; ?></td>
+                                    <td class="primary table-action-container">
+                                        <a class="update-link" href="edit_clearance_progress.php?edit=<?= $user->clearance_progress_id; ?>">Update</a>
+                                        <!-- <a href="office_view.php?clearance_progress_id=<?= $user->clearance_progress_id; ?>">View Details</a> -->
+                                        <a class="lock-period" href="lock_requirements.php?clearance_progress_id=<?= $user->clearance_progress_id; ?>?"><button type="button">Lock Requirements</button></a>
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
                     </div>
-
-                    <table id="example" class="display" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Shool Year</th>
-                                <th>Semester</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($users as $user) : ?>
-                            <tr>
-                                <td><?= $user->school_year_and_sem; ?></td>
-                                <td><?= $user->sem_name; ?></td>
-                                <td><?= $user->status; ?></td>
-                                <td class="primary table-action-container">
-                                    <a href="edit_clearance_progress.php?edit=<?= $user->clearance_progress_id; ?>">Update</a>
-                                    <!-- <a href="office_view.php?clearance_progress_id=<?= $user->clearance_progress_id; ?>">View Details</a> -->
-                                    <a href="lock_requirements.php?clearance_progress_id=<?= $user->clearance_progress_id; ?>?"><button type="button">Lock Requirements</button></a>
-                                </td>
-                            </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
+                    
                 </div>
             </div>
             

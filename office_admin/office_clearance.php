@@ -76,79 +76,77 @@
 
         <div class="recent-orders-student">
 
-            <div class="add-button-container">
-                <div class="bulk-actions-container">
-                    <h3 style="text-align: center;">Bulk Update</h3>
-                    <div class="bulk-action">
-                        <button type="button" id="active">Approve</button>
-                    </div>
-                </div>
-                <div class="add-button-container">
-                        <div>
-                                    <label for="">Filter via Clearance Type</label>
-                                    <select name="clearance_type_id" id="clearance_type">
-                                            <option default>Select Clearance</option>
-                                            <option value="">All</option>
-                                            <?php $signings = $db->result('clearance_type');?>
-                                            <?php foreach($signings as $signing):?>
-                                            <?php if($signing->clearance_type_id == $clearance_type_id):?>  
-                                            <option value="<?= $signing->clearance_type_id; ?>"><?= $signing->clearance_type_name; ?></option>
-                                            <?php else:?>
-                                                <option value="<?= $signing->clearance_type_id; ?>"><?= $signing->clearance_type_name; ?></option>
-                                            <?php endif;?>
-                                            <?php endforeach; ?>
-                                    </select>
-                        </div>
-                </div>
+            <div class="clearance-table-title">
                 <div class="h2-container">
                     <h2>Clearance list</h2>
-
                 </div>
-
-                <input type="checkbox" id="checkAll" style='
-                                    display:block;background-color:black; appearance:auto;
-                                    position:absolute;
-                                    top:100px;
-                                    left:40px;
-                                    z-index:10;
-                                    ' />
+                <div class="bulk-actions-container">
+                    <h3 style="text-align: center;">Bulk Update:</h3>
+                    <button type="button" id="active">Approve</button>
+                </div>
+                
+                    <!-- <div>
+                        <label for="">Filter via Clearance Type</label>
+                        <select name="clearance_type_id" id="clearance_type">
+                                <option default>Select Clearance</option>
+                                <option value="">All</option>
+                                <?php $signings = $db->result('clearance_type');?>
+                                <?php foreach($signings as $signing):?>
+                                <?php if($signing->clearance_type_id == $clearance_type_id):?>  
+                                <option value="<?= $signing->clearance_type_id; ?>"><?= $signing->clearance_type_name; ?></option>
+                                <?php else:?>
+                                    <option value="<?= $signing->clearance_type_id; ?>"><?= $signing->clearance_type_name; ?></option>
+                                <?php endif;?>
+                                <?php endforeach; ?>
+                        </select>
+                    </div> -->
             </div>
 
-            <table id="example" class="display" style="width:100%">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Clearance ID</th>
-                        <th>School Year and Sem Id</th>
-                        <th>Student ID</th>
-                        <th>Student First Name</th>
-                        <th>Student Last Name</th>
-                        <th>School Year</th>
-                        <th>Semester</th>
-                        <th>Clearance Status</th>
-                        <th>Semester Id</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <div class="table-container" style="position:relative">
+                <table id="example" class="display" style="width:100%; ">
+                    <thead>
+                        <tr>
+                            <div class="contain-check">
+                                    <input type="checkbox" id="checkAll" style='
+                                        display:block;background-color:black; appearance:auto;
+                                    ' />
+                                </div>
+                            <th>
+                                
+                            </th>
+                            <th>Clearance ID</th>
+                            <th>School Year and Sem Id</th>
+                            <th>Student ID</th>
+                            <th>Student First Name</th>
+                            <th>Student Last Name</th>
+                            <th>School Year</th>
+                            <th>Semester</th>
+                            <th>Clearance Status</th>
+                            <th>Semester Id</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th></th>
-                        <th>Clearance ID</th>
-                        <th>School Year and Sem Id</th>
-                        <th>Student ID</th>
-                        <th>Student First Name</th>
-                        <th>Student Last Name</th>
-                        <th>School Year</th>
-                        <th>Semester</th>
-                        <th>Clearance Status</th>
-                        <th>Semester Id</th>
-                        <th>Action</th>
-                    </tr>
-                </tfoot>
-            </table>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th></th>
+                            <th>Clearance ID</th>
+                            <th>School Year and Sem Id</th>
+                            <th>Student ID</th>
+                            <th>Student First Name</th>
+                            <th>Student Last Name</th>
+                            <th>School Year</th>
+                            <th>Semester</th>
+                            <th>Clearance Status</th>
+                            <th>Semester Id</th>
+                            <th>Action</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            
         </div>
     </div>
 </div>

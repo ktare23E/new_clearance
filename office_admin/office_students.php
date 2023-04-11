@@ -50,12 +50,9 @@
                         </div>
                         
                     </div>
-                    <div class="lower-insight">
-                        <small>Ajinomoto of sardines</small>
-                    </div>
                 </div>
 
-                <div class="student-insight-container">
+                <!-- <div class="student-insight-container">
                     <div class="upper-insight">
                         <div class="left-logo-insight">
                             <span class="material-symbols-sharp">groups_2  </span>
@@ -76,22 +73,23 @@
                     <div class="lower-insight">
                         <small>Ajinomoto of sardines</small>
                     </div>
-                </div>
+                </div> -->
             </div>
+
             <div class="student-table-data-container">
                 <h2>Lists of students</h2>
                 <div class="table-container">
                 <table id="example" class="display" style="width:100%">
                         <thead>
                                 <tr>
-                                    <input type="checkbox" id="checkAll" style='
+                                    <!-- <input type="checkbox" id="checkAll" style='
                                         display:block;background-color:black; appearance:auto;
                                         position:absolute;
                                         top:150px;
                                         left:45px;
                                         z-index:10;
-                                        '/>
-                                    <th> Select All</th>
+                                        '/> -->
+                                    <!-- <th> Select All</th> -->
                                     <th>Student ID</th>
                                     <th>First Name</th>
                                     <th>Last Name</th>
@@ -106,7 +104,7 @@
                         </tbody>
                             <tfoot>
                                 <tr>
-                                    <th></th>
+                                    <!-- <th></th> -->
                                     <th>Student ID</th>
                                     <th>First Name</th>
                                     <th>Last Name</th>

@@ -77,7 +77,7 @@
                         <div>
                             <a href="clearance_registration.php">
                                 <button id="add-new-student">
-                                    <span class="material-symbols-sharp">add</span>Add new Clearance
+                                    <span class="material-symbols-sharp">add</span>Clearance
                                 </button>
                             </a>
                         </div>

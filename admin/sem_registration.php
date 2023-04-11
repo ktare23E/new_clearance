@@ -14,6 +14,7 @@ include_once 'header.php';
                 <button id="menu-btn" class="menu-btn">
                     <span class="material-symbols-sharp">menu</span>
                 </button>
+                <h1>Semester</h1>
                 <div class="theme-toggler">
                     <span class="material-symbols-sharp active">light_mode</span>
                     <span class="material-symbols-sharp">dark_mode</span>
@@ -30,7 +31,7 @@ include_once 'header.php';
             </div>
             <!-- ========== END OF TOP ============= -->
         </div>
-        <h1>Semester</h1>
+        
         <div class="form-and-table-container">
 
             <!-- -------------  STUDENT REGISTRATION FORM -------------- -->

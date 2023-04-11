@@ -2,15 +2,15 @@ const themeToggler = document.querySelector(".theme-toggler");
 
 // change theme
 
-// themeToggler.addEventListener('click', () => {
-//     document.body.classList.toggle('dark-theme-variables');
+themeToggler.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme-variables');
 
-//     themeToggler.querySelector('span:nth-child(1)').classList.toggle('active');
-//     themeToggler.querySelector('span:nth-child(2)').classList.toggle('active');
-// })
+    themeToggler.querySelector('span:nth-child(1)').classList.toggle('active');
+    themeToggler.querySelector('span:nth-child(2)').classList.toggle('active');
+})
 
 
-    document.body.classList.add('dark-theme-variables');
+    // document.body.classList.add('dark-theme-variables');
 
     
 
@@ -44,9 +44,39 @@ td.forEach(td => {
     }
 })
 
+try{
+    let navtopMenuBtn = document.querySelector("#navtop-menu");
+    let menuContainer = document.querySelectorAll(".office-top-container .nav-right-container .nav-middle-container")
+
+    navtopMenuBtn.addEventListener("click", function() {
+        menuContainer.forEach(container => {
+            container.classList.toggle("active")
+        })
+        if(this.innerText == "menu"){
+            this.innerText = "close"
+        }else if(this.innerText == "close"){
+            this.innerText = "menu"
+        }
+    })
+}catch(err){
+    console.log(error);
+}
 
 
+let changeProfileButton = document.querySelector("#open-change-profile");
+let changeProfileContainer = document.querySelectorAll(".upload-profile-pic");
 
+changeProfileButton.addEventListener("click", function() {
+    changeProfileContainer.forEach(container => {
+        container.classList.toggle("active")
+    })
+
+    if(this.innerText == "Change Profile"){
+        this.innerText = "Cancel Change"
+    } else if(this.innerText == "Cancel Change"){
+        this.innerText = "Change Profile"
+    }
+})
 
 
 

@@ -31,6 +31,7 @@
                     <button id="menu-btn" class="menu-btn">
                         <span class="material-symbols-sharp">menu</span>
                     </button>
+                    <h1>Office details</h1>
                     <div class="theme-toggler">
                         <span class="material-symbols-sharp active">light_mode</span>
                         <span class="material-symbols-sharp">dark_mode</span>
@@ -50,23 +51,22 @@
             </div>
             
 
-            <div class="student-view-top">
+            <div class="course-view-top">
                 
                 <div class="action-button-container">
-                    <a href="office.php">
-                        <button id="back-button-to-student">
-                            <span class="material-symbols-sharp">arrow_back</span>
-                        </button>
-                    </a>
+                    <div class="course-view-chu">
+                        <a href="office.php">
+                            <button id="back-button-to-student">
+                                <span class="material-symbols-sharp">arrow_back</span>
+                            </button>
+                        </a>
+                        <h1><span><?= $row['office_name']; ?></span><span>&nbsp;</span></h1>
+                    </div>
+                    
                     <button onclick="location.href = 'edit_office_info.php?edit=<?= $row['office_id'];?>';" class="edit-profile-button" id="edit-profile-button">
                         <span class="material-symbols-sharp">edit</span>
-                        <h3>Edit Profile</h3>
+                        <h3>Edit Office</h3>
                     </button>
-                </div>
-                <h1><span><?= $row['office_name']; ?></span><span>&nbsp;</span></h1>
-                <div class="icons-course-year-container">
-                    <span class="material-symbols-sharp">person_outline</span>
-                    <!-- <h2><span><?= $row['student_course'];?>&nbsp;-</span><span>&nbsp;<?= $row['student_year'];?></span></h2> -->
                 </div>
                 
             </div>
@@ -77,14 +77,14 @@
                 <!-- -------------  STUDENT REGISTRATION FORM -------------- -->
                 <div class="student-registration">
                     <div class="student-view-profile-container">
-                        <div class="student-view-profile-img-container">
+                        <!-- <div class="student-view-profile-img-container">
                             <img src="../images/dp.png" alt="">
-                        </div>
+                        </div> -->
 
                         <div class="student-view-profile-info-container">
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">badge</span>
+                                    
                                     <h2 class="label">Office Id :</h2><span>&emsp;&nbsp;&nbsp;</span>
                                 </div>
                                 
@@ -92,7 +92,7 @@
                             </div>
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">person_outline</span>
+                                    
                                     <h2 class="label">Office Name :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;&emsp;</span>
                                 </div>
                                 
@@ -100,7 +100,7 @@
                             </div>
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">contact_mail</span>
+                                    
                                     <h2 class="label">Office Email :</h2><span>&emsp;&nbsp;</span>
                                 </div>
                                 
@@ -108,7 +108,7 @@
                             </div>
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">menu_book</span>
+                                    
                                 <h2 class="label">Phone Number :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;</span>
                                 </div>
                                 
@@ -116,7 +116,7 @@
                             </div>
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">timeline</span>
+                                    
                                     <h2 class="label">Office Status :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
                                 </div>
                                 
@@ -124,15 +124,15 @@
                             </div>
                             <div class="student-info-name-container">
                                 <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">corporate_fare</span>
+                                    
                                     <h2 class="label">Office Description :</h2><span class="removable-span">&emsp;&emsp;</span>
                                 </div>
                                 
                                 <h2><span><?= $row['office_description']?></span></h2>
                             </div>
-                            <div class="student-info-name-container clearance-status-btn-container">
+                            <!-- <div class="student-info-name-container clearance-status-btn-container">
                                 <button id="clearance-status-button">Clearance Status</button>
-                            </div>
+                            </div> -->
                             
                         </div>
                     </div>  

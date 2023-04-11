@@ -325,6 +325,21 @@ main .student-registration {
     transition: all 300ms ease;
 }
 
+.course-view-top {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-white);
+    /* background: var(--color-white); */
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+.course-view-top:hover {
+    box-shadow: none;
+}
+
 .student-view-top:hover {
     box-shadow: none;
 }
@@ -479,6 +494,11 @@ main .student-registration .form .title{
     background: var(--color-primary-variant);
     color: white;
     border-radius: var(--border-radius-1);
+    transition: all 200ms ease;
+}
+
+.edit-profile-button:hover {
+    background: var(--color-primary);
 }
 
 .edit-profile-button h3 {
@@ -1141,6 +1161,30 @@ main .recent-orders-student table {
     grid-template-columns: 2fr 2fr 4fr;
     gap: 20px;
     width: 100%;
+}
+
+.course-view {
+    grid-template-columns: 1fr 2fr 1fr !important;
+}
+
+.check-available {
+    position: absolute;
+    top: -10px;
+}
+
+.no-pointer {
+    pointer-events: none;
+}
+
+.course-view-chu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-check {
+    top: 80% !important;
 }
 
 .clearance-status-btn-container {
@@ -1888,6 +1932,86 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     padding: 3px 8px;
     margin-right: 3px;
     border-radius: 3px;
+}
+
+.lock-period {
+    background: var(--color-danger);
+    color: white !important;
+    padding: 3px 8px;
+    margin-right: 3px;
+    border-radius: 3px;
+}
+
+.image-back {
+    position: fixed;
+    width: 100%;
+    z-index: -1;
+}
+
+.blur {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background: linear-gradient(0deg, #0522B3 13.95%, rgba(217, 217, 217, 0) 117.86%);
+    mix-blend-mode: multiply;
+}
+
+.select-report-container {
+    padding: 30px 0px;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 4px 15px 0px #0000000F;
+    position: fixed;
+    top: 30%;
+    left: 0;
+    right: 0;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(78, 78, 78, 0.2);
+    justify-content: center;
+}
+
+.report-form-container {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    gap:30px;
+    align-items: center;
+}
+
+.report-form-container label {
+    font-size: 30px;
+    background: none;
+}
+
+.report-form-container select {
+    font-size: 24px;
+
+}
+
+.select-report-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+}
+
+.select-report-container input[type="submit"] {
+    font-size: 24px;
+    background: var(--color-warning);
+    color: white;
+    border-radius: 3px;
+    padding: 5px 10px;
+}
+
+.lock-period button {
+    color: white;
 }
 
 .view-link {
