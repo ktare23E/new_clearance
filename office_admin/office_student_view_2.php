@@ -85,7 +85,7 @@
 
                                 die();
                             }else{
-                                echo "<a href='office_clearance_view.php?clearance_type_id=".$row['clearance_type_id']."&sy_sem_id=".$row['sy_sem_id']."&sem_id=".$row['sem_id']."'><button>View Clearance</button></a>";
+                                echo "<a href='student_clearances.php'><button>View Clearance</button></a>";
                             }
                             
                         ?>

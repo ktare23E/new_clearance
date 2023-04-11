@@ -79,32 +79,32 @@
                     </div>
                     
                     <div class="table-container">
-                            <table id="example" class="display" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th>School year and sem</th>
-                                        <th>Clearance Type</th>
-                                        <th>Status</th>
-                                        <th>Remarks</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach($list_of_clearance as $clearance):?>
-                                    <tr>
-                                        <td><?= $clearance->school_year_and_sem." ".$clearance->sem_name; ?></td>
-                                        <td><?= $clearance->clearance_type_name; ?></td>
-                                        <td><?= $clearance->clearance_status ? 'Cleared' : 'Not Cleared';?></td>
-                                        <td>Done</td>
-                                        <td class="primary table-action-container">
-                                        <a class="primary" href="clearance_view.php?student_id=<?= $clearance->student_id?>&clearance_type_id=<?= $clearance->clearance_type_id; ?>&clearance_progress_id=<?= $clearance->clearance_progress_id; ?>">View Details</a>
-                                        </td>
-                                    </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    
+                        <table id="example" class="display" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>School year and sem</th>
+                                    <th>Clearance Type</th>
+                                    <th>Status</th>
+                                    <th>Remarks</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach($list_of_clearance as $clearance):?>
+                                <tr>
+                                    <td><?= $clearance->school_year_and_sem." ".$clearance->sem_name; ?></td>
+                                    <td><?= $clearance->clearance_type_name; ?></td>
+                                    <td><?= $clearance->clearance_status ? 'Cleared' : 'Not Cleared';?></td>
+                                    <td>Done</td>
+                                    <td class="primary table-action-container">
+                                    <a class="primary" href="clearance_view.php?student_id=<?= $clearance->student_id?>&clearance_type_id=<?= $clearance->clearance_type_id; ?>&clearance_progress_id=<?= $clearance->clearance_progress_id; ?>">View Details</a>
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                
                 </div>
             
             

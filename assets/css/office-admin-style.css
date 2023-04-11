@@ -844,6 +844,16 @@ button {
     padding: 10px 10px;
 }
 
+.table-container table#example {
+    text-align: center;
+    border-collapse: collapse;
+
+}
+
+.table-container table#example thead tr th {
+    padding-bottom: 10px;
+}
+
 .get-started-section {
     margin-top: 20px;
     display: flex;
