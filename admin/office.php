@@ -63,6 +63,7 @@
                                     <th>Office Name</th>
                                     <th>Office Email</th>
                                     <th>Office Phone Number</th>
+                                    <th>Office Type</th>
                                     <th>Office Status</th>
                                     <th>Actions</th>
                                 </tr>
@@ -73,6 +74,7 @@
                                     <td><?= $user->office_name; ?></td>
                                     <td><?= $user->office_email; ?></td>
                                     <td><?= $user->office_phone_number; ?></td>
+                                    <td><?= $user->is_department ? 'Department':'Office';?></td>
                                     <td><?= $user->office_status; ?></td>
                                     <td class="primary table-action-container">
                                         <a class="update-link" href="edit_office_info.php?edit=<?= $user->office_id?>">Update</a>
@@ -83,9 +85,10 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Office Name</th>
+                                <th>Office Name</th>
                                     <th>Office Email</th>
                                     <th>Office Phone Number</th>
+                                    <th>Office Type</th>
                                     <th>Office Status</th>
                                     <th>Actions</th>
                                 </tr>

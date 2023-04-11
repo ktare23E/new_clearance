@@ -130,6 +130,14 @@
                                 
                                 <h2><span><?= $row['office_description']?></span></h2>
                             </div>
+                            <div class="student-info-name-container">
+                                <div class="icon-label-container">
+                                    
+                                    <h2 class="label">Office Status :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+                                </div>
+                                
+                                <h2><span><?= $row['is_department'] ? 'Department' : 'Office';?></span></h2>
+                            </div>
                             <!-- <div class="student-info-name-container clearance-status-btn-container">
                                 <button id="clearance-status-button">Clearance Status</button>
                             </div> -->

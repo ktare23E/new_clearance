@@ -88,6 +88,7 @@
                                         <th>Last Name</th>
                                         <th>Year</th>
                                         <th>Course</th>
+                                        <th>Username</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>

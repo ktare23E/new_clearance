@@ -1,5 +1,5 @@
 <?php
-    include_once 'header.php';
+    include_once 'office_header.php';
     
     $conn = mysqli_connect('localhost', 'root', '', 'clearance');
 

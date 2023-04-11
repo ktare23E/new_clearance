@@ -29,7 +29,8 @@ $columns = array(
     array( 'db' => 'student_last_name',   'dt' => 3 ),
     array( 'db' => 'student_year',     'dt' => 4 ),
     array( 'db' => 'course_name',     'dt' => 5 ),
-    array( 'db' => 'student_status',     'dt' => 6 ),
+    array('db' => 'student_username', 'dt' =>6),
+    array( 'db' => 'student_status',     'dt' => 7 ),
 );
 // SQL server connection information
 $sql_details = array(

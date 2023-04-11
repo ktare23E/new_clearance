@@ -14,7 +14,7 @@
 
 $conn = mysqli_connect('localhost', 'root', '', 'clearance');
 
-$query = "SELECT * FROM sy_semester";
+$office_id = $_SESSION['office_id'];
 
 if(isset($_POST['import'])){
     $fileName = $_FILES['file']['tmp_name'];
@@ -36,8 +36,14 @@ if(isset($_POST['import'])){
                 
                 $sqlUpdate = "UPDATE clearance SET clearance_status = '0' WHERE clearance_id = ".$row['clearance_id'];
                 $update = $conn->query($sqlUpdate);
+
+                $sqlView = "SELECT * FROM signing_office WHERE office_id = $office_id";
+                $signing_office = $conn->query($sqlView) or die($conn->error);
+                $row = $signing_office->fetch_assoc();
+
+                $signing_office_id = $row['signing_office_id'];
                 
-                $sqlInsert = "INSERT INTO requirement (requirement_details, signing_office_id, clearance_progress_id, student_id,clearance_type_id) VALUES ('".$column[0]."','".$column[1]."','".$column[2]."','".$column[3]."','".$column[4]."')";
+                $sqlInsert = "INSERT INTO requirement (requirement_details, signing_office_id, clearance_progress_id, student_id,clearance_type_id) VALUES ('".$column[0]."','".$column[1]."','".$_POST['clearance_progress_id']."','".$column[3]."','".$column[4]."')";
                 $result = mysqli_query($conn, $sqlInsert);
             } catch(Exception $e) {
                 echo $e->getMessage();
