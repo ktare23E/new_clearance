@@ -31,7 +31,6 @@ try {
     const menuBtn = document.querySelector("#menu-btn");
     const closeBtn = document.querySelector("#close-btn");
     
-    const themeToggler = document.querySelector(".theme-toggler");
     
     menuBtn.addEventListener('click', () => {
         sideMenu.style.display = "block";
@@ -43,14 +42,31 @@ try {
     
     // change theme
     
+    const preferredColorScheme = localStorage.getItem('color-scheme');
+    const themeToggler = document.querySelector(".theme-toggler");
+
+    if (preferredColorScheme === 'dark') {
+        document.body.classList.add('dark-theme-variables');
+    }
+
+    
+
+    // change theme
+
     themeToggler.addEventListener('click', () => {
         document.body.classList.toggle('dark-theme-variables');
-    
+
         themeToggler.querySelector('span:nth-child(1)').classList.toggle('active');
         themeToggler.querySelector('span:nth-child(2)').classList.toggle('active');
-    
-        
+
+        if (document.body.classList.contains('dark-theme-variables')) {
+            localStorage.setItem('color-scheme', 'dark');
+        } else {
+            localStorage.removeItem('color-scheme');
+        }
     })
+
+    console.log(localStorage);
 }catch(error) {
     console.log(error);
 }
@@ -202,15 +218,19 @@ try{
 
 
 
+try {
+    let overallStatus = document.querySelectorAll(".overall-clearance-status")
 
-let overallStatus = document.querySelectorAll(".overall-clearance-status")
+    overallStatus.forEach(status => {
+        if(status.innerHTML == "Cleared"){
+            status.classList.add("success")
+        }else {
+            status.classList.add("warning")
+        }
+    })
 
-overallStatus.forEach(status => {
-    if(status.innerHTML == "Cleared"){
-        status.classList.add("success")
-    }else {
-        status.classList.add("warning")
-    }
-})
+} catch (error) {
+    
+}
 
 
