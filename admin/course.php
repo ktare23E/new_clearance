@@ -85,15 +85,7 @@
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
-                            <tfoot>
-                                <tr>
-                                
-                                    <th>Course Name</th>
-                                    <th>Course Status</th>
-                                    <th>Department Name</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </tfoot>
+                            </tbody>
                         </table>
                     </div>
                     

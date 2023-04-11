@@ -84,14 +84,7 @@
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
-                            <tfoot>
-                                <tr>
-                                    <th>Admin Name</th>
-                                    <th>Office Name</th>
-                                    <th>Office Account Username</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </tfoot>
+                            </tbody>
                         </table>
                     </div>
                     

@@ -123,22 +123,6 @@
                             <tbody>
                                 
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th></th>
-                                    <th>Clearance Type Id</th>
-                                    <th>School Year and Sem Id</th>
-                                    <th>Clearance Id</th>
-                                    <th>Student ID</th>
-                                    <th>Student First Name</th>
-                                    <th>Student Last Name</th>
-                                    <th>School Year</th>
-                                    <th>Semester</th>
-                                    <th>Clearance Status</th>
-                                    <th>Semester Id</th>
-                                    <th>Action</th>
-                                </tr>
-                            </tfoot>
                         </table>
                     </div>
                     

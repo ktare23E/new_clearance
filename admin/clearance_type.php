@@ -77,14 +77,7 @@
                                 </td>
                             </tr>
                             <?php endforeach; ?>
-                        <tfoot>
-                            <tr>
-                                <th></th>
-                                <th>Clearance Type Name</th>
-                                <th>Clearance Type Description</th>
-                                <th>Actions</th>
-                            </tr>
-                        </tfoot>
+                        </tbody>
                     </table>
 </div>
                     

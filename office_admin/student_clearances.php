@@ -8,14 +8,17 @@
         echo $conn->connect_error;
     }
     
-    if(!isset($_GET['details'])){
+    if(!isset($_GET['student_id'])){
         echo "<h1>There's an error while viewing details.</h1>";
     }else{
-        $id = $_GET['details'];
-        $sql = "SELECT * FROM student_details WHERE student_id = '$id'";
+        $student_id = $_GET['student_id'];
+        $sql = "SELECT * FROM student_details WHERE student_id = '$student_id'";
         $students = $conn->query($sql) or die($conn->error);
         $row = $students->fetch_assoc();
     }
+
+    $list_of_clearance = $db->result('view_clearance','student_id = "'.$student_id.'"');
+
     
     
 ?>
@@ -45,15 +48,17 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php foreach($list_of_clearance as $clearance):?>
                                 <tr>
-                                    <td>2020-2021 1st sem</td>
-                                    <td>Continuing</td>
-                                    <td>Cleared</td>
+                                    <td><?= $clearance->school_year_and_sem." ".$clearance->sem_name; ?></td>
+                                    <td><?= $clearance->clearance_type_name; ?></td>
+                                    <td><?= $clearance->clearance_status ? 'Cleared' : 'Not Cleared';?></td>
                                     <td>Done</td>
                                     <td class="primary table-action-container">
-                                        <a class="view-link" href="clearance_view.php">View Details</a>
+                                    <a class="primary view-link" href="office_clearance_view.php?student_id=<?= $clearance->student_id?>&clearance_type_id=<?= $clearance->clearance_type_id; ?>&clearance_progress_id=<?= $clearance->clearance_progress_id; ?>">View Details</a>
                                     </td>
                                 </tr>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>

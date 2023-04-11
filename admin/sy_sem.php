@@ -79,13 +79,7 @@
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
-                            <tfoot>
-                                <tr>
-                                <!-- <th></th> -->
-                                    <th>School Year</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </tfoot>
+                            </tbody>
                         </table>
                     </div>
                     
