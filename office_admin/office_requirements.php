@@ -19,7 +19,7 @@
             include_once 'office_navtop.php'
         ?>
 
-
+        
         <div class="modal" id="modal">
             <div class="modal-header">
                 <div class="title">Edit Requirement Details</div>
