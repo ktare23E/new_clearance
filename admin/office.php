@@ -77,7 +77,7 @@
                                     <td><?= $user->is_department ? 'Department':'Office';?></td>
                                     <td><?= $user->office_status; ?></td>
                                     <td class="primary table-action-container">
-                                        <a class="update-link" href="edit_office_info.php?edit=<?= $user->office_id?>">Update</a>
+                                        <a class="update-link" href="edit_office_info.php?edit=<?= $user->office_id?>">Edit</a>
                                         <a class="view-link" href="office_view.php?details=<?= $user->office_id?>">View Details</a>
                                     </td>
                                 </tr>

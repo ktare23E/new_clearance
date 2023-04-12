@@ -73,7 +73,7 @@
                                 <td><?= $user->clearance_type_name; ?></td>
                                 <td><?= $user->clearance_type_description; ?></td>
                                 <td class="primary table-action-container">
-                                    <a class="update-link" href="edit_clearance_type.php?edit=<?= $user->clearance_type_id?>">Update</a>
+                                    <a class="update-link" href="edit_clearance_type.php?edit=<?= $user->clearance_type_id?>">Edit</a>
                                 </td>
                             </tr>
                             <?php endforeach; ?>

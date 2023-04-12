@@ -31,7 +31,7 @@ CREATE TABLE `admin` (
   `office_id` int(11) NOT NULL,
   `department_id` int(1) NOT NULL,
   PRIMARY KEY (`admin_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `admin` */
 
@@ -43,7 +43,7 @@ insert  into `admin`(`admin_id`,`admin_name`,`admin_username`,`admin_password`,`
 (14,'Yongco','yongco123','123','','Office Admin','2023-02-03 15:46:34',16,0),
 (15,'Al Cedric Dario','dario123','123','','Office Admin','2023-02-03 15:51:40',13,0),
 (16,'Phoebe Ladua','phoebe23','123','','Office Admin','2023-02-03 15:55:24',17,0),
-(17,'','','','','','2023-03-31 17:31:11',0,0);
+(18,'Crim Nolologies','Crim123','12345','','Office Admin','2023-04-11 10:19:24',20,0);
 
 /*Table structure for table `clearance` */
 
@@ -63,12 +63,17 @@ CREATE TABLE `clearance` (
   `is_locked` tinyint(1) NOT NULL,
   `clearance_progress_id` int(11) NOT NULL,
   PRIMARY KEY (`clearance_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `clearance` */
 
 insert  into `clearance`(`clearance_id`,`clearance_status`,`student_id`,`sy_sem_id`,`sem_id`,`clearance_type_id`,`course_id`,`office_id`,`date_created`,`date_cleared`,`is_locked`,`clearance_progress_id`) values 
-(78,'1','2019-70227',0,0,1,15,17,'2023-03-31','2023-03-31',0,2);
+(78,'1','2019-70227',0,0,1,15,17,'2023-03-31','2023-03-31',0,2),
+(79,'1','2019-80129',0,0,4,15,17,'2023-04-11','2023-04-11',0,1),
+(80,'1','2019-80132',0,0,4,13,13,'11/04/2023','0000-00-00',0,3),
+(81,'1','2019-80131',0,0,1,12,13,'11/04/2023','0000-00-00',0,1),
+(82,'1','2019-80129',0,0,1,15,17,'2023-04-11','0000-00-00',0,3),
+(83,'0','2019-70227',0,0,2,15,17,'2023-04-11','0000-00-00',0,2);
 
 /*Table structure for table `clearance_details` */
 
@@ -99,13 +104,14 @@ CREATE TABLE `clearance_progress` (
   `sy_sem_id` int(11) NOT NULL,
   `status` varchar(11) NOT NULL,
   PRIMARY KEY (`clearance_progress_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `clearance_progress` */
 
 insert  into `clearance_progress`(`clearance_progress_id`,`sem_id`,`sy_sem_id`,`status`) values 
-(1,2,7,'Inactive'),
-(2,1,7,'Active');
+(1,2,8,'Active'),
+(2,1,8,'Active'),
+(3,6,8,'Active');
 
 /*Table structure for table `clearance_type` */
 
@@ -116,14 +122,15 @@ CREATE TABLE `clearance_type` (
   `clearance_type_name` varchar(75) NOT NULL,
   `clearance_type_description` varchar(1000) NOT NULL,
   PRIMARY KEY (`clearance_type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `clearance_type` */
 
 insert  into `clearance_type`(`clearance_type_id`,`clearance_type_name`,`clearance_type_description`) values 
 (1,'Graduating ','This is the clearance for all graduating students of NMSCST students and all.'),
 (2,'Transferring','This is the clearance type for all transferrring students who wants to transfer for another school.'),
-(4,'Continuing','This is the clearance type for all continuing students of NMSCT.');
+(4,'Continuing','This is the clearance type for all continuing students of NMSCT.'),
+(5,'Drop','ghjsdbv');
 
 /*Table structure for table `course` */
 
@@ -136,7 +143,7 @@ CREATE TABLE `course` (
   `course_description` varchar(1000) NOT NULL,
   `office_id` int(11) NOT NULL,
   PRIMARY KEY (`course_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `course` */
 
@@ -144,7 +151,8 @@ insert  into `course`(`course_id`,`course_name`,`course_status`,`course_descript
 (12,'Bachelor of Science in Biology','Active','',13),
 (13,'AB PolScie','Active','',13),
 (14,'Bachelor of Science in Information System','Active','This is the course for IS',17),
-(15,'Bachelor of Science in Information Technology','Active','This is the course for IT',17);
+(15,'Bachelor of Science in Information Technology','Active','This is the course for IT',17),
+(16,'Bachelor of Science in Criminology','Active','This course offers',17);
 
 /*Table structure for table `department` */
 
@@ -182,18 +190,19 @@ CREATE TABLE `office` (
   `office_status` varchar(75) NOT NULL,
   `is_department` tinyint(1) NOT NULL,
   PRIMARY KEY (`office_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `office` */
 
 insert  into `office`(`office_id`,`office_name`,`office_email`,`office_phone_number`,`office_description`,`office_status`,`is_department`) values 
-(10,'Accounting Office','tare.kristian@gmail.com','09232414221','This is the office of Accounting','Inactive',0),
-(11,'School of Business Administration and Management','tare.kristian@gmail.com','0923241234','This is the school of SBAM.','Active',1),
-(13,'School of Arts and Sciences','tare.kristian@gmail.com','092342242','This is the department of SAS.','Active',1),
-(14,'System Administrator','tare.kristian@gmail.com','09150468327','This is the office of system administrator','Active',0),
-(15,'Cahier','tare.kristian@gmail.com','092324123232','This is the office of the cashier.','Active',0),
-(16,'OSA','tare.kristian@gmail.com','09123131321','This is the office for the OSA.','Active',0),
-(17,'School of Information Communication and Technology','tare.kristian@gmail.com','0912312343','This is the office of SICT','Active',1);
+(10,'Accounting Office','maryjane.espinosa@nmsc.edu.ph','09232414221','This is the office of Accounting','Inactive',0),
+(11,'School of Business Administration and Management','maryjane.espinosa@nmsc.edu.ph','0923241234','This is the school of SBAM.','Active',1),
+(13,'School of Arts and Sciences','maryjane.espinosa@nmsc.edu.ph','092342242','This is the department of SAS.','Active',1),
+(14,'System Administrator','maryjane.espinosa@nmsc.edu.ph','09150468327','This is the office of system administrator','Active',0),
+(15,'Cahier','maryjane.espinosa@nmsc.edu.ph','092324123232','This is the office of the cashier.','Active',0),
+(16,'OSA','maryjane.espinosa@nmsc.edu.ph','09123131321','This is the office for the OSA.','Active',0),
+(17,'School of Information Communication and Technology','maryjane.espinosa@nmsc.edu.ph','0912312343','This is the office of SICT','Active',1),
+(20,'Accounting','maryjane.espinosa@nmsc.edu.ph','09232414221','hjhdgsfdbvk','Active',0);
 
 /*Table structure for table `office_account waly apil` */
 
@@ -231,13 +240,14 @@ CREATE TABLE `requirement` (
   `date_cleared` date NOT NULL,
   `clearance_progress_id` int(11) NOT NULL,
   PRIMARY KEY (`requirement_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `requirement` */
 
 insert  into `requirement`(`requirement_id`,`requirement_details`,`signing_office_id`,`sy_sem_id`,`sem_id`,`student_id`,`clearance_type_id`,`is_complied`,`date_cleared`,`clearance_progress_id`) values 
 (87,'This is from yongco OSA ',82,0,0,'2019-70227',1,1,'2023-03-31',2),
-(88,'This is from yongco2 OSA.',82,0,0,'2019-70227',1,1,'2023-03-31',2);
+(88,'This is from yongco2 OSA.',82,0,0,'2019-70227',1,1,'2023-03-31',2),
+(89,'Mass Attendance',86,0,0,'2019-80129',4,1,'2023-04-11',1);
 
 /*Table structure for table `sem` */
 
@@ -247,7 +257,7 @@ CREATE TABLE `sem` (
   `sem_id` int(11) NOT NULL AUTO_INCREMENT,
   `sem_name` varchar(75) NOT NULL,
   PRIMARY KEY (`sem_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sem` */
 
@@ -255,7 +265,8 @@ insert  into `sem`(`sem_id`,`sem_name`) values
 (1,'1st Semester'),
 (2,'2nd Semester'),
 (3,'Summer'),
-(4,'Trimester');
+(4,'Trimester'),
+(6,'43rd Semester');
 
 /*Table structure for table `signing_office` */
 
@@ -274,14 +285,18 @@ CREATE TABLE `signing_office` (
   `sem_id` int(11) NOT NULL,
   `clearance_progress_id` int(11) NOT NULL,
   PRIMARY KEY (`signing_office_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `signing_office` */
 
 insert  into `signing_office`(`signing_office_id`,`office_id`,`sy_sem_id`,`admin_id`,`department_id`,`clearance_type_id`,`is_locked`,`status`,`date_cleared`,`sem_id`,`clearance_progress_id`) values 
 (80,17,0,16,0,1,0,'','2023-03-27 17:00:28',0,2),
 (81,15,0,15,0,1,0,'','2023-03-27 19:55:01',0,2),
-(82,16,0,14,0,1,0,'','2023-03-30 15:20:03',0,2);
+(82,16,0,14,0,1,0,'','2023-03-30 15:20:03',0,2),
+(83,10,0,9,0,1,0,'','2023-04-07 20:14:27',0,2),
+(84,20,0,18,0,2,0,'','2023-04-11 10:27:36',0,3),
+(85,20,0,18,0,4,0,'','2023-04-11 10:27:40',0,3),
+(86,16,0,14,0,4,0,'','2023-04-11 10:56:27',0,1);
 
 /*Table structure for table `student` */
 
@@ -306,10 +321,15 @@ CREATE TABLE `student` (
 /*Data for the table `student` */
 
 insert  into `student`(`student_id`,`student_first_name`,`student_last_name`,`student_year`,`course_id`,`office_id`,`student_gender`,`student_email`,`student_username`,`student_password`,`student_status`,`student_profile`) values 
-('2019-2014','Lebron','Siglos','2nd Year',13,13,'Male','lebron@gmail.com','2019-2014','123','Active','1678078178tulips.jpg'),
-('2019-70227','Kristian Kharl','Tare','4th Year',15,17,'Male','tare.kristian@gmail.com','2019-70227','123','Active','64223b7170010.jpg'),
-('2019-800306','Al Cedric','Dario','4th Year',15,17,'Male','alcedric.dario@nmsc.edu.ph','2019-800306','123','Active','1678856650dp.png'),
-('2020-3234','Phoebe','Ladua','4th Year',12,13,'Female','phoebe@gmail.com','2020-3234','123','Active','1671932689312491292_508684841138118_7881797655818735404_n.jpg');
+('2019-0232','James ','Probitso','1st Year',13,13,'Male','projames115@gmail.com','2019-0232','123','Active','643009cbb5fd9.jpg'),
+('2019-2014','Lebron','Siglos','1st Year',13,13,'Male','lebron@gmail.com','2019-2014','123','Active','1678078178tulips.jpg'),
+('2019-70227','Kristian Kharl','Tare','1st Year',15,17,'Male','tare.kristian@gmail.com','2019-70227','123','Active','6434b268be528.jpg'),
+('2019-800306','Al Cedric','Dario','1st Year',15,17,'Male','alcedric.dario@nmsc.edu.ph','2019-800306','123','Active','1678856650dp.png'),
+('2019-80129','Rea Mae','Espinosa','1st Year',14,17,'Female','reamae.espinosa@nmsc.edu.ph','2019-80129','12345','Active','6434cb4b5850e.jpg'),
+('2019-80131','Jason ','Suan','3rd Year',12,13,'Male','jason123@gmail.com','2019-80131','123','Active',''),
+('2019-80132','Rey','Mirontos','1st Year',13,13,'Male','rey123@gmail.com','2019-80132','123','Active',''),
+('2020-3234','Phoebe','Ladua','1st Year',12,13,'Female','phoebe@gmail.com','2020-3234','123','Active','1671932689312491292_508684841138118_7881797655818735404_n.jpg'),
+('﻿2019-80129',' Mary jane','Espinosa','4th Year',15,17,'Female','yen123@gmail.com','2019-80129','123','Active','');
 
 /*Table structure for table `sy_sem` */
 
@@ -321,13 +341,14 @@ CREATE TABLE `sy_sem` (
   `status` varchar(75) NOT NULL,
   `sem_id` int(11) NOT NULL,
   PRIMARY KEY (`sy_sem_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sy_sem` */
 
 insert  into `sy_sem`(`sy_sem_id`,`school_year_and_sem`,`status`,`sem_id`) values 
 (1,'2022-2023 ','',0),
-(7,'2027-2028','',0);
+(7,'2027-2028','',0),
+(8,'2024-2025','',0);
 
 /*Table structure for table `upload` */
 
