@@ -35,11 +35,14 @@
                 <h3>Logout</h3>
             </a>
         </div>
+        
         <div class="theme-toggler">
             <span class="material-symbols-sharp active">light_mode</span>
             <span class="material-symbols-sharp">dark_mode</span>
         </div>
-        <a href="student_profile.php">
+
+        
+        <div class="profile" id="show-profile-tap">
             <div class="profile">
                 <div class="info">
                     <p>Hello, <b><?php if($_SESSION['student_first_name'] == 'Phoebe' && $_SESSION['student_last_name'] == 'Ladua') {
@@ -55,10 +58,38 @@
                     } ?>" alt="">
                 </div>
             </div>
-        </a>
-        
+            <div class="profile-tap">
+                <a href="student_profile.php">
+                    <span class="material-symbols-sharp">receipt_long</span>
+                    <h3>Profile</h3>
+                </a>
+
+                <button class="change-password" data-modal-target="#change-password">
+                    <span class="material-symbols-sharp">lock</span>
+                    <h3>Password</h3>
+                </button>
+            </div>
+        </div>
     </div>
 </div>
+
+<div class="modal active" id="change-password">
+    <div class="modal-header">
+        <div class="title">Change Your Password</div>
+        <button data-close-button class="close-button">&times;</button>
+    </div>
+    <div class="modal-body">
+        <form action="" class="form">
+            <div class="input-field" style="margin-top: 0px;margin-bottom:20px">
+                <input type="password" name="student_password" class="password" placeholder="Enter your new password" required> <!-- INPUT FIELD FOR PASSWORD -->
+                <i class="uil uil-lock icon"></i>
+                <i class="uil uil-eye-slash showHidePw"></i>
+            </div>
+            <input type="submit" value="Change">
+        </form>
+    </div>
+</div>
+<div id="overlay" class="active"></div>
 
 
 
