@@ -72,34 +72,68 @@
 
                     <small class="text-muted">Last 24 Hours</small>
                 </div>
+
+                <div class="sales">
+                    <span class="material-symbols-sharp">analytics</span>
+                    
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total Enrolled Students</h3>
+                            <h1 class="total_users"></h1>
+                        </div>
+                    </div>
+
+                    <small class="text-muted">Last 24 Hours</small>
+                </div>
+                <!-- -------------  END OF SALES -------------- -->
+
+                <div class="expenses">
+                    <span class="material-symbols-sharp">bar_chart</span>
+                    
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total Active Student from Enrolled:</h3>
+                            <h1 class="total_users"></h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="number">
+                                <p id="active_users_percentage"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="student.php">See for more details</a>
+                </div>
+                <!-- -------------  END OF EXPENSES -------------- -->
+
+                <div class="income">
+                    <span class="material-symbols-sharp">stacked_line_chart</span>
+                    
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total Income</h3>
+                            <h1>$10,864</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="number">
+                                <p>44%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <small class="text-muted">Last 24 Hours</small>
+                </div>
                 <!-- -------------  END OF INCOME -------------- -->
             </div>
             <!-- -------------  END OF INSIGHTS -------------- -->
 
-            <div class="recent-orders">
-                <h2>Recent Orders</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Product Name</th>
-                            <th>Product Number</th>
-                            <th>Payment</th>
-                            <th>Status</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- <tr>
-                            <td>Foldable Mini Drone</td>
-                            <td>85631</td>
-                            <td>Due</td>
-                            <td class="warning">Pending</td>
-                            <td class="primary">Details</td>
-                        </tr> -->
-                        
-                </table>
-                <a href="#">Show All</a>
-            </div>
+        
         </main>
         <!-- ================ END OF MAIN =================== -->
 
@@ -124,7 +158,7 @@
             </div>
             <!-- ========== END OF TOP ============= -->
 
-            <div class="recent-updates">
+            <!-- <div class="recent-updates">
                 <h2>Recent Updates</h2>
                 <div class="updates">
                     <div class="update">
@@ -158,10 +192,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- ========== END OF RECENT UPDATES ============= -->
 
-            <div class="sales-analytics">
+            <!-- <div class="sales-analytics">
                 <h2>Sales Analytics</h2>
                 <div class="item online">
                     <div class="icon">
@@ -211,7 +245,7 @@
                     </div>
                 </div>
                 
-            </div>
+            </div> -->
             
         </div>
 
