@@ -25,25 +25,30 @@ include_once '../dbconnect.php';
 
 </head>
 
-<body>
+<body>  
         <img src="../images/report-back.jpg" alt="" class="image-back">
         <div class="blur"></div>
-        <div class="select-report-container">
-                <form action="retrieve_report.php" method="post">
-                        <div class="report-form-container">
-                                <label for="">Select School Year And Sem</label>
-                                <select name="clearance_progress_id" id="" required>
-                                        <option default>Select School Year And Sem</option>
-                                        <?php $clearances = $db->result('clearance_progress_view'); ?>
-                                        <?php foreach ($clearances as $clearance) : ?>
-                                                <?php $clearance->clearance_progress_id; ?>
-                                                <option value="<?= $clearance->clearance_progress_id; ?>"><?= $clearance->school_year_and_sem . ' ' . $clearance->sem_name; ?></option>
-                                        <?php endforeach; ?>
-                                </select>
-                        </div>
-                        <input type="submit" name="submit" value="submit">
-                </form>
+        <div class="container">
+                <?php include_once 'aside.php' ?>
+                
+                <div class="select-report-container">
+                        <form action="retrieve_report.php" method="post">
+                                <div class="report-form-container">
+                                        <label for="">Select School Year And Sem</label>
+                                        <select name="clearance_progress_id" id="" required>
+                                                <option default>Select School Year And Sem</option>
+                                                <?php $clearances = $db->result('clearance_progress_view'); ?>
+                                                <?php foreach ($clearances as $clearance) : ?>
+                                                        <?php $clearance->clearance_progress_id; ?>
+                                                        <option value="<?= $clearance->clearance_progress_id; ?>"><?= $clearance->school_year_and_sem . ' ' . $clearance->sem_name; ?></option>
+                                                <?php endforeach; ?>
+                                        </select>
+                                </div>
+                                <input type="submit" name="submit" value="submit">
+                        </form>
+                </div>
         </div>
+        
 
         <script>
                 document.title = "Reports"
