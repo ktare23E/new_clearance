@@ -57,7 +57,7 @@
                     
                     <div class="middle">
                         <div class="left">
-                            <h3>Signing Office</h3>
+                            <h3>Total of Signing Office of this Active Clearance Period</h3>
                             <h1 class="signing_office"></h1>
                         </div>
                         <div class="progress">
@@ -65,11 +65,11 @@
                                 <circle cx="38" cy="38" r="36"></circle>
                             </svg>
                             <div class="number">
-                                <p>44%</p>
+                                <p id="active_signing_office"></p>
                             </div>
                         </div>
                     </div>
-                    <a href="signing_office.php">See for more details</a>
+                    
                     <small class="text-muted">Last 24 Hours</small>
                 </div>
 
@@ -78,12 +78,12 @@
                     
                     <div class="middle">
                         <div class="left">
-                            <h3>Total Enrolled Students</h3>
-                            <h1 class="total_users"></h1>
+                            <h3>Singing Offices of this Clearance Period</h3>
+                            <h3 class="office_names"></h3>
                         </div>
                     </div>
-
-                    <small class="text-muted">Last 24 Hours</small>
+                    <a href="signing_office.php">See for more details</a>
+                    <!-- <small class="text-muted">Last 24 Hours</small> -->
                 </div>
                 <!-- -------------  END OF SALES -------------- -->
 
@@ -92,20 +92,23 @@
                     
                     <div class="middle">
                         <div class="left">
-                            <h3>Total Active Student from Enrolled:</h3>
-                            <h1 class="total_users"></h1>
+                            <h3>Clearance Types</h3>
+                            <h3 class="clearance_type"></h3><br>
+                            <!-- <ul class="clearance_type">
+                                <li></li>
+                            </ul> -->
                         </div>
-                        <div class="progress">
+                        <!-- <div class="progress">
                             <svg>
                                 <circle cx="38" cy="38" r="36"></circle>
                             </svg>
                             <div class="number">
                                 <p id="active_users_percentage"></p>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
-                    <a href="student.php">See for more details</a>
+                    <a href="clearance_type.php">See for more details</a>
                 </div>
                 <!-- -------------  END OF EXPENSES -------------- -->
 
@@ -114,16 +117,17 @@
                     
                     <div class="middle">
                         <div class="left">
-                            <h3>Total Income</h3>
-                            <h1>$10,864</h1>
+                            <h3>Active School Year and Semester</h3>
+                            <!-- <h1 class="sy_sem"></h1> -->
+                            <h3 class="sy_sem"></h3>
                         </div>
                         <div class="progress">
-                            <svg>
+                            <!-- <svg>
                                 <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="number">
+                            </svg> -->
+                            <!-- <div class="number">
                                 <p>44%</p>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 
@@ -274,21 +278,73 @@
         });
     },1000)
 
+
+</script>
+
+<script>
+        setInterval(function(){
+            $.ajax({
+                url: 'get_signing_office.php',
+                type: 'GET',
+                success: function(response) {
+                        $('.signing_office').text(response);
+                }
+            });
+        },1000)
+            
+    </script>
+    <script>
+    setInterval(function(){
+            $.ajax({
+            url: 'get_active_signing_office_percentage.php',
+            type: 'GET',
+            success: function(response) {
+                    $('#active_signing_office').text(response);
+            }
+        });
+    },1000)
+    
     
 </script>
 
 <script>
         setInterval(function(){
             $.ajax({
-                url: 'get_total_users.php',
+                url: 'get_office_name.php',
                 type: 'GET',
                 success: function(response) {
-                        $('.total_users').text(response);
+                        $('.office_names').text(response);
                 }
             });
         },1000)
-            
-    </script>
+        
+</script>
+
+<script>
+        setInterval(function(){
+            $.ajax({
+                url: 'get_clearance_type.php',
+                type: 'GET',
+                success: function(response) {
+                        $('.clearance_type').text(response);
+                }
+            });
+        },1000)
+        
+</script>
+
+<script>
+        setInterval(function(){
+            $.ajax({
+                url: 'get_sy_sem.php',
+                type: 'GET',
+                success: function(response) {
+                        $('.sy_sem').text(response);
+                }
+            });
+        },1000)
+        
+</script>
     
     <script src="../assets/js/index.js"></script>
     

@@ -1,14 +1,16 @@
 <?php
     include_once 'header.php';
 
-        
+
         // $conn = mysqli_connect('localhost', 'root', '', 'clearance')
         if(!isset($_GET['clearance_type_id'])){
             $users = $db->result('new_signing_offices');
         }else{
 
             if($_GET['clearance_type_id'] == ""){
-                $users = $db->result('new_signing_offices');
+                // $users = $db->result('new_signing_offices');
+            $users = $db->result('new_signing_offices');
+
             }else{
                 $id = $_GET['clearance_type_id'];
                 $users = $db->result('new_signing_offices','clearance_type_id = '.$id);
@@ -86,6 +88,7 @@
                                 <tr>
                                     <th>Office Name</th>
                                     <th>School Year and Sem</th>
+                                    <th>Status</th>
                                     <th>Admin Name</th>
                                     <th>Clearance Type</th>
                                     <th>Actions</th>
@@ -96,6 +99,7 @@
                                 <tr>
                                     <td><?= $user->office_name; ?></td>
                                     <td><?= $user->school_year_and_sem.' '.$user->sem_name; ?></td>
+                                    <td><?= $user->status;?></td>
                                     <td><?= $user->admin_name; ?></td>
                                     <td><?= $user->clearance_type_name; ?></td>
                                     <td class="primary table-action-container">
