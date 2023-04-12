@@ -817,6 +817,14 @@ button {
     box-shadow: var(--box-shadow);
 }
 
+.update-link {
+    background: var(--color-primary);
+    color: white !important;
+    padding: 3px 8px;
+    margin-right: 3px;
+    border-radius: 3px;
+}
+
 .view-link {
     background: rgb(17, 134, 17);
     color: white !important;
@@ -1122,7 +1130,8 @@ button {
 
 .image-back {
     position: fixed;
-    width: 100%;
+    width: 50%;
+    left: 100px;
     z-index: -1;
 }
 
@@ -1132,7 +1141,7 @@ button {
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: -1;
+    z-index: 1;
     background: linear-gradient(0deg, #0522B3 13.95%, rgba(217, 217, 217, 0) 117.86%);
     mix-blend-mode: multiply;
 }
@@ -1186,4 +1195,77 @@ button {
     color: white;
     border-radius: 3px;
     padding: 5px 10px;
+}
+
+
+
+
+
+
+
+
+
+/* MODAL */
+
+
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 800px;
+    max-width: 80%;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.modal-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 10px 15px;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
 }
