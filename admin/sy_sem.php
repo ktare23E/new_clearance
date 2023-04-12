@@ -71,7 +71,7 @@
                                     <!-- <td><input type="checkbox" name='update[]' class='row' sy_sem_id = <?= $user-> sy_sem_id; ?>></td> -->
                                     <td><?= $user->school_year_and_sem; ?></td>
                                     <td class="primary table-action-container">
-                                        <a class="update-link" href="edit_sy_sem_info.php?edit=<?= $user->sy_sem_id?>">Update</a>
+                                        <a class="update-link" href="edit_sy_sem_info.php?edit=<?= $user->sy_sem_id?>">Edit</a>
                                             <!-- <input type="hidden" name="student_id" value="<?= $user->student_id; ?>"> -->
                                             <!-- <button type="submit" class="danger delete" name="delete" data-id="<?= $user->student_id; ?>">
                                                 <span class="material-symbols-outlined">delete</span>
