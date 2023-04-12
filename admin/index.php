@@ -57,8 +57,8 @@
                     
                     <div class="middle">
                         <div class="left">
-                            <h3>Total Income</h3>
-                            <h1>$10,864</h1>
+                            <h3>Signing Office</h3>
+                            <h1 class="signing_office"></h1>
                         </div>
                         <div class="progress">
                             <svg>
@@ -69,7 +69,7 @@
                             </div>
                         </div>
                     </div>
-
+                    <a href="signing_office.php">See for more details</a>
                     <small class="text-muted">Last 24 Hours</small>
                 </div>
 
@@ -276,6 +276,19 @@
 
     
 </script>
+
+<script>
+        setInterval(function(){
+            $.ajax({
+                url: 'get_total_users.php',
+                type: 'GET',
+                success: function(response) {
+                        $('.total_users').text(response);
+                }
+            });
+        },1000)
+            
+    </script>
     
     <script src="../assets/js/index.js"></script>
     
