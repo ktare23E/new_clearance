@@ -33,7 +33,7 @@
                         </div> -->
                         <div class="input-field sy-sem-select">
                                 <select name="clearance_progress_id" id="school_year" required>
-                                        <option default>School Year And Semester</option>
+                                        <option default>Clearance Period</option>
                                         <?php $semesters = $db->result('clearance_progress_view','status="Active"');?>
                                         <?php foreach($semesters as $semester):?>
                                         <?php if($semester->clearance_progress_id == $clearance_progress_id):?>  
@@ -88,6 +88,7 @@
                                                     <tr>
                                                         <th>Requirements</th>
                                                         <th>Clearance Type</th>
+                                                        <th>Clearance Period</th>
                                                         <th>Actions</th>
                                                     </tr>
                                                 </thead>
@@ -97,6 +98,7 @@
                                                     <tr>
                                                         <th><?= $clearance->requirement_details; ?></th>
                                                         <th><?= $clearance->clearance_type_name;?></th>
+                                                        <th><?= $clearance->school_year_and_sem.' '.$clearance->sem_name; ?></th>
                                                         <th><button data-modal-target="#modal" class="update-link">Edit</button></th>
                                                     </tr>
                                                     <?php endif; ?>
@@ -114,7 +116,7 @@
                                         <label for="input-file" style="font-size:16px;align-self: center;margin-bottom:10px"><b>Choose CSV File</b></label>
                                         <input type="file" name="file" accept=".csv" id="input-file">
                                         <select name="clearance_progress_id" id="">
-                                            <option default>Select School Year and Sem</option>
+                                            <option default>Cl/option>
                                             <?php $semesters = $db->result('clearance_progress_view','status="Active"');?>
                                             <?php foreach($semesters as $semester):?>
                                             <?php if($semester->sy_sem_id == $sy_sem_id):?>  
@@ -142,7 +144,7 @@
                             </div> -->
                             <div class="input-field sy-sem-select">
                                     <select name="clearance_progress_id" id="school_year" required>
-                                            <option default>School Year And Semester</option>
+                                            <option default>Clearance Period</option>
                                             <?php $semesters = $db->result('clearance_progress_view','status="Active"');?>
                                             <?php foreach($semesters as $semester):?>
                                             <?php if($semester->clearance_progress_id == $clearance_progress_id):?>  
