@@ -83,16 +83,6 @@
                                 </tr>
                                 <?php endforeach; ?>
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                <th>Office Name</th>
-                                    <th>Office Email</th>
-                                    <th>Office Phone Number</th>
-                                    <th>Office Type</th>
-                                    <th>Office Status</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </tfoot>
                         </table>
                     </div>
                     

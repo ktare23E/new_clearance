@@ -73,22 +73,7 @@
                         </div>
                     </div>
                     <div class="student-buttons-container">
-                        <?php 
-
-                            $sql = "SELECT * FROM view_clearance WHERE student_id = '".$id."'";
-                            $students = $conn->query($sql) or die($conn->error);
-                            $row = $students->fetch_assoc();
-
-
-                            if($students->num_rows < 1){
-                                echo "<a href='error.php'><button>View Clearance</button></a>";
-
-                                die();
-                            }else{
-                                echo "<a href='student_clearances.php'><button>View Clearance</button></a>";
-                            }
-                            
-                        ?>
+                        <a href='student_clearances.php?student_id=<?= $row['student_id']; ?>'><button>View Clearance</button></a>
                     </div>
                 </div>
             </div>

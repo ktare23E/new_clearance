@@ -108,15 +108,6 @@
                                 </tr>
                                 <?php endforeach; ?>
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Office Name</th>
-                                    <th>School Year and Sem</th>
-                                    <th>Admin Name</th>
-                                    <th>Clearance Type</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </tfoot>
                         </table>
                     </div>
                     

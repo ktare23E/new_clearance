@@ -64,7 +64,7 @@ if (isset($_POST['submit'])) {
                     ?>
                         <tr>
                             <td><?= $student['student_first_name'].' '.$student['student_last_name']; ?></td>
-                            <td><?=  ['is_cleared'] == 1 || $student['is_cleared'] == null ? "Cleared": 'Not Cleared'; ?></td>
+                            <td><?=  ['is_cleared'] == 1 || $student['is_cleared'] == null ? "Approved": 'Not Cleared'; ?></td>
                         </tr>
                     <?php endforeach; ?>
                     
@@ -79,9 +79,9 @@ if (isset($_POST['submit'])) {
         new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Cleared', 'Not Cleared'],
+                labels: ['Approved', 'Not Cleared'],
                 datasets: [{
-                    label: ['Cleared','Not Cleared'],
+                    label: 'Requirement Complied',
                     data: [<?= $num_of_cleared; ?>, <?= $number_not_cleared?>],
                     borderWidth: 1
                 }]
