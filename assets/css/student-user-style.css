@@ -325,10 +325,49 @@ a.active {
     cursor: pointer;
 }
 
+.change-password {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 20px;
+    transition: all 200ms ease;
+    background: none;
+    color: var(--color-dark);
+}
+
 .office-container .office-top-container .nav-right-container .profile {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    position: relative;
+}
+
+.profile-tap {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 5px;
+    background: var(--color-background);
+    box-shadow: var(--box-shadow);
+    position: absolute;
+    right: 0;
+    top: 50px;
+}
+
+.profile-tap.active {
+    display: flex;
+}
+
+.profile-tap a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 20px;
+    transition: all 200ms ease;
 }
 
 .office-container .office-top-container 
@@ -384,6 +423,8 @@ span.title {
     margin-top: 30px;
 }
 
+
+
 .form .input-field.sy-sem-select {
     position: relative;
     height: 50px;
@@ -403,6 +444,8 @@ span.title {
     border-bottom: 2px solid #ccc;
     border-top: 2px solid transparent;
     transition: all 0.2s ease;
+    background: var(--color-white);
+    color: var(--color-dark);
 }
 
 .input-field select {
@@ -1157,3 +1200,79 @@ input[type='file']{
     }
 }
 
+
+
+
+
+
+/* MODAL */
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    z-index: 550;
+    background: var(--color-white);
+    width: 500px;
+    max-width: 80%;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    background: var(--color-white);
+}
+
+.modal-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--color-dark);
+}
+
+.modal-body {
+    
+}
+
+.form input[type="submit"] {
+    background: var(--color-primary-variant);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+    z-index: 500;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}

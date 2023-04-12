@@ -73,22 +73,91 @@ try{
     console.log(error);
 }
 
+try {
+    let changeProfileButton = document.querySelector("#open-change-profile");
+    let changeProfileContainer = document.querySelectorAll(".upload-profile-pic");
 
-let changeProfileButton = document.querySelector("#open-change-profile");
-let changeProfileContainer = document.querySelectorAll(".upload-profile-pic");
+    changeProfileButton.addEventListener("click", function() {
+        changeProfileContainer.forEach(container => {
+            container.classList.toggle("active")
+        })
 
-changeProfileButton.addEventListener("click", function() {
-    changeProfileContainer.forEach(container => {
-        container.classList.toggle("active")
+        if(this.innerText == "Change Profile"){
+            this.innerText = "Cancel Change"
+        } else if(this.innerText == "Cancel Change"){
+            this.innerText = "Change Profile"
+        }
     })
+} catch (error) {
+    console.log(error);
+}
 
-    if(this.innerText == "Change Profile"){
-        this.innerText = "Cancel Change"
-    } else if(this.innerText == "Cancel Change"){
-        this.innerText = "Change Profile"
-    }
+
+
+try {
+    const openModalButtons = document.querySelectorAll('[data-modal-target]')
+const closeModalButtons = document.querySelectorAll('[data-close-button]')
+const overlay = document.getElementById('overlay')
+
+openModalButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal = document.querySelector(button.dataset.modalTarget)
+    openModal(modal)
+  })
 })
 
+overlay.addEventListener('click', () => {
+  const modals = document.querySelectorAll('.modal.active')
+  modals.forEach(modal => {
+    closeModal(modal)
+  })
+})
+
+closeModalButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal = button.closest('.modal')
+    closeModal(modal)
+  })
+})
+
+function openModal(modal) {
+  if (modal == null) return
+  modal.classList.add('active')
+  overlay.classList.add('active')
+}
+
+function closeModal(modal) {
+  if (modal == null) return
+  modal.classList.remove('active')
+  overlay.classList.remove('active')
+}
+
+
+
+pwShowHide = document.querySelectorAll(".showHidePw");
+
+pwShowHide.forEach(eyeIcon => {
+    eyeIcon.addEventListener('click', () => {
+        if(eyeIcon.parentElement.firstElementChild.type === "password"){
+            eyeIcon.parentElement.firstElementChild.type = "text";
+            eyeIcon.classList.replace("uil-eye-slash", "uil-eye")
+        }else {
+            eyeIcon.parentElement.firstElementChild.type = "password";
+            eyeIcon.classList.replace("uil-eye", "uil-eye-slash")
+        }
+    })
+})
+
+
+
+document.querySelector("#show-profile-tap").addEventListener("click", function() {
+    document.querySelectorAll(".profile-tap").forEach(profileTap => {
+        profileTap.classList.toggle("active")
+    })
+})
+} catch (error) {
+    console.log(error);
+}
 
 
 
