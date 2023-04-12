@@ -33,7 +33,7 @@
                                                         <td><?= $clearance->clearance_type_name; ?></td>
                                                         <td><?= $clearance->clearance_status ? 'Cleared' : 'Not Cleared';?></td>
                                                         <td class="primary table-action-container">
-                                                            <a class="primary view-link" href="sem_clearance.php?clearance_progress_id=<?= $clearance->clearance_progress_id?>&student_id=<?=$clearance->student_id; ?>">View Details</a>
+                                                            <a class="primary view-link" href="sem_clearance.php?clearance_progress_id=<?= $clearance->clearance_progress_id?>&student_id=<?=$clearance->student_id; ?>&clearance_type_id=<?= $clearance->clearance_type_id; ?>">View Details</a>
                                                         </td>
                                                     </tr>
                                                     <?php endforeach; ?>

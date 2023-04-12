@@ -35,7 +35,7 @@ mysqli_select_db($conn, 'clearance');
 
 if(isset($_POST['submit'])){
 
-    $is_deparment = $_SESSION['is_department'];
+    $is_department = $_SESSION['is_department'];
     $office_id = $_SESSION['office_id'];
     // $signing_office_id    = $_POST['signing_office_id'];
     $clearance_progress_id = $_POST['clearance_progress_id'];
@@ -57,7 +57,7 @@ if(isset($_POST['submit'])){
     $row2 = $singing_office->fetch_assoc();
     $signing_office_id = $row2['signing_office_id'];
     
-    if($is_deparment == 1){
+    if($is_department == 1){
         $sql2 = "SELECT * FROM student WHERE student_id = '".$student_id."' AND office_id = '$office_id'";
         $is_ok = $conn->query($sql2) or die($conn->error);
 
@@ -68,12 +68,12 @@ if(isset($_POST['submit'])){
         }
     }
 
-    $sql3 = "SELECT * FROM clearance WHERE student_id = '".$student_id."' AND clearance_progress_id = " .$clearance_progress_id;
+    $sql3 = "SELECT * FROM clearance WHERE student_id = '".$student_id."' AND clearance_progress_id = " .$clearance_progress_id . " AND clearance_type_id = " .$clearance_type_id;
     $clearance_exist = $conn->query($sql3) or die($conn->error);
 
     if($clearance_exist->num_rows < 1){
         echo "<a href='office_requirements.php'>Back</a><br>";
-        echo "This student '".$student_id."' has no clearance for these school year and semester that you've been selected.";
+        echo "This student '".$student_id."' has no clearance for these school year and semester and clearance type that you've been selected.";
         die();
     }
 

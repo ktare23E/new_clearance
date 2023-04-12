@@ -5,6 +5,8 @@
     
     $list_of_clearances = $db->result('requirement_view','status = "Active" AND office_id = '.$_SESSION['office_id'],'requirement_details = "'.$order_by.'"','10');
 
+    $requirement = $db->result('requirement');
+
     $conn = mysqli_connect('localhost', 'root', '', 'clearance');
 
     $office_id = $_SESSION['office_id'];
@@ -19,65 +21,7 @@
             include_once 'office_navtop.php'
         ?>
 
-        
-        <div class="modal" id="modal">
-            <div class="modal-header">
-                <div class="title">Edit Requirement Details</div>
-                <button data-close-button class="close-button">&times;</button>
-            </div>
-            <div class="form signup">
-                <form action="insert_requirement.php" method="POST">
-                    <div class="input-field-container">
-                        <!-- <div class="input-field sy-sem-select">
-                            <input type="hidden" name="signing_office_id" value="<?= $signing_office_id; ?>">
-                        </div> -->
-                        <div class="input-field sy-sem-select">
-                                <select name="clearance_progress_id" id="school_year" required>
-                                        <option default>Clearance Period</option>
-                                        <?php $semesters = $db->result('clearance_progress_view','status="Active"');?>
-                                        <?php foreach($semesters as $semester):?>
-                                        <?php if($semester->clearance_progress_id == $clearance_progress_id):?>  
-                                        <option value="<?= $semester->clearance_progress_id; ?>"><?= $semester->school_year_and_sem.' '.$semester->sem_name; ?></option>
-                                        <?php else:?>
-                                            <option value="<?= $semester->clearance_progress_id; ?>"><?= $semester->school_year_and_sem.' '.$semester->sem_name; ?></option>
-                                        <?php endif;?>
-                                        <?php endforeach; ?>
-                                </select>
-                            <i class="uil uil-angle-down" id="uil-arrow-down"></i>
-                        </div>
-                        <div class="input-field sy-sem-select">
-                            <input type="hidden" name="clearance_id">
-                            <input type="hidden" name="clearance_status" value="0">
-                                <select name="clearance_type_id" id="" required>
-                                        <option default>Clearance Type</option>
-                                        <?php $clearances = $db->result('clearance_type');?>
-                                        <?php foreach($clearances as $clearance):?>
-                                        <?php if($clearance->clearance_type_id == $clearance_type_id):?>  
-                                        <option value="<?= $clearance->clearance_type_id; ?>"><?= $clearance->clearance_type_name; ?></option>
-                                        <?php else:?>
-                                            <option value="<?= $clearance->clearance_type_id; ?>"><?= $clearance->clearance_type_name; ?></option>
-                                        <?php endif;?>
-                                        <?php endforeach; ?>
-                                </select>
-                            <i class="uil uil-angle-down" id="uil-arrow-down"></i>
-                        </div>
-                        <div class="input-field sy-sem-select">
-                            <input type="text" name="student_id" placeholder="Student Id" required>
-                        </div>
-                    </div>
-                    <div class="input-field">
-                        <textarea placeholder="Description" name="requirement_details" id="" cols="30" rows="10" required></textarea>
-                    </div>
-                    <div class="input-field button">
-                        <input type="submit" name="submit" value="Edit Requirements">
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div id="overlay"></div>
-
-
-
+    
         <!-- ================ MAIN =================== -->
         <div class="main-requirements-container">
             <div class="first-main-content-container">
@@ -94,15 +38,69 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php foreach($list_of_clearances as $clearance):?>
-                                                    <?php if($clearance->status == "Active"):?>
+                                                    <!-- <?php if($clearance->status == "Active"):?> -->
                                                     <tr>
-                                                        <th><?= $clearance->requirement_details; ?></th>
-                                                        <th><?= $clearance->clearance_type_name;?></th>
-                                                        <th><?= $clearance->school_year_and_sem.' '.$clearance->sem_name; ?></th>
-                                                        <th><button data-modal-target="#modal" class="update-link">Edit</button></th>
+                                                        <td><?= $clearance->requirement_details; ?></td>
+                                                        <td><?= $clearance->clearance_type_name;?></td>
+                                                        <td><?= $clearance->school_year_and_sem.' '.$clearance->sem_name; ?></td>
+                                                        <td><button data-modal-target="#modal<?= $clearance->requirement_id; ?>" class="update-link" >Edit</button></td>
                                                     </tr>
-                                                    <?php endif; ?>
-                                                    <?php endforeach; ?>
+                                                    <!-- <?php endif; ?> -->
+                                                    <div class="modal" id="modal<?= $clearance->requirement_id; ?>">
+                                                                <div class="modal-header">
+                                                                    <div class="title">Edit Requirement Details</div>
+                                                                    <button data-close-button class="close-button">&times;</button>
+                                                                </div>
+                                                                <div class="form signup">
+                                                                    <form action="update_requirement.php" method="POST">
+                                                                        <div class="input-field-container">
+                                                                            <input type="hidden" name="requirement_id" value="<?= $clearance->requirement_id; ?>">
+                                                                            <!-- <div class="input-field sy-sem-select">
+                                                                                <input type="hidden" name="signing_office_id" value="<?= $signing_office_id; ?>">
+                                                                            </div> -->
+                                                                            <div class="input-field sy-sem-select">
+                                                                            <select name="clearance_progress_id" id="">
+                                                                                    <?php $progression = $db->result('clearance_progress_view','status = "Active"');;?>
+                                                                                    <?php foreach($progression as $progress):?>
+                                                                                    <?php if($progress->clearance_progress_id == $clearance_progress_id):?> 
+                                                                                    <option value="<?= $progress->clearance_progress_id; ?>" selected><?= $progress->school_year_and_sem." ".$progress->sem_name; ?></option>
+                                                                                    <?php else:?>
+                                                                                        <option value="<?= $progress->clearance_progress_id; ?>"><?= $progress->school_year_and_sem." ".$progress->sem_name; ?></option>
+                                                                                    <?php endif;?>
+                                                                                    <?php endforeach; ?>
+                                                                            </select>
+                                                                                <i class="uil uil-angle-down" id="uil-arrow-down"></i>
+                                                                            </div>
+                                                                            <div class="input-field sy-sem-select">
+                                                                                <input type="hidden" name="clearance_id" value="<?= $clearance->clearance_id; ?>">
+                                                                                <input type="hidden" name="clearance_status" value="0">
+                                                                                <select name="clearance_type_id" id="">
+                                                                                        <?php $clearances = $db->result('clearance_type');;?>
+                                                                                        <?php foreach($clearances as $clearance_type):?>
+                                                                                        <?php if($clearance_type->clearance_type_id == $clearance_type_id):?> 
+                                                                                        <option value="<?= $clearance_type->clearance_type_id; ?>" selected><?= $clearance_type->clearance_type_name; ?></option>
+                                                                                        <?php else:?>
+                                                                                            <option value="<?= $clearance_type->clearance_type_id; ?>"><?= $clearance_type->clearance_type_name; ?></option>
+                                                                                        <?php endif;?>
+                                                                                        <?php endforeach; ?>
+                                                                                </select>
+                                                                                <i class="uil uil-angle-down" id="uil-arrow-down"></i>
+                                                                            </div>
+                                                                            <div class="input-field sy-sem-select">
+                                                                                <input type="text" name="student_id" value="<?= $clearance->student_id; ?>">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="input-field">
+                                                                            <textarea placeholder="Description" name="requirement_details" id="" cols="30" rows="10" required><?= $clearance->requirement_details; ?></textarea>
+                                                                        </div>
+                                                                        <div class="input-field button">
+                                                                            <input type="submit" name="update" value="Edit Requirements">
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                        </div>
+                                                    <div id="overlay"></div>
+                                                <?php endforeach; ?>
                                                 </tbody>
                         </table>
                 </div>
