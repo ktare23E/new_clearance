@@ -29,7 +29,8 @@ if (isset($_POST['submit'])) {
 <div class="reports-page-body">
     <div class="reports-main-container">
         <h1 style="text-align: center;">CLEARANCE REPORTS</h1>
-        <h1 style="text-align: center;">2020-2022 - 1st semester</h1>
+        <h1 style="text-align: center;margin-top:-20px">2020-2022 - 1st semester</h1>
+        <button id="print-reports-button">Print Reports</button>
         <div class="canvas-container">
             <canvas id="myChart"></canvas>
         </div>
@@ -99,7 +100,13 @@ if (isset($_POST['submit'])) {
             }
         });
     </script>
-<script src="../assets/js/index.js"></script>
+<script defer src="../assets/js/index.js"></script>
+<script>
+    document.querySelector("#print-reports-button").addEventListener("click", function() {
+        window.print()
+    })
+    
+</script>
 </body>
 
 </html>

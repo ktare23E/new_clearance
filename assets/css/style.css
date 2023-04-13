@@ -65,6 +65,8 @@ body {
     color: var(--color-dark);
 }
 
+
+
 .container {
     display: grid;
     width: 96%;
@@ -1224,6 +1226,7 @@ main .recent-orders-student table {
     flex-direction: column;
     gap: 20px;
     padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .reports-tables-container {
@@ -1524,6 +1527,19 @@ main table tbody tr td:last-child input, main table tbody tr td:last-child butto
     display: flex;
     align-items: center;
     gap: 0.6rem;
+}
+
+#print-reports-button {
+    align-self: flex-end;
+    background: var(--color-primary-variant);
+    color: white;
+    padding: 10px 20px;
+    margin-bottom: -15px;
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
 }
 
 .right .sales-analytics .add-product div h3 {
