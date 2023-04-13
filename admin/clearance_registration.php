@@ -76,38 +76,6 @@ include_once 'header.php';
                             </div>
                             <input type="hidden" name="clearance_status" value="1">
                             <div class="input-field">
-                                <i class="uil uil-keyhole-circle icon"></i>
-                                <select name="course_id" id="">
-                                    <option default>Select Course Name</option>
-                                    <?php $courses = $db->result('course'); ?>
-                                    <?php foreach ($courses as $course) : ?>
-                                        <?php if ($course->course_id == $course_id) : ?>
-                                            <option value="<?= $course->course_id; ?>"><?= $course->course_name; ?></option>
-                                        <?php else : ?>
-                                            <option value="<?= $course->course_id; ?>"><?= $course->course_name; ?></option>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>            
-                        </div>
-                        <div class="input-field-container">
-                            
-
-                            <div class="input-field">
-                                <i class="uil uil-analysis"></i>
-                                <select name="office_id" id="">
-                                    <option default="Select Department">Select Department</option>
-                                    <?php $offices = $db->result('office', 'is_department = 1'); ?>
-                                    <?php foreach ($offices as $office) : ?>
-                                        <?php if ($office->office_id == $office_id) : ?>
-                                            <option value="<?= $office->office_id; ?>"><?= $office_id->office_name; ?></option>
-                                        <?php else : ?>
-                                            <option value="<?= $office->office_id; ?>"><?= $office->office_name; ?></option>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                            <div class="input-field">
                             <i class="uil uil-keyhole-circle icon"></i>
                                 <select name="clearance_type_id" id="">
                                     <option default>Select Clearance Type</option>
@@ -120,11 +88,7 @@ include_once 'header.php';
                                         <?php endif; ?>
                                     <?php endforeach; ?>
                                 </select>
-                            </div>
-                            <div class="input-field">
-                                
-                                <input type="text" onfocus="(this.type='date')" name="date_created" placeholder="Date created" required>
-                            </div>
+                            </div>           
                         </div>
                         <div class="input-field button">
                             <input type="submit" id="submit" value="Create Clearance">
