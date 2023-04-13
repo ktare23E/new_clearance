@@ -31,8 +31,9 @@ $columns = array(
     array( 'db' => 'student_last_name',   'dt' => 5 ),
     array( 'db' => 'school_year_and_sem',     'dt' => 6 ),
     array('db' => 'sem_name', 'dt' => 7),
-    array( 'db' => 'clearance_status',     'dt' => 8 ),
-    array( 'db' => 'sem_id',     'dt' => 9 ),
+    array('db' => 'clearance_type_name', 'dt' => 8),
+    array( 'db' => 'clearance_status',     'dt' => 9 ),
+    array( 'db' => 'sem_id',     'dt' => 10 ),
 );
 // SQL server connection information
 $sql_details = array(
@@ -53,6 +54,8 @@ session_start();
     header("location: ../index.php");
     exit();
     }
+
+    
 
 $is_department = $_SESSION['is_department'];
 
@@ -75,6 +78,7 @@ foreach($data['data'] as $i => $entry){
         array_push($new_entry, $value);
     }
     array_push($new_entry, "<td class='primary table-action-container'>
+    <a class='view-link' href='create_requirements.php?clearance_type_id=".$entry[1]."&clearance_progress_id=".$entry[2]."&student_id=".$entry[3]."'>Create Requirements</a>
     <a class='view-link' href='office_clearance_view.php?clearance_type_id=".$entry[1]."&clearance_progress_id=".$entry[2]."&student_id=".$entry[3]."'>View Details</a>
         <input type='hidden' name='student_id' value='".$entry[1]."'> 
     </td>");
@@ -82,3 +86,4 @@ foreach($data['data'] as $i => $entry){
 }
 
 echo json_encode($data);
+

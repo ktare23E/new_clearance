@@ -37,6 +37,7 @@ $result = $conn->query($sql);
 if($result->num_rows > 0){
     $row = $result->fetch_assoc();
     $_SESSION['admin_username'] = $admin_username;
+    $_SESSION['admin_id'] = $row['admin_id'];
     $_SESSION['admin_name'] = $row['admin_name'];
     $_SESSION['office_id'] = $row['office_id'];
     $_SESSION['office_name'] = $row['office_name'];
