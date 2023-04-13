@@ -121,29 +121,14 @@
                             <th>Student Last Name</th>
                             <th>School Year</th>
                             <th>Semester</th>
+                            <th>Clearance Type</th>
                             <th>Clearance Status</th>
                             <th>Semester Id</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th></th>
-                            <th>Clearance ID</th>
-                            <th>School Year and Sem Id</th>
-                            <th>Student ID</th>
-                            <th>Student First Name</th>
-                            <th>Student Last Name</th>
-                            <th>School Year</th>
-                            <th>Semester</th>
-                            <th>Clearance Status</th>
-                            <th>Semester Id</th>
-                            <th>Action</th>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
             
@@ -219,11 +204,11 @@
                     visible: false,
                 },
                 {
-                    target: 9,
+                    target: 10,
                     visible: false,
                 },
                 {
-                    target: 8,
+                    target: 9,
                     render: function(data, type, row) {
                         return (data == 1 ? 'Cleared' : 'Not Cleared');
                     },

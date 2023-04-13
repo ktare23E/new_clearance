@@ -73,23 +73,24 @@
     </div>
 </div>
 
-<div class="modal active" id="change-password">
+<div class="modal" id="change-password">
     <div class="modal-header">
         <div class="title">Change Your Password</div>
         <button data-close-button class="close-button">&times;</button>
     </div>
     <div class="modal-body">
-        <form action="" class="form">
+        <form action="change_password.php" method="POST" class="form">
             <div class="input-field" style="margin-top: 0px;margin-bottom:20px">
+                <input type="hidden" name="student_id" value="<?= $student_id; ?>">
                 <input type="password" name="student_password" class="password" placeholder="Enter your new password" required> <!-- INPUT FIELD FOR PASSWORD -->
                 <i class="uil uil-lock icon"></i>
                 <i class="uil uil-eye-slash showHidePw"></i>
             </div>
-            <input type="submit" value="Change">
+            <input type="submit" name="update" value="Change">
         </form>
     </div>
 </div>
-<div id="overlay" class="active"></div>
+<div id="overlay" class=""></div>
 
 
 

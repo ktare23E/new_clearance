@@ -92,8 +92,18 @@
                                     <div class="form-input-file-csv-container">
                                             <label for="input-file">Choose CSV File</label>
                                             <input type="file" name="file" accept=".csv" id="input-file">
+                                            <select name="clearance_progress_id" id="">
+                                                        <option default>Select Tanduay Select Clearance Progress</option>
+                                                        <?php $progressions = $db->result('clearance_progress_view','status="Active"');?>
+                                                        <?php foreach($progressions as $progression):?>
+                                                        <?php if($progression->clearance_progress_id == $clearance_progress_id):?>  
+                                                        <option value="<?= $progression->clearance_progress_id; ?>"><?= $progression->school_year_and_sem.' '.$progression->sem_name; ?></option>
+                                                        <?php else:?>
+                                                            <option value="<?= $progression->clearance_progress_id; ?>"><?=$progression->school_year_and_sem.' '.$progression->sem_name; ?></option>
+                                                        <?php endif;?>
+                                                        <?php endforeach; ?>
+                                                </select>
                                             <button type="submit" name="import" class="submit-csv-file-button">
-                                            
                                             Import
                                                 <span class="material-symbols-sharp">file_upload</span>
                                             </button>

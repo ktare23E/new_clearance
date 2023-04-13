@@ -10,7 +10,7 @@
         <!-- ================ MAIN =================== -->
         <div class="office-main-container">
             <div class="first-div-container">
-                <h2><span class="primary">Nmsc</span> Online Clearance System</h2>
+                <h2><span class="" style="color:#00008B">NMSCST</span> Online Clearance System</h2>
             </div>
 
             <div class="get-started-section">

@@ -113,17 +113,17 @@
                                 <div class="form-input-file-csv-container">
                                         <label for="input-file" style="font-size:16px;align-self: center;margin-bottom:10px"><b>Choose CSV File</b></label>
                                         <input type="file" name="file" accept=".csv" id="input-file">
-                                        <select name="clearance_progress_id" id="">
-                                            <option default>Cl/option>
-                                            <?php $semesters = $db->result('clearance_progress_view','status="Active"');?>
-                                            <?php foreach($semesters as $semester):?>
-                                            <?php if($semester->sy_sem_id == $sy_sem_id):?>  
-                                            <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem.' '.$semester->sem_name; ?></option>
-                                            <?php else:?>
-                                                <option value="<?= $semester->sy_sem_id; ?>"><?=$semester->school_year_and_sem.' '.$semester->sem_name; ?></option>
-                                            <?php endif;?>
-                                            <?php endforeach; ?>
-                                        </select>
+                                            <select name="clearance_progress_id" id="">
+                                                    <option default>Select Tanduay Select Clearance Progress</option>
+                                                    <?php $progressions = $db->result('clearance_progress_view','status="Active"');?>
+                                                    <?php foreach($progressions as $progression):?>
+                                                    <?php if($progression->clearance_progress_id == $clearance_progress_id):?>  
+                                                    <option value="<?= $progression->clearance_progress_id; ?>"><?= $progression->school_year_and_sem.' '.$progression->sem_name; ?></option>
+                                                    <?php else:?>
+                                                        <option value="<?= $progression->clearance_progress_id; ?>"><?=$progression->school_year_and_sem.' '.$progression->sem_name; ?></option>
+                                                    <?php endif;?>
+                                                    <?php endforeach; ?>
+                                            </select>
                                         <button type="submit" name="import" class="submit-csv-file-button">
                                         
                                         Import
@@ -131,9 +131,7 @@
                                         </button>
                                 </div>
                             </form>
-                        </div>
-                        
-                            
+                        </div>    
                     </span>
                     <form action="insert_requirement.php" method="POST">
                         <div class="input-field-container">

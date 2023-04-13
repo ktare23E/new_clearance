@@ -3,6 +3,10 @@
 
 $conn = mysqli_connect('localhost', 'root', '', 'clearance');
 
+session_start();
+$admin_id = $_SESSION['admin_id'];
+$clearance_progress_id = $_POST['clearance_progress_id'];
+
 if (isset($_POST['import'])) {
     // Check if the file is a CSV file
     $fileType = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
@@ -19,7 +23,7 @@ if (isset($_POST['import'])) {
 
         while (($column = fgetcsv($file, 1000, ",")) !== FALSE) {
             // Check if the student already exists
-            $sqlCheck = "SELECT * FROM clearance WHERE student_id = '" . $column[1] . "' AND clearance_progress_id = '".$column[2]."'";
+            $sqlCheck = "SELECT * FROM clearance WHERE student_id = '" . $column[1] . "' AND clearance_progress_id = $clearance_progress_id ";
             $result= mysqli_query($conn,$sqlCheck);
             $row = mysqli_fetch_assoc($result);
 
