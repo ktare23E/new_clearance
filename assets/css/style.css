@@ -1194,9 +1194,10 @@ main .recent-orders-student table {
 
 .student-view-profile-container {
     display: flex;
-    align-items: center;
-    flex-direction: row;
-
+    
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
 }
 
 .student-view-profile-container .student-view-profile-info-container
