@@ -37,6 +37,8 @@
     --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
+
+
 * {
     margin: 0;
     padding: 0;
@@ -809,6 +811,7 @@ main .insights svg circle {
     align-items: center;
 }
 
+
 .clearance-detail-container .clearance-detail-left 
 .detail-left-main-content {
     display: flex;
@@ -1192,6 +1195,15 @@ main .recent-orders-student table {
     
 }
 
+.report-table-container {
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--border-radius-1);
+    box-shadow: var(--box-shadow);
+    transition: all 200ms ease;
+    width: 100%;
+}
+
 .student-view-profile-container {
     display: flex;
     
@@ -1200,11 +1212,52 @@ main .recent-orders-student table {
     gap: 50px;
 }
 
+.reports-page-body {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reports-page-body .reports-main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.reports-tables-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.report-table-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.report-table-container table {
+    width: 100%;
+    margin-top: 10px;
+}
+
 .student-view-profile-container .student-view-profile-info-container
 .student-info-name-container .icon-label-container {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.canvas-container {
+    padding: 20px;
+    background: var(--color-white);
+}
+
+.canvas-container canvas {
+    min-height: 300px;
 }
 
 .clearance-status-btn-container button {
