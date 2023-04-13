@@ -46,86 +46,52 @@
                     </div>
                 </div>
                 <!-- ========== END OF TOP ============= -->
-    
             </div>
-            
-
-            <div class="student-view-top">
-                
-                <div class="action-button-container">
-                    <a href="office_account.php">
-                        <button id="back-button-to-student">
-                            <span class="material-symbols-sharp">arrow_back</span>
-                        </button>
-                    </a>
-                    <button onclick="location.href = 'edit_office_account_info.php?edit=<?= $row['admin_id'];?>';" class="edit-profile-button" id="edit-profile-button">
-                        <span class="material-symbols-sharp">edit</span>
-                        <h3>Edit Profile</h3>
-                    </button>
-                </div>
-                <h1><span><?= $row['office_name']; ?></span><span>&nbsp;</span></h1>
-                <div class="icons-course-year-container">
-                    <span class="material-symbols-sharp">person_outline</span>
-                    <h2><span><?= $row['user_type'];?>&nbsp;</span></h2>
-                </div>
-                
-            </div>
-            
 
             <div class="form-and-table-container">
-
-                <!-- -------------  STUDENT REGISTRATION FORM -------------- -->
-                <div class="student-registration">
-                    <div class="student-view-profile-container">
+                <div class="student-view-top">
+                    <div class="student-pic-container">
+                        <a href="office_account.php" style="align-self: flex-start;">
+                            <button id="back-button-to-student">
+                                <span class="material-symbols-sharp">arrow_back</span>
+                            </button>
+                        </a>
                         <div class="student-view-profile-img-container">
                             <img src="../images/dp.png" alt="">
                         </div>
-
-                        <div class="student-view-profile-info-container">
+                        <div style="display:flex; flex-direction:row;align-items:center;gap:10px;margin-top:30px">
+                            <button onclick="location.href = 'edit_office_account_info.php?edit=<?= $row['admin_id'];?>';" class="edit-profile-button" id="edit-profile-button">
+                                <span class="material-symbols-sharp">edit</span>
+                                <h3>Edit Profile</h3>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="student-view-profile-container">
+                        <h1 style="font-size: 24px;"><?php echo $row['office_name']?></h1>
+                        <div class="student-view-profile-info-container" style="grid-template-columns: repeat(3, 1fr);">
                             <div class="student-info-name-container">
-                                <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">badge</span>
-                                    <h2 class="label">Admin ID :</h2><span>&emsp;&nbsp;&nbsp;</span>
-                                </div>
-                                
+                                <h2 class="label">Admin ID :</h2>
                                 <h2><?php echo $row['admin_id']?></h2>
                             </div>
                             <div class="student-info-name-container">
-                                <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">person_outline</span>
-                                    <h2 class="label">Admin Name :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;&emsp;</span>
-                                </div>
-                                
+                                <h2 class="label">Admin Name :</h2>
                                 <h2><span><?= $row['admin_name']; ?></span></h2>
                             </div>
                             <div class="student-info-name-container">
-                                <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">person_outline</span>
-                                    <h2 class="label">Office Name :</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;&emsp;</span>
-                                </div>
-                                
-                                <h2><span><?= $row['office_name']; ?></span></h2>
+                                <h2 class="label">User Type :</h2>
+                                <h2><span><?= $row['user_type'];?>&nbsp;</span></h2>
                             </div>
                             <div class="student-info-name-container">
-                                <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">contact_mail</span>
-                                    <h2 class="label">Admin Username :</h2><span>&emsp;&nbsp;</span>
-                                </div>
-                                
-                                <h2><span><?= $row['admin_username'] ?></span></h2>
+                                    <h2 class="label">Admin Username :</h2>
+                                    <h2><span><?= $row['admin_username'] ?></span></h2>
                             </div>
                             <div class="student-info-name-container">
-                                <div class="icon-label-container">
-                                    <span class="material-symbols-sharp">menu_book</span>
-                                <h2 class="label">Date Registered:</h2><span class="removable-span">&emsp;&emsp;&emsp;&emsp;</span>
-                                </div>
-                                
+                                <h2 class="label">Date Registered:</h2>
                                 <h2><span><?= $row['date_registered'];?></span></h2>
                             </div>
                         </div>
-                    </div>  
+                    </div>
                 </div>
-                <!-- -------------  END OF REGISTRATION -------------- -->
             </div>
             
         </main>
