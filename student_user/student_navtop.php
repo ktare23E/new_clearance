@@ -73,7 +73,7 @@
     </div>
 </div>
 
-<div class="modal active" id="change-password">
+<div class="modal" id="change-password">
     <div class="modal-header">
         <div class="title">Change Your Password</div>
         <button data-close-button class="close-button">&times;</button>
@@ -89,7 +89,7 @@
         </form>
     </div>
 </div>
-<div id="overlay" class="active"></div>
+<div id="overlay"></div>
 
 
 
