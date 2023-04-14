@@ -52,7 +52,7 @@
                         </div>
                         <div class="status-title">
                             <h4>Status:</h4>
-                            <h3 class="warning"><?= $row['clearance_status'] ? 'Cleared' : 'Not Cleared';?></h3>
+                            <h3 class="overall-clearance-cleared"><?= $row['clearance_status'] ? 'Cleared' : 'Not Cleared';?></h3>
                         </div>
                     </div>
                     <div class="detail-left-main-content">
@@ -101,6 +101,7 @@
                                     <th>Requirement</th>
                                     <th>Status</th>
                                     <th>Date Cleared</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -110,7 +111,7 @@
                                     <tr>
                                         <td><?= $user->office_name; ?></td>
                                         <td><?= $user->requirement_details;?></td>
-                                        <td><?= $user->is_complied ? 'Approve' : 'Not Cleared'; ?></td>
+                                        <td class="overall-clearance-status"><?= $user->is_complied ? 'Approved' : 'Not Cleared'; ?></td>
                                         <td><?= $user->date_cleared; ?></td>
                                         <td>
                                         <?php if($signing_office_id != null): ?>
@@ -140,7 +141,7 @@
     <!-- <script src="../assets/js/student-info.js"></script> -->
     
     <script defer src="../assets/js//modal.js"></script>
-    <script src="../assets/js/index.js"></script>
+    <script src="../assets/js/office_admin_index.js"></script>
     <script defer src="../assets/js/active.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- <script src="../assets/js/update.js"></script> -->

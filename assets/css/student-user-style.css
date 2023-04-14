@@ -895,6 +895,7 @@ input[type='file']{
 .clearance-details-table-container table {
     text-align: left;
     border-collapse: collapse;
+    text-align: center;
 }
 
 .clearance-info-table-container table tr th {
@@ -1047,10 +1048,10 @@ input[type='file']{
         border-collapse: collapse;
     }
 
-    .clearance-header-bar-container > h3 {
+    .clearance-header-bar-container > h3.clearance-view {
         width: 100%;
         padding: 8px 10px;
-        font-size: 1.5rem;
+        font-size: 12px;
         background-color: rgba(0, 0, 0, 0);
         text-align: center;
     }
@@ -1197,6 +1198,27 @@ input[type='file']{
 
     .student-profile-container {
         gap: 10px;
+    }
+
+
+
+    .clearance-details-table-container table tr th {
+        min-width: 50px;
+        padding: 5px 3px;
+        border-bottom: 1px solid var(--color-dark-variant) ;
+        color: var(--color-info-dark);
+    }
+    
+    .clearance-details-table-container table tr td {
+        min-width: 50px;
+        padding: 5px 3px;
+        border-bottom: 1px solid var(--color-dark-variant);
+        font-weight: 600;
+    }
+
+    .clearance-details-table-container table tbody tr td:nth-child(4),
+    .clearance-details-table-container table thead tr th:nth-child(4) {
+        display: none;
     }
 }
 

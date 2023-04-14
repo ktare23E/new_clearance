@@ -4,7 +4,7 @@
 :root {
     --color-primary: #7380eC;
     --color-danger: #ff7782;
-    --color-success: #41f1b6;
+    --color-success: #049c27;
     --color-warning: #ffbb55;
     --color-white: #fff;
     --color-info-dark: #7d8da1;
@@ -234,9 +234,14 @@ a.active {
     gap: 10px;
 }
 
+.office-container .office-top-container 
+.nav-right-container .profile .info {
+    text-align: right;
+}
+
 .main-requirements-container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1500px;
     display: flex;
     flex-direction: column;
 }
@@ -393,6 +398,12 @@ button span {
 .input-field-container {
     display: grid;
     grid-template-columns: 3fr 2fr 2fr;
+    gap: 20px;
+}
+
+.input-field-container2 {
+    display: grid;
+    grid-template-columns: 4fr 3fr;
     gap: 20px;
 }
 
@@ -563,7 +574,7 @@ button span {
 
 .office-main-container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1500px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -728,17 +739,27 @@ button span {
     gap: 10px;
 }
 
-.clearance-detail-container .clearance-detail-right .clearance-detail-right-title {
+.clearance-detail-container .clearance-detail-right 
+.clearance-detail-right-title {
     padding-bottom: 5px;
 }
 
-.clearance-detail-container .clearance-detail-right .clearance-detail-right-main-content {
+.clearance-detail-container .clearance-detail-right 
+.clearance-detail-right-main-content {
     padding-left: 10px;
     width: 100%;
 }
 
-.clearance-detail-container .clearance-detail-right .clearance-detail-right-main-content table {
+.clearance-detail-container .clearance-detail-right 
+.clearance-detail-right-main-content table {
     width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.clearance-detail-container .clearance-detail-right 
+.clearance-detail-right-main-content table tbody tr td {
+    padding-bottom: 5px;
 }
 
 .left-photo-container img {
@@ -855,11 +876,12 @@ button {
 .table-container table#example {
     text-align: center;
     border-collapse: collapse;
-
+    
 }
 
 .table-container table#example thead tr th {
     padding-bottom: 10px;
+    text-align: center;
 }
 
 .get-started-section {

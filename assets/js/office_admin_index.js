@@ -120,5 +120,20 @@ try {
         }
     })
 } catch (error) {
+    console.log(error);
+}
+
+
+try {
+    let overallStatusCleared = document.querySelectorAll(".overall-clearance-cleared")
+
+    overallStatusCleared.forEach(status => {
+        if(status.innerHTML == "Cleared"){
+            status.classList.add("success")
+        }else {
+            status.classList.add("warning")
+        }
+    })
+} catch (error) {
     
 }

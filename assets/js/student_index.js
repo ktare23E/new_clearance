@@ -49,7 +49,7 @@ let td = document.querySelectorAll("table tbody tr td")
 
 td.forEach(td => {
     if(td.innerHTML == "Cleared"){
-        td.classList.add("success")
+        td.style.color = "green";
     }else if(td.innerHTML == "Not Cleared"){
         td.classList.add("warning")
     }
