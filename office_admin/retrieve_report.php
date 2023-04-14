@@ -20,6 +20,14 @@ if (isset($_POST['submit'])) {
             $query = "SELECT * FROM office WHERE is_department = 1";
         }
 
+        $query2 = "SELECT * FROM clearance_progress_view WHERE clearance_progress_id = $clearance_progress_id";
+        $result2 = mysqli_query($conn, $query2);
+        $row2 = mysqli_fetch_assoc($result2);
+
+        $school_year_and_sem = $row2['school_year_and_sem'];  
+        $sem_name = $row2['sem_name'];
+
+
         
         $result = mysqli_query($conn, $query);
         $departments = array();
@@ -37,41 +45,65 @@ if (isset($_POST['submit'])) {
 
 ?>
 
-<body style="width: 800px;">
-    <div>
-        <canvas id="myChart"></canvas>
-        <?php foreach($departments as $i => $department):
-            $sql = "SELECT * FROM student LEFT JOIN requirement_cleared ON student.`student_id` = requirement_cleared.`student_id` WHERE student.office_id = ".$department['office_id']." ORDER BY is_cleared DESC";
-            $result2 = mysqli_query($conn, $sql); 
-            $students = array();
+    <div class="reports-page-body">
+        <div class="reports-main-container">
+            <h1 style="text-align: center;">CLEARANCE REPORTS</h1>
+            <h1 style="text-align: center;margin-top:-20px"><?= $school_year_and_sem.' '.$sem_name; ?></h1>
+            <button id="print-reports-button">Print Reports</button>
+            <div class="canvas-container">
+                <canvas id="myChart"></canvas>
+            </div>
+            <div class="reports-tables-container">
+                <?php foreach($departments as $i => $department):
+                    $sql = "SELECT * FROM student LEFT JOIN requirement_cleared ON student.`student_id` = requirement_cleared.`student_id` WHERE student.office_id = ".$department['office_id']." ORDER BY is_cleared DESC";
+                    $result2 = mysqli_query($conn, $sql); 
+                    $students = array();
 
-            while($row = mysqli_fetch_assoc($result2)) {
-                array_push($students,$row);
-            }
-        ?>
-            <h3>List of students <?= $department['office_name'] ?></h3>
-            <hr/>
-            <table style="width: 100%;">
-                <thead>
-                    <th>Student Name</th>
-                    <th>Status</th>
-                </thead>
-                <tbody>
-    
-                    <?php foreach($students as $student): 
-                        if($student['is_cleared'] == 1 || $student['is_cleared'] == null) {$num_of_cleared++;}
-                        if($student['is_cleared'] === 0) {$number_not_cleared++;}
-                    ?>
-                        <tr>
-                            <td><?= $student['student_first_name'].' '.$student['student_last_name']; ?></td>
-                            <td><?=  ['is_cleared'] == 1 || $student['is_cleared'] == null ? "Approved": 'Not Cleared'; ?></td>
-                        </tr>
-                    <?php endforeach; ?>
+                    while($row = mysqli_fetch_assoc($result2)) {
+                        array_push($students,$row);
+                    }
+                ?>
+                    <div class="report-table-container">
+                        <h3 class="text-muted">List of students of </h3>
+                        <h3><?= $department['office_name'] ?></h3>
+                        <table style="width: 100%;">
+                            <thead>
+                                <th>Student Name</th>
+                                <th>Status</th>
+                            </thead>
+                            <tbody>
+                
+                                <?php foreach($students as $student): 
+                                    if($student['is_cleared'] == 1 || $student['is_cleared'] == null) {$num_of_cleared++;}
+                                    if($student['is_cleared'] === 0) {$number_not_cleared++;}
+                                ?>
+                                    <tr>
+                                        <td><?= $student['student_first_name'].' '.$student['student_last_name']; ?></td>
+                                        <td class="overall-clearance-status"><?=  ['is_cleared'] == 1 || $student['is_cleared'] == null ? "Approved": 'Not Cleared'; ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                                
+                            </tbody>
+                        </table>
+                    </div>
                     
-                </tbody>
-            </table>
-        <?php endforeach; ?>
+
+                <?php endforeach; ?>
+            </div>
+            
+        </div>
     </div>
+
+    
+    <script src="../assets/js/office_admin_index.js"></script>
+
+    <script>
+        document.querySelector("#print-reports-button").addEventListener("click", function() {
+            window.print()
+        })
+
+
+    </script>
 
     <script>
         const ctx = document.getElementById('myChart');
@@ -96,7 +128,7 @@ if (isset($_POST['submit'])) {
         });
     </script>
 
-    
+
 
 </body>
 

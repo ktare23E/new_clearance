@@ -33,9 +33,22 @@ $office_id = $_SESSION['office_id'];
 
 </head>
 <body>
-<?php 
-            include_once 'office_navtop.php'
-        ?>
+        <div class="office-container" >
+                <div class="office-top-container" style="z-index: 500;">
+                        <div class="nav-middle-container">
+                                <a href="./office_admin_index.php">
+                                        <span class="material-symbols-sharp">home</span>
+                                        <h3>Home</h3>
+                                </a>
+                                <a href="../logout.php">
+                                        <span class="material-symbols-sharp">receipt_long</span>
+                                        <h3>Logout</h3>
+                                </a>
+                        </div>
+                        
+                </div>
+        </div>
+
         <img src="../images/report-back.jpg" alt="" class="image-back">
         <div class="blur"></div>
 

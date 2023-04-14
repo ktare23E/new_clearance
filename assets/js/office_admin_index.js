@@ -1,4 +1,5 @@
-const preferredColorScheme = localStorage.getItem('color-scheme');
+try {
+    const preferredColorScheme = localStorage.getItem('color-scheme');
 
 if (preferredColorScheme === 'dark') {
     document.body.classList.add('dark-theme-variables');
@@ -22,6 +23,9 @@ themeToggler.addEventListener('click', () => {
 })
 
 console.log(localStorage);
+} catch (error) {
+    console.log(error);
+}
 
     // document.body.classList.add('dark-theme-variables');
 
@@ -30,7 +34,8 @@ console.log(localStorage);
 
 
 
-
+try {
+    
 const activePage = window.location.pathname;
 const sidebarLinks = document.querySelectorAll(".nav-middle-container a");
 
@@ -39,6 +44,9 @@ sidebarLinks.forEach(link => {
         link.classList.add('active')
     }
 })
+} catch (error) {
+    console.log(error);
+}
 
 
 
@@ -52,7 +60,8 @@ sidebarLinks.forEach(link => {
 
 // tabs
 
-const tabs = document.querySelectorAll('[data-tab-target]')
+try {
+    const tabs = document.querySelectorAll('[data-tab-target]')
 const tabContents = document.querySelectorAll('[data-tab-content]')
 
 tabs.forEach(tab => {
@@ -89,3 +98,27 @@ openCsv.addEventListener("click", function() {
         this.innerText = "Bulk Upload Requirements"
     }
 })
+
+
+
+} catch (error) {
+    console.log(error);
+}
+
+
+
+
+
+try {
+    let overallStatus = document.querySelectorAll(".overall-clearance-status")
+
+    overallStatus.forEach(status => {
+        if(status.innerHTML == "Approved"){
+            status.classList.add("success")
+        }else {
+            status.classList.add("warning")
+        }
+    })
+} catch (error) {
+    
+}
