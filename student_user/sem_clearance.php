@@ -38,7 +38,7 @@
     <div class="clearance-section-container">
                             
                                     <div class="clearance-header-bar-container">
-                                        <h3 style="background-color:#2ad2ec">CLEARANCE DETAILS - SIGNING OFFICES STATUS</h3>
+                                        <h3 class="clearance-view" style="background-color:#2ad2ec">CLEARANCE DETAILS - SIGNING OFFICES STATUS</h3>
                                     </div>
                                     <div class="clearance-details-container">
                                         
@@ -57,7 +57,7 @@
                                                     <tr>
                                                     <td><?= $clearance->office_name;?></td>
                                                     <td><?= $clearance->requirement_details;?></td>
-                                                    <td><?= $clearance->is_complied ? 'Approve' : 'Not Cleared';?></td>
+                                                    <td><?= $clearance->is_complied ? 'Approved' : 'Not Cleared';?></td>
                                                     <td><?= $clearance->date_cleared;?></td>
                                                     </tr>
                                                     <?php endforeach; ?>
@@ -74,7 +74,7 @@
 <script>
     let status = document.querySelectorAll("#the-table tbody tr td:nth-child(3)");
     for(let i = 0; i < status.length; i++){
-        if(status[i].innerHTML == "Approve"){
+        if(status[i].innerHTML == "Approved"){
             status[i].style.color = "green";
         }else{
             status[i].style.color = "orange";

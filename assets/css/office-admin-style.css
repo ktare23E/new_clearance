@@ -4,7 +4,7 @@
 :root {
     --color-primary: #7380eC;
     --color-danger: #ff7782;
-    --color-success: #41f1b6;
+    --color-success: #049c27;
     --color-warning: #ffbb55;
     --color-white: #fff;
     --color-info-dark: #7d8da1;
@@ -753,6 +753,13 @@ button span {
 .clearance-detail-container .clearance-detail-right 
 .clearance-detail-right-main-content table {
     width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.clearance-detail-container .clearance-detail-right 
+.clearance-detail-right-main-content table tbody tr td {
+    padding-bottom: 5px;
 }
 
 .left-photo-container img {
