@@ -78,7 +78,7 @@ foreach($data['data'] as $i => $entry){
         array_push($new_entry, $value);
     }
     array_push($new_entry, "<td class='primary table-action-container'>
-    <a class='view-link' href='create_requirements.php?clearance_type_id=".$entry[1]."&clearance_progress_id=".$entry[2]."&student_id=".$entry[3]."'>Create Requirements</a>
+    <a class='update-link' href='create_requirements.php?clearance_type_id=".$entry[1]."&clearance_progress_id=".$entry[2]."&student_id=".$entry[3]."'>Create Requirements</a>
     <a class='view-link' href='office_clearance_view.php?clearance_type_id=".$entry[1]."&clearance_progress_id=".$entry[2]."&student_id=".$entry[3]."'>View Details</a>
         <input type='hidden' name='student_id' value='".$entry[1]."'> 
     </td>");
