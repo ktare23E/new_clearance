@@ -108,15 +108,14 @@
                                 <div class="input-field">
                                             <label for="">Clearance Type</label>
                                             <select name="clearance_type_id" id="">
-                                                    <option default>Select Clearance Type</option>
-                                                    <?php $clearances = $db->result('clearance_type');?>
-                                                    <?php foreach($clearances as $clearance):?>
-                                                    <?php if($clearance->clearance_type_id == $clearance_type_id):?>  
-                                                    <option value="<?= $clearance->clearance_type_id; ?>" selected><?= $clearance->clearance_type_name; ?></option>
-                                                    <?php else:?>
-                                                        <option value="<?= $clearance->clearance_type_id; ?>" selected><?= $clearance->clearance_type_name; ?></option>
-                                                    <?php endif;?>
-                                                    <?php endforeach; ?>
+                                                <?php $clearances = $db->result('clearance_type');;?>
+                                                <?php foreach($clearances as $clearance_type):?>
+                                                <?php if($clearance_type->clearance_type_id == $clearance_type_id):?> 
+                                                <option value="<?= $clearance_type->clearance_type_id; ?>" selected><?= $clearance_type->clearance_type_name; ?></option>
+                                                <?php else:?>
+                                                    <option value="<?= $clearance_type->clearance_type_id; ?>"><?= $clearance_type->clearance_type_name; ?></option>
+                                                <?php endif;?>
+                                                <?php endforeach; ?>
                                             </select>
                                 </div>
                                 
