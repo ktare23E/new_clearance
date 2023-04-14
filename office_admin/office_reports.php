@@ -33,6 +33,9 @@ $office_id = $_SESSION['office_id'];
 
 </head>
 <body>
+<?php 
+            include_once 'office_navtop.php'
+        ?>
         <img src="../images/report-back.jpg" alt="" class="image-back">
         <div class="blur"></div>
 
