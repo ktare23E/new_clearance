@@ -1,7 +1,7 @@
     <aside>
             <div class="top">
                 <div class="logo">
-                    <img src="../images/logo.png" alt="">
+                    <img src="../images/nmsc-logo.png" alt="">
                     <h2>NMSC<span class="danger">CLEARANCE</span> </h2>
                 </div>
                 <div class="close" id="close-btn">
