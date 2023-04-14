@@ -37,6 +37,7 @@ if(isset($_POST['import'])){
                 $school_year_and_sem = $row['school_year_and_sem'];
                 $sem_name = $row['sem_name'];
                 $clearance_id = $row['clearance_id'];
+                $clearance_type_id = $row['clearance_type_id'];
                 
                 // echo $query2;
                 // die();
@@ -58,8 +59,9 @@ if(isset($_POST['import'])){
                 $row2 = $singing_office->fetch_assoc();
                 $signing_office_id = $row2['signing_office_id'];
 
-                $sql3 = "SELECT * FROM clearance WHERE student_id = '".$column[1]."' AND clearance_progress_id = " .$clearance_progress_id . " AND clearance_type_id = '".$column[2]."'";
+                $sql3 = "SELECT * FROM clearance WHERE student_id = '".$column[1]."' AND clearance_progress_id = " .$clearance_progress_id . "";
                 $clearance_exist = $conn->query($sql3) or die($conn->error);
+                
             
                 if($clearance_exist->num_rows < 1){
                     echo "<a href='office_requirements.php'>Back</a><br>";
@@ -68,7 +70,7 @@ if(isset($_POST['import'])){
                 }
             
                 
-                $sqlUpdate = "UPDATE clearance SET clearance_status = '0' WHERE clearance_id = $clearance_id AND clearance_progress_id = $clearance_progress_id AND clearance_type_id = '".$column[2]."'";
+                $sqlUpdate = "UPDATE clearance SET clearance_status = '0' WHERE clearance_id = $clearance_id AND clearance_progress_id = $clearance_progress_id";
 
             
 
@@ -80,7 +82,7 @@ if(isset($_POST['import'])){
 
                 $signing_office_id = $row3['signing_office_id'];
                 
-                $sqlInsert = "INSERT INTO requirement (requirement_details, student_id,clearance_type_id,signing_office_id,clearance_progress_id) VALUES ('".$column[0]."','".$column[1]."','".$column[2]."','".$signing_office_id."','".$clearance_progress_id."')";
+                $sqlInsert = "INSERT INTO requirement (requirement_details, student_id,clearance_type_id,signing_office_id,clearance_progress_id) VALUES ('".$column[0]."','".$column[1]."','".$clearance_type_id."','".$signing_office_id."','".$clearance_progress_id."')";
                 $result = mysqli_query($conn, $sqlInsert);
             } catch(Exception $e) {
                 echo $e->getMessage();
