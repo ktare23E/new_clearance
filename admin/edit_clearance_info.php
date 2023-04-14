@@ -17,9 +17,10 @@
         $clearance_progress_id = $row['clearance_progress_id'];
         $clearance_status = $row['clearance_status'];
         $course_id = $row['course_id'];
+        $office_id = $row['office_id'];
         $clearance_type_id = $row['clearance_type_id'];
-        $date_created = $row['date_created'];
-        $sem_name = $row['sem_name'];
+        // $date_created = $row['date_created'];
+        // $sem_name = $row['sem_name'];
 
 
 ?>
@@ -76,6 +77,8 @@
                     <div class="input-field-container">
                             <div class="input-field">
                                     <input type="hidden" name="clearance_id" value="<?= $clearance_id ?>">
+                                    <input type="hidden" name="office_id" value="<?= $office_id; ?>">
+                                    <input type="hidden" name="course_id" value="<?= $course_id; ?>">
                                     <input type="text" name="student_id" placeholder="Student Id" value="<?= $student_id; ?>" required>
                             </div>
                                 <div class="input-field">

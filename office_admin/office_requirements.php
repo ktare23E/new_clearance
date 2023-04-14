@@ -152,9 +152,9 @@
                                     </select>
                                 <i class="uil uil-angle-down" id="uil-arrow-down"></i>
                             </div>
-                            <div class="input-field sy-sem-select">
                                 <input type="hidden" name="clearance_id">
                                 <input type="hidden" name="clearance_status" value="0">
+                            <!-- <div class="input-field sy-sem-select">
                                     <select name="clearance_type_id" id="" required>
                                             <option default>Clearance Type</option>
                                             <?php $clearances = $db->result('clearance_type');?>
@@ -167,7 +167,7 @@
                                             <?php endforeach; ?>
                                     </select>
                                 <i class="uil uil-angle-down" id="uil-arrow-down"></i>
-                            </div>
+                            </div> -->
                             <div class="input-field sy-sem-select">
                                 <input type="text" name="student_id" placeholder="Student Id" required>
                             </div>

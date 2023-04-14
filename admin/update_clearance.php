@@ -7,13 +7,18 @@ if(isset($_POST['update'])){
     $student_id = $_POST['student_id'];
     $clearance_progress_id = $_POST['clearance_progress_id'];
     $clearance_status = $_POST['clearance_status'];
-    // $course_id = $_POST['course_id'];
-    // $department_id = $_POST['department_id'];
+    $course_id = $_POST['course_id'];
     $clearance_type_id = $_POST['clearance_type_id'];
-    // $date_created = $_POST['date_created'];
-    // $sem_id = $_POST['sem_id'];
+    $office_id = $_POST['office_id'];
 
-    $sql = "UPDATE clearance SET student_id = '$student_id',clearance_progress_id=$clearance_progress_id,clearance_status='$clearance_status', clearance_type_id = $clearance_type_id, sem_id = '$sem_id'  WHERE clearance_id = $clearance_id";
+    // $query = "SELECT * FROM student WHERE student_id = '$student_id'";
+    // $result = mysqli_query($conn,$query);
+    // $row = mysqli_fetch_assoc($result);
+
+    // $course_id = $row['course_id'];
+    // $office_id = $row['office_id'];
+
+    $sql = "UPDATE clearance SET student_id = '$student_id',clearance_progress_id=$clearance_progress_id, clearance_type_id = $clearance_type_id, clearance_progress_id = $clearance_progress_id, course_id = $course_id, office_id = $office_id'  WHERE clearance_id = $clearance_id";
 
     $result= mysqli_query($conn,$sql);
     if($result){

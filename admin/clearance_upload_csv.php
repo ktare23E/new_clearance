@@ -53,8 +53,7 @@ if (isset($_POST['import'])) {
                 }
             } else {
                 // Insert new clearance data
-                $sqlInsert = "INSERT INTO clearance ( student_id, clearance_type_id, date_created,clearance_status,clearance_progress_id,course_id,office_id) 
-            VALUES ('" . $column[0] . "','" . $column[1] . "','" . $current_date . "','" . $clearance_status . "','" . $clearance_progress_id . "','" . $course_id . "', '" . $office_id . "')";
+                $sqlInsert = "INSERT INTO clearance ( student_id, clearance_type_id, date_created,clearance_status,clearance_progress_id,course_id,office_id) VALUES ('" . $column[0] . "','" . $column[1] . "','" . $current_date . "','" . $clearance_status . "','" . $clearance_progress_id . "','" . $course_id . "', '" . $office_id . "')";
                 $result = mysqli_query($conn, $sqlInsert);
 
                 if (!empty($result)) {

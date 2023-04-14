@@ -83,22 +83,6 @@
                                             <?php endforeach; ?>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="input-field-container">
-                                <div class="input-field">
-                                    <i class="uil uil-bolt no-pointer"></i>
-                                    <select name="admin_id" id="">
-                                            <option default>Select Admin Name</option>
-                                            <?php $admins = $db->result('admin','admin_name != "Admin"');?>
-                                            <?php foreach($admins as $admin):?>
-                                            <?php if($admin->admin_id == $admin_id):?>  
-                                            <option value="<?= $admin->admin_id; ?>"><?= $admin->admin_name; ?></option>
-                                            <?php else:?>
-                                                <option value="<?= $admin->admin_id; ?>"><?= $admin->admin_name; ?></option>
-                                            <?php endif;?>
-                                            <?php endforeach; ?>
-                                    </select>
-                                </div>
                                 <div class="input-field">
                                             <i class="uil uil-bolt no-pointer"></i>
                                             <select name="clearance_type_id" id="">
@@ -113,6 +97,23 @@
                                                     <?php endforeach; ?>
                                             </select>
                                 </div>
+                            </div>
+                            <div class="input-field-container">
+                                <!-- <div class="input-field">
+                                    <i class="uil uil-bolt no-pointer"></i>
+                                    <select name="admin_id" id="">
+                                            <option default>Select Admin Name</option>
+                                            <?php $admins = $db->result('admin','admin_name != "Admin"');?>
+                                            <?php foreach($admins as $admin):?>
+                                            <?php if($admin->admin_id == $admin_id):?>  
+                                            <option value="<?= $admin->admin_id; ?>"><?= $admin->admin_name; ?></option>
+                                            <?php else:?>
+                                                <option value="<?= $admin->admin_id; ?>"><?= $admin->admin_name; ?></option>
+                                            <?php endif;?>
+                                            <?php endforeach; ?>
+                                    </select>
+                                </div> -->
+                                
                             </div>
                             <div class="input-field button">
                                 <input type="submit" id="submit" value="Create Signing Office">

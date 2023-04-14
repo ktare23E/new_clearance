@@ -2,11 +2,19 @@
 
 require ('../dbconnect.php');
 require ('phpmailer.php');
+$conn = mysqli_connect('localhost', 'root', '', 'clearance');
+
 
 $office_id    = $_POST['office_id'];
 $clearance_progress_id  = $_POST['clearance_progress_id'];
-$admin_id  = $_POST['admin_id'];
+// $admin_id  = $_POST['admin_id'];
 $clearance_type_id = $_POST['clearance_type_id'];
+
+$query = "SELECT * FROM admin WHERE office_id = '$office_id'";
+$result = mysqli_query($conn,$query);
+$row = mysqli_fetch_assoc($result);
+
+$admin_id = $row['admin_id'];
 
 
 

@@ -99,21 +99,6 @@
                                             <?php endforeach; ?>
                                     </select>
                                 </div>
-                        </div>
-                        <div class="input-field-container">
-                                <div class="input-field">
-                                    <i class="uil uil-analysis"></i>
-                                    <select name="admin_id" id="">
-                                            <?php $admins = $db->result('admin','admin_name != "Admin"');;?>
-                                            <?php foreach($admins as $admin):?>
-                                            <?php if($admin->admin_id == $admin_id):?> 
-                                            <option value="<?= $admin->admin_id; ?>" selected><?= $admin->admin_name; ?></option>
-                                            <?php else:?>
-                                                <option value="<?= $admin->admin_id; ?>"><?= $admin->admin_name; ?></option>
-                                            <?php endif;?>
-                                            <?php endforeach; ?>
-                                    </select>
-                                </div>
                                 <div class="input-field">
                                     <i class="uil uil-analysis"></i>
                                     <select name="clearance_type_id" id="">
@@ -127,6 +112,22 @@
                                             <?php endforeach; ?>
                                     </select>
                                 </div>
+                        </div>
+                        <div class="input-field-container">
+                                <!-- <div class="input-field">
+                                    <i class="uil uil-analysis"></i>
+                                    <select name="admin_id" id="">
+                                            <?php $admins = $db->result('admin','admin_name != "Admin"');;?>
+                                            <?php foreach($admins as $admin):?>
+                                            <?php if($admin->admin_id == $admin_id):?> 
+                                            <option value="<?= $admin->admin_id; ?>" selected><?= $admin->admin_name; ?></option>
+                                            <?php else:?>
+                                                <option value="<?= $admin->admin_id; ?>"><?= $admin->admin_name; ?></option>
+                                            <?php endif;?>
+                                            <?php endforeach; ?>
+                                    </select>
+                                </div> -->
+                                
                             </div>
                             <div class="input-field button">
                                 <input type="submit" class="update" name="update" value="Update Signing Office">

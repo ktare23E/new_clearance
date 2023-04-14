@@ -39,9 +39,16 @@ if(isset($_POST['submit'])){
     $office_id = $_SESSION['office_id'];
     // $signing_office_id    = $_POST['signing_office_id'];
     $clearance_progress_id = $_POST['clearance_progress_id'];
-    $clearance_type_id  = $_POST['clearance_type_id'];
+    // $clearance_type_id  = $_POST['clearance_type_id'];
     $student_id = $_POST['student_id'];
     $requirement_details = $_POST['requirement_details'];
+
+    $query2 = "SELECT * FROM clearance WHERE student_id = '".$student_id."' AND clearance_progress_id = " .$clearance_progress_id;
+    $clearance = $conn->query($query2) or die($conn->error);
+    $row = $clearance->fetch_assoc();
+    $total = $clearance->num_rows;
+
+    $clearance_type_id = $row['clearance_type_id'];
     
     
     $sql = "SELECT * FROM signing_office WHERE office_id = '$office_id' AND clearance_progress_id = '$clearance_progress_id'";
@@ -76,12 +83,6 @@ if(isset($_POST['submit'])){
         echo "This student '".$student_id."' has no clearance for these school year and semester and clearance type that you've been selected.";
         die();
     }
-
-
-    $query2 = "SELECT * FROM clearance WHERE student_id = '".$student_id."' AND clearance_progress_id = " .$clearance_progress_id;
-    $clearance = $conn->query($query2) or die($conn->error);
-    $row = $clearance->fetch_assoc();
-    $total = $clearance->num_rows;
 
     // echo $query2;
     // echo print_r($row);
