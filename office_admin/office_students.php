@@ -102,18 +102,6 @@
                         <tbody>
                         
                         </tbody>
-                            <tfoot>
-                                <tr>
-                                    <!-- <th></th> -->
-                                    <th>Student ID</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Year</th>
-                                    <th>Course</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </tfoot>
                     </table>
                 </div>
             </div>
