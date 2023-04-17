@@ -34,6 +34,14 @@
                     <span class="material-symbols-sharp">meeting_room</span>
                     <h3>Users Account</h3>
                 </a>
+                <a href="clearance_type.php">
+                    <span class="material-symbols-sharp">inventory</span>
+                    <h3>Clearance Type</h3>
+                </a>
+                <a href="clearance_progress.php">
+                    <span class="material-symbols-sharp">inventory</span>
+                    <h3>Clearance Period</h3>
+                </a>
                 <a href="signing_office.php">
                     <span class="material-symbols-sharp">edit_note</span>
                     <h3>Signing Office</h3>
@@ -42,20 +50,10 @@
                     <span class="material-symbols-sharp">person_outline</span>
                     <h3>Student</h3>
                 </a>
-                
                 <!-- <a href="department.php">
                     <span class="material-symbols-sharp">corporate_fare</span>
                     <h3>Department</h3>
                 </a> -->
-                
-                <a href="clearance_progress.php">
-                    <span class="material-symbols-sharp">inventory</span>
-                    <h3>Clearance Period</h3>
-                </a>
-                <a href="clearance_type.php">
-                    <span class="material-symbols-sharp">inventory</span>
-                    <h3>Clearance Type</h3>
-                </a>
                 <a href="clearance.php">
                     <span class="material-symbols-sharp">inventory</span>
                     <h3>Clearance</h3>

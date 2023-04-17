@@ -63,7 +63,7 @@ if (isset($_POST['submit'])) {
                         array_push($students,$row);
                     }
                 ?>  
-                <?php if($_SESSION['office_id'] )?>
+
                     <div class="report-table-container">
                         <h3 class="text-muted">List of students of </h3>
                         <h3><?= $department['office_name'] ?></h3>

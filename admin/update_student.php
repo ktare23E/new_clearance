@@ -14,7 +14,13 @@ if(isset($_POST['update'])){
     $course_id   = $_POST['course_id'];
     $student_username   = $_POST['student_username'];
     $student_password        = $_POST['student_password'];
-    $office_id = $_POST['office_id'];
+    // $office_id = $_POST['office_id'];
+
+    $query = "SELECT * FROM course where course_id = '$course_id'";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+
+    $office_id = $row['office_id'];
 
     $sql = "UPDATE student SET student_id = '$id',student_first_name = '$student_first_name',student_last_name = '$student_last_name',student_year='$student_year', course_id = $course_id, student_gender = '$student_gender', student_email = '$student_email',student_username='$student_username', student_password='$student_password', student_status = '$student_status', office_id = $office_id WHERE student_id = '$student_id'";
 

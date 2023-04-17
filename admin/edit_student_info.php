@@ -151,7 +151,7 @@
                                     </select>
                                     <i class="uil uil-analysis"></i>
                                 </div>
-                                <div class="input-field">
+                                <!-- <div class="input-field">
                                     
                                     <select name="office_id" id="">
                                             <?php $offices = $db->result('office','is_department = 1');;?>
@@ -164,7 +164,7 @@
                                             <?php endforeach; ?>
                                     </select>
                                     <i class="uil uil-analysis"></i>
-                                </div>
+                                </div> -->
                         </div>
                         <div class="input-field-container">
                                 <div class="input-field">

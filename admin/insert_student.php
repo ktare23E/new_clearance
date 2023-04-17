@@ -18,7 +18,13 @@
         $course_id   = $_POST['course_id'];
         $student_username   = $_POST['student_username'];
         $student_password        = $_POST['student_password'];
-        $office_id = $_POST['office_id'];
+        // $office_id = $_POST['office_id'];
+
+        $query = "SELECT * FROM course where course_id = '$course_id'";
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_assoc($result);
+
+        $office_id = $row['office_id'];
 
         if(isset($_FILES['image'])){ //if file is upload
             $img_name = $_FILES['image']['name']; //getting user uploaded img name 
