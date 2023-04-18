@@ -1,7 +1,8 @@
 <?php
     include_once '../dbconnect.php';
     include_once 'student_header.php';
-
+    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+   
 
 
     if(!isset($_GET['clearance_progress_id']) && !isset($_GET['student_id']) && !isset($_GET['clearance_type_id'])){
@@ -12,6 +13,14 @@
         $student_id = $_GET['student_id'];
         
         $list_of_clearances = $db->result('requirement_view', 'clearance_progress_id = '.$clearance_progress_id.' AND student_id = "'.$student_id.'" AND clearance_type_id = '.$clearance_type_id.'');
+
+        $query = "SELECT * FROM view_clearance WHERE student_id = '".$student_id."' AND clearance_type_id = ".$clearance_type_id." AND clearance_progress_id = ".$clearance_progress_id."";
+        $result = mysqli_query($conn,$query);
+        $row = mysqli_fetch_assoc($result);
+
+        $school_year_and_sem = $row['school_year_and_sem'];
+        $sem_name = $row['sem_name'];
+
     }
 ?>
     <div class="office-container">
@@ -20,6 +29,7 @@
         ?>
         
 <div class="clearance-view-details-container">
+    <h1 style="text-align: center;">Your clearance for <br> <?= $school_year_and_sem.' '.$sem_name; ?></h1>
     <a href="student_clearance.php" style="
         display:inline-block;
         background-color:var(--color-primary-variant);

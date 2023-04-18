@@ -9,7 +9,10 @@
     // Loop through the result and display the office names
     while ($row = mysqli_fetch_assoc($result)) {
         // echo $row['office_name'].'<br>';
-        print_r($row['office_name']).'<br>';
+        // print_r($row['office_name']).'';
+
+        // echo nl2br("\n $row[office_name]");
+        echo $row['office_name'].',';
     }
 
     // Close the database connection

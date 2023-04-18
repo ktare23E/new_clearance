@@ -13,7 +13,7 @@
 
                                 <div class="clearance-section-container">
                                     <div class="clearance-header-bar-container">
-                                        <h3>CLEARANCE INFORMATION</h3>
+                                        <h3>CLEARANCE INFORMATION LOGS</h3>
                                         <div class="clearance-info-table-container">
                                             <table>
                                                 <thead>
