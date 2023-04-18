@@ -248,7 +248,7 @@ a.active {
 
 .main-requirements-container .first-main-content-container {
     display: grid;
-    grid-template-columns: 2fr 3fr;
+    grid-template-columns: 5fr 6fr;
     gap: 10px;
 }
 
@@ -294,12 +294,34 @@ span.title {
     position: relative;
 }
 
+span.title .buttons-container-reqs {
+    display: flex;
+    padding: 10px 0px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    gap: 5px;
+}
+
 span.title button.open-csv {
     background: rgb(17, 134, 17);
     color: white !important;
     padding: 8px 15px;
     border-radius: 3px;
     transition: all 200ms ease;
+}
+
+span.title button.open-download {
+    background: var(--color-primary);
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 3px;
+    transition: all 200ms ease;
+}
+
+span.title button.open-download:hover {
+    background: #293df1;
 }
 
 span.title button.open-csv:hover {
@@ -432,6 +454,8 @@ button span {
     border-bottom: 2px solid #ccc;
     border-top: 2px solid transparent;
     transition: all 0.2s ease;
+    background: none;
+    color: var(--color-dark);
 }
 
 .input-field select {
@@ -1255,6 +1279,7 @@ button {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid black;
+    background: var(--color-white);
 }
 
 .modal-header .title {
