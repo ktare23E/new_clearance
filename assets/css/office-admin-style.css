@@ -928,6 +928,14 @@ button {
     
 }
 
+.download-csv {
+    background: rgb(17, 134, 17);
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 3px;
+    transition: all 200ms ease;
+}
+
 .get-started-title {
     text-align: center;
 }
@@ -1280,6 +1288,7 @@ button {
     align-items: center;
     border-bottom: 1px solid black;
     background: var(--color-white);
+    border-radius: 10px 10px 0px 0px;
 }
 
 .modal-header .title {
@@ -1298,6 +1307,13 @@ button {
 
 .modal-body {
     padding: 10px 15px;
+}
+
+.requirements-modal-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 #overlay {
