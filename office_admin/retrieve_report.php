@@ -6,6 +6,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'clearance');
 $is_department = $_SESSION['is_department'];
 $office_id = $_SESSION['office_id'];
 
+
 if (isset($_POST['submit'])) {
     $clearance_progress_id = $_POST['clearance_progress_id'];
     // $office_id = $_POST['office_id'];
@@ -14,7 +15,7 @@ if (isset($_POST['submit'])) {
     // $result = mysqli_query($conn, $query);
     // $row = mysqli_fetch_assoc($result);
 
-        if($_SESSION['is_department'] === 1) {
+        if($_SESSION['is_department'] == 1) {
             $query = "SELECT * FROM office WHERE is_department = 1 AND office_id = $office_id";
         } else {
             $query = "SELECT * FROM office WHERE is_department = 1";
@@ -55,13 +56,30 @@ if (isset($_POST['submit'])) {
             </div>
             <div class="reports-tables-container">
                 <?php foreach($departments as $i => $department):
-                    $sql = "SELECT * FROM student LEFT JOIN requirement_cleared ON student.`student_id` = requirement_cleared.`student_id` WHERE student.office_id = ".$department['office_id']." ORDER BY is_cleared DESC";
-                    $result2 = mysqli_query($conn, $sql); 
-                    $students = array();
 
-                    while($row = mysqli_fetch_assoc($result2)) {
-                        array_push($students,$row);
-                    }
+                    // if($is_department == 1){
+                        $sql = "SELECT * FROM student JOIN requirement_cleared ON student.`student_id` = requirement_cleared.`student_id` WHERE student.office_id = ".$department['office_id']." AND clearance_progress_id = $clearance_progress_id ORDER BY is_cleared DESC";
+
+                        $result2 = mysqli_query($conn, $sql); 
+                        $students = array();
+    
+                        while($row = mysqli_fetch_assoc($result2)) {
+                            array_push($students,$row);
+                        }
+
+                    // }
+                        // $sql = "SELECT * FROM student JOIN requirement_cleared ON student.`student_id` = requirement_cleared.`student_id` WHERE clearance_progress_id = $clearance_progress_id ORDER BY is_cleared DESC";
+
+                                
+                        //     $result2 = mysqli_query($conn, $sql); 
+                        //     $students = array();
+
+                        //     while($row = mysqli_fetch_assoc($result2)) {
+                        //         array_push($students,$row);
+                        //     }
+                    
+                    
+               
                 ?>  
 
                     <div class="report-table-container">
@@ -75,12 +93,12 @@ if (isset($_POST['submit'])) {
                             <tbody>
                 
                                 <?php foreach($students as $student): 
-                                    if($student['is_cleared'] == 1 || $student['is_cleared'] == null) {$num_of_cleared++;}
-                                    if($student['is_cleared'] === 0) {$number_not_cleared++;}
+                                    if($student['is_cleared'] == 1 ) {$num_of_cleared++;}
+                                    if($student['is_cleared'] == 0) {$number_not_cleared++;}
                                 ?>
                                     <tr>
                                         <td><?= $student['student_first_name'].' '.$student['student_last_name']; ?></td>
-                                        <td class="overall-clearance-status"><?=  ['is_cleared'] == 1 || $student['is_cleared'] == null ? "Approved": 'Not Cleared'; ?></td>
+                                        <td class="overall-clearance-status"><?=  $student['is_cleared'] == 1  ? "Approved": 'Not Cleared'; ?></td>
                                     </tr>
                                 <?php endforeach; ?>
                                 

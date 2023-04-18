@@ -1,6 +1,6 @@
 <?php
 
-
+require ('phpmailer.php');
 $conn = mysqli_connect('localhost', 'root', '', 'clearance');
 
 session_start();
@@ -55,6 +55,22 @@ if (isset($_POST['import'])) {
                 // Insert new clearance data
                 $sqlInsert = "INSERT INTO clearance ( student_id, clearance_type_id, date_created,clearance_status,clearance_progress_id,course_id,office_id) VALUES ('" . $column[0] . "','" . $column[1] . "','" . $current_date . "','" . $clearance_status . "','" . $clearance_progress_id . "','" . $course_id . "', '" . $office_id . "')";
                 $result = mysqli_query($conn, $sqlInsert);
+
+
+
+                $sql = "SELECT * FROM view_clearance WHERE student_id = '$student_id'";
+                $result = mysqli_query($conn,$sql);
+                $row = mysqli_fetch_assoc($result);
+
+                $student_email = $row['student_email'];
+                $clearance_type_name = $row['clearance_type_name'];
+                $sem_name = $row['sem_name'];
+                $school_year_and_sem = $row['school_year_and_sem'];
+                $clearance = strtolower($clearance_type_name);
+
+
+
+                sendEmail($student_email,"Online Clearance System","Your clearance for $school_year_and_sem $sem_name is now created please view your account to see the requirements of each signing offices.");
 
                 if (!empty($result)) {
                     //echo "CSV File has been successfully Imported.";

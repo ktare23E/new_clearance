@@ -16,7 +16,7 @@
     $result = mysqli_query($conn,$sql);
     $row = mysqli_fetch_assoc($result);
 
-    $signing_office_id = $row['signing_office_id'];
+    // $signing_office_id = $row['signing_office_id'];
 ?>
     <div class="office-container">
         <?php 
