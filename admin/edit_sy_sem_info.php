@@ -73,8 +73,9 @@
                         <div class="input-field-container">
                             <div class="input-field">
                                 <input type="hidden" name="sy_sem_id" value="<?= $sy_sem_id?>">
-                                <input type="text" name="school_year_and_sem" placeholder="School Year" required value="<?php echo $school_year_and_sem; ?>">
+                                <input id="my-input" type="text" name="school_year_and_sem" placeholder="School Year" required value="<?php echo $school_year_and_sem; ?>">
                                 <i class="uil uil-user"></i>
+                                <p class="input-warning danger">Input numbers and hyphen only</p>
                             </div>
                             <!-- <div class="input-field">
                                 <label for="">Status</label>
@@ -155,7 +156,23 @@
     <script src="../assets/js/index.js"></script>
     <script defer src="../assets/js/active.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
 
+        const inputElement = document.getElementById("my-input");
+        const warningInput = document.querySelector(".input-warning")
+
+        inputElement.addEventListener("input", function() {
+        const inputValue = this.value;
+        const regex = /^[0-9-]*$/;
+
+        if (!regex.test(inputValue)) {
+            this.value = inputValue.replace(/[^0-9-]/g, "");
+            warningInput.classList.add("active")
+        }
+
+        });
+
+    </script>
 
 </body>
 </html>
