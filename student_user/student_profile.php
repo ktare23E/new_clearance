@@ -46,18 +46,20 @@
 
                 </div>
                 <div class="profile-main-info-container">
+                    
+                    <div class="student-data-container">
+                        <h3 class="text-muted">Gender</h3>
+                        <h4><?php if($_SESSION['student_username']){
+                            echo $_SESSION['student_gender'];
+                        } ?></h4>
+                    </div>
                     <div class="student-data-container">
                         <h3 class="text-muted">Year level</h3>
                         <h4><?php if($_SESSION['student_username']){
                             echo $_SESSION['student_year'];
                         } ?></h4>
                     </div>
-                    <div class="student-data-container">
-                        <h3 class="text-muted">Course</h3>
-                        <h4><?php if($_SESSION['student_username']){
-                            echo $_SESSION['course_name'];
-                        } ?></h4>
-                    </div>
+                    
                     <div class="student-data-container">
                         <h3 class="text-muted">Department</h3>
                         <h4><?php if($_SESSION['student_username']){
@@ -65,9 +67,9 @@
                         } ?></h4>
                     </div>
                     <div class="student-data-container">
-                        <h3 class="text-muted">Gender</h3>
+                        <h3 class="text-muted">Course</h3>
                         <h4><?php if($_SESSION['student_username']){
-                            echo $_SESSION['student_gender'];
+                            echo $_SESSION['course_name'];
                         } ?></h4>
                     </div>
                     <div class="student-data-container">

@@ -138,7 +138,6 @@
                                 <i class="uil uil-analysis"></i>
                             </div>
                             <div class="input-field">
-                                    
                                     <select name="course_id" id="">
                                             <?php $courses = $db->result('course');?>
                                             <?php foreach($courses as $course):?>

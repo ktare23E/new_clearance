@@ -109,8 +109,8 @@
                             <div class="input-field">
                                 <label for="">Office Type</label>
                                     <select name="is_department" id="">
-                                        <option value="<?= $is_department; ?>" <?= $is_department == 1 ? 'selected = "selected"':''; ?>>Department</option>
-                                        <option value="<?= $is_department; ?>" <?= $is_department ==0 ?'selected = "selected"': ''; ?> >Office</option>
+                                        <option value="1" <?= $is_department == 1 ? 'selected = "selected"':''; ?>>Department</option>
+                                        <option value="0" <?= $is_department == 0 ?'selected = "selected"': ''; ?> >Office</option>
                                     </select>
                             </div>
                         </div>

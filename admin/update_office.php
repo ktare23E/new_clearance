@@ -13,9 +13,10 @@ if(isset($_POST['update'])){
     
 
 
-    $sql = "UPDATE office SET office_name = '$office_name',office_email = '$office_email',office_phone_number='$office_phone_number',office_description='$office_description',office_status='$office_status', is_department = $is_department WHERE office_id = $office_id";
+    $sql = "UPDATE office SET office_name = '$office_name', office_email = '$office_email', office_phone_number='$office_phone_number', office_description='$office_description', office_status='$office_status', is_department = $is_department WHERE office_id = $office_id ";
 
     $result= mysqli_query($conn,$sql);
+
     if($result){
         header("Location:office.php");
     }else{

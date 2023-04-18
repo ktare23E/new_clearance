@@ -254,8 +254,6 @@
 
     <script>
         $(document).ready(function () {
-        
-
             $("#show-clearance-insights").click(function(){
                 $("#clearance-insights").slideToggle()
             })
