@@ -1051,6 +1051,7 @@ table thead tr th, table tbody tr td {
     color: white;
     transition: all 150ms ease;
     gap: 3px;
+    height: 100%;
 }
 #add-new-student:hover {
     background-color: var(--color-primary);
@@ -2091,4 +2092,125 @@ button {
     color: white !important;
     padding: 3px 8px;
     border-radius: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* MODAL */
+
+
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 300;
+    background-color: white;
+    width: 800px;
+    max-width: 80%;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    background: var(--color-white);
+    border-radius: 10px 10px 0px 0px;
+}
+
+.modal-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 10px 15px;
+}
+
+.requirements-modal-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+    z-index: 250;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+
+.download-csv {
+    background: rgb(17, 134, 17);
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 3px;
+    transition: all 200ms ease;
+}
+
+
+
+button.download-csv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 15px 20px;
+    background: var(--color-primary-variant);
+    color: white;
+    transition: all 150ms ease;
+    gap: 3px;
+}
+
+
+
+.input-warning {
+    position: absolute;
+    bottom: -20px;
+    display: none;
+}
+
+.input-warning.active {
+    display: block;
 }

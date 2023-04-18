@@ -74,43 +74,47 @@
                         <div class="h2-container">
                             <h2>Clearance list</h2>
                         </div>
-                        <div>
-                            <a href="clearance_registration.php">
-                                <button id="add-new-student">
-                                    <span class="material-symbols-sharp">add</span>Clearance
-                                </button>
-                            </a>
-                        </div>
-                        <button id="register-csv-file-btn">
-                            <span class="material-symbols-sharp">upload_file</span>
-                            Register Via .csv file
-                            <span class="material-symbols-sharp">arrow_forward_ios</span>
-                        </button>
-                        <div>
-                            <div class="upload-student-csv-container">
-                                <form action="clearance_upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
-                                    <div class="form-input-file-csv-container">
-                                            <label for="input-file">Choose CSV File</label>
-                                            <input type="file" name="file" accept=".csv" id="input-file">
-                                            <select name="clearance_progress_id" id="">
-                                                        <option default>Select Tanduay Select Clearance Progress</option>
-                                                        <?php $progressions = $db->result('clearance_progress_view','status="Active"');?>
-                                                        <?php foreach($progressions as $progression):?>
-                                                        <?php if($progression->clearance_progress_id == $clearance_progress_id):?>  
-                                                        <option value="<?= $progression->clearance_progress_id; ?>"><?= $progression->school_year_and_sem.' '.$progression->sem_name; ?></option>
-                                                        <?php else:?>
-                                                            <option value="<?= $progression->clearance_progress_id; ?>"><?=$progression->school_year_and_sem.' '.$progression->sem_name; ?></option>
-                                                        <?php endif;?>
-                                                        <?php endforeach; ?>
-                                                </select>
-                                            <button type="submit" name="import" class="submit-csv-file-button">
-                                            Import
-                                                <span class="material-symbols-sharp">file_upload</span>
-                                            </button>
-                                    </div>
-                                </form>
+                        <div class="new-student-buttons" style="display:flex;flex-direction:row;gap:5px;justify-content:space-between;align-items:stretch"> 
+                            <div>
+                                <a href="clearance_registration.php" style="height:100%">
+                                    <button id="add-new-student">
+                                        <span class="material-symbols-sharp">add</span>Clearance
+                                    </button>
+                                </a>
+                            </div>
+                            <button class="download-csv" data-modal-target="#csv-download-modal">Download CSV</button>
+                            <button id="register-csv-file-btn">
+                                <span class="material-symbols-sharp">upload_file</span>
+                                Register Via .csv file
+                                <span class="material-symbols-sharp">arrow_forward_ios</span>
+                            </button>
+                            <div>
+                                <div class="upload-student-csv-container">
+                                    <form action="clearance_upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
+                                        <div class="form-input-file-csv-container">
+                                                <label for="input-file">Choose CSV File</label>
+                                                <input type="file" name="file" accept=".csv" id="input-file">
+                                                <select name="clearance_progress_id" id="">
+                                                            <option default>Select Tanduay Select Clearance Progress</option>
+                                                            <?php $progressions = $db->result('clearance_progress_view','status="Active"');?>
+                                                            <?php foreach($progressions as $progression):?>
+                                                            <?php if($progression->clearance_progress_id == $clearance_progress_id):?>  
+                                                            <option value="<?= $progression->clearance_progress_id; ?>"><?= $progression->school_year_and_sem.' '.$progression->sem_name; ?></option>
+                                                            <?php else:?>
+                                                                <option value="<?= $progression->clearance_progress_id; ?>"><?=$progression->school_year_and_sem.' '.$progression->sem_name; ?></option>
+                                                            <?php endif;?>
+                                                            <?php endforeach; ?>
+                                                    </select>
+                                                <button type="submit" name="import" class="submit-csv-file-button">
+                                                Import
+                                                    <span class="material-symbols-sharp">file_upload</span>
+                                                </button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
+                        
                     </div>
                     <div class="table-container">
                         <table id="example" class="display" style="width:100%; ">
@@ -144,6 +148,74 @@
         <!-- ================ END OF MAIN =================== -->
 
     </div>
+
+
+
+    <div class="modal" id="csv-download-modal">
+        <div class="modal-header">
+            <div class="title">CSV Format Guide and Download File</div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="requirements-modal-body">
+            <div>
+                <h3 style="margin-bottom: 5px;">Guide for inputting clearance details</h3>
+                <img src="../images/clearance guide.png" alt="">
+            </div>
+            
+            <a style="align-self: flex-end;" class="download-csv" href="../csv/clearance_csv_format.csv" download="Clearance Details">Download CSV Format</a>
+        </div>
+    </div>
+    <div id="overlay"></div>
+
+
+
+
+    <script>
+        try {
+            const openModalButtons = document.querySelectorAll('[data-modal-target]')
+            const closeModalButtons = document.querySelectorAll('[data-close-button]')
+            const overlay = document.getElementById('overlay')
+
+            openModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = document.querySelector(button.dataset.modalTarget)
+                openModal(modal)
+            })
+            })
+
+            overlay.addEventListener('click', () => {
+            const modals = document.querySelectorAll('.modal.active')
+            modals.forEach(modal => {
+                closeModal(modal)
+            })
+            })
+
+            closeModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.modal')
+                closeModal(modal)
+            })
+            })
+
+            function openModal(modal) {
+            if (modal == null) return
+            modal.classList.add('active')
+            overlay.classList.add('active')
+            }
+
+            function closeModal(modal) {
+            if (modal == null) return
+            modal.classList.remove('active')
+            overlay.classList.remove('active')
+            }
+        } catch (error) {
+            console.log(error);
+        }
+        
+
+
+    </script>
+
 
     <script>
         //jquery onclick event for update button

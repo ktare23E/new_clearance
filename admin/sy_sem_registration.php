@@ -55,8 +55,9 @@
                             <div class="input-field-container">
                                 <div class="input-field">
                                     <span id="check_office"></span>
-                                    <input type="text" name="school_year_and_sem" placeholder="School Year" required>
+                                    <input id="my-input" type="text" name="school_year_and_sem" placeholder="School Year" required>
                                     <i class="uil uil-user"></i>
+                                    <p class="input-warning danger">Input numbers and hyphen only</p>
                                 </div>
                             </div>
                             <div class="input-field button">
@@ -84,6 +85,22 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-    
+    <script>
+
+        const inputElement = document.getElementById("my-input");
+        const warningInput = document.querySelector(".input-warning")
+
+        inputElement.addEventListener("input", function() {
+        const inputValue = this.value;
+        const regex = /^[0-9-]*$/;
+
+        if (!regex.test(inputValue)) {
+            this.value = inputValue.replace(/[^0-9-]/g, "");
+            warningInput.classList.add("active")
+        }
+
+        });
+
+    </script>
 </body>
 </html>

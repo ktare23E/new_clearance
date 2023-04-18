@@ -48,12 +48,14 @@
                                 <h2>Students List</h2>
                         </div>
 
-                        <div class="new-student-buttons" style="display:flex;flex-direction:row;gap:5px;justify-content:space-between;">
+                        <div class="new-student-buttons" style="display:flex;flex-direction:row;gap:5px;justify-content:space-between;align-items:stretch">
                             <div>
-                                <a href="student_registration.php">
+                                <a href="student_registration.php" style="height:100%">
                                     <button id="add-new-student"><span class="material-symbols-sharp">add</span>Student</button>
                                 </a>
                             </div>
+                            <button class="download-csv" data-modal-target="#csv-download-modal">Download CSV</button>
+
                             <button id="register-csv-file-btn"><span class="material-symbols-sharp">upload_file</span>Register Via .csv file<span class="material-symbols-sharp">arrow_forward_ios</span></button>
                             <div>
                                 <div class="upload-student-csv-container">
@@ -133,6 +135,22 @@
         <!-- ================ END OF MAIN =================== -->
 
     </div>
+
+    <div class="modal" id="csv-download-modal" style="width: 1500px;">
+        <div class="modal-header">
+            <div class="title">CSV Format Guide and Download File</div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="requirements-modal-body">
+            <div>
+                <h3 style="margin-bottom: 5px;">Guide for inputting student details</h3>
+                <img src="../images/student_guide.png" alt="">
+            </div>
+            
+            <a style="align-self: flex-end;" class="download-csv" href="../csv/student_csv_format.csv" download="Student Details">Download CSV Format</a>
+        </div>
+    </div>
+    <div id="overlay"></div>
         
     <script>
         //jquery onclick event for update button
@@ -405,6 +423,54 @@
         $(document).ready(function () {
             $('#example').DataTable();
         });
+    </script>
+
+
+
+    <script>
+        try {
+            const openModalButtons = document.querySelectorAll('[data-modal-target]')
+            const closeModalButtons = document.querySelectorAll('[data-close-button]')
+            const overlay = document.getElementById('overlay')
+
+            openModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = document.querySelector(button.dataset.modalTarget)
+                openModal(modal)
+            })
+            })
+
+            overlay.addEventListener('click', () => {
+            const modals = document.querySelectorAll('.modal.active')
+            modals.forEach(modal => {
+                closeModal(modal)
+            })
+            })
+
+            closeModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.modal')
+                closeModal(modal)
+            })
+            })
+
+            function openModal(modal) {
+            if (modal == null) return
+            modal.classList.add('active')
+            overlay.classList.add('active')
+            }
+
+            function closeModal(modal) {
+            if (modal == null) return
+            modal.classList.remove('active')
+            overlay.classList.remove('active')
+            }
+        } catch (error) {
+            console.log(error);
+        }
+        
+
+
     </script>
 </body>
 </html>
