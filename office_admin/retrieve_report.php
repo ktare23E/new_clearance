@@ -134,7 +134,8 @@ if (isset($_POST['submit'])) {
                 datasets: [{
                     label: 'Requirement Complied',
                     data: [<?= $num_of_cleared; ?>, <?= $number_not_cleared?>],
-                    borderWidth: 1
+                    borderWidth: 1,
+                    backgroundColor: ['rgb(2, 114, 2)', 'rgb(211, 5, 5)']
                 }]
             },
             options: {
