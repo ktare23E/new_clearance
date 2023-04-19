@@ -4,15 +4,33 @@
 
 ?>
 
-    <div class="container">
+    <div class="container-student">
         <!-- sidebar -->
         <?php   include_once 'aside.php'; ?>
         <!------------------ END OF ASIDE ---------------->
-        <main>
-            <h1>Dashboard</h1>
-
-            <div class="date">
-                <input type="date">
+        <main class="main-student">
+            <div class="right">
+                <div class="top">
+                    <button id="menu-btn" class="menu-btn">
+                        <span class="material-symbols-sharp">menu</span>
+                    </button>
+                    <h1>Dashboard</h1>
+                    <div class="theme-toggler">
+                        <span class="material-symbols-sharp active">light_mode</span>
+                        <span class="material-symbols-sharp">dark_mode</span>
+                    </div>
+                    <div class="profile">
+                        <div class="info">
+                            <p>Hey, <b>World</b></p>
+                            <small class="text-muted">Admin</small>
+                        </div>
+                        <div class="profile-photo">
+                            <img src="../images/profile-1.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <!-- ========== END OF TOP ============= -->
+    
             </div>
 
             <div class="insights">
@@ -36,7 +54,7 @@
                     <div class="middle">
                         <div class="left">
                             <h3>Total Active Student from Enrolled:</h3>
-                            <h1 class="total_users"></h1>
+                            <h1 class="total_active"></h1>
                         </div>
                         <div class="progress">
                             <svg>
@@ -141,7 +159,7 @@
         </main>
         <!-- ================ END OF MAIN =================== -->
 
-        <div class="right">
+        <!-- <div class="right">
             <div class="top">
                 <button id="menu-btn" class="menu-btn">
                     <span class="material-symbols-sharp">menu</span>
@@ -160,9 +178,9 @@
                     </div>
                 </div>
             </div>
-            <!-- ========== END OF TOP ============= -->
+            ========== END OF TOP =============
 
-            <!-- <div class="recent-updates">
+            <div class="recent-updates">
                 <h2>Recent Updates</h2>
                 <div class="updates">
                     <div class="update">
@@ -196,10 +214,10 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
-            <!-- ========== END OF RECENT UPDATES ============= -->
+            </div>
+            ========== END OF RECENT UPDATES =============
 
-            <!-- <div class="sales-analytics">
+            <div class="sales-analytics">
                 <h2>Sales Analytics</h2>
                 <div class="item online">
                     <div class="icon">
@@ -249,9 +267,9 @@
                     </div>
                 </div>
                 
-            </div> -->
+            </div>
             
-        </div>
+        </div> -->
 
     </div>
     <script>
@@ -265,6 +283,18 @@
             });
         },1000)
             
+    </script>
+
+    <script>
+            setInterval(function(){
+                $.ajax({
+                    url: 'get_active_status.php',
+                    type: 'GET',
+                    success: function(response) {
+                            $('.total_active').text(response);
+                    }
+                });
+            },1000)
     </script>
 
 <script>

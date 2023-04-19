@@ -80,10 +80,10 @@
                 <div class="h2-container">
                     <h2>Clearance list</h2>
                 </div>
-                <div class="bulk-actions-container">
+                <!-- <div class="bulk-actions-container">
                     <h3 style="text-align: center;">Bulk Update:</h3>
                     <button type="button" id="active">Approve</button>
-                </div>
+                </div> -->
                 
                     <!-- <div>
                         <label for="">Filter via Clearance Type</label>

@@ -20,7 +20,7 @@
 }
     
 </style>
-<div class="container-student">
+    <div class="container-student">
         <!-- sidebar -->
         <?php
                 include_once 'aside.php';
@@ -52,7 +52,6 @@
     
             </div>
 
-            
 
             <div class="form-and-table-container">
 
@@ -60,7 +59,7 @@
                 <div class="student-registration">
                     <div class="form signup">
                         <div class="back-button">
-                            <a href="sy_sem.php">
+                            <a href="office.php">
                                 <button id="back-button-to-office">
                                 <span class="material-symbols-sharp">arrow_back</span>
                             </button>
@@ -68,19 +67,19 @@
                             
                         </div>
                         <span class="title">Add New School Year</span>
-
-
+        
                         <form action="insert_sy_sem.php" method="POST">
                             <div class="input-field-container">
                                 <div class="input-field">
                                     <span id="check_office" class="check-available"></span>
-                                    <input id="my-input" type="text" id="school_year_and_sem" name="school_year_and_sem" placeholder="School Year" oninput="checkSchoolYear()" required>
-                                    <i class="uil uil-user"></i>
+                                    <input type="text" name="school_year_and_sem" id="school_year_and_sem" oninput="checkOffice()" placeholder="School Year" required>
                                     <p class="input-warning danger">Input numbers and hyphen only</p>
+                                    <i class="uil uil-user"></i>
                                 </div>
+                                
                             </div>
                             <div class="input-field button">
-                                <input type="submit" value="Create School Year">
+                                <input type="submit" id="submit" value="Create New School Year">
                             </div>
                         </form>
                     </div>
@@ -92,19 +91,9 @@
         <!-- ================ END OF MAIN =================== -->
 
     </div>
-    
-    <!-- <script src="../assets/js/student-info.js"></script> -->
-    <script>
-            //create insert ajax
-
-    </script>
-    <script defer src="../assets/js//modal.js"></script>
-    <script src="../assets/js/index.js"></script>
-    <script defer src="../assets/js/active.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
-            function checkSchoolYear() {
+            function checkOffice() {
                 
                 jQuery.ajax({
                 url: "check_school_year.php",
@@ -118,22 +107,32 @@
             }
 </script>
 
-    <script>
+            <script>
 
-        const inputElement = document.getElementById("my-input");
-        const warningInput = document.querySelector(".input-warning")
+            const inputElement = document.getElementById("school_year_and_sem");
+            const warningInput = document.querySelector(".input-warning")
 
-        inputElement.addEventListener("input", function() {
-        const inputValue = this.value;
-        const regex = /^[0-9-]*$/;
+            inputElement.addEventListener("input", function() {
+            const inputValue = this.value;
+            const regex = /^[0-9-]*$/;
 
-        if (!regex.test(inputValue)) {
-            this.value = inputValue.replace(/[^0-9-]/g, "");
-            warningInput.classList.add("active")
-        }
+            if (!regex.test(inputValue)) {
+                this.value = inputValue.replace(/[^0-9-]/g, "");
+                warningInput.classList.add("active")
+            }
 
-        });
+            });
 
-    </script>
+</script>
+    
+    <!-- <script src="../assets/js/student-info.js"></script> -->
+    
+    <script defer src="../assets/js//modal.js"></script>
+    <script src="../assets/js/index.js"></script>
+    <script defer src="../assets/js/active.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    
 </body>
 </html>
