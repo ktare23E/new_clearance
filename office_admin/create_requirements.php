@@ -11,12 +11,15 @@
     }else{
         $clearance_type_id = $_GET['clearance_type_id'];
         $clearance_progress_id = $_GET['clearance_progress_id'];
-        $student_id = $_GET['student_id'];    
-        $sql = "SELECT * FROM requirement_view WHERE clearance_type_id = '$clearance_type_id' AND clearance_progress_id = '$clearance_progress_id' AND student_id = '".$student_id."'";
+        $student_id = $_GET['student_id'];
+            
+        $sql = "SELECT * FROM view_clearance WHERE clearance_type_id = '$clearance_type_id' AND clearance_progress_id = '$clearance_progress_id' AND student_id = '".$student_id."'";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_assoc($result);
 
-        $requirement_id = $row['requirement_id'];
+        // echo $sql;
+        // die();
+
         $clearance_type_id = $row['clearance_type_id'];
         $clearance_progress_id = $row['clearance_progress_id'];
         $student_id = $row['student_id'];
@@ -32,11 +35,11 @@
     $conn = mysqli_connect('localhost', 'root', '', 'clearance');
 
     $office_id = $_SESSION['office_id'];
-    $sql = "SELECT * FROM new_signing_offices WHERE office_id = '$office_id'";
-    $result = mysqli_query($conn,$sql);
-    $row = mysqli_fetch_assoc($result);
+    // $sql = "SELECT * FROM new_signing_offices WHERE office_id = '$office_id'";
+    // $result = mysqli_query($conn,$sql);
+    // $row = mysqli_fetch_assoc($result);
 
-    $signing_office_id = $row['signing_office_id'];
+    // $signing_office_id = $row['signing_office_id'];
 
     }
 ?>

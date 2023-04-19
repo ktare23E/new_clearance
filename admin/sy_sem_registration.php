@@ -1,6 +1,25 @@
 <?php
     include_once 'header.php';
 ?>
+<style>
+    .intro {
+    height: 100%;
+    }
+    .gradient-custom {
+    /* fallback for old browsers */
+    background: #fa709a;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to bottom right, rgba(250, 112, 154, 1), rgba(254, 225, 64, 1));
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to bottom right, rgba(250, 112, 154, 1), rgba(254, 225, 64, 1))
+    }
+    /* Change dissabled Button color  */
+    #submit:disabled{
+    background-color: red;
+    opacity:0.5;   
+}
+    
+</style>
 <div class="container-student">
         <!-- sidebar -->
         <?php
@@ -54,8 +73,8 @@
                         <form action="insert_sy_sem.php" method="POST">
                             <div class="input-field-container">
                                 <div class="input-field">
-                                    <span id="check_office"></span>
-                                    <input id="my-input" type="text" name="school_year_and_sem" placeholder="School Year" required>
+                                    <span id="check_office" class="check-available"></span>
+                                    <input id="my-input" type="text" id="school_year_and_sem" name="school_year_and_sem" placeholder="School Year" oninput="checkSchoolYear()" required>
                                     <i class="uil uil-user"></i>
                                     <p class="input-warning danger">Input numbers and hyphen only</p>
                                 </div>
@@ -84,6 +103,20 @@
     <script defer src="../assets/js/active.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <script>
+            function checkSchoolYear() {
+                
+                jQuery.ajax({
+                url: "check_school_year.php",
+                data:'school_year_and_sem='+$("#school_year_and_sem").val(),
+                type: "POST",
+                success:function(data){
+                    $("#check_office").html(data);
+                },
+                error:function (){}
+                });
+            }
+</script>
 
     <script>
 

@@ -51,13 +51,13 @@ if(isset($_POST['submit'])){
     $clearance_type_id = $row['clearance_type_id'];
     
     
-    $sql = "SELECT * FROM signing_office WHERE office_id = '$office_id' AND clearance_progress_id = '$clearance_progress_id'";
+    $sql = "SELECT * FROM signing_office WHERE office_id = '$office_id' AND clearance_progress_id = '$clearance_progress_id' AND clearance_type_id = '$clearance_type_id'";
     $singing_office = $conn->query($sql) or die($conn->error);
 
     if($singing_office->num_rows < 1){
         
         echo "<a href='office_requirements.php'>Back</a><br>";
-        echo "You are not signing office for these semester and school year that you selected.";
+        echo "You are not signing office for these semester and school year and clearance type that you selected.";
         die();
     }
 

@@ -4,16 +4,16 @@
 
         // $conn = mysqli_connect('localhost', 'root', '', 'clearance')
         if(!isset($_GET['clearance_type_id'])){
-            $users = $db->result('new_signing_offices');
+            $users = $db->result('new_signing_offices','status = "Active"');
         }else{
 
             if($_GET['clearance_type_id'] == ""){
                 // $users = $db->result('new_signing_offices');
-            $users = $db->result('new_signing_offices');
+            $users = $db->result('new_signing_offices','status = "Active"');
 
             }else{
                 $id = $_GET['clearance_type_id'];
-                $users = $db->result('new_signing_offices','clearance_type_id = '.$id);
+                $users = $db->result('new_signing_offices','status = "Active"');
             }
         }
 ?>

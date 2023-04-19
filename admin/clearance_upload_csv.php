@@ -1,6 +1,6 @@
 <?php
 
-require ('phpmailer.php');
+
 $conn = mysqli_connect('localhost', 'root', '', 'clearance');
 
 session_start();
@@ -24,20 +24,30 @@ if (isset($_POST['import'])) {
         $file = fopen($fileName, "r");
 
         while (($column = fgetcsv($file, 1000, ",")) !== FALSE) {
+
+            $query = "SELECT * FROM student WHERE student_id = '".$column[0]."'";
+            // echo $query;
+            // die();
+            $result2 = mysqli_query($conn,$query);
+            $row2 = mysqli_fetch_assoc($result2);
+
+            if($result2->num_rows < 1){
+                echo "<a href='clearance.php'>Back</a><br>";
+                echo "This student '".$column[0]."' does not exist. Please register this student first before creating a clearance.";
+                var_dump($column[0]);
+                die();
+            }
+          // print($row2);
+            $course_id = $row2['course_id'];
+            $office_id = $row2['office_id'];
+
+
             // Check if the student already exists
             $sqlCheck = "SELECT * FROM clearance WHERE student_id = '" . $column[0] . "' AND clearance_progress_id = $clearance_progress_id ";
             $result= mysqli_query($conn,$sqlCheck);
             $row = mysqli_fetch_assoc($result);
             
             $clearance_id = $row['clearance_id'];
-
-            $query = "SELECT * FROM student WHERE student_id = '".$column[0]."'";
-            $result2 = mysqli_query($conn,$query);
-            $row2 = mysqli_fetch_assoc($result2);
-
-            // print($row2);
-            $course_id = $row2['course_id'];
-            $office_id = $row2['office_id'];
 
             if (mysqli_num_rows($result) > 0) {
                 // Clearance already exists, update existing data
@@ -53,24 +63,8 @@ if (isset($_POST['import'])) {
                 }
             } else {
                 // Insert new clearance data
-                $sqlInsert = "INSERT INTO clearance ( student_id, clearance_type_id, date_created,clearance_status,clearance_progress_id,course_id,office_id) VALUES ('" . $column[0] . "','" . $column[1] . "','" . $current_date . "','" . $clearance_status . "','" . $clearance_progress_id . "','" . $course_id . "', '" . $office_id . "')";
+                $sqlInsert = "INSERT INTO clearance ( student_id, clearance_type_id, date_created,clearance_status,clearance_progress_id,course_id,office_id) VALUES ('" .$column[0] . "','" . $column[1] . "','" . $current_date . "','" . $clearance_status . "','" . $clearance_progress_id . "','" . $course_id . "', '" . $office_id . "')";
                 $result = mysqli_query($conn, $sqlInsert);
-
-
-
-                $sql = "SELECT * FROM view_clearance WHERE student_id = '$student_id'";
-                $result = mysqli_query($conn,$sql);
-                $row = mysqli_fetch_assoc($result);
-
-                $student_email = $row['student_email'];
-                $clearance_type_name = $row['clearance_type_name'];
-                $sem_name = $row['sem_name'];
-                $school_year_and_sem = $row['school_year_and_sem'];
-                $clearance = strtolower($clearance_type_name);
-
-
-
-                sendEmail($student_email,"Online Clearance System","Your clearance for $school_year_and_sem $sem_name is now created please view your account to see the requirements of each signing offices.");
 
                 if (!empty($result)) {
                     //echo "CSV File has been successfully Imported.";

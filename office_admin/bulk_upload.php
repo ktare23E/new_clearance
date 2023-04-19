@@ -32,7 +32,12 @@ if(isset($_POST['import'])){
                 $query2 = "SELECT * FROM view_clearance WHERE student_id = '".$column[1]."' AND clearance_progress_id = $clearance_progress_id";
                 $clearance = $conn->query($query2) or die($conn->error);
                 $row = $clearance->fetch_assoc();
-                $total = $clearance->num_rows;
+                // $total = $clearance->num_rows;
+
+                if($clearance->num_rows < 1){
+                    echo "This student " .$column[1]. " doesn't have a clearance yet for this semester and school year that you selected.</br>";
+                    die();
+                }
 
                 $school_year_and_sem = $row['school_year_and_sem'];
                 $sem_name = $row['sem_name'];
@@ -42,16 +47,15 @@ if(isset($_POST['import'])){
                 // echo $query2;
                 // die();
 
-                if ($total == 0) {
-                    throw new Exception("This student $column[1] doesn't have a clearance yet for $school_year_and_sem $sem_name.</br>");
-                }
+                // if ($total == 0) {
+                //     throw new Exception("This student $column[1] doesn't have a clearance yet for $school_year_and_sem $sem_name.</br>");
+                // }
 
                 $sql = "SELECT * FROM signing_office WHERE office_id = '$office_id' AND clearance_progress_id = '$clearance_progress_id'";
                 $singing_office = $conn->query($sql) or die($conn->error);
             
                 if($singing_office->num_rows < 1){
                     
-                    echo "<a href='office_requirements.php'>Back</a><br>";
                     echo "You are not signing office for these semester and school year that you selected.";
                     die();
                 }
@@ -64,7 +68,6 @@ if(isset($_POST['import'])){
                 
             
                 if($clearance_exist->num_rows < 1){
-                    echo "<a href='office_requirements.php'>Back</a><br>";
                     echo "This student '".$column[1]."' has no clearance for these school year and semester and clearance type that you've been selected.";
                     // die();
                 }
