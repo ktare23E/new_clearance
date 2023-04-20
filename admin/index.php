@@ -4,16 +4,36 @@
 
 ?>
 
-    <div class="container">
+    <div class="container-student">
         <!-- sidebar -->
         <?php   include_once 'aside.php'; ?>
         <!------------------ END OF ASIDE ---------------->
-        <main>
-            <h1>Dashboard</h1>
+        <main class="main-student">
 
-            <div class="date">
-                <input type="date">
+            <div class="right">
+                <div class="top">
+                    <button id="menu-btn" class="menu-btn">
+                        <span class="material-symbols-sharp">menu</span>
+                    </button>
+                    <h1>Dashboard</h1>
+                    <div class="theme-toggler">
+                        <span class="material-symbols-sharp active">light_mode</span>
+                        <span class="material-symbols-sharp">dark_mode</span>
+                    </div>
+                    <div class="profile">
+                        <div class="info">
+                            <p>Hey, <b>World</b></p>
+                            <small class="text-muted">Admin</small>
+                        </div>
+                        <div class="profile-photo">
+                            <img src="../images/profile-1.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <!-- ========== END OF TOP ============= -->
             </div>
+
+
 
             <div class="insights">
                 <div class="sales">
@@ -141,25 +161,6 @@
         </main>
         <!-- ================ END OF MAIN =================== -->
 
-        <div class="right">
-            <div class="top">
-                <button id="menu-btn" class="menu-btn">
-                    <span class="material-symbols-sharp">menu</span>
-                </button>
-                <div class="theme-toggler">
-                    <span class="material-symbols-sharp active">light_mode</span>
-                    <span class="material-symbols-sharp">dark_mode</span>
-                </div>
-                <div class="profile">
-                    <div class="info">
-                        <p>Hey, <b>World</b></p>
-                        <small class="text-muted">Admin</small>
-                    </div>
-                    <div class="profile-photo">
-                        <img src="../images/profile-1.jpg" alt="">
-                    </div>
-                </div>
-            </div>
             <!-- ========== END OF TOP ============= -->
 
             <!-- <div class="recent-updates">
