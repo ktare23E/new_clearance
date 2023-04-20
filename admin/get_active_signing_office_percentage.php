@@ -14,8 +14,19 @@ $result = mysqli_query($conn, $query);
 $row = mysqli_fetch_assoc($result);
 $active_users = $row['active_users'];
 
-// Calculate the percentage of active users
-$percentage = ($active_users / $total_users) * 100;
+if ($total_users == 0) {
+    echo '0%';
+} else {
+    // Calculate the percentage of active users
+    $percentage = ($active_users / $total_users) * 100;
+    echo number_format($percentage, 2) . '%';
+}
 
-// Return the percentage of active users
-echo number_format($percentage, 2) . '%';
+// // Calculate the percentage of active users
+// $percentage = ($active_users / $total_users) * 100;
+
+// // Return the percentage of active users
+// echo number_format($percentage, 2) . '%';
+?>
+
+

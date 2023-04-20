@@ -87,9 +87,10 @@ if (isset($_POST['import'])) {
                 }
             } else {
                 // Insert new student data
-                $sqlInsert = "INSERT into student (student_id, student_first_name, student_last_name,student_year, course_id, student_gender,student_email, student_username, student_password,student_status, office_id) VALUES ('" . $column[0] . "','" . $column[1] . "','" . $column[2] . "','" . $column[3] . "','" . $column[4] . "','" . $column[5] . "', '" . $column[6] . "', '" . $column[7] . "', '" . $column[8] . "','" . $column[9] . "','" . $office_id . "')";
+                $sqlInsert = "INSERT into student (student_id, student_first_name, student_last_name,student_year, course_id, student_gender,student_email, student_username, student_password,student_status, office_id) VALUES ('".$column[0]."','" .$column[1]. "','" .$column[2]. "','" .$column[3]. "','" .$column[4]. "','" .$column[5]. "', '" .$column[6]. "', '" .$column[7]. "', '" .$column[8]. "','" .$column[9]. "','" .$office_id. "')";
                 $result2 = mysqli_query($conn, $sqlInsert);
 
+                
                 if (!empty($result2)) {
                     //echo "CSV File has been successfully Imported.";
                     header("Location:student.php");

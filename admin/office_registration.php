@@ -123,18 +123,18 @@
     </div>
 
     <script>
-function checkOffice() {
-    
-    jQuery.ajax({
-    url: "check_office.php",
-    data:'office_name='+$("#office_name").val(),
-    type: "POST",
-    success:function(data){
-        $("#check_office").html(data);
-    },
-    error:function (){}
-    });
-}
+            function checkOffice() {
+                
+                jQuery.ajax({
+                url: "check_office.php",
+                data:'office_name='+$("#office_name").val(),
+                type: "POST",
+                success:function(data){
+                    $("#check_office").html(data);
+                },
+                error:function (){}
+                });
+            }
 </script>
     
     <!-- <script src="../assets/js/student-info.js"></script> -->

@@ -8,7 +8,7 @@
 
     // Loop through the result and display the office names
     while ($row = mysqli_fetch_assoc($result)) {
-        echo $row['clearance_type_name'];
+        echo $row['clearance_type_name'].' ';
     }
 
     // Close the database connection

@@ -12,7 +12,7 @@
         // print_r($row['office_name']).'';
 
         // echo nl2br("\n $row[office_name]");
-        echo $row['office_name'].',';
+        echo $row['office_name'].', ';
     }
 
     // Close the database connection

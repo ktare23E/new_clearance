@@ -8,7 +8,7 @@
 
     // Loop through the result and display the office names
     while ($row = mysqli_fetch_assoc($result)) {
-        echo $row['school_year_and_sem'].' - '.$row['sem_name'];
+        echo $row['school_year_and_sem'].' - '.$row['sem_name'].' ';
     }
 
     // Close the database connection
