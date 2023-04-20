@@ -3,7 +3,7 @@
     include_once 'office_header.php';
     $order_by = "ASC";
     
-    $list_of_clearances = $db->result('requirement_view','status = "Active" AND office_id = '.$_SESSION['office_id'],'requirement_details = "'.$order_by.'"','10');
+    $list_of_clearances = $db->result('requirement_view','status = "Active" AND office_id = '.$_SESSION['office_id'],'requirement_details = "'.$order_by.'"');
 
 
 
