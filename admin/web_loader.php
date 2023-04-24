@@ -22,10 +22,10 @@
                 const loader = document.getElementById("loader");
                 setTimeout(() => {
                     // loader.style.display = "none"
-                    loadingSpan.innerHTML = "Welcome To Dario's Framework";
+                    loadingSpan.innerHTML = "Welcome to NMSC Online Clearance System";
                     setTimeout(() => {
                         window.location.href = "index.php"
-                    },1500)
+                    },3000)
                 }, 1500)
             })
             
