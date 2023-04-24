@@ -87,8 +87,9 @@
                                         <th><input type="checkbox" id="checkAll"/></th>
                                         <th>Student ID</th>
                                         <th>First Name</th>
+                                        <th>Middle Name</th>
                                         <th>Last Name</th>
-                                        <th>Year</th>
+                                        <th>Year Level</th>
                                         <th>Course</th>
                                         <th>Username</th>
                                         <th>Status</th>

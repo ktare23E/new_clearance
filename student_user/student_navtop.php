@@ -47,13 +47,13 @@
                 <div class="info">
                     <p>Hello, <b><?php if($_SESSION['student_first_name'] == 'Phoebe' && $_SESSION['student_last_name'] == 'Ladua') {
                         echo 'I love you'.' '. $_SESSION['student_first_name'];
-                    }elseif ($_SESSION['student_username']){
+                    }elseif ($_SESSION['student_id']){
                         echo $_SESSION['student_first_name'];
                     } ?></b></p>
                     <small class="text-muted">Student</small>
                 </div>
                 <div class="profile-photo">
-                    <img src="../admin/uploads/<?php if($_SESSION['student_username']){
+                    <img src="../admin/uploads/<?php if($_SESSION['student_id']){
                         echo $student_profile;
                     } ?>" alt="">
                 </div>

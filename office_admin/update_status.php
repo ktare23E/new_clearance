@@ -10,14 +10,28 @@ if(isset($_POST['approve'])){
         $clearance_progress_id = $_POST['clearance_progress_id'];
         $student_id = $_POST['student_id'];
         $clearance_id = $_POST['clearance_id'];
+        $cleared_date = date('F d Y, h:i:s A');
 
         // echo $clearance_progress_id;
         // die();
 
         $sql = "UPDATE requirement SET is_complied = '1', date_cleared = '$current_date' WHERE requirement_id = $requirement_id AND signing_office_id = $signing_office_id";
-
+        
         // echo $sql;
         $result= mysqli_query($conn,$sql);
+
+        $updateQuery = 'SELECT * FROM requirement_view WHERE student_id = "'.$student_id.'"';
+        $result4 = mysqli_query($conn,$updateQuery);
+        $row4 = mysqli_fetch_assoc($result4);
+
+        $email = $row4['student_email'];
+        $requirement_details = $row4['requirement_details'];
+        $office_name = $row4['office_name'];
+        $semester = $row4['sem_name'];
+        $school_year = $row4['school_year_and_sem'];
+
+        sendEmail($email,"Approval of Requirements","You have been approved after passing $requirement_details of the $office_name requirements. Date of approve $cleared_date");
+
 
         $query = "SELECT * FROM requirement WHERE clearance_progress_id = $clearance_progress_id AND student_id = '$student_id' AND is_complied = 0";
         
@@ -41,7 +55,7 @@ if(isset($_POST['approve'])){
             $school_year_and_sem = $row['school_year_and_sem'];
             $clearance = strtolower($clearance_type_name);
 
-            sendEmail($student_email,"Clearance System Role Update","Your clearance for $clearance_type_name in $school_year_and_sem $sem_name is now cleared.");
+            sendEmail($student_email,"Clearance System Role Update","Your clearance for $clearance_type_name in $school_year_and_sem $sem_name is now cleared as of $cleared_date.");
         }
 }
 

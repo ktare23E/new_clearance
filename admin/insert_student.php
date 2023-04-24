@@ -10,13 +10,14 @@
         $student_id = $_POST['student_id'];
         $id = $_POST['student_id'];
         $student_first_name    = $_POST['student_first_name'];
+        $student_middle_name = $_POST['student_middle_name'];
         $student_last_name        = $_POST['student_last_name'];
         $student_year   = $_POST['student_year'];
         $student_email = $_POST['student_email'];
         $student_gender = $_POST['student_gender'];
         $student_status = $_POST['student_status'];
         $course_id   = $_POST['course_id'];
-        $student_username   = $_POST['student_username'];
+        // $student_username   = $_POST['student_username'];
         $student_password        = $_POST['student_password'];
         // $office_id = $_POST['office_id'];
 
@@ -44,8 +45,8 @@
                 
                 if(move_uploaded_file($tmp_name, "uploads/".$new_img_name)){ // if user upload img move to our folder successfully
                     // let's insert all user data inside table
-                    $sql2 = mysqli_query($conn,"INSERT INTO student (student_id, student_first_name, student_last_name, student_year, course_id, office_id, student_gender, student_email, student_username, student_password, student_status, student_profile)
-                                        VALUES('{$student_id}','{$student_first_name}','{$student_last_name}','{$student_year}','{$course_id}','{$office_id}','{$student_gender}','{$student_email}','{$student_username}','{$student_password}','{$student_status}','$new_img_name')");    
+                    $sql2 = mysqli_query($conn,"INSERT INTO student (student_id, student_first_name,student_middle_name, student_last_name, student_year, course_id, office_id, student_gender, student_email, student_password, student_status, student_profile)
+                                        VALUES('{$student_id}','{$student_first_name}','{$student_middle_name}','{$student_last_name}','{$student_year}','{$course_id}','{$office_id}','{$student_gender}','{$student_email}','{$student_password}','{$student_status}','$new_img_name')");    
                     
                     header("Location: student.php");
                     exit();

@@ -14,6 +14,7 @@
 
         $student_id = $row['student_id'];
         $student_fname = $row['student_first_name'];
+        $student_middle_name = $row['student_middle_name'];
         $student_lname = $row['student_last_name'];
         $student_year = $row['student_year']; 
         $student_email = $row['student_email'];
@@ -23,7 +24,7 @@
         $course_name = $row['course_name'];
         $office_id = $row['office_id'];
         $office_name = $row['office_name'];
-        $student_username = $row['student_username'];
+        // $student_username = $row['student_username'];
         $student_password = $row['student_password'];
         $student_profile = $row['student_profile'];
 
@@ -90,6 +91,9 @@
                             <div class="input-field">
                                 <input type="text" name="student_first_name" placeholder="First Name" required value="<?php echo $student_fname; ?>">
                                 <i class="uil uil-user"></i>
+                            </div>
+                            <div class="input-field">
+                                <input type="text" name="student_middle_name" value="<?= $student_middle_name; ?>" required>
                             </div>
                             <div class="input-field">
                                 <input type="text" name="student_last_name" placeholder="Last Name" required value="<?php echo $student_lname; ?>">
@@ -167,10 +171,6 @@
                         </div>
                         <div class="input-field-container">
                                 <div class="input-field">
-                                    <input type="email" name="student_email" placeholder="Email" required value="<?php echo $student_email; ?>">
-                                    <i class="uil uil-envelope"></i>
-                                </div>
-                                <div class="input-field">
                                     
                                     <select name="student_gender" id="">
                                         <?php if($student_gender === 'Male'):?>
@@ -205,9 +205,13 @@
                             </div>
                             <div class="input-field-container">
                                 <div class="input-field">
+                                    <input type="email" name="student_email" placeholder="Email" required value="<?php echo $student_email; ?>">
+                                    <i class="uil uil-envelope"></i>
+                                </div>
+                                <!-- <div class="input-field">
                                     <input type="text" placeholder="Username" value="<?= $student_username; ?>" name="student_username" required>
                                     <i class="uil uil-envelope icon"></i>
-                                </div>
+                                </div> -->
                                 <div class="input-field">
                                     <input type="password" value="<?= $student_password; ?>" name="student_password" class="password" placeholder="Create a password" required>
                                     <i class="uil uil-lock icon"></i>

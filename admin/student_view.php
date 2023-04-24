@@ -111,7 +111,7 @@
                             </div>
                             <div class="student-info-name-container">
                                     <h2 class="label">Username :</h2>
-                                <h2><span><?= $row['student_username'] ?></span></h2>
+                                <h2><span><?= $row['student_id'] ?></span></h2>
                             </div>
                             <div class="student-info-name-container">
                                 <h2 class="label">Status :</h2>

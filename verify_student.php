@@ -5,20 +5,21 @@ session_start();
 $conn = mysqli_connect('localhost', 'root', '', 'clearance');
 
 
-$student_username = $_POST['student_username'];
+$student_id = $_POST['student_id'];
 $student_password = $_POST['student_password'];
 
 
 // $student = $db->is_exist('student',"student_username = '$student_username' AND student_password = '$student_password'");
 
-$sql = "SELECT * FROM student_details WHERE student_username = '$student_username' AND student_password = '$student_password'";
+$sql = "SELECT * FROM student_details WHERE student_id = '$student_id' AND student_password = '$student_password'";
 $result = $conn->query($sql);
 
 if($result->num_rows > 0){
     $row = $result->fetch_assoc();
-    $_SESSION['student_username'] = $student_username;
+    // $_SESSION['student_username'] = $student_username;
     $_SESSION['student_id'] = $row['student_id'];
     $_SESSION['student_first_name'] = $row['student_first_name'];
+    $_SESSION['student_middle_name'] = $row['student_middle_name'];
     $_SESSION['student_last_name'] = $row['student_last_name'];
     $_SESSION['student_year'] = $row['student_year'];
     $_SESSION['course_name'] = $row['course_name'];

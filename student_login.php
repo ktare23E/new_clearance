@@ -19,7 +19,7 @@
 
                 <form action="verify_student.php" method="POST">
                     <div class="input-field">
-                        <input type="text" name="student_username" placeholder="Enter your username" required> <!-- INPUT FIELD FOR USERNAME -->
+                        <input type="text" name="student_id" placeholder="Enter your student id" required> <!-- INPUT FIELD FOR USERNAME -->
                         <i class="uil uil-user icon"></i>
                     </div>
                     <div class="input-field">

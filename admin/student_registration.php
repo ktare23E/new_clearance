@@ -61,6 +61,10 @@
                                     <i class="uil uil-user icon"></i>
                                 </div>
                                 <div class="input-field">
+                                    <input type="text" name="student_middle_name" placeholder="Middle Name" required>
+                                    <i class="uil uil-user icon"></i>
+                                </div>
+                                <div class="input-field">
                                     <input type="text" name="student_last_name" placeholder="Last Name" required>
                                     <i class="uil uil-user icon"></i>
                                 </div>
@@ -111,17 +115,18 @@
                                     </select>
                                 </div>
                                 
-                                <div class="input-field">
-                                    <input type="email" name="student_email" placeholder="Email Address" required>
-                                    <i class="uil uil-envelope icon"></i>
-                                </div>
+                                
                             </div>
                             
                             <div class="input-field-container">
                                 <div class="input-field">
-                                    <input type="text" placeholder="Username" name="student_username" required>
+                                    <input type="email" name="student_email" placeholder="Email Address" required>
                                     <i class="uil uil-envelope icon"></i>
                                 </div>
+                                <!-- <div class="input-field">
+                                    <input type="text" placeholder="Username" name="student_username" required>
+                                    <i class="uil uil-envelope icon"></i>
+                                </div> -->
                                 <div class="input-field">
                                     <input type="password" name="student_password" class="password" placeholder="Create a password" required>
                                     <i class="uil uil-lock icon"></i>

@@ -64,7 +64,7 @@ if (isset($_POST['import'])) {
             $resultCheck = mysqli_query($conn, $sqlCheck);
 
 
-            $query = "SELECT * FROM course where course_id = '$column[4]'";
+            $query = "SELECT * FROM course where course_id = '$column[5]'";
             $result = mysqli_query($conn, $query);
             $row = mysqli_fetch_array($result);
 
@@ -75,7 +75,7 @@ if (isset($_POST['import'])) {
 
             if (mysqli_num_rows($resultCheck) > 0) {
                 // Student already exists, update existing data
-                $sqlUpdate = "UPDATE student SET student_id = '".$column[0]."', student_first_name = '" . $column[1] . "', student_last_name = '" . $column[2] . "', student_year = '" . $column[3] . "', course_id = '" . $column[4] . "', office_id = '" . $office_id . "', student_gender = '" . $column[5] . "', student_email = '" . $column[6] . "', student_username = '" . $column[7] . "', student_password = '" . $column[8] . "', student_status = '" . $column[9] . "' WHERE student_id = '" . $column[0] . "'";
+                $sqlUpdate = "UPDATE student SET student_id = '".$column[0]."', student_first_name = '" . $column[1] . "', student_middle_name = '".$column[2]."', student_last_name = '" . $column[3] . "', student_year = '" . $column[4] . "', course_id = '" . $column[5] . "', office_id = '" . $office_id . "', student_gender = '" . $column[6] . "', student_email = '" . $column[7] . "', student_password = '" . $column[8] . "', student_status = '" . $column[9] . "' WHERE student_id = '" . $column[0] . "'";
                 $result = mysqli_query($conn, $sqlUpdate);
 
                 if (!empty($result)) {
@@ -87,7 +87,7 @@ if (isset($_POST['import'])) {
                 }
             } else {
                 // Insert new student data
-                $sqlInsert = "INSERT into student (student_id, student_first_name, student_last_name,student_year, course_id, student_gender,student_email, student_username, student_password,student_status, office_id) VALUES ('".$column[0]."','" .$column[1]. "','" .$column[2]. "','" .$column[3]. "','" .$column[4]. "','" .$column[5]. "', '" .$column[6]. "', '" .$column[7]. "', '" .$column[8]. "','" .$column[9]. "','" .$office_id. "')";
+                $sqlInsert = "INSERT into student (student_id, student_first_name, student_middle_name, student_last_name,student_year, course_id, student_gender,student_email, student_password,student_status, office_id) VALUES ('".$column[0]."','" .$column[1]. "','" .$column[2]. "','" .$column[3]. "','" .$column[4]. "','" .$column[5]. "', '" .$column[6]. "', '" .$column[7]. "', '" .$column[8]. "','" .$column[9]. "','" .$office_id. "')";
                 $result2 = mysqli_query($conn, $sqlInsert);
 
                 
