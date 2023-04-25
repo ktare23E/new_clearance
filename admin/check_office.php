@@ -4,8 +4,7 @@ $connect = mysqli_connect("localhost","root","","clearance");
 
 if(!empty($_POST["office_name"])) {
   $query = "SELECT * FROM office WHERE office_name ='" . $_POST["office_name"] . "'";
-    echo $query;
-    die();
+
     $result = mysqli_query($connect,$query);
     $count = mysqli_num_rows($result);
 
