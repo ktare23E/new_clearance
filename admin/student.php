@@ -162,20 +162,33 @@
         <form class="requirements-modal-body">
             <div class="input">
                 <label for="">Clearance Progress:</label>
-                <select name="" id="">
-                    <option value="">2020-2021 - 1st Semester</option>
-                    <option value="">2022-2023 - 2nd Semester</option>
-                </select>
+                <select name="clearance_progress_id" id="clearance_progress_id">
+                                    <option default>Select School Year And Sem</option>
+                                    <?php $school_year = $db->result('clearance_progress_view', 'status = "Active"'); ?>
+                                    <?php foreach ($school_year as $year) : ?>
+                                        <?php if ($year->clearance_progress_id == $clearance_progress_id) : ?>
+                                            <option value="<?= $year->clearance_progress_id; ?>"><?= $year->school_year_and_sem . " " . $year->sem_name; ?></option>
+                                        <?php else : ?>
+                                            <option value="<?= $year->clearance_progress_id; ?>"><?= $year->school_year_and_sem . " " . $year->sem_name; ?></option>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </select>
             </div>
             <div class="input">
                 <label for="">Clearance Type:</label>
-                <select name="" id="">
-                    <option value="" default>Select Clearance Type</option>
-                    <option value="">Graduating</option>
-                    <option value="">Continuing</option>
-                </select>
+                <select name="clearance_type_id" id="clearance_type_id">
+                                    <option default>Select Clearance Type</option>
+                                    <?php $clearances = $db->result('clearance_type'); ?>
+                                    <?php foreach ($clearances as $clearance) : ?>
+                                        <?php if ($clearance->clearance_type_id == $clearance_type_id) : ?>
+                                            <option value="<?= $clearance->clearance_type_id; ?>"><?= $clearance->clearance_type_name; ?></option>
+                                        <?php else : ?>
+                                            <option value="<?= $clearance->clearance_type_id; ?>"><?= $clearance->clearance_type_name; ?></option>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </select>
             </div>
-            <button type="submit" class="create-clearance">Create</button>
+            <button type="submit" class="create-clearance" id="bulk-clearance">Create</button>
         </form>
     </div>
     <div id="overlay"></div>
@@ -444,10 +457,43 @@
                     });
                 }
             });
-            $("#create-clearance").click(() => {
+    
+            $(document).on("click", '#bulk-clearance', function(){
+                let clearance_progress_id =    $("#clearance_progress_id").val();
+                let clearance_type_id = $("#clearance_type_id").val();
                 let rows_selected = table.column(0).checkboxes.selected();
-                
+
+                // console.log(rows_selected);
+                // return
+
+                let list_student_id = [];
+                // let list_inputs = $('.row')
+
+                rows_selected.map((elem) => {
+                    // console.log($(elem).children("input").prop("student_id"));
+                    list_student_id.push($(elem).children("input").attr("student_id"))
+                    
+                })
+
+                // console.log(list_student_id);
+                // return
+                $.ajax({
+                    url: "clearance_bulk.php",
+                    method: "POST",
+                    data: {
+                        list_student_id:list_student_id,
+                        clearance_progress_id:clearance_progress_id,
+                        clearance_type_id:clearance_type_id,
+                        clearance_status: '1'
+                    },
+                    success: (response) =>{
+                        $("#checkAll").prop("checked",false);
+                        $('#example').DataTable().ajax.reload();
+                        table.columns().checkboxes.deselect(true);
+                    }
+                })
             });
+
             $(document).on("click", '#active', function(){
                 let rows_selected = table.column(0).checkboxes.selected();
 
@@ -455,7 +501,7 @@
                 // return
 
                 let list_student_id = [];
-                let list_inputs = $('.row')
+                // let list_inputs = $('.row')
 
                 rows_selected.map((elem) => {
                     // console.log($(elem).children("input").prop("student_id"));
