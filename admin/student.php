@@ -90,6 +90,7 @@
                                         <th>Middle Name</th>
                                         <th>Last Name</th>
                                         <th>Year Level</th>
+                                        <th>Department</th>
                                         <th>Course</th>
                                         <th>Username</th>
                                         <th>Status</th>
@@ -107,6 +108,7 @@
                                         <th>Middle Name</th>
                                         <th>Last Name</th>
                                         <th>Year Level</th>
+                                        <th>Department</th>
                                         <th>Course</th>
                                         <th>Username</th>
                                         <th>Status</th>
@@ -393,7 +395,7 @@
                     {
                         'targets': 0,
                         'checkboxes': {
-                        'selectRow': true
+                            'selectRow': true
                         }
                     },
                 ],
@@ -401,73 +403,37 @@
                     'style': 'multi'
                 },
                 'order': [[1, 'asc']],
-                lengthMenu: [2, 5, 10, 20, 50, 100, 200, 500],
+                lengthMenu: [20, 50, 100, 200, 500],
                 processing: true,
                 serverSide: true,
                 ajax: 'server_processing.php',
-                drawCallback:  () => {
-                    $('.delete').on('click',function(){
-                        let student_id = $(this).attr('data-id');
-                        Swal.fire({
-                            title: 'Are you sure?',
-                            text: "You won't be able to revert this!",
-                            icon: 'warning',
-                            showCancelButton: true,
-                            confirmButtonColor: '#3085d6',
-                            cancelButtonColor: '#d33',
-                            confirmButtonText: 'Yes, delete it!'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                $.ajax({
-                                    type: 'post',
-                                    url: 'deleteinfo.php',
-                                    data: {student_id:student_id},
-                                    success: function(response){
-                                        if(response === "Deleted"){
-                                            Swal.fire(
-                                                'Deleted!',
-                                                'Your file has been deleted.',
-                                                'success'
-                                            )
-                                        }else{
-                                            Swal.fire(
-                                                'Error',
-                                                'Error deleting data.',
-                                                'error'
-                                            )
-                                        }
-                                        
-                                        setTimeout(() => { 
-                                            location.reload(true);
-                                        }, 1000);
-                                    } 
-                                })
-                            }
-                        })
-                    })
-                },
-                // column searching
                 initComplete: function () {
-                    this.api()
-                        .columns()
-                        .every(function () {
-                            var column = this;
-                            var select = $('<select><option value=""></option></select>')
-                                .appendTo($(column.footer()).empty())
-                                .on('change', function () {
-                                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
-        
-                                    column.search(val ? '^' + val + '$' : '', true, false).draw();
-                                });
-        
-                            column
-                                .data()
-                                .unique()
-                                .sort()
-                                .each(function (d, j) {
-                                    select.append('<option value="' + d + '">' + d + '</option>');
-                                });
-                        });
+                    this.api().columns().every(function () {
+                        var column = this;
+                        var select = $('<select><option value=""></option></select>')
+                            .appendTo($(column.footer()).empty())
+                            .on('change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
+
+                                column
+                                    .search(val , true, false)
+                                    .draw();
+
+                                console.log(column.search());
+                            });
+
+                        column
+                            .data()
+                            .unique()
+                            .sort()
+                            .each(function (d, j) {
+                                select.append(
+                                    '<option value="' + d + '">' + d + '</option>'
+                                );
+                            });
+                    });
                 }
             });
         });
@@ -534,6 +500,51 @@
         
 
 
+
+
+
+        // delete datatable
+        // drawCallback: function () {
+        //             $('.delete').on('click',function(){
+        //                 let student_id = $(this).attr('data-id');
+        //                 Swal.fire({
+        //                     title: 'Are you sure?',
+        //                     text: "You won't be able to revert this!",
+        //                     icon: 'warning',
+        //                     showCancelButton: true,
+        //                     confirmButtonColor: '#3085d6',
+        //                     cancelButtonColor: '#d33',
+        //                     confirmButtonText: 'Yes, delete it!'
+        //                 }).then((result) => {
+        //                     if (result.isConfirmed) {
+        //                         $.ajax({
+        //                             type: 'post',
+        //                             url: 'deleteinfo.php',
+        //                             data: {student_id:student_id},
+        //                             success: function(response){
+        //                                 if(response === "Deleted"){
+        //                                     Swal.fire(
+        //                                         'Deleted!',
+        //                                         'Your file has been deleted.',
+        //                                         'success'
+        //                                     )
+        //                                 }else{
+        //                                     Swal.fire(
+        //                                         'Error',
+        //                                         'Error deleting data.',
+        //                                         'error'
+        //                                     )
+        //                                 }
+                                        
+        //                                 setTimeout(() => { 
+        //                                     location.reload(true);
+        //                                 }, 1000);
+        //                             } 
+        //                         })
+        //                     }
+        //                 })
+        //             })
+        //         },
     </script>
 </body>
 </html>

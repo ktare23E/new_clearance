@@ -66,7 +66,6 @@ try {
         }
     })
 
-    console.log(localStorage);
 }catch(error) {
     console.log(error);
 }

@@ -29,9 +29,10 @@ $columns = array(
     array( 'db' => 'student_middle_name',  'dt' => 3 ),
     array( 'db' => 'student_last_name',   'dt' => 4 ),
     array( 'db' => 'student_year',     'dt' => 5 ),
-    array( 'db' => 'course_name',     'dt' => 6 ),
-    array('db' => 'student_id', 'dt' => 7 ),
-    array( 'db' => 'student_status',     'dt' => 8 ),
+    array( 'db' => 'office_name',     'dt' => 6 ),
+    array( 'db' => 'course_name',     'dt' => 7 ),
+    array('db' => 'student_id', 'dt' => 8 ),
+    array( 'db' => 'student_status',     'dt' => 9 ),
 );
 // SQL server connection information
 $sql_details = array(
@@ -40,6 +41,7 @@ $sql_details = array(
     'db'   => 'clearance',
     'host' => 'localhost'
 );
+
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * If you just want to use the basic configuration for DataTables with PHP
@@ -63,5 +65,6 @@ foreach($data['data'] as $i => $entry){
         </td>");
     $data['data'][$i] = $new_entry;
 }
+
 
 echo json_encode($data);

@@ -21,7 +21,7 @@ require ('../dbconnect.php');
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="../assets/css//sweetalert2.min.css">
-    <script src="../assets/js//jquery.js"></script>
+    <script src="../assets/js/jquery.js"></script>
     <script src="../assets/js//sweetalert2.all.min.js"></script>
     <script defer src="../assets/js/active.js"></script>
 
