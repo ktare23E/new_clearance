@@ -2117,7 +2117,7 @@ button {
     border: 1px solid black;
     border-radius: 10px;
     z-index: 300;
-    background-color: white;
+    background-color: var(--color-background);
     width: 800px;
     max-width: 80%;
 }
@@ -2148,6 +2148,7 @@ button {
     background: none;
     font-size: 1.25rem;
     font-weight: bold;
+    color: var(--color-dark);
 }
 
 .modal-body {
@@ -2159,7 +2160,21 @@ button {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    
 }
+
+.requirements-modal-body .input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.requirements-modal-body .input
+select {
+    padding: 10px;
+    cursor: pointer;
+}
+
 
 #overlay {
     position: fixed;
@@ -2180,12 +2195,13 @@ button {
 }
 
 
-.download-csv {
+.create-clearance {
     background: rgb(17, 134, 17);
     color: white !important;
     padding: 8px 15px;
     border-radius: 3px;
     transition: all 200ms ease;
+    align-self: flex-end;
 }
 
 

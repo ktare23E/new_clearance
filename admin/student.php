@@ -54,7 +54,7 @@
                                     <button id="add-new-student"><span class="material-symbols-sharp">add</span>Student</button>
                                 </a>
                             </div>
-                            <button class="download-csv" data-modal-target="#csv-download-modal">Download CSV</button>
+                            <button class="download-csv" data-modal-target="#create-clearance">Create Clearance</button>
 
                             <button id="register-csv-file-btn"><span class="material-symbols-sharp">upload_file</span>Register Via .csv file<span class="material-symbols-sharp">arrow_forward_ios</span></button>
                             <div>
@@ -137,21 +137,31 @@
 
     </div>
 
-    <div class="modal" id="csv-download-modal" style="width: 1500px;">
+    <div class="modal active" id="create-clearance" style="width: 350px;">
         <div class="modal-header">
-            <div class="title">CSV Format Guide and Download File</div>
+            <div class="title">Create New Clearance</div>
             <button data-close-button class="close-button">&times;</button>
         </div>
-        <div class="requirements-modal-body">
-            <div>
-                <h3 style="margin-bottom: 5px;">Guide for inputting student details</h3>
-                <img src="../images/student_guide.png" alt="">
+        <form class="requirements-modal-body">
+            <div class="input">
+                <label for="">Clearance Progress:</label>
+                <select name="" id="">
+                    <option value="">2020-2021 - 1st Semester</option>
+                    <option value="">2022-2023 - 2nd Semester</option>
+                </select>
             </div>
-            
-            <a style="align-self: flex-end;" class="download-csv" href="../csv/student_csv_format.csv" download="Student Details">Download CSV Format</a>
-        </div>
+            <div class="input">
+                <label for="">Clearance Type:</label>
+                <select name="" id="">
+                    <option value="" default>Select Clearance Type</option>
+                    <option value="">Graduating</option>
+                    <option value="">Continuing</option>
+                </select>
+            </div>
+            <button type="submit" class="create-clearance">Create</button>
+        </form>
     </div>
-    <div id="overlay"></div>
+    <div id="overlay" class="active"></div>
 
     <script src="../assets/js/cdn.js">
 
