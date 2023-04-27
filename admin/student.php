@@ -152,6 +152,10 @@
         </div>
     </div>
     <div id="overlay"></div>
+
+    <script src="../assets/js/cdn.js">
+
+    </script>
         
     <script>
         //jquery onclick event for update button
@@ -332,7 +336,7 @@
             })
 </script>
 
-        <script type="text/javascript">
+        <!-- <script type="text/javascript">
             $(document).ready(function(){
                 // Check/Uncheck ALl
                 $('#checkAll').change(function(){
@@ -355,15 +359,26 @@
                     }
                 });
             }); 
-        </script>
+        </script> -->
 
     <script>
             $(document).ready(function () {
             $('#example').DataTable({
                 "scrollX": true,
                 "columnDefs": [
-                    { "bSortable": false, "aTargets": [ 0 ] }
+                    // { "bSortable": false, "aTargets": [ 0 ] },
+                    {
+                        'targets': 0,
+                        'checkboxes': {
+                        'selectRow': true
+                        }
+                    },
                 ],
+                select: {
+                    'style': 'multi'
+                },
+                'order': [[1, 'asc']],
+                lengthMenu: [2, 5, 10, 20, 50, 100, 200, 500],
                 processing: true,
                 serverSide: true,
                 ajax: 'server_processing.php',
@@ -422,8 +437,9 @@
 
     <script>
         $(document).ready(function () {
-            $('#example').DataTable();
+        
         });
+
     </script>
 
 
