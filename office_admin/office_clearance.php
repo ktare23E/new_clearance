@@ -100,6 +100,7 @@
                                 <?php endforeach; ?>
                         </select>
                     </div> -->
+                <button class="create-requirements" data-modal-target="#create-requirements-modal">+ Requirements</button>
             </div>
 
             <div class="table-container" style="position:relative">
@@ -146,6 +147,36 @@
         </div>
     </div>
 </div>
+
+
+<div class="modal" id="create-requirements-modal" style="width: 350px;">
+    <div class="modal-header">
+        <div class="title">Create New Clearance</div>
+        <button data-close-button class="close-button">&times;</button>
+    </div>
+    <form class="requirements-modal-body">
+        <div class="input">
+            <label for="">Clearance Progress:</label>
+            <select name="clearance_progress_id" id="clearance_progress_id">
+                                <option default>Select School Year And Sem</option>
+                                <?php $school_year = $db->result('clearance_progress_view', 'status = "Active"'); ?>
+                                <?php foreach ($school_year as $year) : ?>
+                                    <?php if ($year->clearance_progress_id == $clearance_progress_id) : ?>
+                                        <option value="<?= $year->clearance_progress_id; ?>"><?= $year->school_year_and_sem . " " . $year->sem_name; ?></option>
+                                    <?php else : ?>
+                                        <option value="<?= $year->clearance_progress_id; ?>"><?= $year->school_year_and_sem . " " . $year->sem_name; ?></option>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </select>
+        </div>
+        <div class="input">
+            <label for="">Clearance Type:</label>
+            <textarea name="" id="" cols="30" rows="10" placeholder="Requiment Description"></textarea>
+        </div>
+        <button type="submit" class="create-clearance" id="bulk-clearance">Create</button>
+    </form>
+</div>
+<div id="overlay"></div>
 
 <script src="../assets/js/cdn.js"></script>
 
@@ -270,6 +301,51 @@
     $(document).ready(function() {
         $('#example').DataTable();
     });
+</script>
+
+<script>
+    try {
+        const openModalButtons = document.querySelectorAll('[data-modal-target]')
+        const closeModalButtons = document.querySelectorAll('[data-close-button]')
+        const overlay = document.getElementById('overlay')
+
+        openModalButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const modal = document.querySelector(button.dataset.modalTarget)
+            openModal(modal)
+            console.log(this);
+        })
+        })
+
+        overlay.addEventListener('click', () => {
+            const modals = document.querySelectorAll('.modal.active')
+            modals.forEach(modal => {
+                closeModal(modal)
+            })
+            console.log("overlay clicked");
+        })
+
+        closeModalButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const modal = button.closest('.modal')
+            closeModal(modal)
+        })
+        })
+
+        function openModal(modal) {
+        if (modal == null) return
+        modal.classList.add('active')
+        overlay.classList.add('active')
+        }
+
+        function closeModal(modal) {
+        if (modal == null) return
+        modal.classList.remove('active')
+        overlay.classList.remove('active')
+        }
+    } catch (error) {
+        console.log(error);
+    }
 </script>
 
 <script src="../assets/js/office_admin_index.js"></script>

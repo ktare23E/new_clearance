@@ -54,9 +54,9 @@
                                     <button id="add-new-student"><span class="material-symbols-sharp">add</span>Student</button>
                                 </a>
                             </div>
-                            <button class="download-csv" id="create-clearance" data-modal-target="#create-clearance-modal">Download CSV</button>
+                            <button class="download-csv" id="create-clearance" data-modal-target="#create-clearance-modal">Create Clearance</button>
 
-                            
+
                             <button id="register-csv-file-btn"><span class="material-symbols-sharp">upload_file</span>Register Via .csv file<span class="material-symbols-sharp">arrow_forward_ios</span></button>
                             <div>
                                 <div class="upload-student-csv-container">
