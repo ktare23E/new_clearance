@@ -99,6 +99,20 @@
                                 <tbody>
                                     
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th><input type="checkbox" id="checkAll"/></th>
+                                        <th>Student ID</th>
+                                        <th>First Name</th>
+                                        <th>Middle Name</th>
+                                        <th>Last Name</th>
+                                        <th>Year Level</th>
+                                        <th>Course</th>
+                                        <th>Username</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
 
@@ -372,7 +386,7 @@
         </script> -->
 
     <script>
-            $(document).ready(function () {
+        $(document).ready(function () {
             $('#example').DataTable({
                 "scrollX": true,
                 "columnDefs": [
@@ -433,6 +447,29 @@
                         })
                     })
                 },
+                // column searching
+                initComplete: function () {
+                    this.api()
+                        .columns()
+                        .every(function () {
+                            var column = this;
+                            var select = $('<select><option value=""></option></select>')
+                                .appendTo($(column.footer()).empty())
+                                .on('change', function () {
+                                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+        
+                                    column.search(val ? '^' + val + '$' : '', true, false).draw();
+                                });
+        
+                            column
+                                .data()
+                                .unique()
+                                .sort()
+                                .each(function (d, j) {
+                                    select.append('<option value="' + d + '">' + d + '</option>');
+                                });
+                        });
+                }
             });
         });
     </script>
