@@ -106,13 +106,7 @@
                 <table id="example" class="display" style="width:100%; ">
                     <thead>
                         <tr>
-                            <div class="contain-check">
-                                    <input type="checkbox" id="checkAll" style='
-                                        display:block;background-color:black; appearance:auto;
-                                    ' />
-                                </div>
                             <th>
-                                
                             </th>
                             <th>Clearance ID</th>
                             <th>School Year and Sem Id</th>
@@ -130,12 +124,30 @@
                     <tbody>
                         
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <th></th>
+                            <th>Clearance ID</th>
+                            <th>School Year and Sem Id</th>
+                            <th>Student ID</th>
+                            <th>Student First Name</th>
+                            <th>Student Last Name</th>
+                            <th>School Year</th>
+                            <th>Semester</th>
+                            <th>Clearance Type</th>
+                            <th>Clearance Status</th>
+                            <th>Semester Id</th>
+                            <th>Action</th>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
             
         </div>
     </div>
 </div>
+
+<script src="../assets/js/cdn.js"></script>
 
 <script>
     //jquery onclick event for update button
@@ -164,7 +176,7 @@
     });
 </script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $(document).ready(function() {
         // Check/Uncheck ALl
         $('#checkAll').change(function() {
@@ -187,15 +199,26 @@
             }
         });
     });
-</script>
+</script> -->
 
 <script>
     $(document).ready(function() {
         $('#example').DataTable({
+            select: {
+                    'style': 'multi'
+                },
+            'order': [[1, 'asc']],
+            lengthMenu: [5, 20, 50, 100, 200, 500],
             processing: true,
             serverSide: true,
             ajax: 'server_clearance.php',
-            columnDefs: [{
+            columnDefs: [
+                    {
+                        'targets': 0,
+                        'checkboxes': {
+                            'selectRow': true
+                        }
+                    },{
                     target: 1,
                     visible: false,
                     searchable: false,
@@ -214,7 +237,31 @@
                         return (data == 1 ? 'Cleared' : 'Not Cleared');
                     },
                 }
-            ]
+            ],
+            initComplete: function () {
+                this.api()
+                    .columns()
+                    .every(function () {
+                        var column = this;
+                        var select = $('<select><option value=""></option></select>')
+                            .appendTo($(column.footer()).empty())
+                            .on('change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
+    
+                                column
+                                    .search(val , true, false)
+                                    .draw();
+                            });
+    
+                        column
+                            .data()
+                            .unique()
+                            .sort()
+                            .each(function (d, j) {
+                                select.append('<option value="' + d + '">' + d + '</option>');
+                            });
+                    });
+            },
         });
     });
 </script>
