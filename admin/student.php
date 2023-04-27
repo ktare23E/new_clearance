@@ -54,7 +54,7 @@
                                     <button id="add-new-student"><span class="material-symbols-sharp">add</span>Student</button>
                                 </a>
                             </div>
-                            <button class="download-csv" id="create-clearance" data-modal-target="#create-clearance">Download CSV</button>
+                            <button class="download-csv" id="create-clearance" data-modal-target="#create-clearance-modal">Download CSV</button>
 
                             <button id="register-csv-file-btn"><span class="material-symbols-sharp">upload_file</span>Register Via .csv file<span class="material-symbols-sharp">arrow_forward_ios</span></button>
                             <div>
@@ -153,7 +153,7 @@
 
     </div>
 
-    <div class="modal" id="create-clearance" style="width: 350px;">
+    <div class="modal" id="create-clearance-modal" style="width: 350px;">
         <div class="modal-header">
             <div class="title">Create New Clearance</div>
             <button data-close-button class="close-button">&times;</button>
@@ -179,9 +179,7 @@
     </div>
     <div id="overlay"></div>
 
-    <script src="../assets/js/cdn.js">
-
-    </script>
+    <script src="../assets/js/cdn.js"></script>
         
     <!-- <script>
         //jquery onclick event for update button
@@ -646,14 +644,6 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- <script src="../assets/js/update.js"></script> -->
 
-    <script>
-        $(document).ready(function () {
-        
-        });
-
-    </script>
-
-
 
     <script>
         try {
@@ -665,14 +655,16 @@
             button.addEventListener('click', () => {
                 const modal = document.querySelector(button.dataset.modalTarget)
                 openModal(modal)
+                console.log(this);
             })
             })
 
             overlay.addEventListener('click', () => {
-            const modals = document.querySelectorAll('.modal.active')
-            modals.forEach(modal => {
-                closeModal(modal)
-            })
+                const modals = document.querySelectorAll('.modal.active')
+                modals.forEach(modal => {
+                    closeModal(modal)
+                })
+                console.log("overlay clicked");
             })
 
             closeModalButtons.forEach(button => {
