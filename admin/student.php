@@ -54,7 +54,7 @@
                                     <button id="add-new-student"><span class="material-symbols-sharp">add</span>Student</button>
                                 </a>
                             </div>
-                            <button class="download-csv" data-modal-target="#create-clearance">Download CSV</button>
+                            <button class="download-csv" id="create-clearance" data-modal-target="#create-clearance">Download CSV</button>
 
                             <button id="register-csv-file-btn"><span class="material-symbols-sharp">upload_file</span>Register Via .csv file<span class="material-symbols-sharp">arrow_forward_ios</span></button>
                             <div>
@@ -183,9 +183,10 @@
 
     </script>
         
-    <script>
+    <!-- <script>
         //jquery onclick event for update button
         $(document).on("click", '#active', function(){
+            let rows_selected = table.column(0).checkboxes.selected();
             let list_student_id = [];
             let list_inputs = $('.row')
             list_inputs.map((index,elem,arr) => {
@@ -213,6 +214,7 @@
         <script>
             //jquery onclick event for update button
             $(document).on("click", '#inactive', function(){
+                let rows_selected = table.column(0).checkboxes.selected();
                 let list_student_id = [];
                 let list_inputs = $('.row')
                 list_inputs.map((index,elem,arr) => {
@@ -243,6 +245,7 @@
 <script>
         //jquery onclick event for update button
         $(document).on("click", '#1st_year', function(){
+            let rows_selected = table.column(0).checkboxes.selected();
             let list_student_id = [];
             let list_inputs = $('.row')
             list_inputs.map((index,elem,arr) => {
@@ -265,11 +268,12 @@
                 }
             })
         });
-    </script>
+    </script> -->
 
-<script>
+<!-- <script>
         //jquery onclick event for update button
         $(document).on("click", '#2nd_year', function(){
+            let rows_selected = table.column(0).checkboxes.selected();
             let list_student_id = [];
             let list_inputs = $('.row')
             list_inputs.map((index,elem,arr) => {
@@ -292,11 +296,12 @@
                 }
             })
         });
-    </script>
+    </script> -->
 
-<script>
+<!-- <script>
         //jquery onclick event for update button
         $(document).on("click", '#3rd_year', function(){
+            let rows_selected = table.column(0).checkboxes.selected();
             let list_student_id = [];
             let list_inputs = $('.row')
             list_inputs.map((index,elem,arr) => {
@@ -319,33 +324,37 @@
                 }
             })
         });
-    </script>
+    </script> -->
 
 <script>
         //jquery onclick event for update button
-        $(document).on("click", '#4th_year', function(){
-            let list_student_id = [];
-            let list_inputs = $('.row')
-            list_inputs.map((index,elem,arr) => {
-                let is_check = $(elem).prop("checked")
-                if(is_check == true ){
-                    list_student_id.push($(elem).attr("student_id"))
-                }
-            });
-            console.log(list_student_id);
-            $.ajax({
-                url: "student_2nd.php",
-                method: "POST",
-                data: {
-                    list_student_id:list_student_id,
-                    student_year:'4th Year'
-                },
-                success: (response) =>{
-                    $("#checkAll").prop("checked",false);
-                    $('#example').DataTable().ajax.reload();
-                }
-            })
-        });
+        // $(document).on("click", '#4th_year', function(){
+        //     let rows_selected = table.column(0).checkboxes.selected();
+
+        //     console.log(rows_selected);
+        //     return
+        //     let list_student_id = [];
+        //     let list_inputs = $('.row')
+        //     list_inputs.map((index,elem,arr) => {
+        //         let is_check = $(elem).prop("checked")
+        //         if(is_check == true ){
+        //             list_student_id.push($(elem).attr("student_id"))
+        //         }
+        //     });
+        //     console.log(list_student_id);
+        //     $.ajax({
+        //         url: "student_2nd.php",
+        //         method: "POST",
+        //         data: {
+        //             list_student_id:list_student_id,
+        //             student_year:'4th Year'
+        //         },
+        //         success: (response) =>{
+        //             $("#checkAll").prop("checked",false);
+        //             $('#example').DataTable().ajax.reload();
+        //         }
+        //     })
+        // });
     </script>
 
 <script>
@@ -389,7 +398,7 @@
 
     <script>
         $(document).ready(function () {
-            $('#example').DataTable({
+            var table =  $('#example').DataTable({
                 "columnDefs": [
                     // { "bSortable": false, "aTargets": [ 0 ] },
                     {
@@ -436,6 +445,196 @@
                     });
                 }
             });
+            $("#create-clearance").click(() => {
+                let rows_selected = table.column(0).checkboxes.selected();
+                
+            });
+            $(document).on("click", '#active', function(){
+                let rows_selected = table.column(0).checkboxes.selected();
+
+                // console.log(rows_selected);
+                // return
+
+                let list_student_id = [];
+                let list_inputs = $('.row')
+
+                rows_selected.map((elem) => {
+                    // console.log($(elem).children("input").prop("student_id"));
+                    list_student_id.push($(elem).children("input").attr("student_id"))
+                    
+                })
+
+                // console.log(list_student_id);
+                // return
+                $.ajax({
+                    url: "student_update_status.php",
+                    method: "POST",
+                    data: {
+                        list_student_id:list_student_id,
+                        status:'Active'
+                    },
+                    success: (response) =>{
+                        $("#checkAll").prop("checked",false);
+                        $('#example').DataTable().ajax.reload();
+                        table.columns().checkboxes.deselect(true);
+                    }
+                })
+            });
+            $(document).on("click", '#inactive', function(){
+                let rows_selected = table.column(0).checkboxes.selected();
+
+                // console.log(rows_selected);
+                // return
+
+                let list_student_id = [];
+                let list_inputs = $('.row')
+
+                rows_selected.map((elem) => {
+                    // console.log($(elem).children("input").prop("student_id"));
+                    list_student_id.push($(elem).children("input").attr("student_id"))
+                    
+                })
+
+                // console.log(list_student_id);
+                // return
+                $.ajax({
+                    url: "student_inactive_status.php",
+                    method: "POST",
+                    data: {
+                        list_student_id:list_student_id,
+                        status:'Inactive'
+                    },
+                    success: (response) =>{
+                        $("#checkAll").prop("checked",false);
+                        $('#example').DataTable().ajax.reload();
+                        table.columns().checkboxes.deselect(true);
+                    }
+                })
+            });
+            $(document).on("click", '#1st_year', function(){
+            let rows_selected = table.column(0).checkboxes.selected();
+
+            // console.log(rows_selected);
+            // return
+
+            let list_student_id = [];
+            let list_inputs = $('.row')
+            
+            rows_selected.map((elem) => {
+                // console.log($(elem).children("input").prop("student_id"));
+                list_student_id.push($(elem).children("input").attr("student_id"))
+                
+            })
+
+            // console.log(list_student_id);
+            // return
+            $.ajax({
+                url: "student_2nd.php",
+                method: "POST",
+                data: {
+                    list_student_id:list_student_id,
+                    student_year:'1st Year'
+                },
+                success: (response) =>{
+                    $("#checkAll").prop("checked",false);
+                    $('#example').DataTable().ajax.reload();
+                    table.columns().checkboxes.deselect(true);
+                }
+            })
+        });
+            $(document).on("click", '#2nd_year', function(){
+            let rows_selected = table.column(0).checkboxes.selected();
+
+            // console.log(rows_selected);
+            // return
+
+            let list_student_id = [];
+            let list_inputs = $('.row')
+            
+            rows_selected.map((elem) => {
+                // console.log($(elem).children("input").prop("student_id"));
+                list_student_id.push($(elem).children("input").attr("student_id"))
+                
+            })
+
+            // console.log(list_student_id);
+            // return
+            $.ajax({
+                url: "student_2nd.php",
+                method: "POST",
+                data: {
+                    list_student_id:list_student_id,
+                    student_year:'2nd Year'
+                },
+                success: (response) =>{
+                    $("#checkAll").prop("checked",false);
+                    $('#example').DataTable().ajax.reload();
+                    table.columns().checkboxes.deselect(true);
+                }
+            })
+        });
+            $(document).on("click", '#3rd_year', function(){
+            let rows_selected = table.column(0).checkboxes.selected();
+
+            // console.log(rows_selected);
+            // return
+
+            let list_student_id = [];
+            let list_inputs = $('.row')
+            
+            rows_selected.map((elem) => {
+                // console.log($(elem).children("input").prop("student_id"));
+                list_student_id.push($(elem).children("input").attr("student_id"))
+                
+            })
+
+            // console.log(list_student_id);
+            // return
+            $.ajax({
+                url: "student_2nd.php",
+                method: "POST",
+                data: {
+                    list_student_id:list_student_id,
+                    student_year:'3rd Year'
+                },
+                success: (response) =>{
+                    $("#checkAll").prop("checked",false);
+                    $('#example').DataTable().ajax.reload();
+                    table.columns().checkboxes.deselect(true);
+                }
+            })
+        });
+            $(document).on("click", '#4th_year', function(){
+            let rows_selected = table.column(0).checkboxes.selected();
+
+            // console.log(rows_selected);
+            // return
+
+            let list_student_id = [];
+            let list_inputs = $('.row')
+            
+            rows_selected.map((elem) => {
+                // console.log($(elem).children("input").prop("student_id"));
+                list_student_id.push($(elem).children("input").attr("student_id"))
+                
+            })
+
+            // console.log(list_student_id);
+            // return
+            $.ajax({
+                url: "student_2nd.php",
+                method: "POST",
+                data: {
+                    list_student_id:list_student_id,
+                    student_year:'4th Year'
+                },
+                success: (response) =>{
+                    $("#checkAll").prop("checked",false);
+                    $('#example').DataTable().ajax.reload();
+                    table.columns().checkboxes.deselect(true);
+                }
+            })
+        });
         });
     </script>
     
