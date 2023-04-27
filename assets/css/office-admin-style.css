@@ -1409,3 +1409,9 @@ button {
     transition: all 200ms ease;
     width: 100%;
 }
+
+table.dataTable tfoot tr th select {
+    appearance: auto;
+    border: 1px solid rgb(118, 118, 118);
+    
+} 
