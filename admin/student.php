@@ -151,7 +151,7 @@
 
     </div>
 
-    <div class="modal active" id="create-clearance" style="width: 350px;">
+    <div class="modal" id="create-clearance" style="width: 350px;">
         <div class="modal-header">
             <div class="title">Create New Clearance</div>
             <button data-close-button class="close-button">&times;</button>
@@ -175,7 +175,7 @@
             <button type="submit" class="create-clearance">Create</button>
         </form>
     </div>
-    <div id="overlay" class="active"></div>
+    <div id="overlay"></div>
 
     <script src="../assets/js/cdn.js">
 
@@ -388,7 +388,6 @@
     <script>
         $(document).ready(function () {
             $('#example').DataTable({
-                "scrollX": true,
                 "columnDefs": [
                     // { "bSortable": false, "aTargets": [ 0 ] },
                     {
