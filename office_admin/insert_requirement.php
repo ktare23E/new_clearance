@@ -97,9 +97,9 @@ if(isset($_POST['submit'])){
     
     // Update the clearance_status field in the clearance table
     $updateQuery = "UPDATE clearance SET clearance_status = '".$clearance_status."' WHERE clearance_id = ".$row['clearance_id'];
-    // mysqli_query($conn, $updateQuery);
+    mysqli_query($conn, $updateQuery);
 
-    echo $updateQuery;
+    // echo $updateQuery;
     
     // Insert a new requirement into the requirement table
     $insertQuery = "INSERT INTO requirement (signing_office_id, clearance_progress_id, clearance_type_id, student_id, requirement_details)

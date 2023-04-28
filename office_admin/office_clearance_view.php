@@ -17,6 +17,8 @@
         $sql = "SELECT * FROM view_clearance WHERE clearance_type_id = '$clearance_type_id' AND clearance_progress_id = '$clearance_progress_id' AND student_id = '$student_id'";
         $students = $conn->query($sql) or die($conn->error);
         $row = $students->fetch_assoc();
+
+        $status = $row['status'];
     }
 
     $signing_office_id = null;
@@ -121,7 +123,9 @@
                                                 <input type="hidden" name="clearance_progress_id" value="<?= $user->clearance_progress_id; ?>">
                                                 <input type="hidden" name="student_id" value="<?= $user->student_id; ?>">
                                                 <input type="hidden" name="clearance_id" value="<?= $row['clearance_id']; ?>">
-                                                <button type="submit" name="approve" class="view-link" value="Get Current Date">Approve</button>
+                                                <?php if($status == "Inactive") :?>
+                                                    <button type="submit" name="approve" class="view-link" value="Get Current Date">Approve</button>
+                                                <?php endif; ?>
                                             </form>
                                         <?php endif; ?>
                                         </td>

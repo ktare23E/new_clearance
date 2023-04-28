@@ -248,7 +248,7 @@ a.active {
 
 .main-requirements-container .first-main-content-container {
     display: grid;
-    grid-template-columns: 5fr 6fr;
+    grid-template-columns: 1fr;
     gap: 10px;
 }
 
@@ -597,8 +597,8 @@ button span {
 
 
 .office-main-container {
-    width: 100%;
-    max-width: 1500px;
+    width: 96%;
+    
     display: flex;
     flex-direction: column;
     gap: 10px;

@@ -42,6 +42,9 @@ if (isset($_POST['submit'])) {
 
         $num_of_cleared = 0;
         $number_not_cleared = 0;
+}else{
+    echo "<a href='office_reports.php'>Back</a>";
+    echo "Please select a school year and semester";
 }
 
 ?>

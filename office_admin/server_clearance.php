@@ -25,15 +25,18 @@ $primaryKey = 'clearance_id';
 // indexes
 $columns = array(
     array( 'db' => 'clearance_type_id', 'dt' => 1 ),
-    array('db' => 'clearance_progress_id', 'dt' =>2),
+    array('db' => 'clearance_progress_id', 'dt' => 2 ),
     array( 'db' => 'student_id', 'dt' => 3 ),
     array( 'db' => 'student_first_name',  'dt' => 4 ),
     array( 'db' => 'student_last_name',   'dt' => 5 ),
-    array( 'db' => 'school_year_and_sem',     'dt' => 6 ),
-    array('db' => 'sem_name', 'dt' => 7),
-    array('db' => 'clearance_type_name', 'dt' => 8),
-    array( 'db' => 'clearance_status',     'dt' => 9 ),
-    array( 'db' => 'sem_id',     'dt' => 10 ),
+    array( 'db' => 'student_year',   'dt' => 6 ),
+    array( 'db' => 'office_name',   'dt' => 7 ),
+    array( 'db' => 'course_name',   'dt' => 8 ),
+    array( 'db' => 'school_year_and_sem',     'dt' => 9 ),
+    array('db' => 'sem_name', 'dt' => 10),
+    array('db' => 'clearance_type_name', 'dt' => 11),
+    array( 'db' => 'clearance_status',     'dt' => 12 ),
+    array( 'db' => 'sem_id',     'dt' => 13 ),
 );
 // SQL server connection information
 $sql_details = array(
@@ -74,13 +77,12 @@ if($is_department == 0){
 // die();
 foreach($data['data'] as $i => $entry){
     $new_entry = array();
-    array_push($new_entry, "<td><input name='update[]' type='checkbox'></td>");
+    array_push($new_entry, "<td><input name='update[]' class='row' student_id = '$entry[3]' type='checkbox'></td>");
 
     foreach($entry as $j => $value){
         array_push($new_entry, $value);
     }
     array_push($new_entry, "<td class='primary table-action-container'>
-    <a class='update-link' href='create_requirements.php?clearance_type_id=".$entry[1]."&clearance_progress_id=".$entry[2]."&student_id=".$entry[3]."'>Create Requirements</a>
     <a class='view-link' href='office_clearance_view.php?clearance_type_id=".$entry[1]."&clearance_progress_id=".$entry[2]."&student_id=".$entry[3]."'>View Details</a>
         <input type='hidden' name='student_id' value='".$entry[1]."'> 
     </td>");

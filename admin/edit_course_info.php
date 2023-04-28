@@ -97,7 +97,7 @@
                         </div>
                         <div class="input-field-container">
                             <div class="input-field">
-                                <label for="">Department Description</label>
+                                
                                 <textarea style="border-style: 1px solid;" name="course_description" id="" rows="4" cols="50"><?= $course_description?></textarea>
                             </div>
                             <div class="input-field">

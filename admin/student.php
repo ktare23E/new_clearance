@@ -159,7 +159,7 @@
             <div class="title">Create New Clearance</div>
             <button data-close-button class="close-button">&times;</button>
         </div>
-        <form class="requirements-modal-body">
+        <div class="requirements-modal-body">
             <div class="input">
                 <label for="">Clearance Progress:</label>
                 <select name="clearance_progress_id" id="clearance_progress_id">
@@ -188,8 +188,8 @@
                                     <?php endforeach; ?>
                                 </select>
             </div>
-            <button type="submit" class="create-clearance" id="bulk-clearance">Create</button>
-        </form>
+            <button class="create-clearance" id="bulk-clearance">Create Clearance</button>
+        </div>
     </div>
     <div id="overlay"></div>
 
@@ -490,8 +490,11 @@
                         $("#checkAll").prop("checked",false);
                         $('#example').DataTable().ajax.reload();
                         table.columns().checkboxes.deselect(true);
+                        
                     }
                 })
+
+                location.reload();
             });
 
             $(document).on("click", '#active', function(){

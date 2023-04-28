@@ -33,7 +33,16 @@ function sendEmail($email,$subject,$message) {
     
             //Recipients
             $mail->setFrom('kristiankharl.tare@nmsc.edu.ph', 'Online Clearance System');
-            $mail->addAddress($email, 'Admin');     //Add a recipient
+
+            if(is_array($email)){
+                foreach($email as $e){
+                    $mail->addAddress($e, 'Admin');     //Add a recipient
+                }
+
+            }else{
+                $mail->addAddress($email, 'Admin');     //Add a recipient
+            }
+            // $mail->addAddress($email, 'Admin');     //Add a recipient
             // $mail->addAddress('tare.kristian@gmail.ph');               //Name is optional
             // $mail->addReplyTo('tare.kristian@gmail.ph', 'Information');
             // $mail->addCC('tare.kristian@gmail.ph');

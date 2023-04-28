@@ -11,6 +11,7 @@
     $clearance_status = $_POST['clearance_status'];
     $current_date = date('Y-m-d');
 
+    $emails  = array();
 
     foreach($list_student_id as $i => $student_id){
 
@@ -57,15 +58,12 @@
         $clearance = strtolower($clearance_type_name);
 
 
-
-        sendEmail($student_email,"Online Clearance System","Your clearance for $school_year_and_sem $sem_name is now created please view your account to see the requirements of each signing offices.");
-
-
-        if ($db->affected_rows >= 0) {
-            header("location: clearance.php");
-        } else {
-            echo 'Error inserting user account.';
-        }
+        array_push($emails,$student_email);
+        
         
     }
+
+    sendEmail($emails,"Online Clearance System","Your clearance for $school_year_and_sem $sem_name is now created please view your account to see the requirements of each signing offices.");
+
+
 ?>

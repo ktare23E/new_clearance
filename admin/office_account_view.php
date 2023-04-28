@@ -57,7 +57,7 @@
                             </button>
                         </a>
                         <div class="student-view-profile-img-container">
-                            <img src="../images/dp.png" alt="">
+                            <img src="../images/default.png" alt="">
                         </div>
                         <div style="display:flex; flex-direction:row;align-items:center;gap:10px;margin-top:30px">
                             <button onclick="location.href = 'edit_office_account_info.php?edit=<?= $row['admin_id'];?>';" class="edit-profile-button" id="edit-profile-button">

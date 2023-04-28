@@ -107,13 +107,15 @@
                 <table id="example" class="display" style="width:100%; ">
                     <thead>
                         <tr>
-                            <th>
-                            </th>
+                            <th><input type="checkbox" id="checkAll"/></th>
                             <th>Clearance ID</th>
                             <th>School Year and Sem Id</th>
                             <th>Student ID</th>
                             <th>Student First Name</th>
                             <th>Student Last Name</th>
+                            <th>Year Level</th>
+                            <th>Office Name</th>
+                            <th>Course</th>
                             <th>School Year</th>
                             <th>Semester</th>
                             <th>Clearance Type</th>
@@ -127,12 +129,15 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th></th>
+                            <th><input type="checkbox" id="checkAll"/></th>
                             <th>Clearance ID</th>
                             <th>School Year and Sem Id</th>
                             <th>Student ID</th>
                             <th>Student First Name</th>
                             <th>Student Last Name</th>
+                            <th>Year Level</th>
+                            <th>Office Name</th>
+                            <th>Course</th>
                             <th>School Year</th>
                             <th>Semester</th>
                             <th>Clearance Type</th>
@@ -154,7 +159,7 @@
         <div class="title">Create New Clearance</div>
         <button data-close-button class="close-button">&times;</button>
     </div>
-    <form class="requirements-modal-body">
+    
         <div class="input">
             <label for="">Clearance Progress:</label>
             <select name="clearance_progress_id" id="clearance_progress_id">
@@ -171,10 +176,10 @@
         </div>
         <div class="input">
             <label for="">Clearance Type:</label>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Requiment Description"></textarea>
+            <textarea name="" id="requirement_details" cols="30" rows="10" placeholder="Requirement Description"></textarea>
         </div>
-        <button type="submit" class="create-clearance" id="bulk-clearance">Create</button>
-    </form>
+        <button type="submit" class="create-clearance" id="bulk-requirement">Create</button>
+
 </div>
 <div id="overlay"></div>
 
@@ -234,7 +239,7 @@
 
 <script>
     $(document).ready(function() {
-        $('#example').DataTable({
+        var table = $('#example').DataTable({
             select: {
                     'style': 'multi'
                 },
@@ -259,16 +264,17 @@
                     visible: false,
                 },
                 {
-                    target: 10,
+                    target: 13,
                     visible: false,
                 },
                 {
-                    target: 9,
+                    target: 12,
                     render: function(data, type, row) {
                         return (data == 1 ? 'Cleared' : 'Not Cleared');
                     },
                 }
             ],
+            
             initComplete: function () {
                 this.api()
                     .columns()
@@ -294,14 +300,45 @@
                     });
             },
         });
+        $(document).on("click", '#bulk-requirement', function(){
+                let clearance_progress_id =    $("#clearance_progress_id").val();
+                let requirement_details = $("#requirement_details").val();
+                let rows_selected = table.column(0).checkboxes.selected();
+
+                // console.log(rows_selected);
+                // return
+
+                let list_student_id = [];
+                // let list_inputs = $('.row')
+
+                rows_selected.map((elem) => {
+                    // console.log($(elem).children("input").prop("student_id"));
+                    list_student_id.push($(elem).children("input").attr("student_id"))
+                    
+                })
+
+                // console.log(list_student_id);
+                // return
+                $.ajax({
+                    url: "requirement_bulk.php",
+                    method: "POST",
+                    data: {
+                        list_student_id:list_student_id,
+                        clearance_progress_id:clearance_progress_id,
+                        requirement_details:requirement_details,
+                        clearance_status: '0'
+                    },
+                    success: (response) =>{
+                        $("#checkAll").prop("checked",false);
+                        $('#example').DataTable().ajax.reload();
+                        table.columns().checkboxes.deselect(true);
+                    }
+                })
+            });
     });
 </script>
 
-<script>
-    $(document).ready(function() {
-        $('#example').DataTable();
-    });
-</script>
+
 
 <script>
     try {

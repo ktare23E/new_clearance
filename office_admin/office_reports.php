@@ -57,7 +57,7 @@ $office_id = $_SESSION['office_id'];
                         <div class="report-form-container">
                                 <label for="">Select School Year And Sem</label>
                                 <select name="clearance_progress_id" id="" required>
-                                        <option default>Select School Year And Sem</option>
+                                        <option>Select School Year And Sem</option>
                                         <?php $clearances = $db->result('clearance_progress_view'); ?>
                                         <?php foreach ($clearances as $clearance) : ?>
                                                 <?php $clearance->clearance_progress_id; ?>
@@ -65,6 +65,41 @@ $office_id = $_SESSION['office_id'];
                                         <?php endforeach; ?>
                                 </select>
                                 <!-- <input type="hidden" name="office_id" value="<?= $office_id; ?>"> -->
+                        </div>
+                        <div class="report-form-container">
+                                <select name="student_year" id="year-level-option">
+                                        <option value="0" >Year Level</option>
+                                        <option value="1st Year">1st Year</option>
+                                        <option value="2nd Year">2nd Year</option>
+                                        <option value="3rd Year">3rd Year</option>
+                                        <option value="4th Year">4th Year</option>
+                                </select>   
+                        </div>
+                        <div class="report-form-container">
+                                <select name="course_id" id="">
+                                        <option default="Select Course">Select Course</option>
+                                        <?php $courses = $db->result('course');?>
+                                        <?php foreach($courses as $course):?>
+                                        <?php if($course->course_id == $course_id):?> 
+                                        <option value="<?= $course->course_id; ?>"><?= $course->course_name; ?></option>
+                                        <?php else:?>
+                                                <option value="<?= $course->course_id; ?>"><?= $course->course_name; ?></option>
+                                        <?php endif;?>
+                                        <?php endforeach; ?>
+                                </select>  
+                        </div>
+                        <div class="report-form-container">
+                                <select name="office_id" id="">
+                                        <option default>Select Office</option>
+                                        <?php $offices = $db->result('office', 'office_name != "System Administrator" AND is_department = 1');?>
+                                        <?php foreach($offices as $office):?>
+                                        <?php if($office->office_id == $office_id):?>  
+                                        <option value="<?= $office->office_id; ?>"><?= $office->office_name; ?></option>
+                                        <?php else:?>
+                                        <option value="<?= $office->office_id; ?>"><?= $office->office_name; ?></option>
+                                        <?php endif;?>
+                                        <?php endforeach; ?>
+                        </select>
                         </div>
                         <input type="submit" name="submit" value="submit">
                 </form>
