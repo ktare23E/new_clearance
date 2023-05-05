@@ -67,9 +67,14 @@
                                 <span class="material-symbols-sharp">arrow_back</span>
                             </button>
                         </a>
-                        <div class="student-view-profile-img-container">
-                            <img src="uploads/<?= $row['student_profile']; ?>" alt="">
-                        </div>
+                        <?php 
+
+                            if($row['student_profile'] == ""){
+                                echo '<div class="student-view-profile-img-container" ><img src="../images/default.png" alt=""></div>';
+                            }else{
+                                echo '<div class="student-view-profile-img-container" ><img src="uploads/'.$row['student_profile'].'" alt=""></div>';
+                            }
+                        ?>
                         <div style="display:flex; flex-direction:row;align-items:center;gap:10px;margin-top:30px">
                             <button onclick="location.href = 'edit_student_info.php?edit=<?= $row['student_id'];?>';" class="edit-profile-button" id="edit-profile-button">
                                 <span class="material-symbols-sharp">edit</span>

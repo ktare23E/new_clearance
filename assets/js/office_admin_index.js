@@ -113,7 +113,7 @@ try {
     let overallStatus = document.querySelectorAll(".overall-clearance-status")
 
     overallStatus.forEach(status => {
-        if(status.innerHTML == "Approved"){
+        if(status.innerHTML == "Approved" || status.innerHTML == "Cleared"){
             status.classList.add("success")
         }else {
             status.classList.add("warning")

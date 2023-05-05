@@ -93,7 +93,7 @@
                                     <th>Student ID</th>
                                     <th>First Name</th>
                                     <th>Last Name</th>
-                                    <th>Year</th>
+                                    <th>Year Level</th>
                                     <th>Course</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -121,90 +121,6 @@
         });
     </script>
 
-    <script>
-        //jquery onclick event for update button
-        $(document).on("click", '#active', function(){
-            let list_student_id = [];
-            let list_inputs = $('.row')
-            list_inputs.map((index,elem,arr) => {
-                let is_check = $(elem).prop("checked")
-                if(is_check == true ){
-                    list_student_id.push($(elem).attr("student_id"))
-                }
-            });
-            console.log(list_student_id);
-            $.ajax({
-                url: "student_update_status.php",
-                method: "POST",
-                data: {
-                    list_student_id:list_student_id,
-                    status:'Active'
-                },
-                success: (response) =>{
-                    $("#checkAll").prop("checked",false);
-                    $('#example').DataTable().ajax.reload();
-                }
-            })
-        });
-    </script>
 
-        <script>
-            //jquery onclick event for update button
-            $(document).on("click", '#inactive', function(){
-                let list_student_id = [];
-                let list_inputs = $('.row')
-                list_inputs.map((index,elem,arr) => {
-                    let is_check = $(elem).prop("checked")
-                    if(is_check == true ){
-                        list_student_id.push($(elem).attr("student_id"))
-                    }
-                });
-                console.log(list_student_id);
-                $.ajax({
-                    url: "student_inactive_status.php",
-                    method: "POST",
-                    data: {
-                        list_student_id:list_student_id,
-                        status:'Inactive'
-                    },
-                    success: (response) =>{
-                        $("#checkAll").prop("checked",false);
-                        $('#example').DataTable().ajax.reload();
-                        
-                    }
-                })
-            });
-    </script>
-
-    <script type="text/javascript">
-            $(document).ready(function(){
-                // Check/Uncheck ALl
-                $('#checkAll').change(function(){
-                    if($(this).is(':checked')){
-                        $('input[name="update[]"]').prop('checked',true);
-                    }else{
-                        $('input[name="update[]"]').each(function(){
-                            $(this).prop('checked',false);
-                        }); 
-                    }
-                });
-                // Checkbox click
-                $('input[name="update[]"]').click(function(){
-                    var total_checkboxes = $('input[name="update[]"]').length;
-                    var total_checkboxes_checked = $('input[name="update[]"]:checked').length;
-                    if(total_checkboxes_checked == total_checkboxes){
-                        $('#checkAll').prop('checked',true);
-                    }else{
-                        $('#checkAll').prop('checked',false);
-                    }
-                });
-            }); 
-    </script>
-
-    <script>
-        $(document).ready(function () {
-            $('#example').DataTable();
-        });
-    </script>
 </body>
 </html>

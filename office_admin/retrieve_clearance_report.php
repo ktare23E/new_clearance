@@ -1,11 +1,11 @@
-
 <?php
-include_once 'header.php';
+
+include_once 'office_header.php';
 
 $conn = mysqli_connect('localhost', 'root', '', 'clearance');
-// $is_department = $_SESSION['is_department'];
-// $office_id = $_SESSION['office_id'];
-// $where = "";
+$is_department = $_SESSION['is_department'];
+$office_id = $_SESSION['office_id'];
+$where = "";
 
 
     if (isset($_POST['submit'])) {

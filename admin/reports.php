@@ -32,21 +32,44 @@ include_once '../dbconnect.php';
                 <?php include_once 'aside.php' ?>
                 
                 <div class="select-report-container">
-                        <form action="retrieve_report.php" method="post">
+                <form action="retrieve_report.php" method="post">
+                        <div class="report-form-container">
+                                <label for="">Select School Year And Sem</label>
+                                <select name="clearance_progress_id" id="" required>
+                                        <option value="" disabled selected>Select School Year And Sem</option>
+                                        <?php $clearances = $db->result('clearance_progress_view'); ?>
+                                        <?php foreach ($clearances as $clearance) : ?>
+                                                <?php $clearance->clearance_progress_id; ?>
+                                                <option value="<?= $clearance->clearance_progress_id; ?>"><?= $clearance->school_year_and_sem . ' ' . $clearance->sem_name; ?></option>
+                                        <?php endforeach; ?>
+                                </select>
+                                <!-- <input type="hidden" name="office_id" value="<?= $office_id; ?>"> -->
+                        </div>
+                        <div class="report-form-container">
+                                <select name="student_year" id="year-level-option" required>
+                                        <option value="All" selected>All</option>
+                                        <option value="1st Year">1st Year</option>
+                                        <option value="2nd Year">2nd Year</option>
+                                        <option value="3rd Year">3rd Year</option>
+                                        <option value="4th Year">4th Year</option>
+                                </select>   
+                        </div>
                                 <div class="report-form-container">
-                                        <label for="">Select School Year And Sem</label>
-                                        <select name="clearance_progress_id" id="" required>
-                                                <option default>Select School Year And Sem</option>
-                                                <?php $clearances = $db->result('clearance_progress_view'); ?>
-                                                <?php foreach ($clearances as $clearance) : ?>
-                                                        <?php $clearance->clearance_progress_id; ?>
-                                                        <option value="<?= $clearance->clearance_progress_id; ?>"><?= $clearance->school_year_and_sem . ' ' . $clearance->sem_name; ?></option>
-                                                <?php endforeach; ?>
-                                        </select>
-                                </div>
-                                <input type="submit" name="submit" value="submit">
-                        </form>
-                </div>
+                                <select name="course_id" id="">
+                                        <option value="All" selected>All</option>
+                                        <?php $courses = $db->result('course');?>
+                                        <?php foreach($courses as $course):?>
+                                        <?php if($course->course_id == $course_id):?> 
+                                        <option value="<?= $course->course_id; ?>"><?= $course->course_name; ?></option>
+                                        <?php else:?>
+                                                <option value="<?= $course->course_id; ?>"><?= $course->course_name; ?></option>
+                                        <?php endif;?>
+                                        <?php endforeach; ?>
+                                </select>  
+                        </div>
+                        <input type="submit" name="submit" value="submit">
+                </form>
+        </div>
         </div>
         
 

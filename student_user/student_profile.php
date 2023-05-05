@@ -25,13 +25,19 @@
 
             <div class="student-profile-container">
                 <div class="profile-top-container">
-                    <div class="student-image" style="position: relative;">
-                        <img src="../admin/uploads/<?php if($_SESSION['student_id']){
-                        echo $student_profile;
-                    } ?>" alt="">
-                    </div>
+                    <?php 
+                        if($student_profile == ""){
+                            echo '<div class="student-image" style="position: relative;">
+                            <img src="../images/default.png" alt="">
+                            </div>';
+                        }else{
+                            echo '<div class="student-image" style="position: relative;">
+                            <img src="../admin/uploads/'.$student_profile.'" alt="">
+                            </div>';
+                        }
+                    ?>
                     <div class="name-student">
-                        <h1 style="font-size:3rem;font-weight:500;white-space:nowrap"><?php if ($_SESSION['student_id']){
+                        <h1 style="font-size:32px;font-weight:500;white-space:nowrap"><?php if ($_SESSION['student_id']){
                         echo $_SESSION['student_first_name'].' '.$_SESSION['student_middle_name'].''.$_SESSION['student_last_name'];} ?></h1>
                         <h3 style="font-size: 1.5rem;" class="text-muted"><?php if($_SESSION['student_id']){
                             echo $_SESSION['student_id'];

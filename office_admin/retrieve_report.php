@@ -1,25 +1,68 @@
 <?php
 
-
 include_once 'office_header.php';
+
 $conn = mysqli_connect('localhost', 'root', '', 'clearance');
 $is_department = $_SESSION['is_department'];
 $office_id = $_SESSION['office_id'];
+$where = "";
 
 
-if (isset($_POST['submit'])) {
-    $clearance_progress_id = $_POST['clearance_progress_id'];
-    // $office_id = $_POST['office_id'];
+    if (isset($_POST['submit'])) {
+        $clearance_progress_id = $_POST['clearance_progress_id'];
+        $course_id = $_POST['course_id'];
+        $year_level = $_POST['student_year'];
+        // $office_id = $_POST['office_id'];
+
+        // $sql = "SELECT * FROM course WHERE course_id = $course_id";
+
+        // $result2 = mysqli_query($conn, $sql);
+        // $row3 = mysqli_fetch_assoc($result2);
+
+        // // $office_ids = $row3['office_id'];
+
 
     // $query = "SELECT * FROM view_clearance WHERE clearance_progress_id = $clearance_progress_id";
     // $result = mysqli_query($conn, $query);
     // $row = mysqli_fetch_assoc($result);
 
-        if($_SESSION['is_department'] == 1) {
-            $query = "SELECT * FROM office WHERE is_department = 1 AND office_id = $office_id";
-        } else {
-            $query = "SELECT * FROM office WHERE is_department = 1";
+        // if($_SESSION['is_department'] == 1) {
+        //     $query = "SELECT * FROM office WHERE is_department = 1 AND office_id = $office_id";
+        // } else {
+        //     $query = "SELECT * FROM office WHERE is_department = 1";
+        // }
+
+        $q = "SELECT student_id,
+            student_first_name,
+            student_last_name,
+            student_year,
+            course_id,
+            course_name,
+            office_id,
+            office_name,
+            requirement_id,
+            requirement_details,
+            is_complied,
+            date_cleared,
+            clearance_progress_id,
+            clearance_type_id,
+            SUM(is_complied) AS number_of_cleared,
+            COUNT(0) AS number_of_requirements,
+            IF(COUNT(0)-SUM(is_complied) = 0, 1, 0) AS requirement_status
+        FROM requirements_report WHERE clearance_progress_id = $clearance_progress_id";
+
+
+        if($year_level != "All"){
+            $q = $q. " AND student_year = '$year_level'";
         }
+
+        if($course_id != "All"){
+            $q = $q. " AND course_id = $course_id";
+        }
+
+        $q = $q. " GROUP BY student_id, office_id";
+
+        $result4 = mysqli_query($conn, $q);
 
         $query2 = "SELECT * FROM clearance_progress_view WHERE clearance_progress_id = $clearance_progress_id";
         $result2 = mysqli_query($conn, $query2);
@@ -28,24 +71,20 @@ if (isset($_POST['submit'])) {
         $school_year_and_sem = $row2['school_year_and_sem'];  
         $sem_name = $row2['sem_name'];
 
+        // $result = mysqli_query($conn, $query);
 
+        // $departments = array();
         
-        $result = mysqli_query($conn, $query);
-        $departments = array();
-        
-        while($row = mysqli_fetch_assoc($result)) {
-            array_push($departments,$row);
-        }
+        // while($row = mysqli_fetch_assoc($result)) {
+        //     array_push($departments,$row);
+        // }
         
         // print_r($departments);
         // die();
 
         $num_of_cleared = 0;
         $number_not_cleared = 0;
-}else{
-    echo "<a href='office_reports.php'>Back</a>";
-    echo "Please select a school year and semester";
-}
+    }
 
 ?>
 
@@ -58,59 +97,34 @@ if (isset($_POST['submit'])) {
                 <canvas id="myChart"></canvas>
             </div>
             <div class="reports-tables-container">
-                <?php foreach($departments as $i => $department):
 
-                    // if($is_department == 1){
-                        $sql = "SELECT * FROM student JOIN requirement_cleared ON student.`student_id` = requirement_cleared.`student_id` WHERE student.office_id = ".$department['office_id']." AND clearance_progress_id = $clearance_progress_id ORDER BY is_cleared DESC";
-
-                        $result2 = mysqli_query($conn, $sql); 
-                        $students = array();
-    
-                        while($row = mysqli_fetch_assoc($result2)) {
-                            array_push($students,$row);
-                        }
-
-                    // }
-                        // $sql = "SELECT * FROM student JOIN requirement_cleared ON student.`student_id` = requirement_cleared.`student_id` WHERE clearance_progress_id = $clearance_progress_id ORDER BY is_cleared DESC";
-
-                                
-                        //     $result2 = mysqli_query($conn, $sql); 
-                        //     $students = array();
-
-                        //     while($row = mysqli_fetch_assoc($result2)) {
-                        //         array_push($students,$row);
-                        //     }
-                    
-                    
-               
-                ?>  
 
                     <div class="report-table-container">
                         <h3 class="text-muted">List of students of </h3>
-                        <h3><?= $department['office_name'] ?></h3>
+                        <!-- <h3><?= $department['office_name'] ?></h3> -->
                         <table style="width: 100%;">
                             <thead>
                                 <th>Student Name</th>
+                                <th>Course</th>
+                                <th>Year Level</th>
                                 <th>Status</th>
                             </thead>
                             <tbody>
                 
-                                <?php foreach($students as $student): 
-                                    if($student['is_cleared'] == 1 ) {$num_of_cleared++;}
-                                    if($student['is_cleared'] == 0) {$number_not_cleared++;}
+                                <?php while($row = mysqli_fetch_assoc($result4)): 
+                                    if($row['requirement_status'] == 1 ) {$num_of_cleared++;}
+                                    if($row['requirement_status'] == 0) {$number_not_cleared++;}
                                 ?>
                                     <tr>
-                                        <td><?= $student['student_first_name'].' '.$student['student_last_name']; ?></td>
-                                        <td class="overall-clearance-status"><?=  $student['is_cleared'] == 1  ? "Approved": 'Not Cleared'; ?></td>
+                                        <td><?= $row['student_first_name'].' '.$row['student_last_name']; ?></td>
+                                        <td><?= $row['course_name']; ?></td>
+                                        <td><?= $row['student_year']; ?></td>
+                                        <td class="overall-clearance-status"><?=  $row['requirement_status'] == 1  ? "Cleared": 'Not Cleared'; ?></td>
                                     </tr>
-                                <?php endforeach; ?>
-                                
+                                <?php endwhile; ?>
                             </tbody>
                         </table>
                     </div>
-                    
-
-                <?php endforeach; ?>
             </div>
             
         </div>
@@ -123,8 +137,6 @@ if (isset($_POST['submit'])) {
         document.querySelector("#print-reports-button").addEventListener("click", function() {
             window.print()
         })
-
-
     </script>
 
     <script>

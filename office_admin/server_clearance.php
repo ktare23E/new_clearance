@@ -69,7 +69,9 @@ if($is_department == 0){
     $where = "office_id=".$_SESSION['office_id'];
     // echo $where;
     // die();
-    $data = SSP::complex( $_GET, $sql_details, $table, $primaryKey, $columns, $where, "");
+    // $data = SSP::complex( $_GET, $sql_details, $table, $primaryKey, $columns, $where, "");
+    $data = SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns);
+
     
 }
 

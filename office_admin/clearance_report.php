@@ -9,6 +9,7 @@
 include_once '../dbconnect.php';
 $office_id = $_SESSION['office_id'];
 $is_department = $_SESSION['is_department'];
+
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +55,7 @@ $is_department = $_SESSION['is_department'];
         <div class="blur"></div>
 
         <div class="select-report-container">
-        <form action="retrieve_report.php" method="post">
+                <form action="retrieve_clearance_report.php" method="post">
                         <div class="report-form-container">
                                 <label for="">Select School Year And Sem</label>
                                 <select name="clearance_progress_id" id="" required>
@@ -108,7 +109,6 @@ $is_department = $_SESSION['is_department'];
                         <input type="submit" name="submit" value="submit">
                 </form>
         </div>
-
 
         <script>
                 document.title = "Reports"

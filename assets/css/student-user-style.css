@@ -258,11 +258,16 @@ b {
     border: 1px solid var(--color-dark-variant);
 }
 
+.profile-top-container .name-student {
+    width: 100%;
+}
+
 .student-profile-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    
+    background: var(--color-white);
+    padding: 10px;
 }
 
 .edit-profile-btn {
@@ -282,7 +287,7 @@ b {
 
 .profile-main-info-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 2fr 2fr;
     gap: 20px;
     padding: 0px 20px;
 }
@@ -600,7 +605,7 @@ button#open-change-profile:active {
 
 .office-main-container {
     width: 100%;
-    max-width: 900px;
+    max-width: 1200px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -716,6 +721,7 @@ button {
     flex-direction: column;
     gap: 5px;
     margin-left: auto;
+    width: fit-content;
 }
 
 .upload-profile-pic button {

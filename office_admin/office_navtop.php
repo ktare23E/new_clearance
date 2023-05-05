@@ -27,9 +27,13 @@
             <span class="material-symbols-sharp">receipt_long</span>
             <h3>Requirements</h3>
         </a>
+        <a href="./clearance_report.php">
+            <span class="material-symbols-sharp">receipt_long</span>
+            <h3>Clearance Report</h3>
+        </a>
         <a href="office_reports.php">
             <span class="material-symbols-sharp">monitoring</span>
-            <h3>Reports</h3>
+            <h3>Requirements Reports</h3>
         </a>
         <a href="../logout.php">
             <span class="material-symbols-sharp">receipt_long</span>

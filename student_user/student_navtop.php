@@ -52,11 +52,14 @@
                     } ?></b></p>
                     <small class="text-muted">Student</small>
                 </div>
-                <div class="profile-photo">
-                    <img src="../admin/uploads/<?php if($_SESSION['student_id']){
-                        echo $student_profile;
-                    } ?>" alt="">
-                </div>
+                <?php if($student_profile == ""){
+                    echo '<div class="profile-photo">
+                    <img src="../images/default.png" alt=""> </div>';
+                }else{
+                    echo '<div class="profile-photo">
+                    <img src="../admin/uploads/'.$student_profile.'" alt=""> </div>';
+                }
+                ?>
             </div>
             <div class="profile-tap">
                 <a href="student_profile.php">

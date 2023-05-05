@@ -34,9 +34,13 @@
             </div>
 
             <div class="student-profile-container">
-                <div class="left-photo-container">
-                    <img src="../admin/uploads/<?= $row['student_profile']; ?>" alt="">
-                </div>
+                <?php 
+                    if($row['student_profile'] == ""){
+                        echo '<div class="left-photo-container" ><img src="../images/default.png" alt=""></div>';
+                    }else{
+                        echo '<div class="left-photo-container" ><img src="../admin/uploads/'.$row['student_profile'].'" alt=""></div>';
+                    }
+                ?>
                 <div class="right-student-info-container">
                     <div class="student-name-container">
                         <h4 style="font-size: 2rem;"><?= $row['student_first_name'].' '.$row['student_last_name']?></h4>
