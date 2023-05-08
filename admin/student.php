@@ -500,9 +500,9 @@ include_once 'header.php';
                             }
                         });
                     } else {
-                        $("#checkAll").prop("checked", false);
-                        $('#example').DataTable().ajax.reload();
-                        table.columns().checkboxes.deselect(true);
+                        // $("#checkAll").prop("checked", false);
+                        // $('#example').DataTable().ajax.reload();
+                        // table.columns().checkboxes.deselect(true);
                         location.reload();
                     }
                 }
