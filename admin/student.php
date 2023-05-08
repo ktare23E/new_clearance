@@ -487,9 +487,14 @@
                         clearance_status: '1'
                     },
                     success: (response) =>{
-                        $("#checkAll").prop("checked",false);
-                        $('#example').DataTable().ajax.reload();
-                        table.columns().checkboxes.deselect(true);
+                        if(response === "existed"){
+                            alert("Student already have this clearance");
+                            console.log("existed");
+                        }else{
+                            $("#checkAll").prop("checked",false);
+                            $('#example').DataTable().ajax.reload();
+                            table.columns().checkboxes.deselect(true);
+                        }
                         
                     }
                 })

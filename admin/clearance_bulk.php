@@ -27,8 +27,7 @@
         $clearance_exist = $conn->query($query) or die($conn->error);
 
         if($clearance_exist->num_rows > 0){
-            echo '<script>alert(This student has already have a clearance.)</script>';
-            die();
+            echo 'existed';
         }
 
         // $sql = "UPDATE student SET student_status = '$status' WHERE student_id = '$student_id'";
