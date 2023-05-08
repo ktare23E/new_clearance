@@ -329,9 +329,22 @@
                         clearance_status: '0'
                     },
                     success: (response) =>{
-                        $("#checkAll").prop("checked",false);
-                        $('#example').DataTable().ajax.reload();
-                        table.columns().checkboxes.deselect(true);
+                        if (response === "error") {
+                            Swal.fire(
+                                'Error',
+                                'You are not a signing office.',
+                                'error'
+                            ).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload(); // Reload the page
+                                }
+                            });
+                        }else {
+                            // $("#checkAll").prop("checked",false);
+                            // $('#example').DataTable().ajax.reload();
+                            // table.columns().checkboxes.deselect(true);
+                            location.reload();
+                        }
                         
                     }
                 })

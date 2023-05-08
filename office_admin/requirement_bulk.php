@@ -36,8 +36,7 @@
     
         if($singing_office->num_rows < 1){
             
-            echo "<a href='office_requirements.php'>Back</a><br>";
-            echo "You are not signing office for these semester and school year and clearance type that you selected.";
+            echo "error";
             die();
         }
     
