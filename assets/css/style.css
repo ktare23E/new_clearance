@@ -2163,6 +2163,22 @@ button {
     
 }
 
+#example.student-list-table thead tr th:nth-child(7),
+#example.student-list-table tbody tr td:nth-child(7),
+#example.student-list-table tfoot tr th:nth-child(7) {
+    max-width: 250px !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+}
+
+#example.student-list-table thead tr th:nth-child(8),
+#example.student-list-table tbody tr td:nth-child(8),
+#example.student-list-table tfoot tr th:nth-child(8) {
+    max-width: 250px !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+}
+
 .requirements-modal-body .input {
     display: flex;
     flex-direction: column;

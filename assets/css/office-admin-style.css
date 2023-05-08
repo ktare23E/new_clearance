@@ -221,12 +221,41 @@ a.active {
     padding-bottom: 10px !important;
 }
 
-.office-container .office-top-container .nav-right-container {
+.office-container .office-top-container 
+.nav-right-container {
     display: flex;
     flex-direction: row;
     gap: 40px;
     align-items: center;
 }
+
+.office-container .office-top-container 
+.nav-right-container a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 20px;
+    transition: all 200ms ease;
+}
+
+#example.clearance-list thead tr th:nth-child(6),
+#example.clearance-list tbody tr td:nth-child(6),
+#example.clearance-list tfoot tr th:nth-child(6) {
+    max-width: 200px !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+}
+
+#example.clearance-list thead tr th:nth-child(7),
+#example.clearance-list tbody tr td:nth-child(7),
+#example.clearance-list tfoot tr th:nth-child(7) {
+    max-width: 200px !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+}
+
+
 
 .office-container .office-top-container .nav-right-container .profile {
     display: flex;
@@ -1337,6 +1366,13 @@ button {
     display: flex;
     flex-direction: column;
     gap: 5px;
+}
+
+small.office-position {
+    max-width: 200px !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    display: inline-block;
 }
 
 .requirements-modal-body .input
