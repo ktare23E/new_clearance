@@ -13,6 +13,7 @@
 
     $is_department = $row['is_department'];
 
+    
 
 ?>
 <div class="office-container">
@@ -164,7 +165,7 @@
             <label for="">Clearance Progress:</label>
             <select name="clearance_progress_id" id="clearance_progress_id">
                                 <option default>Select School Year And Sem</option>
-                                <?php $school_year = $db->result('clearance_progress_view', 'status = "Active"'); ?>
+                                <?php $school_year = $db->result('new_signing_offices', 'status = "Active" AND office_id='.$office_id); ?>
                                 <?php foreach ($school_year as $year) : ?>
                                     <?php if ($year->clearance_progress_id == $clearance_progress_id) : ?>
                                         <option value="<?= $year->clearance_progress_id; ?>"><?= $year->school_year_and_sem . " " . $year->sem_name; ?></option>
@@ -175,7 +176,7 @@
                             </select>
         </div>
         <div class="input">
-            <label for="">Clearance Type:</label>
+            <label for="">Requirement Details:</label>
             <textarea name="" id="requirement_details" cols="30" rows="10" placeholder="Requirement Description"></textarea>
         </div>
         <button type="submit" class="create-clearance" id="bulk-requirement">Create</button>
