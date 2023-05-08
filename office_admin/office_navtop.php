@@ -35,12 +35,16 @@
             <span class="material-symbols-sharp">monitoring</span>
             <h3>Requirements Reports</h3>
         </a>
-        <a href="../logout.php">
+        <!-- <a href="../logout.php">
             <span class="material-symbols-sharp">receipt_long</span>
             <h3>Logout</h3>
-        </a>
+        </a> -->
     </div>
     <div class="nav-right-container">
+        <a href="../logout.php">
+            <span class="material-symbols-sharp">logout</span>
+            <h3>Logout</h3>
+        </a>
         <div class="theme-toggler">
             <span class="material-symbols-sharp active">light_mode</span>
             <span class="material-symbols-sharp">dark_mode</span>
@@ -50,7 +54,7 @@
                 <p>Hello, <b><?php if ($_SESSION['admin_username']){
                     echo $_SESSION['admin_name'];
                 } ?></b></p>
-                <small class="text-muted">Office Admin of <?= $_SESSION['office_name'];?></small>
+                <small class="text-muted office-position">Office Admin of <?= $_SESSION['office_name'];?></small>
             </div>
         </div>
     </div>

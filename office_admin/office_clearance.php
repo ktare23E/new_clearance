@@ -104,7 +104,7 @@
             </div>
 
             <div class="table-container" style="position:relative">
-                <table id="example" class="display" style="width:100%; ">
+                <table id="example" class="display clearance-list" style="width:100%; ">
                     <thead>
                         <tr>
                             <th><input type="checkbox" id="checkAll"/></th>

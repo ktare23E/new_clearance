@@ -27,6 +27,9 @@
         $clearance_exist = $conn->query($query) or die($conn->error);
 
         if($clearance_exist->num_rows > 0){
+            // echo '<script>alert(This student has already have a clearance.)</script>';
+            echo "existed";
+            die();
             echo 'existed';
         }
 
