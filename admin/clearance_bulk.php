@@ -30,6 +30,7 @@
             // echo '<script>alert(This student has already have a clearance.)</script>';
             echo "existed";
             die();
+            // echo 'existed';
         }
 
         // $sql = "UPDATE student SET student_status = '$status' WHERE student_id = '$student_id'";
