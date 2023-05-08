@@ -301,57 +301,57 @@
                     });
             },
         });
+
         $(document).on("click", '#bulk-requirement', function(){
-                let clearance_progress_id =    $("#clearance_progress_id").val();
-                let requirement_details = $("#requirement_details").val();
-                let rows_selected = table.column(0).checkboxes.selected();
+            let clearance_progress_id =    $("#clearance_progress_id").val();
+            let requirement_details = $("#requirement_details").val();
+            let rows_selected = table.column(0).checkboxes.selected();
 
-                // console.log(rows_selected);
-                // return
+            // console.log(rows_selected);
+            // return
 
-                let list_student_id = [];
-                // let list_inputs = $('.row')
+            let list_student_id = [];
+            // let list_inputs = $('.row')
 
-                rows_selected.map((elem) => {
-                    // console.log($(elem).children("input").prop("student_id"));
-                    list_student_id.push($(elem).children("input").attr("student_id"))
-                    
-                })
+            rows_selected.map((elem) => {
+                // console.log($(elem).children("input").prop("student_id"));
+                list_student_id.push($(elem).children("input").attr("student_id"))
+                
+            })
 
-                // console.log(list_student_id);
-                // return
-                $.ajax({
-                    url: "requirement_bulk.php",
-                    method: "POST",
-                    data: {
-                        list_student_id:list_student_id,
-                        clearance_progress_id:clearance_progress_id,
-                        requirement_details:requirement_details,
-                        clearance_status: '0'
-                    },
-                    success: (response) =>{
-                        if (response === "error") {
-                            Swal.fire(
-                                'Error',
-                                'You are not a signing office.',
-                                'error'
-                            ).then((result) => {
-                                if (result.isConfirmed) {
-                                    location.reload(); // Reload the page
-                                }
-                            });
-                        }else {
-                            // $("#checkAll").prop("checked",false);
-                            // $('#example').DataTable().ajax.reload();
-                            // table.columns().checkboxes.deselect(true);
-                            location.reload();
-                        }
-                        
+            // console.log(list_student_id);
+            // return
+            $.ajax({
+                url: "requirement_bulk.php",
+                method: "POST",
+                data: {
+                    list_student_id:list_student_id,
+                    clearance_progress_id:clearance_progress_id,
+                    requirement_details:requirement_details,
+                    clearance_status: '0'
+                },
+                success: (response) =>{
+                    if (response === "error") {
+                        Swal.fire(
+                            'Error',
+                            'You are not a signing office.',
+                            'error'
+                        ).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(); // Reload the page
+                            }
+                        });
+                    }else {
+                        // $("#checkAll").prop("checked",false);
+                        // $('#example').DataTable().ajax.reload();
+                        // table.columns().checkboxes.deselect(true);
+                        // location.reload();
+                        alert("successfull")
                     }
-                })
-
-                location.reload();
-            });
+                    
+                }
+            })
+        });
     });
 </script>
 
