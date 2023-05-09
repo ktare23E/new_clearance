@@ -82,12 +82,12 @@
                                     </button>
                                 </a>
                             </div>
-                            <button class="download-csv" data-modal-target="#csv-download-modal">Download CSV</button>
-                            <button id="register-csv-file-btn">
+                            <!-- <button class="download-csv" data-modal-target="#csv-download-modal">Download CSV</button> -->
+                            <!-- <button id="register-csv-file-btn">
                                 <span class="material-symbols-sharp">upload_file</span>
                                 Register Via .csv file
                                 <span class="material-symbols-sharp">arrow_forward_ios</span>
-                            </button>
+                            </button> -->
                             <div>
                                 <div class="upload-student-csv-container">
                                     <form action="clearance_upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
