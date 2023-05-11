@@ -1,7 +1,7 @@
 <?php
-    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+    include_once 'connection.php';
 
-if(isset($_POST['update'])){
+    if(isset($_POST['update'])){
     
     $office_id = $_POST['office_id'];
     $office_name = $_POST['office_name'];

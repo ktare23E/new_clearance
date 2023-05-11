@@ -1,6 +1,6 @@
 <?php
 
-    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+    include_once 'connection.php';
     include_once 'student_header.php';
     $id = $_SESSION['student_id'];
     $sql = "SELECT * FROM student_details WHERE student_id = '".$id."'";

@@ -1,7 +1,7 @@
 <?php
-    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+    include_once 'connection.php';
 
-if(isset($_POST['update'])){
+    if(isset($_POST['update'])){
     
     $clearance_id = $_POST['clearance_id'];
     $student_id = $_POST['student_id'];

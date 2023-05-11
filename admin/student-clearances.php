@@ -2,7 +2,7 @@
     include_once 'header.php';
     // $users = $db->result('student_details');
 
-    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+    include_once 'connection.php';
 
     if($conn->connect_error){
         echo $conn->connect_error;

@@ -1,10 +1,10 @@
 <?php
 # create database connection
-$connect = mysqli_connect("localhost","root","","clearance");
+include_once 'connection.php';
 
 if(!empty($_POST["department_name"])) {
   $query = "SELECT * FROM department WHERE department_name ='" . $_POST["department_name"] . "'";
-    $result = mysqli_query($connect,$query);
+    $result = mysqli_query($conn,$query);
     $count = mysqli_num_rows($result);
 
 if(strtoupper(strtolower($count>0))) {

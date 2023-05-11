@@ -63,11 +63,12 @@ $id = $_GET['clearance_type_id'];
 
 
 if($id == ''){
-    $data = SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns);
+    $where3 = "is_locked = 'No'";
+    $data = SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns, $where3, "");
 
 }else{
-    $where = "clearance_type_id = ".$id;
-    $data = SSP::complex( $_GET, $sql_details, $table, $primaryKey, $columns, $where, $where);
+    $where = "is_locked = 'No'";
+    $data = SSP::complex( $_GET, $sql_details, $table, $primaryKey, $columns, $where, "");
 
 }
 

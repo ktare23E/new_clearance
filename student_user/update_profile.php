@@ -1,7 +1,8 @@
 <?php
 session_start();
 // Connect to the database
-$db = mysqli_connect('localhost', 'root', '', 'clearance');
+include_once 'connection.php';
+
 $id = $_SESSION['student_id'];
 // Check for POST request
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -15,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     move_uploaded_file($_FILES['profile_image']['tmp_name'], "../admin/uploads/$filename");
     // Update the user's profile image path in the database
     $query = "UPDATE student SET student_profile='$filename' WHERE student_id ='$id'";
-    mysqli_query($db, $query);
+    mysqli_query($conn, $query);
   }
   // Update other profile data as needed
   // ...

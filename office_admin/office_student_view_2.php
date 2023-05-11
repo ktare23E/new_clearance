@@ -69,7 +69,7 @@
                         </div>
                         <div class="data">
                             <h5>Username :</h5>
-                            <h4><?= $row['student_username']?></h4>
+                            <h4><?= $row['student_id']?></h4>
                         </div>
                         <div class="data">
                             <h5>Status :</h5>

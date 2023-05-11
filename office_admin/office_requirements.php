@@ -10,7 +10,7 @@
 
     $requirements = $db->query('SELECT * FROM requirement_view WHERE office_id = '.$_SESSION['office_id'].' GROUP BY requirement_details ORDER BY requirement_details ASC');
 
-    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+    include_once 'connection.php';
 
     // $office_id = $_SESSION['office_id'];
     // $sql = "SELECT * FROM new_signing_offices WHERE office_id = '$office_id'";

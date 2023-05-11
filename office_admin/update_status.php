@@ -1,12 +1,12 @@
 <?php
-    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+    include_once 'connection.php';
     require ('phpmailer.php');
 
 if(isset($_POST['approve'])){
 
         $requirement_id = $_POST['requirement_id'];
         $signing_office_id = $_POST['signing_office_id'];
-        $current_date = date('Y-m-d');
+        $current_date = date('m-d-Y');
         $clearance_progress_id = $_POST['clearance_progress_id'];
         $student_id = $_POST['student_id'];
         $clearance_id = $_POST['clearance_id'];

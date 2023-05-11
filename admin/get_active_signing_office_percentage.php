@@ -1,6 +1,6 @@
 <?php
 // Establish a database connection
-$conn = mysqli_connect('localhost', 'root', '', 'clearance');
+include_once 'connection.php';
 
 // Query the database to get the total number of users
 $query = "SELECT COUNT(*) as total_users FROM new_signing_offices";

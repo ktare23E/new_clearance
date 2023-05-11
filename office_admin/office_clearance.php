@@ -1,12 +1,12 @@
 <?php
     include_once 'office_header.php';
-    $db_connection = mysqli_connect("localhost", "root", "", "clearance");
+    include_once 'connection.php';
 
     $id = isset($_GET['clearance_type_id']) == true ? $_GET['clearance_type_id'] : '';
 
     $office_id = $_SESSION['office_id'];
     $query = "SELECT * FROM office WHERE office_id = '$office_id'";
-    $result = mysqli_query($db_connection, $query);
+    $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_array($result);
 
     // var_dump($row);
@@ -31,15 +31,15 @@
         <?php 
                 if($_SESSION['office_id'] == $office_id && $is_department == 1){
                     $query = "SELECT COUNT(*) FROM view_clearance WHERE office_id = '$office_id'"; 
-                    $result = mysqli_query($db_connection, $query); 
+                    $result = mysqli_query($conn, $query); 
     
                     $total_users = mysqli_fetch_array($result); 
                     
                     
-                    mysqli_close($db_connection); 
+                    mysqli_close($conn); 
                 }else{
                     $query = "SELECT COUNT(*) FROM view_clearance"; 
-                    $result = mysqli_query($db_connection, $query); 
+                    $result = mysqli_query($conn, $query); 
     
                     $total_users = mysqli_fetch_array($result); 
                 }

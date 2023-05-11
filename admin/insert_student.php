@@ -2,7 +2,7 @@
 
 
 
-    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+        include_once 'connection.php';
 
 
         if(isset($_POST['submit'])){

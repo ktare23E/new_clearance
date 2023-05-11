@@ -4,7 +4,7 @@
     require ('phpmailer.php');
     include_once 'office_header.php';
 
-    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+    include_once 'connection.php';
     mysqli_select_db($conn, 'clearance');
     
 
@@ -34,7 +34,7 @@
         $sql = "SELECT * FROM signing_office WHERE office_id = '$office_id' AND clearance_progress_id = '$clearance_progress_id' AND clearance_type_id = '$clearance_type_id'";
         $signing_office = $conn->query($sql) or die($conn->error);
 
-        echo $signing_office;
+        // echo $signing_office;
     
         if($signing_office->num_rows  > 0){
             $row2 = $signing_office->fetch_assoc();

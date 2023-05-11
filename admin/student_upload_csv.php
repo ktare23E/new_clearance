@@ -42,7 +42,7 @@
 
     <?php
 
-$conn = mysqli_connect('localhost', 'root', '', 'clearance');
+include_once 'connection.php';
 $year_level = "";
 
 if (isset($_POST['import'])) {

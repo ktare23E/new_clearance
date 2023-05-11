@@ -1,6 +1,6 @@
 <?php
     // Establish a database connection
-    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+    include_once 'connection.php';
 
     // Query the database to get the office names with 'Active' status
     $query = "SELECT clearance_type_name FROM clearance_type";

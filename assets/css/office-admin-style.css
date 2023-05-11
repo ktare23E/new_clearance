@@ -838,6 +838,10 @@ button span {
     /* box-shadow: var(--box-shadow); */
 }
 
+.dataTables_wrapper .dataTables_filter input {
+    color: var(--color-dark) !important;
+}
+
 .office-main-container .first-div-container h2 {
     font-size: 40px;
 }

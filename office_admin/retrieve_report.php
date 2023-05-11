@@ -2,7 +2,7 @@
 
 include_once 'office_header.php';
 
-$conn = mysqli_connect('localhost', 'root', '', 'clearance');
+include_once 'connection.php';
 $is_department = $_SESSION['is_department'];
 $office_id = $_SESSION['office_id'];
 $where = "";

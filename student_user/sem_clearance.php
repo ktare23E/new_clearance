@@ -1,8 +1,7 @@
 <?php
     include_once '../dbconnect.php';
     include_once 'student_header.php';
-    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
-   
+    include_once 'connection.php';
 
 
     if(!isset($_GET['clearance_progress_id']) && !isset($_GET['student_id']) && !isset($_GET['clearance_type_id'])){
