@@ -3,7 +3,7 @@
     require ('phpmailer.php');
 
 if(isset($_POST['approve'])){
-
+        $clearance_type_id = $_POST['clearance_type_id'];
         $requirement_id = $_POST['requirement_id'];
         $signing_office_id = $_POST['signing_office_id'];
         $current_date = date('Y-m-d');
@@ -60,7 +60,7 @@ if(isset($_POST['approve'])){
 }
 
         if($result){
-            header("Location:office_clearance.php");
+            header("Location:office_clearance_view.php?clearance_type_id=".$clearance_type_id."&clearance_progress_id=".$clearance_progress_id."&student_id=".$student_id."");
         }else{
             echo "Error Updating";
         }

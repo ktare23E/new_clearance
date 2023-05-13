@@ -120,6 +120,7 @@
                                             <form action="update_status.php" method="POST">
                                                 <input type="hidden" name="requirement_id" value="<?= $user->requirement_id; ?>"> 
                                                 <input type="hidden" name="signing_office_id" value="<?= $user->signing_office_id; ?>">
+                                                <input type="hidden" name="clearance_type_id" value="<?= $user->clearance_type_id; ?>">
                                                 <input type="hidden" name="clearance_progress_id" value="<?= $user->clearance_progress_id; ?>">
                                                 <input type="hidden" name="student_id" value="<?= $user->student_id; ?>">
                                                 <input type="hidden" name="clearance_id" value="<?= $row['clearance_id']; ?>">
