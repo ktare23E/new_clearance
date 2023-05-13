@@ -1,6 +1,6 @@
 <?php
 # create database connection
-$conn = mysqli_connect("localhost","root","","clearance");
+include_once '../connection.php';
 
 if(!empty($_POST["course_name"])) {
   $query = "SELECT * FROM course WHERE course_name ='" . $_POST["course_name"] . "'";

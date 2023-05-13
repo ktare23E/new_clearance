@@ -1,7 +1,7 @@
 <?php
 session_start();
 // Connect to the database
-include_once 'connection.php';
+include_once '../connection.php';
 
 $id = $_SESSION['student_id'];
 // Check for POST request

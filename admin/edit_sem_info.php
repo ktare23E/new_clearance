@@ -1,7 +1,6 @@
 <?php
     include_once 'header.php';
-    include_once 'connection.php';
-
+    include_once '../connection.php';
 
     if(!isset($_GET['edit'])){
         echo "<h1>There's an error while viewing details.</h1>";

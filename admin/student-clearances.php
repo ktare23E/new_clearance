@@ -2,7 +2,7 @@
     include_once 'header.php';
     // $users = $db->result('student_details');
 
-    include_once 'connection.php';
+    include_once '../connection.php';
 
     if($conn->connect_error){
         echo $conn->connect_error;

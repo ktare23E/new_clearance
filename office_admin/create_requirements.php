@@ -3,7 +3,7 @@
     include_once 'office_header.php';
     $order_by = "ASC";
 
-    include_once 'connection.php';
+    include_once '../connection.php';
 
 
     if(!isset($_GET['student_id']) && !isset($_GET['clearance_type_id']) && !isset($_GET['clearance_progress_id'])){

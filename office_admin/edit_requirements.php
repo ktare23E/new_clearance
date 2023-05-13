@@ -1,7 +1,7 @@
 <?php
     include_once 'office_header.php';
     
-    include_once 'connection.php';
+    include_once '../connection.php';
 
 
     if(!isset($_GET['edit'])){

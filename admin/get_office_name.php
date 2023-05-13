@@ -1,6 +1,6 @@
 <?php
     // Establish a database connection
-    include_once 'connection.php';
+    include_once '../connection.php';
 
     // Query the database to get the office names with 'Active' status
     $query = "SELECT office_name FROM new_signing_offices WHERE status = 'Active' LIMIT 5";

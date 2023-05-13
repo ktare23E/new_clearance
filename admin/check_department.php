@@ -1,6 +1,6 @@
 <?php
 # create database connection
-include_once 'connection.php';
+include_once '../connection.php';
 
 if(!empty($_POST["department_name"])) {
   $query = "SELECT * FROM department WHERE department_name ='" . $_POST["department_name"] . "'";

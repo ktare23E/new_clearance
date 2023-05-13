@@ -1,6 +1,6 @@
 <?php
     // Establish a database connection
-    include_once 'connection.php';
+    include_once '../connection.php';
 
     // Query the database to get the total number of users
     $query = "SELECT COUNT(*) as total_users FROM student";

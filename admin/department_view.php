@@ -3,7 +3,7 @@
     // $users = $db->result('student');
 
     
-    include_once 'connection.php';
+    include_once '../connection.php';
 
     if($conn->connect_error){
         echo $conn->connect_error;

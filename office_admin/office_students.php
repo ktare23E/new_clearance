@@ -1,7 +1,7 @@
 <?php
     include_once 'office_header.php';
     $office_id = $_SESSION['office_id'];
-    include_once 'connection.php';
+    include_once '../connection.php';
 
     $query = "SELECT * FROM office WHERE office_id = '$office_id'";
     $result = mysqli_query($conn, $query);

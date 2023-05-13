@@ -28,7 +28,7 @@
 
 include_once 'office_header.php';
 
-include_once 'connection.php';
+include_once '../connection.php';
 mysqli_select_db($conn, 'clearance');
 
 

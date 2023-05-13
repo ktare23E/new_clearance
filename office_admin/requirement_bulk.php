@@ -4,8 +4,7 @@
     require ('phpmailer.php');
     include_once 'office_header.php';
 
-    include_once 'connection.php';
-    mysqli_select_db($conn, 'clearance');
+    include_once '../connection.php';
     
 
     $is_department = $_SESSION['is_department'];
@@ -34,43 +33,50 @@
         $sql = "SELECT * FROM signing_office WHERE office_id = '$office_id' AND clearance_progress_id = '$clearance_progress_id' AND clearance_type_id = '$clearance_type_id'";
         $signing_office = $conn->query($sql) or die($conn->error);
 
+        // print_r($signing_office);
+        // die();
+
         // echo $signing_office;
-    
-        if($signing_office->num_rows  > 0){
-            $row2 = $signing_office->fetch_assoc();
-            $signing_office_id = $row2['signing_office_id'];
-    
-            // Update the clearance_status field in the clearance table
-            $updateQuery = "UPDATE clearance SET clearance_status = '".$clearance_status."' WHERE clearance_id = ".$clearance_id;
-            mysqli_query($conn, $updateQuery);
-    
-    
-            $data = array(
-                'student_id' => $student_id,
-                'clearance_progress_id' => $clearance_progress_id,
-                'clearance_type_id'=> $clearance_type_id,
-                'requirement_details' => $requirement_details,
-                'signing_office_id' => $signing_office_id,
-            );
+
+            if($signing_office->num_rows < 1){
+            
+                echo "error";
+                die();
+            }else {
+                $row2 = $signing_office->fetch_assoc();
+                $signing_office_id = $row2['signing_office_id'];
+        
+                // Update the clearance_status field in the clearance table
+                $updateQuery = "UPDATE clearance SET clearance_status = '".$clearance_status."' WHERE clearance_id = ".$clearance_id;
+                mysqli_query($conn, $updateQuery);
+        
+        
+                $data = array(
+                    'student_id' => $student_id,
+                    'clearance_progress_id' => $clearance_progress_id,
+                    'clearance_type_id'=> $clearance_type_id,
+                    'requirement_details' => $requirement_details,
+                    'signing_office_id' => $signing_office_id,
+                );
+                
+                
+                $insert = $db->insert('requirement', $data);
+        
+                $sql = "SELECT * FROM requirement_view WHERE student_id = '$student_id' AND clearance_progress_id = '$clearance_progress_id' AND clearance_type_id = '$clearance_type_id'";
+        
+                $result = mysqli_query($conn,$sql);
+                $row3 = mysqli_fetch_assoc($result);
+        
+                $office_name = $row3['office_name'];
+                $student_email = $row3['student_email'];
+                $school_year_and_sem = $row3['school_year_and_sem'];
+                $sem_name = $row3['sem_name'];
+        
+                array_push($emails, $student_email);
+            }
             
             
-            $insert = $db->insert('requirement', $data);
-    
-            $sql = "SELECT * FROM requirement_view WHERE student_id = '$student_id' AND clearance_progress_id = '$clearance_progress_id' AND clearance_type_id = '$clearance_type_id'";
-    
-            $result = mysqli_query($conn,$sql);
-            $row3 = mysqli_fetch_assoc($result);
-    
-            $office_name = $row3['office_name'];
-            $student_email = $row3['student_email'];
-            $school_year_and_sem = $row3['school_year_and_sem'];
-            $sem_name = $row3['sem_name'];
-    
-            array_push($emails, $student_email);
-        }else{
-            echo "error";
-            die();
-        }
+
     
     }
     

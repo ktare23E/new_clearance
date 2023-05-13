@@ -1,6 +1,6 @@
 <?php
 
-    include_once 'connection.php';
+    include_once '../connection.php';
 
     
     $list_office_id = $_POST['list_office_id'];

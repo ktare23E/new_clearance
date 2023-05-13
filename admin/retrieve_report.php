@@ -2,7 +2,7 @@
 <?php
 include_once 'header.php';
 
-include_once 'connection.php';
+include_once '../connection.php';
 // $is_department = $_SESSION['is_department'];
 // $office_id = $_SESSION['office_id'];
 // $where = "";

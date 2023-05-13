@@ -42,7 +42,7 @@
 
     <?php
 
-include_once 'connection.php';
+include_once '../connection.php';
 $year_level = "";
 
 if (isset($_POST['import'])) {

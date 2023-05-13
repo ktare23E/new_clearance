@@ -1,5 +1,5 @@
 <?php
-    include_once 'connection.php';
+    include_once '../connection.php';
     require_once 'student_header.php';
 
     $id = $_SESSION['student_id'];

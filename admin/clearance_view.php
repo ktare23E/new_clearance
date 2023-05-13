@@ -3,7 +3,7 @@
     // $users = $db->result('student');
 
     
-    include_once 'connection.php';
+    include_once '../connection.php';
 
     if($conn->connect_error){
         echo $conn->connect_error;
@@ -88,7 +88,7 @@
                             
                                 <div class="clearance-info-container">
                                     <h3>Owner</h3>
-                                    <h4><?= $row['student_first_name'].' '.$row['student_last_name'];?></h4>
+                                    <h4><?= $row['student_first_name'].' '.$row['student_middle_name'].' '.$row['student_last_name'];?></h4>
                                 </div>
                                 <div class="clearance-info-container">
                                     <h3>Course and Year</h3>

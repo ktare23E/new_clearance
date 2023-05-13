@@ -58,19 +58,15 @@ require( 'ssp.class.php' );
 // *  @param  string $whereAll WHERE condition to apply to all queries
 // *  @return array          Server-side processing response array
 
-$id = $_GET['clearance_type_id'];
 
 
 
-if($id == ''){
-    $where3 = "is_locked = 'No'";
-    $data = SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns, $where3, "");
 
-}else{
+
     $where = "is_locked = 'No'";
     $data = SSP::complex( $_GET, $sql_details, $table, $primaryKey, $columns, $where, "");
 
-}
+
 
 // print_r($data);
 // die();

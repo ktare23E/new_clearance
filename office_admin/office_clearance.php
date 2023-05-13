@@ -1,6 +1,6 @@
 <?php
     include_once 'office_header.php';
-    include_once 'connection.php';
+    include_once '../connection.php';
 
     $id = isset($_GET['clearance_type_id']) == true ? $_GET['clearance_type_id'] : '';
 

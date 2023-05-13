@@ -1,6 +1,6 @@
 <?php
 # create database connection
-include_once 'connection.php';
+include_once '../connection.php';
 
 if(!empty($_POST["school_year_and_sem"])) {
   $query = "SELECT * FROM sy_sem WHERE school_year_and_sem ='" . $_POST["school_year_and_sem"] . "'";

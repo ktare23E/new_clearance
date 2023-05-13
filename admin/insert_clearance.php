@@ -3,7 +3,7 @@
 require ('../dbconnect.php');
 require ('phpmailer.php');
 
-include_once 'connection.php';
+include_once '../connection.php';
 mysqli_select_db($conn, 'clearance');
 
 $student_id    = $_POST['student_id'];
