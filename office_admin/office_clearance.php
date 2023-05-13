@@ -111,6 +111,7 @@
                             <th><input type="checkbox" id="checkAll"/></th>
                             <th>Clearance ID</th>
                             <th>School Year and Sem Id</th>
+                            <th>Clearance ID</th>
                             <th>Student ID</th>
                             <th>Student First Name</th>
                             <th>Student Last Name</th>
@@ -133,6 +134,7 @@
                             <th><input type="checkbox" id="checkAll"/></th>
                             <th>Clearance ID</th>
                             <th>School Year and Sem Id</th>
+                            <th>Clearance ID</th>
                             <th>Student ID</th>
                             <th>Student First Name</th>
                             <th>Student Last Name</th>
@@ -245,7 +247,7 @@
                     'style': 'multi'
                 },
             'order': [[1, 'asc']],
-            lengthMenu: [5, 20, 50, 100, 200, 500],
+            lengthMenu: [20, 50, 100, 200, 500],
             processing: true,
             serverSide: true,
             ajax: 'server_clearance.php',
@@ -265,11 +267,11 @@
                     visible: false,
                 },
                 {
-                    target: 13,
+                    target: 14,
                     visible: false,
                 },
                 {
-                    target: 12,
+                    target: 13,
                     render: function(data, type, row) {
                         return (data == 1 ? 'Cleared' : 'Not Cleared');
                     },
@@ -310,12 +312,12 @@
             // console.log(rows_selected);
             // return
 
-            let list_student_id = [];
+            let list_clearance_id = [];
             // let list_inputs = $('.row')
 
             rows_selected.map((elem) => {
                 // console.log($(elem).children("input").prop("student_id"));
-                list_student_id.push($(elem).children("input").attr("student_id"))
+                list_clearance_id.push($(elem).children("input").attr("clearance_id"))
                 
             })
 
@@ -325,30 +327,32 @@
                 url: "requirement_bulk.php",
                 method: "POST",
                 data: {
-                    list_student_id:list_student_id,
+                    list_clearance_id:list_clearance_id,
                     clearance_progress_id:clearance_progress_id,
                     requirement_details:requirement_details,
                     clearance_status: '0'
                 },
                 success: (response) =>{
-                    if (response === "error") {
-                        Swal.fire(
-                            'Error',
-                            'You are not a signing office.',
-                            'error'
-                        ).then((result) => {
-                            if (result.isConfirmed) {
-                                location.reload(); // Reload the page
-                            }
-                        });
-                    }else {
-                        // $("#checkAll").prop("checked",false);
-                        // $('#example').DataTable().ajax.reload();
-                        // table.columns().checkboxes.deselect(true);
-                        // location.reload();
-                        alert("successfull")
-                    }
+                    // if (response === "error") {
+                    //     Swal.fire(
+                    //         'Error',
+                    //         'You are not a signing office.',
+                    //         'error'
+                    //     ).then((result) => {
+                    //         if (result.isConfirmed) {
+                    //             location.reload(); // Reload the page
+                    //         }
+                    //     });
+                    // }else {
+                    //     // $("#checkAll").prop("checked",false);
+                    //     // $('#example').DataTable().ajax.reload();
+                    //     // table.columns().checkboxes.deselect(true);
+                    //     // location.reload();
+                    //     alert("successfull")
+                    // }
                     
+
+                    console.log(response);
                 }
             })
         });
