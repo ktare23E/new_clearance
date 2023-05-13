@@ -72,7 +72,7 @@
 
                     <div class="add-button-container" style="margin-bottom: 20px;">
                         <div class="h2-container">
-                            <h2>Clearance list</h2>
+                            <h2>On Going Clearance List</h2>
                         </div>
                         <div class="new-student-buttons" style="display:flex;flex-direction:row;gap:5px;justify-content:space-between;align-items:stretch"> 
                             <div>
