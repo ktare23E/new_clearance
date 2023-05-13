@@ -1,7 +1,7 @@
 <?php
     include_once 'office_header.php';
     
-    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+    include_once '../connection.php';
 
     if($conn->connect_error){
         echo $conn->connect_error;

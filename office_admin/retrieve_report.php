@@ -2,7 +2,7 @@
 
 include_once 'office_header.php';
 
-$conn = mysqli_connect('localhost', 'root', '', 'clearance');
+include_once '../connection.php';
 $is_department = $_SESSION['is_department'];
 $office_id = $_SESSION['office_id'];
 $where = "";
@@ -32,26 +32,25 @@ $where = "";
         //     $query = "SELECT * FROM office WHERE is_department = 1";
         // }
 
-        $q = "SELECT student_id,
-            student_first_name,
-            student_last_name,
-            student_year,
-            course_id,
-            course_name,
-            office_id,
-            office_name,
-            requirement_id,
-            requirement_details,
-            is_complied,
-            date_cleared,
-            clearance_progress_id,
-            clearance_type_id,
+        $q = "SELECT   student_id,
+                        clearance_id,
+                        student_first_name,
+                        student_last_name,
+                        student_year,
+                        office_id,
+                        office_name,
+                        course_name,
+                        requirement_id,
+                        requirement_details,
+                        is_complied,
+                        date_cleared,
+                        clearance_progress_id,
+                        clearance_type_id,
             SUM(is_complied) AS number_of_cleared,
             COUNT(0) AS number_of_requirements,
-            IF(COUNT(0)-SUM(is_complied) = 0, 1, 0) AS requirement_status
-        FROM requirements_report WHERE clearance_progress_id = $clearance_progress_id";
-
-
+            IF(COUNT(0)-SUM(is_complied) = 0 OR is_complied IS NULL, 1, 0) AS requirement_status
+        FROM final_report WHERE clearance_progress_id = $clearance_progress_id";
+        
         if($year_level != "All"){
             $q = $q. " AND student_year = '$year_level'";
         }

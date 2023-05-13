@@ -2,7 +2,7 @@
 session_start();
 // require ('dbconnect.php');
 
-$conn = mysqli_connect('localhost', 'root', '', 'clearance');
+include_once 'connection.php';
 
 
 $student_id = $_POST['student_id'];

@@ -1,17 +1,18 @@
 <?php
-    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+    include_once '../connection.php';
     require ('phpmailer.php');
 
 if(isset($_POST['approve'])){
         $clearance_type_id = $_POST['clearance_type_id'];
         $requirement_id = $_POST['requirement_id'];
         $signing_office_id = $_POST['signing_office_id'];
-        $current_date = date('Y-m-d');
+        $current_date = date('m-d-Y');
         $clearance_progress_id = $_POST['clearance_progress_id'];
         $student_id = $_POST['student_id'];
         $clearance_id = $_POST['clearance_id'];
         $cleared_date = date('F d Y, h:i:s A');
-
+        $is_locked = "Yes";
+        
         // echo $clearance_progress_id;
         // die();
 
@@ -42,7 +43,7 @@ if(isset($_POST['approve'])){
         // echo $query;
         // echo $num;
         if(mysqli_num_rows($result2) < 1 ){
-            $update = "UPDATE clearance SET clearance_status = '1', date_cleared = '$current_date' WHERE clearance_id = $clearance_id";
+            $update = "UPDATE clearance SET clearance_status = '1', date_cleared = '$current_date' is_locked = '$is_locked' WHERE clearance_id = $clearance_id";
             $query2 = mysqli_query($conn,$update);
 
             $sql = "SELECT * FROM view_clearance WHERE student_id = '$student_id'";

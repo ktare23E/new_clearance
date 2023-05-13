@@ -82,12 +82,12 @@
                                     </button>
                                 </a>
                             </div>
-                            <button class="download-csv" data-modal-target="#csv-download-modal">Download CSV</button>
-                            <button id="register-csv-file-btn">
+                            <!-- <button class="download-csv" data-modal-target="#csv-download-modal">Download CSV</button> -->
+                            <!-- <button id="register-csv-file-btn">
                                 <span class="material-symbols-sharp">upload_file</span>
                                 Register Via .csv file
                                 <span class="material-symbols-sharp">arrow_forward_ios</span>
-                            </button>
+                            </button> -->
                             <div>
                                 <div class="upload-student-csv-container">
                                     <form action="clearance_upload_csv.php" method="post" enctype="multipart/form-data" name="upload_csv">
@@ -138,6 +138,23 @@
                             <tbody>
                                 
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th></th>
+                                    <th>Clearance Type Id</th>
+                                    <th>School Year and Sem Id</th>
+                                    <th>Clearance Id</th>
+                                    <th>Student ID</th>
+                                    <th>Student First Name</th>
+                                    <th>Student Last Name</th>
+                                    <th>School Year</th>
+                                    <th>Semester</th>
+                                    <th>Clearance Type</th>
+                                    <th>Clearance Status</th>
+                                    <th>Semester Id</th>
+                                    <th>Action</th>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                     
@@ -217,57 +234,8 @@
     </script>
 
 
-    <script>
-        //jquery onclick event for update button
-        $(document).on("click", '#active', function(){
-            let list_student_id = [];
-            let list_inputs = $('.row')
-            list_inputs.map((index,elem,arr) => {
-                let is_check = $(elem).prop("checked")
-                if(is_check == true ){
-                    list_student_id.push($(elem).attr("clearance_id"))
-                }
-            });
-            console.log(list_student_id);
-            $.ajax({
-                url: "student_update_status.php",
-                method: "POST",
-                data: {
-                    clearance_id:clearance_id,
-                    clearance_status:'Cleared'
-                },
-                success: (response) =>{
-                    $("#checkAll").prop("checked",false);
-                    $('#example').DataTable().ajax.reload();
-                }
-            })
-        });
-    </script>
+    
         
-        <script type="text/javascript">
-            $(document).ready(function(){
-                // Check/Uncheck ALl
-                $('#checkAll').change(function(){
-                    if($(this).is(':checked')){
-                        $('input[name="update[]"]').prop('checked',true);
-                    }else{
-                        $('input[name="update[]"]').each(function(){
-                            $(this).prop('checked',false);
-                        }); 
-                    }
-                });
-                // Checkbox click
-                $('input[name="update[]"]').click(function(){
-                    var total_checkboxes = $('input[name="update[]"]').length;
-                    var total_checkboxes_checked = $('input[name="update[]"]:checked').length;
-                    if(total_checkboxes_checked == total_checkboxes){
-                        $('#checkAll').prop('checked',true);
-                    }else{
-                        $('#checkAll').prop('checked',false);
-                    }
-                });
-            }); 
-        </script>
 
     <script>
             $(document).ready(function () {
@@ -286,7 +254,35 @@
                             return (data==1 ? 'Cleared' : 'Not Cleared');
                         },
                     }
-                ]
+                ],
+                initComplete: function() {
+                    this.api().columns().every(function() {
+                        var column = this;
+                        var select = $('<select><option value=""></option></select>')
+                            .appendTo($(column.footer()).empty())
+                            .on('change', function() {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
+
+                                column
+                                    .search(val, true, false)
+                                    .draw();
+
+                                console.log(column.search());
+                            });
+
+                        column
+                            .data()
+                            .unique()
+                            .sort()
+                            .each(function(d, j) {
+                                select.append(
+                                    '<option value="' + d + '">' + d + '</option>'
+                                );
+                            });
+                    });
+                }
             
             });
         });

@@ -1,7 +1,7 @@
 <?php
-    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+    include_once '../connection.php';
 
-if(isset($_POST['update'])){
+    if(isset($_POST['update'])){
     
     $course_id = $_POST['course_id'];
     $course_name = $_POST['course_name'];

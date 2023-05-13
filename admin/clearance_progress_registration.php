@@ -1,7 +1,6 @@
 <?php
 include_once 'header.php';
-$conn = mysqli_connect('localhost', 'root', '', 'clearance');
-
+include_once '../connection.php';
 
 // $clearance_progress_id = $_GET['clearance_progress_id'];
 

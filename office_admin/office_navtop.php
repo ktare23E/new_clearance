@@ -1,5 +1,5 @@
 <?php
-    include_once 'dbconfig.php';
+    include_once '../connection.php';
     include_once 'office_header.php';
 ?>
 

@@ -1,7 +1,7 @@
 <?php
 
 
-$conn = mysqli_connect('localhost', 'root', '', 'clearance');
+include_once '../connection.php';
 
 session_start();
 $admin_id = $_SESSION['admin_id'];

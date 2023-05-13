@@ -2,7 +2,7 @@
 
 require ('../dbconnect.php');
 require ('phpmailer.php');
-$conn = mysqli_connect('localhost', 'root', '', 'clearance');
+include_once '../connection.php';
 
 
 $office_id    = $_POST['office_id'];

@@ -1,6 +1,6 @@
 <?php
 
-    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+    include_once '../connection.php';
 
     
     $list_sy_sem_id = $_POST['list_sy_sem_id'];

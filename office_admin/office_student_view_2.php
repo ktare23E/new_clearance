@@ -2,7 +2,7 @@
     include_once 'office_header.php';
 
 
-    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+    include_once '../connection.php';
 
     if($conn->connect_error){
         echo $conn->connect_error;
@@ -69,7 +69,7 @@
                         </div>
                         <div class="data">
                             <h5>Username :</h5>
-                            <h4><?= $row['student_username']?></h4>
+                            <h4><?= $row['student_id']?></h4>
                         </div>
                         <div class="data">
                             <h5>Status :</h5>

@@ -1,13 +1,13 @@
 <?php
 # create database connection
-$connect = mysqli_connect("localhost","root","","clearance");
+include_once '../connection.php';
 
 if(!empty($_POST["school_year_and_sem"])) {
   $query = "SELECT * FROM sy_sem WHERE school_year_and_sem ='" . $_POST["school_year_and_sem"] . "'";
     // echo $query;
     // die();
 
-    $result = mysqli_query($connect,$query);
+    $result = mysqli_query($conn,$query);
     $count = mysqli_num_rows($result);
 
 if(strtoupper(strtolower($count>0))) {

@@ -26,13 +26,13 @@ $primaryKey = 'student_id';
 $columns = array(
     array( 'db' => 'student_id', 'dt' => 1 ),
     array( 'db' => 'student_first_name',  'dt' => 2 ),
-    array( 'db' => 'student_middle_name',  'dt' => 3 ),
-    array( 'db' => 'student_last_name',   'dt' => 4 ),
-    array( 'db' => 'student_year',     'dt' => 5 ),
-    array( 'db' => 'office_name',     'dt' => 6 ),
-    array( 'db' => 'course_name',     'dt' => 7 ),
-    array('db' => 'student_id', 'dt' => 8 ),
-    array( 'db' => 'student_status',     'dt' => 9 ),
+    // array( 'db' => 'student_middle_name',  'dt' => 3 ),
+    array( 'db' => 'student_last_name',   'dt' => 3 ),
+    array( 'db' => 'student_year',     'dt' => 4 ),
+    array( 'db' => 'office_name',     'dt' => 5 ),
+    array( 'db' => 'course_name',     'dt' => 6 ),
+    array('db' => 'student_id', 'dt' => 7 ),
+    array( 'db' => 'student_status',     'dt' => 8 ),
 );
 // SQL server connection information
 $sql_details = array(

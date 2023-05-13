@@ -2,7 +2,7 @@
     
     require ('../dbconnect.php');
     require ('phpmailer.php');
-    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+    include_once '../connection.php';
 
     
     $list_student_id = $_POST['list_student_id'];
@@ -10,6 +10,7 @@
     $clearance_type_id = $_POST['clearance_type_id'];
     $clearance_status = $_POST['clearance_status'];
     $current_date = date('Y-m-d');
+    $is_locked = "No";
 
     $emails  = array();
 
@@ -44,6 +45,7 @@
             'clearance_type_id'=> $clearance_type_id,
             'date_created' => $current_date,
             'clearance_status' => $clearance_status,
+            'is_locked' => $is_locked
         );
         
         

@@ -1,18 +1,19 @@
 <?php
     include_once 'office_header.php';
-    $db_connection = mysqli_connect("localhost", "root", "", "clearance");
+    include_once '../connection.php';
 
     $id = isset($_GET['clearance_type_id']) == true ? $_GET['clearance_type_id'] : '';
 
     $office_id = $_SESSION['office_id'];
     $query = "SELECT * FROM office WHERE office_id = '$office_id'";
-    $result = mysqli_query($db_connection, $query);
+    $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_array($result);
 
     // var_dump($row);
 
     $is_department = $row['is_department'];
 
+    
 
 ?>
 <div class="office-container">
@@ -30,15 +31,15 @@
         <?php 
                 if($_SESSION['office_id'] == $office_id && $is_department == 1){
                     $query = "SELECT COUNT(*) FROM view_clearance WHERE office_id = '$office_id'"; 
-                    $result = mysqli_query($db_connection, $query); 
+                    $result = mysqli_query($conn, $query); 
     
                     $total_users = mysqli_fetch_array($result); 
                     
                     
-                    mysqli_close($db_connection); 
+                    mysqli_close($conn); 
                 }else{
                     $query = "SELECT COUNT(*) FROM view_clearance"; 
-                    $result = mysqli_query($db_connection, $query); 
+                    $result = mysqli_query($conn, $query); 
     
                     $total_users = mysqli_fetch_array($result); 
                 }
@@ -166,7 +167,7 @@
             <label for="">Clearance Progress:</label>
             <select name="clearance_progress_id" id="clearance_progress_id">
                                 <option default>Select School Year And Sem</option>
-                                <?php $school_year = $db->result('clearance_progress_view', 'status = "Active"'); ?>
+                                <?php $school_year = $db->result('new_signing_offices', 'status = "Active" AND office_id='.$office_id); ?>
                                 <?php foreach ($school_year as $year) : ?>
                                     <?php if ($year->clearance_progress_id == $clearance_progress_id) : ?>
                                         <option value="<?= $year->clearance_progress_id; ?>"><?= $year->school_year_and_sem . " " . $year->sem_name; ?></option>
@@ -177,7 +178,7 @@
                             </select>
         </div>
         <div class="input">
-            <label for="">Clearance Type:</label>
+            <label for="">Requirement Details:</label>
             <textarea name="" id="requirement_details" cols="30" rows="10" placeholder="Requirement Description"></textarea>
         </div>
         <button type="submit" class="create-clearance" id="bulk-requirement">Create</button>

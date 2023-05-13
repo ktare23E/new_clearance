@@ -1,7 +1,7 @@
 <?php
-    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+    include_once '../connection.php';
 
-if(isset($_POST['update'])){
+    if(isset($_POST['update'])){
     
     $admin_id = $_POST['admin_id'];
     $admin_name = $_POST['admin_name'];

@@ -11,8 +11,7 @@
     }
 
 
-    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
-    mysqli_select_db($conn, 'clearance');
+    include_once '../connection.php';
     
 
     $is_department = $_SESSION['is_department'];

@@ -1,8 +1,8 @@
 <?php
-    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+    include_once '../connection.php';
 
-if(isset($_POST['update'])){
-    
+    if(isset($_POST['update'])){
+        
     $sy_sem_id = $_POST['sy_sem_id'];
     $school_year_and_sem = $_POST['school_year_and_sem'];
     

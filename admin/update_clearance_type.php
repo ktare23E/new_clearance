@@ -1,8 +1,8 @@
 <?php
-    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+    include_once '../connection.php';
 
-if(isset($_POST['update'])){
-    
+    if(isset($_POST['update'])){
+        
     $clearance_type_id = $_POST['clearance_type_id'];
     $clearance_type_name = $_POST['clearance_type_name'];
     $clearance_type_description = $_POST['clearance_type_description'];

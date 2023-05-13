@@ -88,7 +88,7 @@ include_once 'header.php';
                                 <th><input type="checkbox" id="checkAll" /></th>
                                 <th>Student ID</th>
                                 <th>First Name</th>
-                                <th>Middle Name</th>
+                                <!-- <th>Middle Name</th> -->
                                 <th>Last Name</th>
                                 <th>Year Level</th>
                                 <th>Department</th>
@@ -106,7 +106,7 @@ include_once 'header.php';
                                 <th><input type="checkbox" id="checkAll" /></th>
                                 <th>Student ID</th>
                                 <th>First Name</th>
-                                <th>Middle Name</th>
+                                <!-- <th>Middle Name</th> -->
                                 <th>Last Name</th>
                                 <th>Year Level</th>
                                 <th>Department</th>
@@ -426,7 +426,7 @@ include_once 'header.php';
             'order': [
                 [1, 'asc']
             ],
-            lengthMenu: [5, 20, 50, 100, 200, 500],
+            lengthMenu: [20, 50, 100, 200, 500],
             processing: true,
             serverSide: true,
             ajax: 'server_processing.php',

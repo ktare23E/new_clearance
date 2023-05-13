@@ -3,7 +3,7 @@
     // $users = $db->result('student');
 
     
-    $conn = mysqli_connect('localhost', 'root', '', 'clearance');
+    include_once '../connection.php';
 
     if($conn->connect_error){
         echo $conn->connect_error;
@@ -96,7 +96,7 @@
                             </div>
                             <div class="student-info-name-container">
                                 <h2 class="label">Name :</h2>
-                                <h2><span><?= $row['student_first_name']; ?></span><span>&nbsp;</span><span><?= $row['student_last_name'];?></span></h2>
+                                <h2><span><?= $row['student_first_name'].' '.$row['student_middle_name'].' '.$row['student_last_name']; ?></span></h2>
                             </div>
                             <div class="student-info-name-container">
                                 <h2 class="label">Course :</h2>

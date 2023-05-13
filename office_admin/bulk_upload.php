@@ -1,6 +1,6 @@
 <?php
 
-$conn = mysqli_connect('localhost', 'root', '', 'clearance');
+include_once '../connection.php';
 
 session_start();
 

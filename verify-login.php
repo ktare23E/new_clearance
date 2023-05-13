@@ -21,7 +21,7 @@
 session_start();
 // require ('dbconnect.php');
 
-$conn = mysqli_connect('localhost', 'root', '', 'clearance');
+include_once 'connection.php';
 
 
 $admin_username = $_POST['admin_username'];
