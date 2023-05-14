@@ -58,7 +58,7 @@
                                                         <th>SIGNING OFFICE</th>
                                                         <th>Requirement</th>
                                                         <th>STATUS</th>
-                                                        <th>DATE SIGNED</th>
+                                                        <th>DATE SIGNED(Y-M-D)</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>

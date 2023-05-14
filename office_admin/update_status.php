@@ -6,7 +6,7 @@ if(isset($_POST['approve'])){
         $clearance_type_id = $_POST['clearance_type_id'];
         $requirement_id = $_POST['requirement_id'];
         $signing_office_id = $_POST['signing_office_id'];
-        $current_date = date('m-d-Y');
+        $current_date = date('Y-m-d');
         $clearance_progress_id = $_POST['clearance_progress_id'];
         $student_id = $_POST['student_id'];
         $clearance_id = $_POST['clearance_id'];
@@ -17,7 +17,7 @@ if(isset($_POST['approve'])){
         // die();
 
         $sql = "UPDATE requirement SET is_complied = '1', date_cleared = '$current_date' WHERE requirement_id = $requirement_id AND signing_office_id = $signing_office_id";
-        
+
         // echo $sql;
         $result= mysqli_query($conn,$sql);
 
@@ -43,7 +43,7 @@ if(isset($_POST['approve'])){
         // echo $query;
         // echo $num;
         if(mysqli_num_rows($result2) < 1 ){
-            $update = "UPDATE clearance SET clearance_status = '1', date_cleared = '$current_date' is_locked = '$is_locked' WHERE clearance_id = $clearance_id";
+            $update = "UPDATE clearance SET clearance_status = '1', date_cleared = '$current_date', is_locked = '$is_locked' WHERE clearance_id = $clearance_id";
             $query2 = mysqli_query($conn,$update);
 
             $sql = "SELECT * FROM view_clearance WHERE student_id = '$student_id'";

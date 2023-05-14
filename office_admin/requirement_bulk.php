@@ -30,19 +30,19 @@
     foreach($list_clearance_id as $i => $clearance_id){
 
         $query2 = "SELECT * FROM clearance WHERE clearance_id = '".$clearance_id."';";
-        $resultclearance = mysqli_query($conn, $query2);
-        $row = mysqli_fetch_assoc($resultclearance);
+        $result_clearance = mysqli_query($conn, $query2);
+        $row = mysqli_fetch_assoc($result_clearance);
     
         $clearance_type_id = $row['clearance_type_id'];
         $student_id = $row['student_id'];
 
         if($clearance_progress_id == $row['clearance_progress_id']){
             $sql = "SELECT * FROM signing_office WHERE office_id = '$office_id' AND clearance_progress_id = '$clearance_progress_id' AND clearance_type_id = '$clearance_type_id'";
-            $signing_officeresult = mysqli_query($conn, $sql);
-            $rowsigningoffice = mysqli_fetch_assoc($signing_officeresult);
+            $signing_office_result = mysqli_query($conn, $sql);
+            $row_signing_office = mysqli_fetch_assoc($signing_office_result);
     
-            if($rowsigningoffice){
-                $signing_office_id = $rowsigningoffice['signing_office_id'];
+            if($row_signing_office){
+                $signing_office_id = $row_signing_office['signing_office_id'];
         
                 // Update the clearance_status field in the clearance table
                 $updateQuery = "UPDATE clearance SET clearance_status = '".$clearance_status."' WHERE clearance_id = '".$clearance_id."';";
@@ -75,6 +75,8 @@
                 echo "error";
                 die();
             }
+        }else{
+            echo "error";
         }
 
         

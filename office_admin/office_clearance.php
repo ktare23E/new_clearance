@@ -79,7 +79,7 @@
 
             <div class="clearance-table-title">
                 <div class="h2-container">
-                    <h2>Clearance list</h2>
+                    <h2>On Going Clearance list</h2>
                 </div>
                 <!-- <div class="bulk-actions-container">
                     <h3 style="text-align: center;">Bulk Update:</h3>
@@ -241,13 +241,28 @@
 </script> -->
 
 <script>
+    $(function(){
+        loadClearance();
+
+    });
+    function loadClearance(){
+        $.ajax({
+            url: 'get_all_clearance.php',
+            type: 'POST',
+            success:function(response){
+                let res = $.parseJSON(response);
+                console.log(res);
+            }
+        });
+    }
+
     $(document).ready(function() {
         var table = $('#example').DataTable({
             select: {
                     'style': 'multi'
                 },
             'order': [[1, 'asc']],
-            lengthMenu: [20, 50, 100, 200, 500],
+            lengthMenu: [50, 100, 200, 500,1000],
             processing: true,
             serverSide: true,
             ajax: 'server_clearance.php',
@@ -259,6 +274,10 @@
                         }
                     },{
                     target: 1,
+                    visible: false,
+                    searchable: false,
+                },{
+                    target: 3,
                     visible: false,
                     searchable: false,
                 },
@@ -309,6 +328,8 @@
             let requirement_details = $("#requirement_details").val();
             let rows_selected = table.column(0).checkboxes.selected();
 
+            console.log(rows_selected);
+
             // console.log(rows_selected);
             // return
 
@@ -356,8 +377,15 @@
                 }
             })
         });
+        $(document).on('click','#checkAll',function(){;
+            let rows_selected = table.column(0).checkboxes.selected();
+            rows_selected.map(function(elem){
+                console.log(elem);
+            });
+    })
     });
 </script>
+
 
 
 
