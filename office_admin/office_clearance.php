@@ -354,17 +354,24 @@
                     clearance_status: '0'
                 },
                 success: (response) =>{
-                    // if (response === "error") {
-                    //     Swal.fire(
-                    //         'Error',
-                    //         'You are not a signing office.',
-                    //         'error'
-                    //     ).then((result) => {
-                    //         if (result.isConfirmed) {
-                    //             location.reload(); // Reload the page
-                    //         }
-                    //     });
-                    // }else {
+                    if (response) {
+                        let index = response.indexOf("Message");
+                        if (index !== -1) {
+                            let cutStr = response.substring(0, index);
+                            // Output: "The quick brown "
+                            Swal.fire(
+                                'Sucessful',
+                                cutStr,
+                                'success'
+                            ).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload(); // Reload the page
+                                }
+                            });
+                        } 
+                        
+                    }
+                    // else {
                     //     // $("#checkAll").prop("checked",false);
                     //     // $('#example').DataTable().ajax.reload();
                     //     // table.columns().checkboxes.deselect(true);

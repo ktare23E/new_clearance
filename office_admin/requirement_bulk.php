@@ -26,7 +26,8 @@
 
     $emails = array();
     
-
+    $success_counter = 0;
+    $fail_counter = 0;
     foreach($list_clearance_id as $i => $clearance_id){
 
         $query2 = "SELECT * FROM clearance WHERE clearance_id = '".$clearance_id."';";
@@ -71,17 +72,21 @@
                 $sem_name = $row3['sem_name'];
         
                 array_push($emails, $student_email);
-            }else{
-                echo "error";
-                die();
             }
+            // else{
+            //     echo "error: not a signing office";
+            //     die();
+            // }
+
+            $success_counter+=1;
         }else{
-            echo "error";
+            $fail_counter+=1;
         }
 
         
-    
     }
+
+    echo "clearance successfully added with requirements: ".$success_counter;
     
     // echo $emails;
     // die();
