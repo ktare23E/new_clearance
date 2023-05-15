@@ -127,6 +127,7 @@
                                     
                                 <thead>
                                         <th>Signing office</th>
+                                        <th>Requirements</th>
                                         <th>Status</th>
                                         <th>Date Cleared</th>
                                     </tr>
@@ -137,6 +138,7 @@
                                     <tr>
                                     <tr>
                                         <td><?= $user->office_name; ?></td>
+                                        <td><?= $user->requirement_details; ?></td>
                                         <td><?= $user->is_complied ? 'Approve' : 'Not Cleared'; ?></td>
                                         <td><?= $user->date_cleared; ?></td>
                                     </tr>

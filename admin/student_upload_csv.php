@@ -98,13 +98,13 @@ if (isset($_POST['import'])) {
                 }
             } else {
                 // Insert new student data
-                $sqlInsert = "INSERT into student (student_id, student_first_name, student_middle_name, student_last_name,student_year, course_id, student_gender,student_email, student_password,student_status, office_id) VALUES ('".$column[0]."','" .$column[1]. "','" .$column[2]. "','" .$column[3]. "','" .$year_level. "','" .$column[5]. "', '" .$column[6]. "', '" .$column[7]. "', '" .$column[8]. "','" .$column[9]. "','" .$office_id. "')";
+                $sqlInsert = "INSERT into student (student_id, student_first_name, student_middle_name, student_last_name,student_year, course_id, student_gender,student_email, student_password,student_status, office_id) VALUES ('".$column[0]."','" .addslashes($column[1]). "','" .addslashes($column[2]). "','" .addslashes($column[3]). "','" .$year_level. "','" .$column[5]. "', '" .$column[6]. "', '" .addslashes($column[7]). "', '" .$column[8]. "','" .$column[9]. "','" .$office_id. "')";
                 $result2 = mysqli_query($conn, $sqlInsert);
 
                 
                 if (!empty($result2)) {
                     //echo "CSV File has been successfully Imported.";
-                    header("Location:student.php");
+                    // header("Location:student.php");
                 } else {
                     echo "<a href='student.php'>Back</a><br>";
                     echo "Problem in Importing CSV File.";

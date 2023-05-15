@@ -7,7 +7,7 @@ session_start();
 
 
     
-require ('../dbconnect.php');
+require_once '../dbconnect.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

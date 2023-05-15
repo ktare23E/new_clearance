@@ -62,25 +62,18 @@ CREATE TABLE `clearance` (
   `is_locked` varchar(75) NOT NULL,
   `clearance_progress_id` int(11) NOT NULL,
   PRIMARY KEY (`clearance_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=308 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=343 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `clearance` */
 
 insert  into `clearance`(`clearance_id`,`clearance_status`,`student_id`,`sy_sem_id`,`sem_id`,`clearance_type_id`,`course_id`,`office_id`,`date_created`,`date_cleared`,`is_locked`,`clearance_progress_id`) values 
-(294,'1','2019-2023',0,0,6,26,27,'2023-05-11','0000-00-00','No',7),
-(295,'1','2019-70227',0,0,6,23,25,'2023-05-11','0000-00-00','No',7),
-(296,'1','2019-800306',0,0,6,23,25,'2023-05-11','0000-00-00','No',7),
-(297,'1','2019-80162',0,0,6,23,25,'2023-05-11','0000-00-00','No',7),
-(298,'1','2020-8238',0,0,6,23,25,'2023-05-11','0000-00-00','No',7),
-(299,'1','2021-134',0,0,6,24,25,'2023-05-11','0000-00-00','No',7),
-(300,'1','2022-2788',0,0,6,24,25,'2023-05-11','0000-00-00','No',7),
-(301,'0','2019-2023',0,0,6,26,27,'2023-05-12','0000-00-00','No',8),
-(302,'0','2019-70227',0,0,6,23,25,'2023-05-12','0000-00-00','No',8),
-(303,'0','2019-800306',0,0,6,23,25,'2023-05-12','0000-00-00','No',8),
-(304,'0','2019-80162',0,0,6,23,25,'2023-05-12','0000-00-00','No',8),
-(305,'0','2020-8238',0,0,6,23,25,'2023-05-12','0000-00-00','No',8),
-(306,'0','2021-134',0,0,6,24,25,'2023-05-12','0000-00-00','No',8),
-(307,'0','2022-2788',0,0,6,24,25,'2023-05-12','0000-00-00','No',8);
+(336,'1','2019-2023',0,0,6,26,27,'2023-05-15','0000-00-00','No',8),
+(337,'1','2019-70227',0,0,6,23,25,'2023-05-15','2023-05-15','Yes',8),
+(338,'0','2019-800306',0,0,6,23,25,'2023-05-15','0000-00-00','No',8),
+(339,'0','2019-80162',0,0,6,23,25,'2023-05-15','0000-00-00','No',8),
+(340,'0','2020-8238',0,0,8,23,25,'2023-05-15','0000-00-00','No',8),
+(341,'0','2021-134',0,0,8,24,25,'2023-05-15','0000-00-00','No',8),
+(342,'0','2022-2788',0,0,8,24,25,'2023-05-15','0000-00-00','No',8);
 
 /*Table structure for table `clearance_details` */
 
@@ -117,8 +110,8 @@ CREATE TABLE `clearance_progress` (
 
 insert  into `clearance_progress`(`clearance_progress_id`,`sem_id`,`sy_sem_id`,`status`) values 
 (6,8,21,'Inactive'),
-(7,7,21,'Inactive'),
-(8,11,21,'Inactive');
+(7,7,22,'Inactive'),
+(8,11,22,'Active');
 
 /*Table structure for table `clearance_type` */
 
@@ -149,7 +142,7 @@ CREATE TABLE `course` (
   `course_description` varchar(1000) NOT NULL,
   `office_id` int(11) NOT NULL,
   PRIMARY KEY (`course_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `course` */
 
@@ -157,7 +150,8 @@ insert  into `course`(`course_id`,`course_name`,`course_status`,`course_descript
 (23,'Bachelor of Science in Information Technology','Active','This is BS-iT',25),
 (24,'Bachelor of Science in Information System','Active','BSIS Course',25),
 (25,'Bachelor of Science in Agricultural Engineering','Active','This is a course for agri.',30),
-(26,'Bachelor of Science in Biology','Active','This is the course of biology.',27);
+(26,'Bachelor of Science in Biology','Active','This is the course of biology.',27),
+(27,'Bachelor of Science in Fishery','Active','This is the course of fishery',30);
 
 /*Table structure for table `department` */
 
@@ -195,7 +189,7 @@ CREATE TABLE `office` (
   `office_status` varchar(75) NOT NULL,
   `is_department` tinyint(1) NOT NULL,
   PRIMARY KEY (`office_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `office` */
 
@@ -209,7 +203,8 @@ insert  into `office`(`office_id`,`office_name`,`office_email`,`office_phone_num
 (30,'School of Agriculture and Environmental Sciences','saes@gmail.com','09876897812','SAES Department','Active',1),
 (31,'OSA','tare.kristian@gmail.com','091237623623','This is the office os OSA','Active',0),
 (32,'Supreme Student Council Office','ssc@nmsc.edu.ph','0923727332','This is the office of SSC.','Active',0),
-(33,'Library','tare.kristian@gmail.com','09823726623','This is library.','Active',0);
+(33,'Library','tare.kristian@gmail.com','09823726623','This is library.','Active',0),
+(34,'Cashier','cashier@gmail.com','09974388347','This is the office of Cashier.','Active',0);
 
 /*Table structure for table `office_account waly apil` */
 
@@ -247,18 +242,25 @@ CREATE TABLE `requirement` (
   `date_cleared` date NOT NULL,
   `clearance_progress_id` int(11) NOT NULL,
   PRIMARY KEY (`requirement_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1376 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1409 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `requirement` */
 
 insert  into `requirement`(`requirement_id`,`requirement_details`,`signing_office_id`,`sy_sem_id`,`sem_id`,`student_id`,`clearance_type_id`,`is_complied`,`date_cleared`,`clearance_progress_id`) values 
-(1369,'nice ka',116,0,0,'2020-8238',6,0,'0000-00-00',8),
-(1370,'nice ka',116,0,0,'2021-134',6,0,'0000-00-00',8),
-(1371,'nice ka',116,0,0,'2019-70227',6,0,'0000-00-00',8),
-(1372,'nice ka',116,0,0,'2022-2788',6,0,'0000-00-00',8),
-(1373,'nice ka',116,0,0,'2019-800306',6,0,'0000-00-00',8),
-(1374,'nice ka',116,0,0,'2019-2023',6,0,'0000-00-00',8),
-(1375,'nice ka',116,0,0,'2019-80162',6,0,'0000-00-00',8);
+(1395,'23 pesos',117,0,0,'2019-70227',6,1,'2023-05-15',8),
+(1396,'23 pesos',117,0,0,'2019-800306',6,0,'0000-00-00',8),
+(1397,'23 pesos',117,0,0,'2019-80162',6,0,'0000-00-00',8),
+(1398,'23 pesos',120,0,0,'2020-8238',8,0,'0000-00-00',8),
+(1399,'23 pesos',120,0,0,'2021-134',8,0,'0000-00-00',8),
+(1400,'23 pesos',120,0,0,'2022-2788',8,0,'0000-00-00',8),
+(1401,'kiss ko dario',117,0,0,'2019-800306',6,0,'0000-00-00',8),
+(1402,'kiss ko dario',117,0,0,'2019-80162',6,0,'0000-00-00',8),
+(1403,'kiss ko dario',120,0,0,'2020-8238',8,0,'0000-00-00',8),
+(1404,'kiss ko dario',120,0,0,'2021-134',8,0,'0000-00-00',8),
+(1405,'kiss ko dario',120,0,0,'2022-2788',8,0,'0000-00-00',8),
+(1406,'fgh',120,0,0,'2020-8238',8,0,'0000-00-00',8),
+(1407,'fgh',120,0,0,'2021-134',8,0,'0000-00-00',8),
+(1408,'fgh',120,0,0,'2022-2788',8,0,'0000-00-00',8);
 
 /*Table structure for table `sem` */
 
@@ -268,16 +270,16 @@ CREATE TABLE `sem` (
   `sem_id` int(11) NOT NULL AUTO_INCREMENT,
   `sem_name` varchar(75) NOT NULL,
   PRIMARY KEY (`sem_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sem` */
 
 insert  into `sem`(`sem_id`,`sem_name`) values 
 (7,'1st Semester'),
 (8,'2nd Semester'),
-(9,'Summer'),
 (10,'Mid Semester'),
-(11,'Midterm');
+(11,'Midterm'),
+(12,'Summer');
 
 /*Table structure for table `signing_office` */
 
@@ -296,13 +298,15 @@ CREATE TABLE `signing_office` (
   `sem_id` int(11) NOT NULL,
   `clearance_progress_id` int(11) NOT NULL,
   PRIMARY KEY (`signing_office_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=119 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=122 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `signing_office` */
 
 insert  into `signing_office`(`signing_office_id`,`office_id`,`sy_sem_id`,`admin_id`,`department_id`,`clearance_type_id`,`is_locked`,`status`,`date_cleared`,`sem_id`,`clearance_progress_id`) values 
 (116,31,0,24,0,6,0,'','2023-05-04 17:57:55',0,8),
-(117,25,0,23,0,6,0,'','2023-05-04 17:58:13',0,8);
+(117,25,0,23,0,6,0,'','2023-05-04 17:58:13',0,8),
+(120,25,0,23,0,8,0,'','2023-05-15 09:19:17',0,8),
+(121,25,0,23,0,7,0,'','2023-05-15 09:30:22',0,8);
 
 /*Table structure for table `student` */
 
@@ -328,13 +332,13 @@ CREATE TABLE `student` (
 /*Data for the table `student` */
 
 insert  into `student`(`student_id`,`student_first_name`,`student_middle_name`,`student_last_name`,`student_year`,`course_id`,`office_id`,`student_gender`,`student_email`,`student_username`,`student_password`,`student_status`,`student_profile`) values 
-('2019-2023','Phoebe','Alia','Ladua','3rd Year',26,27,'Female','tare.kristian@gmail.com','','123','Inactive','1683193815dabid.jpg'),
-('2019-70227','Kristian','Will of D','Tare','2nd Year',23,25,'Male','tare.kristian@gmail.com','2019-70227','123','Inactive','645cd4afcab44.jpg'),
-('2019-800306','Al Cedric','Black Beard','Dario','2nd Year',23,25,'Male','alcedric.dario@nmsc.edu.ph','2019-800306','123','Inactive','644b7eb25bb75.jpg'),
-('2019-80162','Mc Roa Jun ','Nice','Alegrado','1st Year',23,25,'Male','tare.kristian@gmail.com','2019-80162','123','Inactive','1681881454student dashboard.png'),
-('2020-8238','G-ar','','Delosa','2nd Year',23,25,'Male','jayrdels@nmsc.edu.ph','2020-8238','123','Inactive','1681955941baterna.jpg'),
-('2021-134','Bill','','Samar','2nd Year',24,25,'Male','bill.samar@nmsc.edu.ph','','123','Inactive',''),
-('2022-2788','Leslyn','','Reazol','2nd Year',24,25,'Female','leslyn.reazol@nmsc.edu.ph','','123','Inactive','');
+('2019-2023','Phoebe','Alia','Ladua','3rd Year',26,27,'Female','tare.kristian@gmail.com','','123','Active','1683193815dabid.jpg'),
+('2019-70227','Kristian','Will of D','Tare','2nd Year',23,25,'Male','tare.kristian@gmail.com','2019-70227','123','Active','645cd4afcab44.jpg'),
+('2019-800306','Al Cedric','Black Beard','Dario','2nd Year',23,25,'Male','alcedric.dario@nmsc.edu.ph','2019-800306','123','Active','644b7eb25bb75.jpg'),
+('2019-80162','Mc Roa Jun ','Nice','Alegrado','1st Year',23,25,'Male','tare.kristian@gmail.com','2019-80162','123','Active','1681881454student dashboard.png'),
+('2020-8238','G-ar','','Delosa','2nd Year',23,25,'Male','jayrdels@nmsc.edu.ph','2020-8238','123','Active','1681955941baterna.jpg'),
+('2021-134','Bill','','Samar','2nd Year',24,25,'Male','bill.samar@nmsc.edu.ph','','123','Active',''),
+('2022-2788','Leslyn','','Reazol','2nd Year',24,25,'Female','leslyn.reazol@nmsc.edu.ph','','123','Active','');
 
 /*Table structure for table `sy_sem` */
 
@@ -346,7 +350,7 @@ CREATE TABLE `sy_sem` (
   `status` varchar(75) NOT NULL,
   `sem_id` int(11) NOT NULL,
   PRIMARY KEY (`sy_sem_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sy_sem` */
 
@@ -354,7 +358,8 @@ insert  into `sy_sem`(`sy_sem_id`,`school_year_and_sem`,`status`,`sem_id`) value
 (17,'2022-2023','',0),
 (19,'2023-2024','',0),
 (20,'2024-2025','',0),
-(21,'2025-2026','',0);
+(21,'2025-2026','',0),
+(22,'2027-2028','',0);
 
 /*Table structure for table `upload` */
 

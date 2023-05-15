@@ -166,11 +166,7 @@ include_once 'header.php';
                 <option default>Select School Year And Sem</option>
                 <?php $school_year = $db->result('clearance_progress_view', 'status = "Active"'); ?>
                 <?php foreach ($school_year as $year) : ?>
-                    <?php if ($year->clearance_progress_id == $clearance_progress_id) : ?>
                         <option value="<?= $year->clearance_progress_id; ?>"><?= $year->school_year_and_sem . " " . $year->sem_name; ?></option>
-                    <?php else : ?>
-                        <option value="<?= $year->clearance_progress_id; ?>"><?= $year->school_year_and_sem . " " . $year->sem_name; ?></option>
-                    <?php endif; ?>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -180,11 +176,7 @@ include_once 'header.php';
                 <option default>Select Clearance Type</option>
                 <?php $clearances = $db->result('clearance_type'); ?>
                 <?php foreach ($clearances as $clearance) : ?>
-                    <?php if ($clearance->clearance_type_id == $clearance_type_id) : ?>
                         <option value="<?= $clearance->clearance_type_id; ?>"><?= $clearance->clearance_type_name; ?></option>
-                    <?php else : ?>
-                        <option value="<?= $clearance->clearance_type_id; ?>"><?= $clearance->clearance_type_name; ?></option>
-                    <?php endif; ?>
                 <?php endforeach; ?>
             </select>
         </div>
