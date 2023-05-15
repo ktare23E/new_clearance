@@ -416,10 +416,14 @@ main .student-registration .form .title{
 }
 
 .bulk-actions-container {
-    max-width: 100px;
-    display: flex;
+    max-width: fit-content;
+    display: none;
     flex-direction: column;
-    gap: 5px;
+    gap: 0px;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    border: 3px solid var(--color-background);
 }
 
 .student-pic-container {
@@ -430,7 +434,9 @@ main .student-registration .form .title{
 }
 
 .bulk-actions-container button#close-bulk-options-button {
-    display: none;
+    display: block;
+    background: var(--color-background);
+    color: var(--color-dark);
 }
 
 .bulk-actions-container .bulk-action {
@@ -438,27 +444,37 @@ main .student-registration .form .title{
 }
 
 .bulk-actions-container .bulk-action button {
-    background: var(--color-primary);
+    background: var(--color-white);
     padding: 10px 20px;
     width: 100%;
-    border-radius: var(--border-radius-1);
+    border-radius: 0px;
     cursor: pointer;
-    color: white;
+    color: var(--color-dark);
     transition: all 200ms ease;
+    box-shadow: var(--box-shadow);
 }
 
 .bulk-actions-container button:hover {
     background: var(--color-primary);
 }
 
-.bulk-options-div {
+
+.bulk-actions-container h3 {
     display: none;
+}
+
+.bulk-options-div {
+    display: flex;
     justify-content: end;
     margin-bottom: 5px;
 }
 
 .bulk-options-div #bulk-options {
-    background: none;
+    background: var(--color-primary-variant);
+    color: white !important;
+    padding: 8px 15px;
+    margin-right: 3px;
+    border-radius: 3px;
 }
 
 .bulk-options-div #bulk-options span {
@@ -1663,43 +1679,24 @@ button {
     }
 
     .bulk-actions-container {
-        max-width: fit-content;
-        display: none;
-        flex-direction: column;
-        gap: 0px;
-        position: absolute;
-        top: 55px;
-        right: 0;
-        border: 3px solid var(--color-background);
+        
     }
 
     .bulk-actions-container button#close-bulk-options-button {
-        display: block;
-        background: var(--color-background);
-        color: var(--color-dark);
+        
     }
 
-    .bulk-actions-container h3 {
-        display: none;
-    }
     
     .bulk-actions-container .bulk-action {
         width: 100%;
     }
     
     .bulk-actions-container .bulk-action button {
-        background: var(--color-white);
-        padding: 10px 20px;
-        width: 100%;
-        border-radius: 0px;
-        cursor: pointer;
-        color: var(--color-dark);
-        transition: all 200ms ease;
-        box-shadow: var(--box-shadow);
+        
     }
     
     .bulk-actions-container button:hover {
-        background: var(--color-primary);
+        
     }
 
     .upload-student-csv-container {
@@ -2165,7 +2162,10 @@ button {
 
 #example.student-list-table thead tr th:nth-child(7),
 #example.student-list-table tbody tr td:nth-child(7),
-#example.student-list-table tfoot tr th:nth-child(7) {
+#example.student-list-table tfoot tr th:nth-child(7),
+#example.student-list-table thead tr th:nth-child(6),
+#example.student-list-table tbody tr td:nth-child(6),
+#example.student-list-table tfoot tr th:nth-child(6) {
     max-width: 250px !important;
     white-space: normal !important;
     word-wrap: break-word !important;

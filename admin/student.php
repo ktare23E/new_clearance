@@ -82,7 +82,7 @@ include_once 'header.php';
                     <table id="example" class="display student-list-table">
                         <thead>
                             <div class="bulk-options-div">
-                                <button id="bulk-options"><span class="material-symbols-sharp">more_horiz</span></button>
+                                <button id="bulk-options"><h3>Bulk Actions</h3></button>
                             </div>
                             <tr>
                                 <th><input type="checkbox" id="checkAll" /></th>
