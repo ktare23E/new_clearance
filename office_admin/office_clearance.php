@@ -17,6 +17,7 @@
 
 ?>
 <div class="office-container">
+    
     <?php
     include_once 'office_navtop.php'
     ?>
@@ -157,6 +158,9 @@
 </div>
 
 
+<div class="loads"><h2>Please wait...</h2><br> </div>
+
+
 <div class="modal" id="create-requirements-modal" style="width: 350px;">
     <div class="modal-header">
         <div class="title">Create New Clearance</div>
@@ -189,6 +193,8 @@
 <script src="../assets/js/cdn.js"></script>
 
 <script>
+    
+
     //jquery onclick event for update button
     $(document).on("click", '#active', function() {
         let requirement_id = [];
@@ -239,6 +245,7 @@
         });
     });
 </script> -->
+
 
 <script>
     $(function(){
@@ -324,6 +331,10 @@
         });
 
         $(document).on("click", '#bulk-requirement', function(){
+            let loads = document.querySelector(".loads")
+
+            loads.classList.add("loader");
+
             let clearance_progress_id =    $("#clearance_progress_id").val();
             let requirement_details = $("#requirement_details").val();
             let rows_selected = table.column(0).checkboxes.selected();
@@ -355,6 +366,7 @@
                 },
                 success: (response) =>{
                     if (response) {
+                        loads.classList.remove("loader")
                         let index = response.indexOf("Message");
                         if (index !== -1) {
                             let cutStr = response.substring(0, index);

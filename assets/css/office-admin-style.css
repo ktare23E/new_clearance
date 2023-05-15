@@ -1485,3 +1485,52 @@ table.dataTable tfoot tr th select {
     border: 1px solid rgb(118, 118, 118);
     
 } 
+
+
+
+
+
+.loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f7f9fb;
+    transition: opacity 0.75s, visibility 0.75s;
+    z-index: 1000;
+}
+
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader::after {
+    content: "";
+    width: 75px;
+    height: 75px;
+    border: 15px solid #dddddd;
+    border-top-color: #ec0000;
+    border-radius: 50%;
+    animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading {
+    from{
+        transform: rotate(0turn);
+    }
+    to {
+        transform: rotate(1turn);
+    }
+
+    
+}
+
+
+
