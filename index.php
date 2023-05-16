@@ -1,5 +1,10 @@
 <?php
-
+    session_start();
+    if(isset( $_SESSION['isloggedin'])){
+        header("location: admin/index.php");
+    }elseif(isset( $_SESSION['isOffice'])){
+        header("location: office_admin/office_admin_index.php");
+    }
 
 
 ?>
