@@ -19,7 +19,7 @@
                                                 <thead>
                                                     <tr>
                                                         <th>School Year and Sem.</th>
-                                                        <th>Student Year</th>
+                                                        <!-- <th>Student Year</th> -->
                                                         <th>Clearance Type</th>
                                                         <th>STATUS</th>
                                                         <th>Action</th>
@@ -29,7 +29,7 @@
                                                 <?php foreach ($list_of_clearance as $clearance) : ?>
                                                     <tr>
                                                         <td><?= $clearance->school_year_and_sem.' '.$clearance->sem_name; ?></td>
-                                                        <td><?= $clearance->student_year?></td>
+                                                        <!-- <td><?= $clearance->student_year?></td> -->
                                                         <td><?= $clearance->clearance_type_name; ?></td>
                                                         <td><?= $clearance->clearance_status ? 'Cleared' : 'Not Cleared';?></td>
                                                         <td class="primary table-action-container">

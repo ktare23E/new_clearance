@@ -97,11 +97,7 @@ $is_department = $_SESSION['is_department'];
                                         <option value="All" selected>All</option>
                                         <?php $courses = $db->result('course');?>
                                         <?php foreach($courses as $course):?>
-                                        <?php if($course->course_id == $course_id):?> 
                                         <option value="<?= $course->course_id; ?>"><?= $course->course_name; ?></option>
-                                        <?php else:?>
-                                                <option value="<?= $course->course_id; ?>"><?= $course->course_name; ?></option>
-                                        <?php endif;?>
                                         <?php endforeach; ?>
                                 </select>  
                         </div>

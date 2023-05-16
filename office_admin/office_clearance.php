@@ -1,23 +1,23 @@
 <?php
-    include_once 'office_header.php';
-    include_once '../connection.php';
+include_once 'office_header.php';
+include_once '../connection.php';
 
-    $id = isset($_GET['clearance_type_id']) == true ? $_GET['clearance_type_id'] : '';
+$id = isset($_GET['clearance_type_id']) == true ? $_GET['clearance_type_id'] : '';
 
-    $office_id = $_SESSION['office_id'];
-    $query = "SELECT * FROM office WHERE office_id = '$office_id'";
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_array($result);
+$office_id = $_SESSION['office_id'];
+$query = "SELECT * FROM office WHERE office_id = '$office_id'";
+$result = mysqli_query($conn, $query);
+$row = mysqli_fetch_array($result);
 
-    // var_dump($row);
+// var_dump($row);
 
-    $is_department = $row['is_department'];
+$is_department = $row['is_department'];
 
-    
+
 
 ?>
 <div class="office-container">
-    
+
     <?php
     include_once 'office_navtop.php'
     ?>
@@ -29,25 +29,25 @@
                 <h3 style="font-size: 2.5rem;">Clearance Panel</h3>
             </div>
         </div>
-        <?php 
-                if($_SESSION['office_id'] == $office_id && $is_department == 1){
-                    $query = "SELECT COUNT(*) FROM view_clearance WHERE office_id = '$office_id'"; 
-                    $result = mysqli_query($conn, $query); 
-    
-                    $total_users = mysqli_fetch_array($result); 
-                    
-                    
-                    mysqli_close($conn); 
-                }else{
-                    $query = "SELECT COUNT(*) FROM view_clearance"; 
-                    $result = mysqli_query($conn, $query); 
-    
-                    $total_users = mysqli_fetch_array($result); 
-                }
+        <?php
+        if ($_SESSION['office_id'] == $office_id && $is_department == 1) {
+            $query = "SELECT COUNT(*) FROM view_clearance WHERE office_id = '$office_id'";
+            $result = mysqli_query($conn, $query);
 
-                // $query = "SELECT * FROM requirement_view WHERE office = '$office_id'";
-                // echo $query;
-            ?>
+            $total_users = mysqli_fetch_array($result);
+
+
+            mysqli_close($conn);
+        } else {
+            $query = "SELECT COUNT(*) FROM view_clearance";
+            $result = mysqli_query($conn, $query);
+
+            $total_users = mysqli_fetch_array($result);
+        }
+
+        // $query = "SELECT * FROM requirement_view WHERE office = '$office_id'";
+        // echo $query;
+        ?>
 
         <div class="student-panel-insights-container">
             <div class="student-insight-container">
@@ -86,19 +86,19 @@
                     <h3 style="text-align: center;">Bulk Update:</h3>
                     <button type="button" id="active">Approve</button>
                 </div> -->
-                
-                    <!-- <div>
+
+                <!-- <div>
                         <label for="">Filter via Clearance Type</label>
                         <select name="clearance_type_id" id="clearance_type">
                                 <option default>Select Clearance</option>
                                 <option value="">All</option>
-                                <?php $signings = $db->result('clearance_type');?>
-                                <?php foreach($signings as $signing):?>
-                                <?php if($signing->clearance_type_id == $clearance_type_id):?>  
+                                <?php $signings = $db->result('clearance_type'); ?>
+                                <?php foreach ($signings as $signing) : ?>
+                                <?php if ($signing->clearance_type_id == $clearance_type_id) : ?>  
                                 <option value="<?= $signing->clearance_type_id; ?>"><?= $signing->clearance_type_name; ?></option>
-                                <?php else:?>
+                                <?php else : ?>
                                     <option value="<?= $signing->clearance_type_id; ?>"><?= $signing->clearance_type_name; ?></option>
-                                <?php endif;?>
+                                <?php endif; ?>
                                 <?php endforeach; ?>
                         </select>
                     </div> -->
@@ -109,7 +109,7 @@
                 <table id="example" class="display clearance-list" style="width:100%; ">
                     <thead>
                         <tr>
-                            <th><input type="checkbox" id="checkAll"/></th>
+                            <th><input type="checkbox" id="checkAll" /></th>
                             <th>Clearance ID</th>
                             <th>School Year and Sem Id</th>
                             <th>Clearance ID</th>
@@ -128,11 +128,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th><input type="checkbox" id="checkAll"/></th>
+                            <th><input type="checkbox" id="checkAll" /></th>
                             <th>Clearance ID</th>
                             <th>School Year and Sem Id</th>
                             <th>Clearance ID</th>
@@ -152,13 +152,15 @@
                     </tfoot>
                 </table>
             </div>
-            
+
         </div>
     </div>
 </div>
 
 
-<div class="loads"><h2>Please wait...</h2><br> </div>
+<div class="loads">
+    <h2>Please wait...</h2><br>
+</div>
 
 
 <div class="modal" id="create-requirements-modal" style="width: 350px;">
@@ -170,12 +172,12 @@
         <div class="input">
             <label for="">Clearance Progress:</label>
             <select name="clearance_progress_id" id="clearance_progress_id">
-                                <option default>Select School Year And Sem</option>
-                                <?php $school_year = $db->query("SELECT * FROM new_signing_offices WHERE status = 'Active' AND office_id='$office_id' GROUP BY office_name"); ?>
-                                <?php foreach ($school_year as $year) : ?>
-                                        <option value="<?= $year->clearance_progress_id; ?>"><?= $year->school_year_and_sem . " " . $year->sem_name; ?></option>
-                                <?php endforeach; ?>
-                            </select>
+                <option default>Select School Year And Sem</option>
+                <?php $school_year = $db->query("SELECT * FROM new_signing_offices WHERE status = 'Active' AND office_id='$office_id' GROUP BY office_name"); ?>
+                <?php foreach ($school_year as $year) : ?>
+                    <option value="<?= $year->clearance_progress_id; ?>"><?= $year->school_year_and_sem . " " . $year->sem_name; ?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
         <div class="input">
             <label for="">Requirement Details:</label>
@@ -189,8 +191,6 @@
 <script src="../assets/js/cdn.js"></script>
 
 <script>
-    
-
     //jquery onclick event for update button
     $(document).on("click", '#active', function() {
         let requirement_id = [];
@@ -244,15 +244,16 @@
 
 
 <script>
-    $(function(){
+    $(function() {
         loadClearance();
 
     });
-    function loadClearance(){
+
+    function loadClearance() {
         $.ajax({
             url: 'get_all_clearance.php',
             type: 'POST',
-            success:function(response){
+            success: function(response) {
                 let res = $.parseJSON(response);
                 console.log(res);
             }
@@ -262,24 +263,25 @@
     $(document).ready(function() {
         var table = $('#example').DataTable({
             select: {
-                    'style': 'multi'
-                },
-            'order': [[1, 'asc']],
-            lengthMenu: [50, 100, 200, 500,1000],
+                'style': 'multi'
+            },
+            'order': [
+                [1, 'asc']
+            ],
+            lengthMenu: [50, 100, 200, 500, 1000],
             processing: true,
             serverSide: true,
             ajax: 'server_clearance.php',
-            columnDefs: [
-                    {
-                        'targets': 0,
-                        'checkboxes': {
-                            'selectRow': true
-                        }
-                    },{
+            columnDefs: [{
+                    'targets': 0,
+                    'checkboxes': {
+                        'selectRow': true
+                    }
+                }, {
                     target: 1,
                     visible: false,
                     searchable: false,
-                },{
+                }, {
                     target: 3,
                     visible: false,
                     searchable: false,
@@ -299,39 +301,39 @@
                     },
                 }
             ],
-            
-            initComplete: function () {
+
+            initComplete: function() {
                 this.api()
                     .columns()
-                    .every(function () {
+                    .every(function() {
                         var column = this;
                         var select = $('<select><option value=""></option></select>')
                             .appendTo($(column.footer()).empty())
-                            .on('change', function () {
+                            .on('change', function() {
                                 var val = $.fn.dataTable.util.escapeRegex($(this).val());
-    
+
                                 column
-                                    .search(val , true, false)
+                                    .search(val, true, false)
                                     .draw();
                             });
-    
+
                         column
                             .data()
                             .unique()
                             .sort()
-                            .each(function (d, j) {
+                            .each(function(d, j) {
                                 select.append('<option value="' + d + '">' + d + '</option>');
                             });
                     });
             },
         });
 
-        $(document).on("click", '#bulk-requirement', function(){
+        $(document).on("click", '#bulk-requirement', function() {
             let loads = document.querySelector(".loads")
 
             loads.classList.add("loader");
 
-            let clearance_progress_id =    $("#clearance_progress_id").val();
+            let clearance_progress_id = $("#clearance_progress_id").val();
             let requirement_details = $("#requirement_details").val();
             let rows_selected = table.column(0).checkboxes.selected();
 
@@ -346,58 +348,66 @@
             rows_selected.map((elem) => {
                 // console.log($(elem).children("input").prop("student_id"));
                 list_clearance_id.push($(elem).children("input").attr("clearance_id"))
-                
+
             })
 
             // console.log(list_student_id);
             // return
-            $.ajax({
-                url: "requirement_bulk.php",
-                method: "POST",
-                data: {
-                    list_clearance_id:list_clearance_id,
-                    clearance_progress_id:clearance_progress_id,
-                    requirement_details:requirement_details,
-                    clearance_status: '0'
-                },
-                success: (response) =>{
-                    if (response) {
-                        loads.classList.remove("loader")
-                        let index = response.indexOf("Message");
-                        if (index !== -1) {
-                            let cutStr = response.substring(0, index);
-                            // Output: "The quick brown "
+
+            let successfulResponses = 0;
+            let totalRequests = Math.ceil(list_clearance_id.length / 500); // calculate total requests needed
+            let counter = 0;
+            for (let i = 0; i < list_clearance_id.length; i += 500) {
+                let chunk = list_clearance_id.slice(i, i + 500);
+                $.ajax({
+                    url: "requirement_bulk.php",
+                    method: "POST",
+                    data: {
+                        list_clearance_id: chunk,
+                        clearance_progress_id: clearance_progress_id,
+                        requirement_details: requirement_details,
+                        clearance_status: '0'
+                    },
+                    success: (response) => {
+                        successfulResponses++; // increment the successful responses counter
+                        if (response) {
+                            
+                            let index = response.indexOf("Message");
+                            if (index !== -1) {
+                                let cutStr = response.substring(0, index);
+                                cutStr = Number(cutStr);
+                                counter += cutStr;
+                            }
+
+                        }
+                        // check if all responses have been received
+                        if (successfulResponses === totalRequests) {
+                            loads.classList.remove("loader")
+
+                            // display SweetAlert once all responses have been received
                             Swal.fire(
-                                'Sucessful',
-                                cutStr,
+                                'Successful',
+                                `Successfully added ${counter} requirements`,
                                 'success'
                             ).then((result) => {
                                 if (result.isConfirmed) {
                                     location.reload(); // Reload the page
                                 }
                             });
-                        } 
-                        
+                        }
                     }
-                    // else {
-                    //     // $("#checkAll").prop("checked",false);
-                    //     // $('#example').DataTable().ajax.reload();
-                    //     // table.columns().checkboxes.deselect(true);
-                    //     // location.reload();
-                    //     alert("successfull")
-                    // }
-                    
+                });
+            }
 
-                    console.log(response);
-                }
-            })
+
         });
-        $(document).on('click','#checkAll',function(){;
+        $(document).on('click', '#checkAll', function() {
+            ;
             let rows_selected = table.column(0).checkboxes.selected();
-            rows_selected.map(function(elem){
+            rows_selected.map(function(elem) {
                 console.log(elem);
             });
-    })
+        })
     });
 </script>
 
@@ -411,11 +421,11 @@
         const overlay = document.getElementById('overlay')
 
         openModalButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const modal = document.querySelector(button.dataset.modalTarget)
-            openModal(modal)
-            console.log(this);
-        })
+            button.addEventListener('click', () => {
+                const modal = document.querySelector(button.dataset.modalTarget)
+                openModal(modal)
+                console.log(this);
+            })
         })
 
         overlay.addEventListener('click', () => {
@@ -427,22 +437,22 @@
         })
 
         closeModalButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const modal = button.closest('.modal')
-            closeModal(modal)
-        })
+            button.addEventListener('click', () => {
+                const modal = button.closest('.modal')
+                closeModal(modal)
+            })
         })
 
         function openModal(modal) {
-        if (modal == null) return
-        modal.classList.add('active')
-        overlay.classList.add('active')
+            if (modal == null) return
+            modal.classList.add('active')
+            overlay.classList.add('active')
         }
 
         function closeModal(modal) {
-        if (modal == null) return
-        modal.classList.remove('active')
-        overlay.classList.remove('active')
+            if (modal == null) return
+            modal.classList.remove('active')
+            overlay.classList.remove('active')
         }
     } catch (error) {
         console.log(error);

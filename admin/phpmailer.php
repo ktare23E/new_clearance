@@ -32,7 +32,7 @@ function sendEmail($email,$subject,$message) {
             // $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
     
             //Recipients
-            $mail->setFrom('kristiankharl.tare@nmsc.edu.ph', 'Online Clearance System');
+            $mail->setFrom('student.clearance@nmsc.edu.ph', 'Online Clearance System');
 
             if(is_array($email)){
                 foreach($email as $e){

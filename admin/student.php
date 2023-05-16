@@ -82,7 +82,9 @@ include_once 'header.php';
                     <table id="example" class="display student-list-table">
                         <thead>
                             <div class="bulk-options-div">
-                                <button id="bulk-options"><h3>Bulk Actions</h3></button>
+                                <button id="bulk-options">
+                                    <h3>Bulk Actions</h3>
+                                </button>
                             </div>
                             <tr>
                                 <th><input type="checkbox" id="checkAll" /></th>
@@ -154,6 +156,10 @@ include_once 'header.php';
 
 </div>
 
+<div class="loads">
+    <h2>Please wait...</h2>
+</div>
+
 <div class="modal" id="create-clearance-modal" style="width: 350px;">
     <div class="modal-header">
         <div class="title">Create New Clearance</div>
@@ -166,7 +172,7 @@ include_once 'header.php';
                 <option default>Select School Year And Sem</option>
                 <?php $school_year = $db->result('clearance_progress_view', 'status = "Active"'); ?>
                 <?php foreach ($school_year as $year) : ?>
-                        <option value="<?= $year->clearance_progress_id; ?>"><?= $year->school_year_and_sem . " " . $year->sem_name; ?></option>
+                    <option value="<?= $year->clearance_progress_id; ?>"><?= $year->school_year_and_sem . " " . $year->sem_name; ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -176,7 +182,7 @@ include_once 'header.php';
                 <option default>Select Clearance Type</option>
                 <?php $clearances = $db->result('clearance_type'); ?>
                 <?php foreach ($clearances as $clearance) : ?>
-                        <option value="<?= $clearance->clearance_type_id; ?>"><?= $clearance->clearance_type_name; ?></option>
+                    <option value="<?= $clearance->clearance_type_id; ?>"><?= $clearance->clearance_type_name; ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -418,7 +424,7 @@ include_once 'header.php';
             'order': [
                 [1, 'asc']
             ],
-            lengthMenu: [50, 100, 200, 500,1000],
+            lengthMenu: [50, 100, 200, 500, 1000],
             processing: true,
             serverSide: true,
             ajax: 'server_processing.php',
@@ -452,57 +458,116 @@ include_once 'header.php';
             }
         });
 
+        // $(document).on("click", '#bulk-clearance', function() {
+        //     let clearance_progress_id = $("#clearance_progress_id").val();
+        //     let clearance_type_id = $("#clearance_type_id").val();
+        //     let rows_selected = table.column(0).checkboxes.selected();
+
+        //     // console.log(rows_selected);
+        //     // return
+
+        //     let list_student_id = [];
+        //     // let list_inputs = $('.row')
+
+        //     rows_selected.map((elem) => {
+        //         // console.log($(elem).children("input").prop("student_id"));
+        //         list_student_id.push($(elem).children("input").attr("student_id"))
+
+        //     })
+
+        //     // console.log(list_student_id);
+        //     // return
+        //     $.ajax({
+        //         url: "clearance_bulk.php",
+        //         method: "POST",
+        //         data: {
+        //             list_student_id: list_student_id,
+        //             clearance_progress_id: clearance_progress_id,
+        //             clearance_type_id: clearance_type_id,
+        //             clearance_status: '1'
+        //         },
+        //         success: (response) => {
+        //             if (response === "existed") {
+        //                 alert(response)
+        //                 // Swal.fire(
+        //                 //     'Error',
+        //                 //     'Clearance already existed.',
+        //                 //     'error'
+        //                 // ).then((result) => {
+        //                 //     if (result.isConfirmed) {
+        //                 //         location.reload(); // Reload the page
+        //                 //     }
+        //                 // });
+        //             } else {
+        //                 // $("#checkAll").prop("checked", false);
+        //                 // $('#example').DataTable().ajax.reload();
+        //                 // table.columns().checkboxes.deselect(true);
+        //                 location.reload();
+        //             }
+        //         }
+        //     });
+
+
+        //     // location.reload();
+        // });
+
+
         $(document).on("click", '#bulk-clearance', function() {
+            let loads = document.querySelector(".loads")
+            loads.classList.add("loader");
+
+
             let clearance_progress_id = $("#clearance_progress_id").val();
             let clearance_type_id = $("#clearance_type_id").val();
             let rows_selected = table.column(0).checkboxes.selected();
-
-            // console.log(rows_selected);
-            // return
-
             let list_student_id = [];
-            // let list_inputs = $('.row')
 
             rows_selected.map((elem) => {
-                // console.log($(elem).children("input").prop("student_id"));
-                list_student_id.push($(elem).children("input").attr("student_id"))
-
-            })
-
-            // console.log(list_student_id);
-            // return
-            $.ajax({
-                url: "clearance_bulk.php",
-                method: "POST",
-                data: {
-                    list_student_id: list_student_id,
-                    clearance_progress_id: clearance_progress_id,
-                    clearance_type_id: clearance_type_id,
-                    clearance_status: '1'
-                },
-                success: (response) => {
-                    if (response === "existed") {
-                        Swal.fire(
-                            'Error',
-                            'Clearance already existed.',
-                            'error'
-                        ).then((result) => {
-                            if (result.isConfirmed) {
-                                location.reload(); // Reload the page
-                            }
-                        });
-                    } else {
-                        // $("#checkAll").prop("checked", false);
-                        // $('#example').DataTable().ajax.reload();
-                        // table.columns().checkboxes.deselect(true);
-                        location.reload();
-                    }
-                }
+                list_student_id.push($(elem).children("input").attr("student_id"));
             });
 
 
-            // location.reload();
+            let successfulResponses = 0;
+            let totalRequests = Math.ceil(list_student_id.length / 500); // calculate total requests needed
+            let counter = 0;
+
+            // Chunk the array into 500
+            for (let i = 0; i < list_student_id.length; i += 500) {
+                let chunk = list_student_id.slice(i, i + 500);
+                $.ajax({
+                    url: "clearance_bulk.php",
+                    method: "POST",
+                    data: {
+                        list_student_id: chunk,
+                        clearance_progress_id: clearance_progress_id,
+                        clearance_type_id: clearance_type_id,
+                        clearance_status: '1'
+                    },
+                    success: (response) => {
+                        successfulResponses++; // increment the successful responses counter
+                        // check if all responses have been received
+                        if (successfulResponses === totalRequests) {
+                            loads.classList.remove("loader")
+
+                            // display SweetAlert once all responses have been received
+                            Swal.fire(
+                                'Successful',
+                                `Successfully created clearance`,
+                                'success'
+                            ).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload(); // Reload the page
+                                }
+                            });
+                        }
+                    }
+                });
+            }
         });
+
+
+
+
 
         $(document).on("click", '#active', function() {
             let rows_selected = table.column(0).checkboxes.selected();

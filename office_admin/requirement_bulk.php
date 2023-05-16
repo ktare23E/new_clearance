@@ -86,12 +86,22 @@
         
     }
 
-    echo "clearance successfully added with requirements: ".$success_counter;
+    echo $success_counter;
     
     // echo $emails;
     // die();
     
+    // Define the chunk size
+    $chunk_size = 100;
 
+    // Loop through the $emails array in chunks
+    for ($i = 0; $i < count($emails); $i += $chunk_size) {
+        // Get a subset of the $emails array
+        $email_chunk = array_slice($emails, $i, $chunk_size);
 
-    sendEmail($emails,"Online Clearance System","Your need to submit a $requirement_details to $office_name.");
+        // Send the emails in the current chunk
+        sendEmail($email_chunk, "Online Clearance System","You need to submit the following requirements:  $requirement_details to $office_name.");
+    }
+
+    // sendEmail($emails,"Online Clearance System","Your need to submit a $requirement_details to $office_name.");
 ?>

@@ -49,7 +49,9 @@ $sql_details = array(
  */
 require( 'ssp.class.php' );
 
-$data = SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns );
+$where = "student_status = 'Active'";
+
+$data = SSP::complex( $_GET, $sql_details, $table, $primaryKey, $columns, $where, "");
 // print_r($data);
 // die();
 foreach($data['data'] as $i => $entry){
