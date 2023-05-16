@@ -514,7 +514,7 @@ include_once 'header.php';
 
         $(document).on("click", '#bulk-clearance', function() {
             let loads = document.querySelector(".loads")
-            loads.classList.add("loader");
+            loads.classList.add("loaders");
 
 
             let clearance_progress_id = $("#clearance_progress_id").val();
@@ -547,7 +547,7 @@ include_once 'header.php';
                         successfulResponses++; // increment the successful responses counter
                         // check if all responses have been received
                         if (successfulResponses === totalRequests) {
-                            loads.classList.remove("loader")
+                            loads.classList.remove("loaders")
 
                             // display SweetAlert once all responses have been received
                             Swal.fire(

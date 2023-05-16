@@ -2274,7 +2274,7 @@ table.dataTable tfoot tr th select {
     display: none;
 }
 
-.loader {
+.loaders {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -2292,12 +2292,12 @@ table.dataTable tfoot tr th select {
     gap: 10px;
 }
 
-.loader-hidden {
+.loaders-hidden {
     opacity: 0;
     visibility: hidden;
 }
 
-.loader::after {
+.loaders::after {
     content: "";
     width: 75px;
     height: 75px;
