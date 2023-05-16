@@ -60,11 +60,7 @@
                                         <option default>Select Office</option>
                                             <?php $offices = $db->result('office', 'office_name != "System Administrator"');?>
                                             <?php foreach($offices as $office):?>
-                                            <?php if($office->office_id == $office_id):?>  
                                             <option value="<?= $office->office_id; ?>"><?= $office->office_name; ?></option>
-                                            <?php else:?>
-                                                <option value="<?= $office->office_id; ?>"><?= $office->office_name; ?></option>
-                                            <?php endif;?>
                                             <?php endforeach; ?>
                                     </select>
 
@@ -75,11 +71,7 @@
                                             <option default>Select School Year And Sem</option>
                                             <?php $clearances = $db->result('clearance_progress_view', 'status = "Active"');?>
                                             <?php foreach($clearances as $clearance):?>
-                                            <?php if($clearance->clearance_progress_id == $clearance_progress_id):?>  
                                             <option value="<?= $clearance->clearance_progress_id; ?>"><?= $clearance->school_year_and_sem.' '.$clearance->sem_name; ?></option>
-                                            <?php else:?>
-                                                <option value="<?= $clearance->clearance_progress_id; ?>"><?= $clearance->school_year_and_sem.' '.$clearance->sem_name; ?></option>
-                                            <?php endif;?>
                                             <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -89,11 +81,7 @@
                                                     <option default>Select Clearance Type</option>
                                                     <?php $clearances = $db->result('clearance_type');?>
                                                     <?php foreach($clearances as $clearance):?>
-                                                    <?php if($clearance->clearance_type_id == $clearance_type_id):?>  
                                                     <option value="<?= $clearance->clearance_type_id; ?>" ><?= $clearance->clearance_type_name; ?></option>
-                                                    <?php else:?>
-                                                        <option value="<?= $clearance->clearance_type_id; ?>"><?= $clearance->clearance_type_name; ?></option>
-                                                    <?php endif;?>
                                                     <?php endforeach; ?>
                                             </select>
                                 </div>

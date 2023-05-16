@@ -68,11 +68,7 @@ include_once '../connection.php';
                                     <option default>Select School Year</option>
                                     <?php $school_year = $db->result('sy_sem'); ?>
                                     <?php foreach ($school_year as $year) : ?>
-                                        <?php if ($year->sy_sem_id == $sy_sem_id) : ?>
                                             <option value="<?= $year->sy_sem_id; ?>"><?= $year->school_year_and_sem; ?></option>
-                                        <?php else : ?>
-                                            <option value="<?= $year->sy_sem_id; ?>"><?= $year->school_year_and_sem; ?></option>
-                                        <?php endif; ?>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -83,11 +79,7 @@ include_once '../connection.php';
                                     <option default>Select Semester</option>
                                     <?php $semesters = $db->result('sem'); ?>
                                     <?php foreach ($semesters as $semester) : ?>
-                                        <?php if ($semester->sem_id == $sem_id) : ?>
                                             <option value="<?= $semester->sem_id; ?>"><?= $semester->sem_name; ?></option>
-                                        <?php else : ?>
-                                            <option value="<?= $semester->sem_id; ?>"><?= $semester->sem_name; ?></option>
-                                        <?php endif; ?>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
