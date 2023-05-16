@@ -97,12 +97,8 @@
                                     <select name="office_id" id="">
                                             <option default="Select Department">Select Department</option>
                                             <?php $offices = $db->result('office','is_department = 1');?>
-                                            <?php foreach($offices as $office):?>
-                                            <?php if($office->office_id == $office_id):?>  
-                                            <option value="<?= $office->office_id; ?>"><?= $office_id->office_name; ?></option>
-                                            <?php else:?>
+                                                <?php foreach($offices as $office):?>
                                                 <option value="<?= $office->office_id; ?>"><?= $office->office_name; ?></option>
-                                            <?php endif;?>
                                             <?php endforeach; ?>
                                     </select>
                                 </div>
