@@ -173,11 +173,7 @@
                                 <option default>Select School Year And Sem</option>
                                 <?php $school_year = $db->query("SELECT * FROM new_signing_offices WHERE status = 'Active' AND office_id='$office_id' GROUP BY office_name"); ?>
                                 <?php foreach ($school_year as $year) : ?>
-                                    <?php if ($year->clearance_progress_id == $clearance_progress_id) : ?>
                                         <option value="<?= $year->clearance_progress_id; ?>"><?= $year->school_year_and_sem . " " . $year->sem_name; ?></option>
-                                    <?php else : ?>
-                                        <option value="<?= $year->clearance_progress_id; ?>"><?= $year->school_year_and_sem . " " . $year->sem_name; ?></option>
-                                    <?php endif; ?>
                                 <?php endforeach; ?>
                             </select>
         </div>
