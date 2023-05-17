@@ -29,12 +29,12 @@
                     </div>
 
                     <div class="checkbox-text">
-                        <div class="checkbox-content">
+                        <!-- <div class="checkbox-content">
                             <input type="checkbox" id="logCheck">
                             <label for="logCheck" class="text">Remember me</label>
-                        </div>
+                        </div> -->
                         
-                        <a href="#" class="text">Forgot password?</a>
+                        <a href="index.php" class="text">Go to Admin Login</a>
                     </div>
 
                     <div class="input-field button">

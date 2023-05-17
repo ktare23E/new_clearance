@@ -40,12 +40,12 @@
                     </div>
 
                     <div class="checkbox-text">
-                        <div class="checkbox-content">
+                        <!-- <div class="checkbox-content">
                             <input type="checkbox" id="logCheck">
                             <label for="logCheck" class="text">Remember me</label>
-                        </div>
+                        </div> -->
                         
-                        <a href="#" class="text">Forgot password?</a>
+                        <a href="student_login.php" class="text">Go to Student Login</a>
                     </div>
 
                     <div class="input-field button">

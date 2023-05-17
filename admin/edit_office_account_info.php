@@ -81,7 +81,7 @@
                                 <i class="uil uil-user"></i>
                             </div>
                             <div class="input-field">
-                                <input type="text" name="admin_password" placeholder="Admin Password" required value="<?php echo $admin_password; ?>">
+                                <input type="password" name="admin_password" placeholder="Admin Password" required value="<?php echo $admin_password; ?>">
                                 <i class="uil uil-user"></i>
                             </div>
                         </div>

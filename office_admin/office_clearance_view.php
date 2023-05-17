@@ -113,7 +113,7 @@
                                     <tr>
                                         <td><?= $user->office_name; ?></td>
                                         <td><?= $user->requirement_details;?></td>
-                                        <td class="overall-clearance-status"><?= $user->is_complied ? 'Approved' : 'Not Cleared'; ?></td>
+                                        <td class="overall-clearance-status"><?= $user->is_complied ? 'Cleared' : 'Not Cleared'; ?></td>
                                         <td><?= $user->date_cleared; ?></td>
                                         <td>
                                         <?php if($signing_office_id != null): ?>
@@ -125,7 +125,7 @@
                                                 <input type="hidden" name="student_id" value="<?= $user->student_id; ?>">
                                                 <input type="hidden" name="clearance_id" value="<?= $row['clearance_id']; ?>">
                                                 <?php if($status == "Inactive") :?>
-                                                    <button type="submit" name="approve" class="view-link" value="Get Current Date">Approve</button>
+                                                    <button type="submit" name="approve" class="view-link" value="Get Current Date">Cleared</button>
                                                 <?php endif; ?>
                                             </form>
                                         <?php endif; ?>
