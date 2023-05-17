@@ -31,7 +31,7 @@ CREATE TABLE `admin` (
   `office_id` int(11) NOT NULL,
   `department_id` int(1) NOT NULL,
   PRIMARY KEY (`admin_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `admin` */
 
@@ -42,7 +42,12 @@ insert  into `admin`(`admin_id`,`admin_name`,`admin_username`,`admin_password`,`
 (25,'Jennifer Maglinte','jennifer','123','','Office Admin','2023-04-19 15:00:02',32,0),
 (26,'sbam','sbam','123','','Office Admin','2023-04-20 05:53:09',26,0),
 (27,'Mary Jane Espinosa','espinosa','123','','Office Admin','2023-04-20 10:15:38',33,0),
-(28,'Rea Espinosa','rea','123','','Office Admin','2023-04-20 10:17:08',30,0);
+(28,'Rea Espinosa','rea','123','','Office Admin','2023-04-20 10:17:08',30,0),
+(29,'Ame','registrar1','registrar123','','Office Admin','2023-05-17 08:54:00',36,0),
+(30,'Engineers','set1','set123','','Office Admin','2023-05-17 08:56:50',28,0),
+(31,'Sassy','sas1','sas123','','Office Admin','2023-05-17 08:57:22',27,0),
+(32,'Maam Educ','ste1','ste123','','Office Admin','2023-05-17 08:58:39',29,0),
+(33,'Grads','sgs1','sgs123','','Office Admin','2023-05-17 08:59:07',35,0);
 
 /*Table structure for table `clearance` */
 
@@ -62,18 +67,9 @@ CREATE TABLE `clearance` (
   `is_locked` varchar(75) NOT NULL,
   `clearance_progress_id` int(11) NOT NULL,
   PRIMARY KEY (`clearance_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=343 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12110 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `clearance` */
-
-insert  into `clearance`(`clearance_id`,`clearance_status`,`student_id`,`sy_sem_id`,`sem_id`,`clearance_type_id`,`course_id`,`office_id`,`date_created`,`date_cleared`,`is_locked`,`clearance_progress_id`) values 
-(336,'1','2019-2023',0,0,6,26,27,'2023-05-15','0000-00-00','No',8),
-(337,'1','2019-70227',0,0,6,23,25,'2023-05-15','2023-05-15','Yes',8),
-(338,'0','2019-800306',0,0,6,23,25,'2023-05-15','0000-00-00','No',8),
-(339,'0','2019-80162',0,0,6,23,25,'2023-05-15','0000-00-00','No',8),
-(340,'0','2020-8238',0,0,8,23,25,'2023-05-15','0000-00-00','No',8),
-(341,'0','2021-134',0,0,8,24,25,'2023-05-15','0000-00-00','No',8),
-(342,'0','2022-2788',0,0,8,24,25,'2023-05-15','0000-00-00','No',8);
 
 /*Table structure for table `clearance_details` */
 
@@ -111,7 +107,7 @@ CREATE TABLE `clearance_progress` (
 insert  into `clearance_progress`(`clearance_progress_id`,`sem_id`,`sy_sem_id`,`status`) values 
 (6,8,21,'Inactive'),
 (7,7,22,'Inactive'),
-(8,11,22,'Active');
+(8,11,22,'Inactive');
 
 /*Table structure for table `clearance_type` */
 
@@ -142,16 +138,47 @@ CREATE TABLE `course` (
   `course_description` varchar(1000) NOT NULL,
   `office_id` int(11) NOT NULL,
   PRIMARY KEY (`course_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `course` */
 
 insert  into `course`(`course_id`,`course_name`,`course_status`,`course_description`,`office_id`) values 
-(23,'Bachelor of Science in Information Technology','Active','This is BS-iT',25),
+(23,'BS in Information Technology','Active','This is BS-iT',25),
 (24,'Bachelor of Science in Information System','Active','BSIS Course',25),
-(25,'Bachelor of Science in Agricultural Engineering','Active','This is a course for agri.',30),
+(25,'BET - Electrical Engineering Technology','Active','Bachelor of Engineering Technology - Major in Electrical Engineering Technology',28),
 (26,'Bachelor of Science in Biology','Active','This is the course of biology.',27),
-(27,'Bachelor of Science in Fishery','Active','This is the course of fishery',30);
+(27,'Bachelor of Science in Fishery','Active','This is the course of fishery',30),
+(28,'BS in Environmental Science','Active','Bachelor of Science in Environmental Science',30),
+(29,'BS Communication Technology','Active','Bachelor of Science in Communication Technology',25),
+(30,'BSA - Crop Science','Active','Bachelor of Science in Agriculture - Major in Crop Science',30),
+(31,'BS in Mathematics','Active','Bachelor of Science in Mathematics',27),
+(32,'BSIT - Food Technology','Active','Bachelor of Science in Industrial Technology',28),
+(33,'BSIT - Automotive Technology','Active','Bachelor of Science in Industrial Technology - Major in Automotive Technology',28),
+(34,'BSIT - Electrical Technology','Active','Bachelor of Science in Industrial Technology - Major in Electrical Technology',28),
+(35,'AB Political Science','Active','Bachelor of Arts in Political Science',27),
+(36,'BSED - Science','Active','Bachelor of Secondary Education -  Major in Science',29),
+(37,'BET - Mechanical Engineering Technology','Active','Bachelor of Engineering Technology - Mechanical Engineering Technology',28),
+(38,'BS Animation and Multimedia Arts','Active','Bachelor of Science in Animation and Multimedia Arts',25),
+(39,'Bachelor in Elementary Education','Active','Bachelor in Elementary Education',29),
+(40,'BSED Mathematics','Active','Bachelor in Secondary Education - Major in Mathematics',29),
+(41,'BET - Construction Engineering Technology','Active','Bachelor in Engineering Technology - Major in Construction Engineering Technology',28),
+(42,'BET - Electronics Engineering Technology','Active','Bachelor in Engineering Technology - Major in Electronics Engineering Technology',28),
+(43,'BSIT - Civil Technology','Active','Bachelor of Science in Industrial Technology - Major in Civil Technology',28),
+(44,'BSA - Animal Science','Active','Bachelor of Science in Agriculture - Major in Animal Science',30),
+(45,'AB English Language Studies','Active','Bachelor of Arts in English Language Studies',27),
+(46,'BSIT - Electronics Technology','Active','Bachelor of Science in Industrial Technology - Major in Electronics Technology',28),
+(47,'BS in Hospitality Management','Active','Bachelor of Science in Hospitality Management',26),
+(48,'BSHRST','Active','Bachelor of Science in Hotel and Restaurant Services Technology ',26),
+(49,'AB Literature','Active','Bachelor of Arts in Literature',27),
+(50,'BS Tourism Management','Active','Bachelor of Science in Tourism Management',26),
+(51,'Master of Science in Information Technology','Active','Master of Science in Information Technology',35),
+(52,'PhD in Education Major Educational Leadership and Management','Active','PhD in Education Major Educational Leadership and Management',35),
+(53,'MA in Education Major in Educational LEadership and Management','Active','MA in Education Major in Educational LEadership and Management\r\n',35),
+(54,'MA in Management Major in Hospitality Management','Active','MA in Management Major in Hospitality Management\r\n',35),
+(55,'PhD in Educational - Research and Management','Active','PhD in Educational - Research and Management\r\n',35),
+(56,'MA in Education major in Curriculum Development and Instructional Design ','Active','MA in Education major in Curriculum Development and Instructional Design \r\n',35),
+(57,'PhD in Education - Curriculum Development and Instructional Design','Active','PhD in Education - Curriculum Development and Instructional Design\r\n',35),
+(58,'Doctor in Information Technology','Active','Doctor in Information Technology\r\n',35);
 
 /*Table structure for table `department` */
 
@@ -189,7 +216,7 @@ CREATE TABLE `office` (
   `office_status` varchar(75) NOT NULL,
   `is_department` tinyint(1) NOT NULL,
   PRIMARY KEY (`office_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `office` */
 
@@ -204,7 +231,9 @@ insert  into `office`(`office_id`,`office_name`,`office_email`,`office_phone_num
 (31,'OSA','tare.kristian@gmail.com','091237623623','This is the office os OSA','Active',0),
 (32,'Supreme Student Council Office','ssc@nmsc.edu.ph','0923727332','This is the office of SSC.','Active',0),
 (33,'Library','tare.kristian@gmail.com','09823726623','This is library.','Active',0),
-(34,'Cashier','cashier@gmail.com','09974388347','This is the office of Cashier.','Active',0);
+(34,'Cashier','cashier@gmail.com','09974388347','This is the office of Cashier.','Active',0),
+(35,'School of Graduate Studies','graduate.studies@nmsc.edu.ph','09123456789','This is department office for graduate studies','Active',1),
+(36,'Registrar','registrar@nmsc.edu.ph','09123456789','This is Registrar Office','Active',0);
 
 /*Table structure for table `office_account waly apil` */
 
@@ -242,25 +271,9 @@ CREATE TABLE `requirement` (
   `date_cleared` date NOT NULL,
   `clearance_progress_id` int(11) NOT NULL,
   PRIMARY KEY (`requirement_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1409 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1658 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `requirement` */
-
-insert  into `requirement`(`requirement_id`,`requirement_details`,`signing_office_id`,`sy_sem_id`,`sem_id`,`student_id`,`clearance_type_id`,`is_complied`,`date_cleared`,`clearance_progress_id`) values 
-(1395,'23 pesos',117,0,0,'2019-70227',6,1,'2023-05-15',8),
-(1396,'23 pesos',117,0,0,'2019-800306',6,0,'0000-00-00',8),
-(1397,'23 pesos',117,0,0,'2019-80162',6,0,'0000-00-00',8),
-(1398,'23 pesos',120,0,0,'2020-8238',8,0,'0000-00-00',8),
-(1399,'23 pesos',120,0,0,'2021-134',8,0,'0000-00-00',8),
-(1400,'23 pesos',120,0,0,'2022-2788',8,0,'0000-00-00',8),
-(1401,'kiss ko dario',117,0,0,'2019-800306',6,0,'0000-00-00',8),
-(1402,'kiss ko dario',117,0,0,'2019-80162',6,0,'0000-00-00',8),
-(1403,'kiss ko dario',120,0,0,'2020-8238',8,0,'0000-00-00',8),
-(1404,'kiss ko dario',120,0,0,'2021-134',8,0,'0000-00-00',8),
-(1405,'kiss ko dario',120,0,0,'2022-2788',8,0,'0000-00-00',8),
-(1406,'fgh',120,0,0,'2020-8238',8,0,'0000-00-00',8),
-(1407,'fgh',120,0,0,'2021-134',8,0,'0000-00-00',8),
-(1408,'fgh',120,0,0,'2022-2788',8,0,'0000-00-00',8);
 
 /*Table structure for table `sem` */
 
@@ -330,15 +343,6 @@ CREATE TABLE `student` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `student` */
-
-insert  into `student`(`student_id`,`student_first_name`,`student_middle_name`,`student_last_name`,`student_year`,`course_id`,`office_id`,`student_gender`,`student_email`,`student_username`,`student_password`,`student_status`,`student_profile`) values 
-('2019-2023','Phoebe','Alia','Ladua','3rd Year',26,27,'Female','tare.kristian@gmail.com','','123','Active','1683193815dabid.jpg'),
-('2019-70227','Kristian','Will of D','Tare','2nd Year',23,25,'Male','tare.kristian@gmail.com','2019-70227','123','Active','645cd4afcab44.jpg'),
-('2019-800306','Al Cedric','Black Beard','Dario','2nd Year',23,25,'Male','alcedric.dario@nmsc.edu.ph','2019-800306','123','Active','644b7eb25bb75.jpg'),
-('2019-80162','Mc Roa Jun ','Nice','Alegrado','1st Year',23,25,'Male','tare.kristian@gmail.com','2019-80162','123','Active','1681881454student dashboard.png'),
-('2020-8238','G-ar','','Delosa','2nd Year',23,25,'Male','jayrdels@nmsc.edu.ph','2020-8238','123','Active','1681955941baterna.jpg'),
-('2021-134','Bill','','Samar','2nd Year',24,25,'Male','bill.samar@nmsc.edu.ph','','123','Active',''),
-('2022-2788','Leslyn','','Reazol','2nd Year',24,25,'Female','leslyn.reazol@nmsc.edu.ph','','123','Active','');
 
 /*Table structure for table `sy_sem` */
 
