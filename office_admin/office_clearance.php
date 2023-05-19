@@ -181,7 +181,15 @@ $is_department = $row['is_department'];
         </div>
         <div class="input">
             <label for="">Requirement Details:</label>
-            <textarea name="" id="requirement_details" cols="30" rows="10" placeholder="Requirement Description"></textarea>
+            <textarea name="" id="requirement_details" cols="30" rows="5" placeholder="Requirement Description"></textarea>
+        </div>
+        <div class="input">
+            <label for="">Optional Requirement Details:</label>
+            <textarea name="" id="requirement_details2" cols="30" rows="5" placeholder="Requirement Description"></textarea>
+        </div>
+        <div class="input">
+            <label for="">Optional Requirement Details:</label>
+            <textarea name="" id="requirement_details3" cols="30" rows="5" placeholder="Requirement Description"></textarea>
         </div>
         <button type="submit" class="create-clearance" id="bulk-requirement">Create</button>
     </div>
@@ -335,6 +343,8 @@ $is_department = $row['is_department'];
 
             let clearance_progress_id = $("#clearance_progress_id").val();
             let requirement_details = $("#requirement_details").val();
+            let requirement_details2 = $("#requirement_details2").val();
+            let requirement_details3 = $("#requirement_details3").val();
             let rows_selected = table.column(0).checkboxes.selected();
 
             console.log(rows_selected);
@@ -366,6 +376,8 @@ $is_department = $row['is_department'];
                         list_clearance_id: chunk,
                         clearance_progress_id: clearance_progress_id,
                         requirement_details: requirement_details,
+                        requirement_details2: requirement_details2,
+                        requirement_details3: requirement_details3,
                         clearance_status: '0'
                     },
                     success: (response) => {

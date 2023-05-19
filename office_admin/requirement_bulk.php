@@ -23,6 +23,8 @@
 
     $current_date = date('Y-m-d');
     $requirement_details = $_POST['requirement_details'];
+    $requirement_details2 = $_POST['requirement_details2'];
+    $requirement_details3 = $_POST['requirement_details3'];
 
     $emails = array();
     
@@ -49,29 +51,81 @@
                 $updateQuery = "UPDATE clearance SET clearance_status = '".$clearance_status."' WHERE clearance_id = '".$clearance_id."';";
                 mysqli_query($conn, $updateQuery);
         
-        
-                $data = array(
-                    'student_id' => $student_id,
-                    'clearance_progress_id' => $clearance_progress_id,
-                    'clearance_type_id'=> $clearance_type_id,
-                    'requirement_details' => $requirement_details,
-                    'signing_office_id' => $signing_office_id,
-                );
+                if(!empty($requirement_details)){
+                    $data = array(
+                        'student_id' => $student_id,
+                        'clearance_progress_id' => $clearance_progress_id,
+                        'clearance_type_id'=> $clearance_type_id,
+                        'requirement_details' => $requirement_details,
+                        'signing_office_id' => $signing_office_id,
+                    );
+                    
+                    
+                    $insert = $db->insert('requirement', $data);
+            
+                    $sql = "SELECT * FROM requirement_view WHERE student_id = '$student_id' AND clearance_progress_id = '$clearance_progress_id' AND clearance_type_id = '$clearance_type_id'";
+            
+                    $result = mysqli_query($conn,$sql);
+                    $row3 = mysqli_fetch_assoc($result);
+            
+                    $office_name = $row3['office_name'];
+                    $student_email = $row3['student_email'];
+                    $school_year_and_sem = $row3['school_year_and_sem'];
+                    $sem_name = $row3['sem_name'];
+            
+                    array_push($emails, $student_email);
+                }
+
+                if(!empty($requirement_details2)){
+                    $data2 = array(
+                        'student_id' => $student_id,
+                        'clearance_progress_id' => $clearance_progress_id,
+                        'clearance_type_id'=> $clearance_type_id,
+                        'requirement_details' => $requirement_details2,
+                        'signing_office_id' => $signing_office_id,
+                    );
+                    $insert = $db->insert('requirement', $data2);
+
+                    if(empty($requirement_details) && empty($requirement_details3)){
+                        $sql = "SELECT * FROM requirement_view WHERE student_id = '$student_id' AND clearance_progress_id = '$clearance_progress_id' AND clearance_type_id = '$clearance_type_id'";
                 
+                        $result = mysqli_query($conn,$sql);
+                        $row3 = mysqli_fetch_assoc($result);
                 
-                $insert = $db->insert('requirement', $data);
-        
-                $sql = "SELECT * FROM requirement_view WHERE student_id = '$student_id' AND clearance_progress_id = '$clearance_progress_id' AND clearance_type_id = '$clearance_type_id'";
-        
-                $result = mysqli_query($conn,$sql);
-                $row3 = mysqli_fetch_assoc($result);
-        
-                $office_name = $row3['office_name'];
-                $student_email = $row3['student_email'];
-                $school_year_and_sem = $row3['school_year_and_sem'];
-                $sem_name = $row3['sem_name'];
-        
-                array_push($emails, $student_email);
+                        $office_name = $row3['office_name'];
+                        $student_email = $row3['student_email'];
+                        $school_year_and_sem = $row3['school_year_and_sem'];
+                        $sem_name = $row3['sem_name'];
+                
+                        array_push($emails, $student_email);
+                    }
+                }
+
+                if(!empty($requirement_details3)){
+                    $data3 = array(
+                        'student_id' => $student_id,
+                        'clearance_progress_id' => $clearance_progress_id,
+                        'clearance_type_id'=> $clearance_type_id,
+                        'requirement_details' => $requirement_details3,
+                        'signing_office_id' => $signing_office_id,
+                    );
+                    $insert = $db->insert('requirement', $data3);
+
+                    if(empty($requirement_details) && empty($requirement_details2)){
+                        $sql = "SELECT * FROM requirement_view WHERE student_id = '$student_id' AND clearance_progress_id = '$clearance_progress_id' AND clearance_type_id = '$clearance_type_id'";
+                
+                        $result = mysqli_query($conn,$sql);
+                        $row3 = mysqli_fetch_assoc($result);
+                
+                        $office_name = $row3['office_name'];
+                        $student_email = $row3['student_email'];
+                        $school_year_and_sem = $row3['school_year_and_sem'];
+                        $sem_name = $row3['sem_name'];
+                
+                        array_push($emails, $student_email);
+                    }
+                }
+                
             }
             // else{
             //     echo "error: not a signing office";
@@ -100,7 +154,7 @@
         $email_chunk = array_slice($emails, $i, $chunk_size);
 
         // Send the emails in the current chunk
-        sendEmail($email_chunk, "Online Clearance System","You need to submit the following requirements:  $requirement_details to $office_name.");
+        sendEmail($email_chunk, "Online Clearance System","You need to submit the following requirements:  $requirement_details, $requirement_details2, $requirement_details3  to $office_name.");
     }
 
     // sendEmail($emails,"Online Clearance System","Your need to submit a $requirement_details to $office_name.");
