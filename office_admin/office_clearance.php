@@ -115,11 +115,7 @@ $is_department = $row['is_department'];
                                 <option default>Select School Year and Sem</option>
                                 <?php $semesters = $db->result('clearance_progress_view','status="Active"');?>
                                 <?php foreach($semesters as $semester):?>
-                                <?php if($semester->sy_sem_id == $sy_sem_id):?>  
-                                <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem.' '.$semester->sem_name; ?></option>
-                                <?php else:?>
-                                    <option value="<?= $semester->sy_sem_id; ?>"><?=$semester->school_year_and_sem.' '.$semester->sem_name; ?></option>
-                                <?php endif;?>
+                                <option value="<?= $semester->clearance_progress_id; ?>"><?= $semester->school_year_and_sem.' '.$semester->sem_name; ?></option>
                                 <?php endforeach; ?>
                             </select>
                             <button type="submit" name="import" class="submit-csv-file-button">

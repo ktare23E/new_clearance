@@ -19,15 +19,18 @@ if(isset($_POST['import'])){
                 $office_id = $_SESSION['office_id'];
                 $clearance_progress_id = $_POST['clearance_progress_id'];
 
+                // echo $clearance_progress_id;
+                // die();
+
                 $query2 = "SELECT * FROM view_clearance WHERE student_id = '".$column[1]."' AND clearance_progress_id = $clearance_progress_id";
                 $clearance = $conn->query($query2) or die($conn->error);
                 $row = $clearance->fetch_assoc();
+
 
                 if($clearance->num_rows < 1){
                     echo "This student " .$column[1]. " doesn't have a clearance yet for this semester and school year that you selected.</br>";
                     die();
                 }
-
                 $school_year_and_sem = $row['school_year_and_sem'];
                 $sem_name = $row['sem_name'];
                 $clearance_id = $row['clearance_id'];

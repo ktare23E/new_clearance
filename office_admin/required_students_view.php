@@ -36,15 +36,45 @@ if (!isset($_GET['requirement_details'])) {
                             <th>Student ID</th>
                             <th>Firstname</th>
                             <th>Lastname</th>
+                            <th>Status</th>
+                            <th>Action</th>
 
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($required_students as $required_student) : ?>
+                            <?php $signing_office_id = ($required_student->office_id == $_SESSION['office_id'])?$required_student->signing_office_id:null ?>
+                            <?php 
+                                $query = "SELECT * FROM view_clearance WHERE clearance_type_id = ".$required_student->clearance_type_id." AND clearance_progress_id =".$required_student->clearance_progress_id." AND student_id = '$required_student->student_id'";
+                                $result = mysqli_query($conn,$query);
+                                $row = mysqli_fetch_assoc($result);
+
+                                // print_r($row);
+                                // die();
+
+                                $clearance_id = $row['clearance_id'];
+                            ?>
                             <tr>
                                 <td><?= $required_student->student_id; ?></td>
                                 <td><?= $required_student->student_first_name; ?></td>
+                                <td class="overall-clearance-status"><?= $required_student->is_complied ? 'Cleared' : 'Not Cleared'; ?></td>
                                 <td><?= $required_student->student_last_name ?></td>
+                                <td>
+                                        <?php if($signing_office_id != null): ?>
+                                            <form action="update_status_required_student.php" method="POST">
+                                                <input type="hidden" name="requirement_id" value="<?= $required_student->requirement_id; ?>"> 
+                                                <input type="hidden" name="signing_office_id" value="<?= $required_student->signing_office_id; ?>">
+                                                <input type="hidden" name="clearance_type_id" value="<?= $required_student->clearance_type_id; ?>">
+                                                <input type="hidden" name="clearance_progress_id" value="<?= $required_student->clearance_progress_id; ?>">
+                                                <input type="hidden" name="student_id" value="<?= $required_student->student_id; ?>">
+                                                <input type="hidden" name="requirement_details" value="<?= $requirement_details; ?>">
+                                                <input type="hidden" name="clearance_id" value="<?= $clearance_id; ?>">
+                                                <?php if($required_student-> status == "Inactive") :?>
+                                                    <button type="submit" name="approve" class="view-link" value="Get Current Date">Cleared</button>
+                                                <?php endif; ?>
+                                            </form>
+                                        <?php endif; ?>
+                                        </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
