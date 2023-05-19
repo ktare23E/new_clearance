@@ -38,7 +38,7 @@
                     ?>
                     <div class="name-student">
                         <h1 style="font-size:32px;font-weight:500;white-space:nowrap"><?php if ($_SESSION['student_id']){
-                        echo $_SESSION['student_first_name'].' '.$_SESSION['student_middle_name'].''.$_SESSION['student_last_name'];} ?></h1>
+                        echo $_SESSION['student_first_name'].' '.$_SESSION['student_middle_name'].' '.$_SESSION['student_last_name'];} ?></h1>
                         <h3 style="font-size: 1.5rem;" class="text-muted"><?php if($_SESSION['student_id']){
                             echo $_SESSION['student_id'];
                         } ?></h3>

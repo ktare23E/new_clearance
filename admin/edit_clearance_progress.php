@@ -12,7 +12,7 @@ if (!isset($_GET['edit'])) {
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
 
-
+    $clearance_progress_id = $row['clearance_progress_id'];
     $sy_sem_id = $row['sy_sem_id'];
     $status = $row['status'];
     $sem_id = $row['sem_id'];
@@ -74,13 +74,13 @@ if (!isset($_GET['edit'])) {
                                     <input type="hidden" name="clearance_progress_id" value="<?= $clearance_progress_id; ?>">
                                     <label for="">Select School Year and Sem</label>
                                     <select name="sy_sem_id" id="">
-                                        <option default>Select School Year and Sem</option>
+                                        <option default>Select School Year</option>
                                         <?php $semesters = $db->result('sy_sem'); ?>
                                         <?php foreach ($semesters as $semester) : ?>
                                             <?php if ($semester->sy_sem_id == $sy_sem_id) : ?>
                                                 <option value="<?= $semester->sy_sem_id; ?>" selected><?= $semester->school_year_and_sem; ?></option>
                                             <?php else : ?>
-                                                <option value="<?= $semester->sy_sem_id; ?>" selected><?= $semester->school_year_and_sem; ?></option>
+                                                <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem; ?></option>
                                             <?php endif; ?>
                                         <?php endforeach; ?>
                                     </select>
