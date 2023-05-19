@@ -3,9 +3,9 @@ include_once '../connection.php';
 include_once 'office_header.php';
 
 
-if(!isset($_GET['requirement_details'])){
+if (!isset($_GET['requirement_details'])) {
     echo "<h1>There's an error while viewing details.</h1>";
-}else{
+} else {
     $requirement_details = $_GET['requirement_details'];
 
     // $sql = "SELECT * FROM requirement_view WHERE requirement_details ='".$requirement_details."'";
@@ -13,7 +13,6 @@ if(!isset($_GET['requirement_details'])){
     // $row = $required_students->fetch_assoc();
 
     $required_students = $db->query("SELECT * FROM requirement_view WHERE requirement_details = $requirement_details");
-
 }
 
 
@@ -26,18 +25,18 @@ if(!isset($_GET['requirement_details'])){
     <!-- ================ MAIN =================== -->
     <div class="main-requirements-container">
         <div class="first-main-content-container">
-            <div class="form signup">
+            <div class="forms">
                 <span class="title">
                     <h2>List of Students required by this requirement: <?php echo $requirement_details ?></h2>
-                
                 </span>
-                <table>
+                <br>
+                <table id="required-students" class="display" style="width:100%">
                     <thead>
                         <tr>
                             <th>Student ID</th>
                             <th>Firstname</th>
                             <th>Lastname</th>
-                            
+
                         </tr>
                     </thead>
                     <tbody>
@@ -57,6 +56,12 @@ if(!isset($_GET['requirement_details'])){
 
 
 <script src="../assets/js/office_admin_index.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#required-students').DataTable();
+    });
+</script>
 
 </body>
 
