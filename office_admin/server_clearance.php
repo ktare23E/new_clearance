@@ -39,6 +39,7 @@ $columns = array(
     array('db' => 'clearance_type_name', 'dt' => 12),
     array( 'db' => 'clearance_status',     'dt' => 13 ),
     array( 'db' => 'sem_id',     'dt' => 14 ),
+    array('db' => 'student_type', 'dt' => 15)
 );
 // SQL server connection information
 $sql_details = array(

@@ -102,6 +102,35 @@ $is_department = $row['is_department'];
                                 <?php endforeach; ?>
                         </select>
                     </div> -->
+                    <h1>Bulk Requirements Via CSV File</h1>
+
+<button id="register-csv-file-btn"><span class="material-symbols-sharp">upload_file</span>Bulk Upload Via .csv file<span class="material-symbols-sharp">arrow_forward_ios</span></button>
+        <div>
+            <div class="upload-student-csv-container">
+                <form action="bulk_upload.php" method="post" enctype="multipart/form-data" name="upload_csv">
+                    <div class="form-input-file-csv-container">
+                            <label for="input-file">Choose CSV File</label>
+                            <input type="file" name="file" accept=".csv" id="input-file">
+                            <select name="clearance_progress_id" id="">
+                                <option default>Select School Year and Sem</option>
+                                <?php $semesters = $db->result('clearance_progress_view','status="Active"');?>
+                                <?php foreach($semesters as $semester):?>
+                                <?php if($semester->sy_sem_id == $sy_sem_id):?>  
+                                <option value="<?= $semester->sy_sem_id; ?>"><?= $semester->school_year_and_sem.' '.$semester->sem_name; ?></option>
+                                <?php else:?>
+                                    <option value="<?= $semester->sy_sem_id; ?>"><?=$semester->school_year_and_sem.' '.$semester->sem_name; ?></option>
+                                <?php endif;?>
+                                <?php endforeach; ?>
+                            </select>
+                            <button type="submit" name="import" class="submit-csv-file-button">
+                            
+                            Import
+                                <span class="material-symbols-sharp">file_upload</span>
+                            </button>
+                    </div>
+                </form>
+            </div>
+        </div>
                 <button class="create-requirements" data-modal-target="#create-requirements-modal">+ Requirements</button>
             </div>
 
@@ -124,6 +153,7 @@ $is_department = $row['is_department'];
                             <th>Clearance Type</th>
                             <th>Clearance Status</th>
                             <th>Semester Id</th>
+                            <th>Student Type</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -147,6 +177,7 @@ $is_department = $row['is_department'];
                             <th>Clearance Type</th>
                             <th>Clearance Status</th>
                             <th>Semester Id</th>
+                            <th>Student Type</th>
                             <th>Action</th>
                         </tr>
                     </tfoot>
