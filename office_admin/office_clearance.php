@@ -301,8 +301,9 @@ $is_department = $row['is_department'];
                 'style': 'multi'
             },
             'order': [
-                [1, 'asc']
+                [4, 'asc']
             ],
+            // order: [[3, 'desc']],
             lengthMenu: [50, 100, 200, 500, 1000],
             processing: true,
             serverSide: true,
