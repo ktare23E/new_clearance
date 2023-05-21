@@ -102,35 +102,19 @@ $is_department = $row['is_department'];
                                 <?php endforeach; ?>
                         </select>
                     </div> -->
-                    <h1>Bulk Requirements Via CSV File</h1>
 
-<button id="register-csv-file-btn"><span class="material-symbols-sharp">upload_file</span>Bulk Upload Via .csv file<span class="material-symbols-sharp">arrow_forward_ios</span></button>
-        <div>
-            <div class="upload-student-csv-container">
-                <form action="bulk_upload.php" method="post" enctype="multipart/form-data" name="upload_csv">
-                    <div class="form-input-file-csv-container">
-                            <label for="input-file">Choose CSV File</label>
-                            <input type="file" name="file" accept=".csv" id="input-file">
-                            <select name="clearance_progress_id" id="">
-                                <option default>Select School Year and Sem</option>
-                                <?php $semesters = $db->result('clearance_progress_view','status="Active"');?>
-                                <?php foreach($semesters as $semester):?>
-                                <option value="<?= $semester->clearance_progress_id; ?>"><?= $semester->school_year_and_sem.' '.$semester->sem_name; ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                            <button type="submit" name="import" class="submit-csv-file-button">
-                            
-                            Import
-                                <span class="material-symbols-sharp">file_upload</span>
-                            </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-                <button class="create-requirements" data-modal-target="#create-requirements-modal">+ Requirements</button>
+
+
+
+                <div>
+                    <button class="create-clearance" data-modal-target="#bulk-requirements-modal">+ Requirements via CSV</button>
+                    <button class="create-requirements" data-modal-target="#create-requirements-modal">+ Requirements</button>
+                </div>
             </div>
 
             <div class="table-container" style="position:relative">
+                <p>Selected Clearance: <span id="selected-clearance-counter">0</span> </p>
+                <br>
                 <table id="example" class="display clearance-list" style="width:100%; ">
                     <thead>
                         <tr>
@@ -190,9 +174,60 @@ $is_department = $row['is_department'];
 </div>
 
 
+<div class="modal" id="bulk-requirements-modal" style="width: 350px;">
+    <div class="modal-header">
+        <div class="title">Add New Requirements with CSV</div>
+        <button data-close-button class="close-button">&times;</button>
+    </div>
+    <form action="bulk_upload.php" method="post" enctype="multipart/form-data" name="upload_csv" class="requirements-modal-body">
+
+        <div class="input">
+            <label for="">CSV File:</label>
+            <input type="file" name="file" accept=".csv" id="input-file">
+        </div>
+        <div class="input">
+            <label for="">Clearance Progress:</label>
+            <select name="clearance_progress_id" id="">
+                <option default>Select School Year and Sem</option>
+                <?php $semesters = $db->result('clearance_progress_view', 'status="Active"'); ?>
+                <?php foreach ($semesters as $semester) : ?>
+                    <option value="<?= $semester->clearance_progress_id; ?>"><?= $semester->school_year_and_sem . ' ' . $semester->sem_name; ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <button type="submit" name="import" class="create-clearance">Import</button>
+    </form>
+</div>
+<div id="overlay"></div>
+
+
+<!-- <div>
+    <div class="upload-student-csv-container">
+        <form action="bulk_upload.php" method="post" enctype="multipart/form-data" name="upload_csv">
+            <div class="form-input-file-csv-container">
+                <label for="input-file">Choose CSV File</label>
+                <input type="file" name="file" accept=".csv" id="input-file">
+                <select name="clearance_progress_id" id="">
+                    <option default>Select School Year and Sem</option>
+                    <?php $semesters = $db->result('clearance_progress_view', 'status="Active"'); ?>
+                    <?php foreach ($semesters as $semester) : ?>
+                        <option value="<?= $semester->clearance_progress_id; ?>"><?= $semester->school_year_and_sem . ' ' . $semester->sem_name; ?></option>
+                    <?php endforeach; ?>
+                </select>
+                <button type="submit" name="import" class="submit-csv-file-button">
+
+                    Import
+                    <span class="material-symbols-sharp">file_upload</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div> -->
+
+
 <div class="modal" id="create-requirements-modal" style="width: 350px;">
     <div class="modal-header">
-        <div class="title">Create New Clearance</div>
+        <div class="title">Add New Requirements</div>
         <button data-close-button class="close-button">&times;</button>
     </div>
     <div class="requirements-modal-body">
@@ -222,6 +257,10 @@ $is_department = $row['is_department'];
     </div>
 </div>
 <div id="overlay"></div>
+
+
+
+
 
 <script src="../assets/js/cdn.js"></script>
 
@@ -364,6 +403,21 @@ $is_department = $row['is_department'];
             },
         });
 
+
+        $(document).on('change', '#example thead th:nth-child(1) input[type="checkbox"]', function() {
+            updateCounter();
+        });
+
+        $(document).on('change', '#example tbody td:nth-child(1) input[type="checkbox"]', function() {
+            updateCounter();
+        });
+
+        function updateCounter() {
+            var selectedCount = table.column(0).checkboxes.selected().length;
+            $('#selected-clearance-counter').text(selectedCount);
+        }
+
+
         $(document).on("click", '#bulk-requirement', function() {
             let loads = document.querySelector(".loads")
 
@@ -411,7 +465,7 @@ $is_department = $row['is_department'];
                     success: (response) => {
                         successfulResponses++; // increment the successful responses counter
                         if (response) {
-                            
+
                             let index = response.indexOf("Message");
                             if (index !== -1) {
                                 let cutStr = response.substring(0, index);
