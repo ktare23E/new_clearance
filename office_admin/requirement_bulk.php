@@ -46,7 +46,7 @@
     
             if($row_signing_office){
                 $signing_office_id = $row_signing_office['signing_office_id'];
-        
+
                 // Update the clearance_status field in the clearance table
                 $updateQuery = "UPDATE clearance SET clearance_status = '".$clearance_status."' WHERE clearance_id = '".$clearance_id."';";
                 mysqli_query($conn, $updateQuery);

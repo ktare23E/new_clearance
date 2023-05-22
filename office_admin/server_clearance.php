@@ -70,7 +70,10 @@ if($is_department == 0){
     $data = SSP::complex( $_GET, $sql_details, $table, $primaryKey, $columns, $where3, "");
 
 }else{
+
+
     $where = "office_id=".$_SESSION['office_id'].' AND is_locked = "No"';
+
     // $office_id = $_SESSION['office_id'];
     // echo $where;
     // die();
