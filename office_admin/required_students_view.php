@@ -12,7 +12,7 @@ if (!isset($_GET['requirement_details'])) {
     // $required_students = $conn->query($sql) or die($conn->error);
     // $row = $required_students->fetch_assoc();
 
-    $required_students = $db->query("SELECT * FROM requirement_view WHERE requirement_details = $requirement_details");
+    $required_students = $db->query("SELECT * FROM requirement_view WHERE requirement_details = $requirement_details") ;
 }
 
 
@@ -57,8 +57,8 @@ if (!isset($_GET['requirement_details'])) {
                             <tr>
                                 <td><?= $required_student->student_id; ?></td>
                                 <td><?= $required_student->student_first_name; ?></td>
-                                <td class="overall-clearance-status"><?= $required_student->is_complied ? 'Cleared' : 'Not Cleared'; ?></td>
                                 <td><?= $required_student->student_last_name ?></td>
+                                <td class="overall-clearance-status"><?= $required_student->is_complied ? 'Cleared' : 'Not Cleared'; ?></td>
                                 <td>
                                         <?php if($signing_office_id != null): ?>
                                             <form action="update_status_required_student.php" method="POST">
