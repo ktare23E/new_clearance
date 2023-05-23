@@ -79,9 +79,10 @@ if(isset($_POST['import'])){
                     $sqlCheck = "SELECT * FROM requirement WHERE requirement_details = '".$column[0]."' AND student_id = '".$column[1]."' AND clearance_type_id = '".$clearance_type_id."' AND signing_office_id = '".$signing_office_id."' AND clearance_progress_id = '".$clearance_progress_id."'";
                     $resultCheck = mysqli_query($conn, $sqlCheck);
 
-                if(mysqli_num_rows($resultCheck) > 0){
+
+                if($resultCheck->num_rows > 0){
                 // If requirement exists, update the requirement details
-                    $sqlUpdateReq = "UPDATE requirement SET requirement_details = '".$column[0]."' WHERE requirement_details = '".$column[0]."' AND student_id = '".$column[1]."' AND clearance_type_id = '".$clearance_type_id."' AND signing_office_id = '".$signing_office_id."' AND clearance_progress_id = '".$clearance_progress_id."'";
+                    $sqlUpdateReq = "UPDATE requirement SET requirement_details = '".addslashes($column[0])."' WHERE requirement_details = '".$column[0]."' AND student_id = '".$column[1]."' AND clearance_type_id = '".$clearance_type_id."' AND signing_office_id = '".$signing_office_id."' AND clearance_progress_id = '".$clearance_progress_id."'";
                     $resultUpdateReq = mysqli_query($conn, $sqlUpdateReq);
                     if(!$resultUpdateReq){
                     echo "Error updating requirement: " . mysqli_error($conn);
@@ -89,7 +90,7 @@ if(isset($_POST['import'])){
                 }
                 } else {
                 // If requirement does not exist, insert new requirement
-                    $sqlInsert = "INSERT INTO requirement (requirement_details, student_id, clearance_type_id, signing_office_id, clearance_progress_id) VALUES ('".$column[0]."','".$column[1]."','".$clearance_type_id."','".$signing_office_id."','".$clearance_progress_id."')";
+                    $sqlInsert = "INSERT INTO requirement (requirement_details, student_id, clearance_type_id, signing_office_id, clearance_progress_id) VALUES ('".addslashes($column[0])."','".$column[1]."','".$clearance_type_id."','".$signing_office_id."','".$clearance_progress_id."')";
                     $resultInsert = mysqli_query($conn, $sqlInsert);
                     if(!$resultInsert){
                         echo "Error inserting requirement: " . mysqli_error($conn);
