@@ -12,7 +12,7 @@ if (!isset($_GET['requirement_details'])) {
     // $required_students = $conn->query($sql) or die($conn->error);
     // $row = $required_students->fetch_assoc();
 
-    $required_students = $db->query("SELECT * FROM requirement_view WHERE requirement_details = $requirement_details" );
+    $required_students = $db->query("SELECT * FROM requirement_view WHERE requirement_details = $requirement_details") ;
 }
 
 

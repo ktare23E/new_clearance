@@ -51,10 +51,11 @@ if($result->num_rows > 0){
     }elseif($row['user_type'] == 'Office Admin') {
         $_SESSION['isOffice'] = 1;
         header("location: office_admin/office_admin_index.php");
-    }else{
-        header("location: index.php?a=error");
-        exit();
     }
+}
+else{
+    header("location: index.php?a=error");
+    exit();
 }
 // }elseif($result->num_rows > 0){
 //     $row = $result->fetch_assoc();

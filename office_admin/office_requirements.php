@@ -67,12 +67,13 @@ include_once 'connection.php';
                     </thead>
                     <tbody>
                         <?php foreach ($requirements as $requirement) : ?>
+                            <?php $encodedValue = urlencode($requirement->requirement_details); ?>
                             <tr>
                                 <td><?= $requirement->requirement_details; ?></td>
                                 <td><?= $requirement->clearance_type_name; ?></td>
                                 <td><?= $requirement->school_year_and_sem . ' ' . $requirement->sem_name; ?></td>
                                 <td class='primary table-action-container'>
-                                    <a class='view-link' href='required_students_view.php?requirement_details="<?= $requirement->requirement_details; ?>"'>View Required Students</a>
+                                    <a class='view-link' href='required_students_view.php?requirement_details="<?= $encodedValue; ?>"'>View Required Students</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

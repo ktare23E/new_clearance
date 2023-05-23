@@ -72,7 +72,10 @@ if($is_department == 0){
 
 
 }else{
+
+
     $where = "office_id=".$_SESSION['office_id'].' AND is_locked = "No"';
+
     // $office_id = $_SESSION['office_id'];
     // echo $where;
     // die();
