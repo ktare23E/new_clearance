@@ -31,28 +31,23 @@ CREATE TABLE `admin` (
   `office_id` int(11) NOT NULL,
   `department_id` int(1) NOT NULL,
   PRIMARY KEY (`admin_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `admin` */
 
 insert  into `admin`(`admin_id`,`admin_name`,`admin_username`,`admin_password`,`isloggedin`,`user_type`,`date_registered`,`office_id`,`department_id`) values 
 (22,'Admin','admin','admin54E','','Admin','2023-04-19 09:23:12',24,0),
 (23,'Alfie Cere','alfie','123','','Office Admin','2023-04-19 13:27:14',25,0),
-(24,'NMSCST OSAS','TRES','3c27jr0327','','Office Admin','2023-04-19 13:50:56',31,0),
+(24,'Tres','tres','123','','Office Admin','2023-04-19 13:50:56',31,0),
 (25,'Jennifer Maglinte','jennifer','123','','Office Admin','2023-04-19 15:00:02',32,0),
 (26,'sbam','sbam','123','','Office Admin','2023-04-20 05:53:09',26,0),
-(27,'Ludyvie','cadalso','librarian','','Office Admin','2023-04-20 10:15:38',33,0),
-(28,'Ethyl Macan','saes2023','nmscsaes','','Office Admin','2023-04-20 10:17:08',30,0),
+(27,'Mary Jane Espinosa','espinosa','123','','Office Admin','2023-04-20 10:15:38',33,0),
+(28,'Rea Espinosa','rea','123','','Office Admin','2023-04-20 10:17:08',30,0),
 (29,'Ame','registrar1','registrar123','','Office Admin','2023-05-17 08:54:00',36,0),
-(30,'Boss Choy','SET2023','aezakmiszpj2.7','','Office Admin','2023-05-17 08:56:50',28,0),
+(30,'Engineers','set1','set123','','Office Admin','2023-05-17 08:56:50',28,0),
 (31,'Sassy','sas1','sas123','','Office Admin','2023-05-17 08:57:22',27,0),
 (32,'Maam Educ','ste1','ste123','','Office Admin','2023-05-17 08:58:39',29,0),
-(33,'Grads','sgs1','sgs123','','Office Admin','2023-05-17 08:59:07',35,0),
-(34,'Cashier','cashier1','cashier123','','Office Admin','2023-05-17 10:27:12',34,0),
-(35,'Dion Gumacial','dion','nmsc','','Office Admin','2023-05-19 10:35:52',26,0),
-(36,'Teddie Paul Tejano','teddie','nmsc','','Office Admin','2023-05-19 10:38:53',26,0),
-(37,'Lady Marion Kua','lady','nmsc','','Office Admin','2023-05-19 10:39:18',26,0),
-(38,'SBAM','sbamlsc','nmsc','','Office Admin','2023-05-19 11:16:44',26,0);
+(33,'Grads','sgs1','sgs123','','Office Admin','2023-05-17 08:59:07',35,0);
 
 /*Table structure for table `clearance` */
 
@@ -159,7 +154,7 @@ CREATE TABLE `clearance_progress` (
   `sy_sem_id` int(11) NOT NULL,
   `status` varchar(11) NOT NULL,
   PRIMARY KEY (`clearance_progress_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `clearance_progress` */
 
@@ -167,9 +162,7 @@ insert  into `clearance_progress`(`clearance_progress_id`,`sem_id`,`sy_sem_id`,`
 (6,8,21,'Inactive'),
 (7,7,22,'Inactive'),
 (8,11,22,'Inactive'),
-(9,8,22,'Inactive'),
-(10,8,17,'Active'),
-(11,12,19,'Inactive');
+(9,12,17,'Active');
 
 /*Table structure for table `clearance_type` */
 
@@ -373,7 +366,7 @@ CREATE TABLE `signing_office` (
   `sem_id` int(11) NOT NULL,
   `clearance_progress_id` int(11) NOT NULL,
   PRIMARY KEY (`signing_office_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=154 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=123 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `signing_office` */
 
@@ -382,38 +375,7 @@ insert  into `signing_office`(`signing_office_id`,`office_id`,`sy_sem_id`,`admin
 (117,25,0,23,0,6,0,'','2023-05-04 17:58:13',0,8),
 (120,25,0,23,0,8,0,'','2023-05-15 09:19:17',0,8),
 (121,25,0,23,0,7,0,'','2023-05-15 09:30:22',0,8),
-(122,25,0,23,0,6,0,'','2023-05-17 10:21:31',0,9),
-(123,26,0,26,0,6,0,'','2023-05-17 10:22:08',0,9),
-(124,27,0,31,0,6,0,'','2023-05-17 10:22:39',0,9),
-(125,28,0,30,0,6,0,'','2023-05-17 10:23:00',0,9),
-(126,29,0,32,0,6,0,'','2023-05-17 10:23:32',0,9),
-(127,30,0,28,0,6,0,'','2023-05-17 10:23:52',0,9),
-(128,31,0,24,0,6,0,'','2023-05-17 10:24:07',0,9),
-(129,32,0,25,0,0,0,'','2023-05-17 10:24:26',0,9),
-(130,32,0,25,0,6,0,'','2023-05-17 10:24:34',0,9),
-(131,33,0,27,0,6,0,'','2023-05-17 10:24:55',0,9),
-(132,34,0,0,0,6,0,'','2023-05-17 10:25:11',0,9),
-(133,35,0,33,0,6,0,'','2023-05-17 10:25:19',0,9),
-(134,34,0,0,0,6,0,'','2023-05-17 10:25:46',0,9),
-(135,34,0,0,0,6,0,'','2023-05-17 10:26:03',0,9),
-(136,34,0,34,0,6,0,'','2023-05-17 10:27:25',0,9),
-(137,36,0,29,0,6,0,'','2023-05-17 10:27:57',0,9),
-(138,25,0,23,0,6,0,'','2023-05-17 16:22:57',0,6),
-(139,25,0,23,0,6,0,'','2023-05-17 16:58:52',0,10),
-(140,26,0,26,0,6,0,'','2023-05-17 16:59:05',0,10),
-(141,27,0,31,0,6,0,'','2023-05-17 16:59:17',0,10),
-(142,28,0,30,0,6,0,'','2023-05-17 16:59:29',0,10),
-(143,29,0,32,0,6,0,'','2023-05-17 16:59:41',0,10),
-(144,30,0,28,0,6,0,'','2023-05-17 16:59:58',0,10),
-(145,31,0,24,0,6,0,'','2023-05-17 17:00:14',0,10),
-(146,32,0,25,0,6,0,'','2023-05-17 17:00:30',0,10),
-(147,33,0,27,0,0,0,'','2023-05-17 17:00:41',0,0),
-(148,33,0,27,0,0,0,'','2023-05-17 17:01:15',0,0),
-(149,33,0,27,0,6,0,'','2023-05-17 17:02:20',0,10),
-(150,34,0,34,0,6,0,'','2023-05-17 17:02:44',0,10),
-(151,35,0,33,0,6,0,'','2023-05-17 17:02:59',0,10),
-(152,36,0,29,0,6,0,'','2023-05-17 17:03:19',0,10),
-(153,31,0,24,0,8,0,'','2023-05-18 11:27:26',0,10);
+(122,25,0,23,0,6,0,'','2023-05-19 15:36:03',0,9);
 
 /*Table structure for table `student` */
 

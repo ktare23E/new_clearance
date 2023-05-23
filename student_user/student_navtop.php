@@ -45,7 +45,7 @@
         <div class="profile" id="show-profile-tap">
             <div class="profile">
                 <div class="info">
-                    <p>Hello, <b><?php if($_SESSION['student_first_name'] == 'Phoebe' && $_SESSION['student_last_name'] == 'Ladua') {
+                    <p>Hello, <b><?php if($_SESSION['student_first_name'] == strtoupper('Phoebe') && $_SESSION['student_last_name'] == strtoupper('Ladua')) {
                         echo 'I love you'.' '. $_SESSION['student_first_name'];
                     }elseif ($_SESSION['student_id']){
                         echo $_SESSION['student_first_name'];
