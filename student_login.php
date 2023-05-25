@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if(isset( $_SESSION['isStudent'])){
+        header("location: student_user/student_user_index.php");
+    }
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

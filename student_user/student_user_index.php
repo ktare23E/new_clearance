@@ -1,6 +1,5 @@
 <?php
     include_once 'student_header.php';
-
     include_once '../dbconnect.php';
 
 ?>

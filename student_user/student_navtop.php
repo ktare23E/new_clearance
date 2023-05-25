@@ -30,7 +30,7 @@
                 <span class="material-symbols-sharp">inventory</span>
                 <h3>Clearance</h3>
             </a>
-            <a href="../logout.php">
+            <a href="../logout_student.php">
                 <span class="material-symbols-sharp">receipt_long</span>
                 <h3>Logout</h3>
             </a>
