@@ -19,7 +19,7 @@
                     <button id="menu-btn" class="menu-btn">
                         <span class="material-symbols-sharp">menu</span>
                     </button>
-                    <h1>Course</h1>
+                    <h1>Program</h1>
                     <div class="theme-toggler">
                         <span class="material-symbols-sharp active">light_mode</span>
                         <span class="material-symbols-sharp">dark_mode</span>
@@ -46,11 +46,11 @@
                 <div class="recent-orders-student">
                     <div class="add-button-container">
                         <div class="h2-container">
-                                <h2>Course List</h2>
+                                <h2>Program List</h2>
                         </div>
                         <div>
                             <a href="course_registration.php">
-                                <button id="add-new-student"><span class="material-symbols-sharp">add</span>Course</button>
+                                <button id="add-new-student"><span class="material-symbols-sharp">add</span>Program</button>
                             </a>
                         </div>
                     </div>
@@ -62,8 +62,8 @@
                             <thead>
                                 <tr>
                                     <!-- <th><input type="checkbox" id="checkAll"> Select All</th> -->
-                                    <th>Course Name</th>
-                                    <th>Course Status</th>
+                                    <th>Program Name</th>
+                                    <th>Program Status</th>
                                     <th>Department Name</th>
                                     <th>Actions</th>
                                 </tr>

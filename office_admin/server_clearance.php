@@ -66,7 +66,7 @@ session_start();
 $is_department = $_SESSION['is_department'];
 
 if($is_department == 0){
-    $where3 = "is_locked = 'No'";
+    // $where3 = "is_locked = 'No'";
     // $data = SSP::complex( $_GET, $sql_details, $table, $primaryKey, $columns, $where3, "");
     $data = SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns);
 
@@ -74,13 +74,16 @@ if($is_department == 0){
 }else{
 
 
-    $where = "office_id=".$_SESSION['office_id'].' AND is_locked = "No"';
-
+    $where = "office_id=".$_SESSION['office_id'];
+    
+    // $where = "office_id=".$_SESSION['office_id'].' AND is_locked = "No"';
     // $office_id = $_SESSION['office_id'];
     // echo $where;
     // die();
     // $data = SSP::complex( $_GET, $sql_details, $table, $primaryKey, $columns, $where, "");
-    $data = SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns);
+    // $data = SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns);
+    $data = SSP::complex( $_GET, $sql_details, $table, $primaryKey, $columns, $where, "");
+
 
     
 }

@@ -28,7 +28,7 @@
                 </a>
                 <a href="course.php">
                     <span class="material-symbols-sharp">corporate_fare</span>
-                    <h3>Course</h3>
+                    <h3>Program</h3>
                 </a>
                 <a href="office_account.php">
                     <span class="material-symbols-sharp">meeting_room</span>
